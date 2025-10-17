@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function OverviewNavbar() {
+export default function page() {
   return (
     <div>
-      
+      Product
     </div>
   )
 }

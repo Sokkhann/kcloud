@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Suwannaphum } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/nav/Navbar";
+import Footer from "@/components/Footer";
+import TopNavBar from "@/components/nav/Topper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-en",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const suwannaphum = Suwannaphum({
+  weight: ["100", "300", "400", "700", "900"],
   subsets: ["latin"],
+  variable: "--font-kh",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +28,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen`}>
+        {/* navbar section */}
+        <header>
+          <Navbar />
+        </header>
+
+        <section className="flex-grow flex justify-center items-center bg-gray-50 mt-20">{children}</section>
+
+        {/* footer section */}
+        <Footer />
       </body>
     </html>
   );
