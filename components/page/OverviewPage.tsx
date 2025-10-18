@@ -2,12 +2,9 @@ import React from "react";
 import HeroComponent from "../HeroComponent";
 import { ProductTab } from "../tab/ProductTab";
 import SolutionCard from "../card/SolutionCard";
-import DiffCard from "../card/DiffCard";
 import CustomerCard from "../card/CustomerCard";
 import GetStartedCard from "../card/GetStartedCard";
-import ImageSwitcherCard from "../card/ImageSwitcherCard";
 import HoverExpandCards from "../card/HoverExpandCard";
-import { SwitchCamera } from "lucide-react";
 import SwitchCard from "../card/SwitchCard";
 
 export default function PageComponent() {
