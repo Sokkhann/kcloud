@@ -22,7 +22,7 @@ export default function HeroComponent({
 }: HeroProps) {
   return (
     <section
-      className={`relative w-screen max-w-[100vw] ${height} flex items-center justify-center text-center`}
+      className={`relative w-screen ${height} flex items-center justify-center text-center overflow-hidden`}
     >
       {/* Background Image */}
       <Image
@@ -37,7 +37,7 @@ export default function HeroComponent({
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl  text-white">
+      <div className="relative z-10 max-w-7xl  text-white">
         <h1 className="text-7xl md:text-5xl font-bold mb-4">{title}</h1>
         <p className="text-base md:text-lg mb-8">{description}</p>
 
@@ -45,15 +45,16 @@ export default function HeroComponent({
           {showGetStarted && (
             <Link
               href="/get-started"
-              className="bg-white text-green-800 font-semibold px-6 py-3 rounded-lg hover:shadow-md hover:bg-gray-100 transition-all duration-300"
+              className="text-white bg-green-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)]"
             >
               Get Started
             </Link>
+
           )}
           {showContactSales && (
             <Link
-              href="/contact"
-              className="border border-white text-white font-semibold px-6 py-3 rounded-lg hover:bg-white hover:text-green-800 transition-all duration-300"
+              href="/contact-sale"
+              className="text-green-950 bg-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]"
             >
               Contact Sales
             </Link>

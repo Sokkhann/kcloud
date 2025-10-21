@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 import Image from "next/image";
@@ -60,20 +58,18 @@ export default function Navigator() {
               </div>
             </div>
 
-            {/* right section */}
-            <div className="flex gap-4">
-              {/* Log In button */}
-              <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] border border-green-700 hover:border-none">
-                Log in
-              </button>
+              {/* Right section */}
+              <div className="flex gap-4">
+                <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] border border-green-700 hover:border-none">
+                  Log in
+                </button>
 
-              {/* Sign Up button */}
-              <button className="text-white bg-green-900 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]">
-                Sign up
-              </button>
+                <button className="text-white bg-green-900 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]">
+                  Sign up
+                </button>
+              </div>
             </div>
           </div>
-        </div>
       </header>
     </div>
   );

@@ -9,7 +9,7 @@ import SwitchCard from "../card/SwitchCard";
 
 export default function PageComponent() {
   return (
-    <div>
+    <div className="scrollbar-hide">
       {/* Hero section */}
       <HeroComponent
         height="h-[600px]"

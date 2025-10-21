@@ -147,3 +147,13 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* custome for no overflow x and y */
+html, body {
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

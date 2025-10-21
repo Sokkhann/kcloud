@@ -1,28 +1,42 @@
-import React from 'react'
+"use client";
+
+import React from "react";
+import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 
 interface ProductCardProps {
-    logo: React.ReactNode;
-    title: string;
-    description: string;
+  logo: React.ReactNode;
+  title: string;
+  description: string;
+  link?: string; // optional custom route
 }
 
-// CardComponent.jsx
-export default function ProductCard({logo, title, description}: ProductCardProps) {
+export default function ProductCard({ logo, title, description, link }: ProductCardProps) {
+  const router = useRouter();
+
   return (
-    <div className="w-75 p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 text-center flex flex-col items-center">
-      {/* Logo section */}
-      <div className="w-18 h-18 flex items-center justify-center bg-green-900 rounded-lg mb-4">
-        {/* You can replace this with your logo image */}
-        {logo}
+    <div className="relative bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 text-center flex flex-col items-center w-72 p-6 pt-14">
+      {/* Floating Logo */}
+      <div className="absolute -top-10 flex items-center justify-center bg-white rounded-full shadow-md w-20 h-20">
+        <div className="flex items-center justify-center bg-green-900 rounded-full w-16 h-16 text-white">
+          {logo}
+        </div>
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-gray-700 mb-2">{title}</h3>
+      <p className="text-lg font-semibold text-gray-800 mt-4">{title}</p>
 
       {/* Description */}
-      <p className="text-gray-600 text-base">
-        {description}
-      </p>
+      <p className="text-gray-600 text-sm mt-2 mb-6 px-2">{description}</p>
+
+      {/* Button */}
+      <button
+        onClick={() => router.push(link || `/products/${title.toLowerCase().replace(/\s+/g, "-")}`)}
+        className="mt-auto flex items-center justify-center gap-2 px-4 py-2 border border-green-700 text-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all"
+      >
+        Learn More
+        <ArrowRight size={16} />
+      </button>
     </div>
   );
 }

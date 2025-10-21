@@ -73,17 +73,17 @@ const storageProduct = [
 const networkingProduct = [
   {
     logo: <Cpu className="h-12 w-12 text-white" />,
-    title: "Virtual Machine",
+    title: "Network",
     desc: "Run scalable virtual machines optimized for performance and flexibility.",
   },
   {
     logo: <Cpu className="h-12 w-12 text-white" />,
-    title: "Container Service",
+    title: "Load Balancer",
     desc: "Deploy and manage Docker containers easily across your infrastructure.",
   },
   {
     logo: <Cloud className="h-12 w-12 text-white" />,
-    title: "App Engine",
+    title: "DNS",
     desc: "Build and host modern web applications with automatic scaling and updates.",
   },
   {
@@ -115,7 +115,7 @@ export function ProductTab() {
 
         {/* Compute Tab Content */}
         <TabsContent value="compute">
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
             {computeProducts.map((product, index) => (
               <ProductCard
                 key={index}
@@ -129,7 +129,7 @@ export function ProductTab() {
 
         {/* Storage Tab Content */}
         <TabsContent value="storage">
-          <div className="flex flex-wrap  justify-center gap-4 mt-10">
+          <div className="flex flex-wrap  justify-center gap-x-4 gap-y-20 mt-20">
             {storageProduct.map((product, index) => (
               <ProductCard
                 key={index}
@@ -143,7 +143,7 @@ export function ProductTab() {
 
         {/* Networking Tab Content */}
         <TabsContent value="networking">
-          <div className="flex flex-wrap  justify-center gap-4 mt-10">
+          <div className="flex flex-wrap  justify-center gap-x-4 gap-y-20 mt-20">
             {networkingProduct.map((product, index) => (
               <ProductCard
                 key={index}
@@ -157,7 +157,7 @@ export function ProductTab() {
 
         {/* Policy Tab Content */}
         <TabsContent value="policy">
-          <div className="flex flex-wrap  justify-center gap-4 mt-10">
+          <div className="flex flex-wrap  justify-center gap-x-4 gap-y-20 mt-20">
             {policyProduct.map((product, index) => (
               <ProductCard
                 key={index}
