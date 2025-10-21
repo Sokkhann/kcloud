@@ -30,7 +30,7 @@ export default function Navigator() {
         <div className="w-full">
           <TopNavBar />
 
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center  max-w-7xl mx-auto">
             {/* left section */}
             <div className="flex h-20">
               {/* Image */}
@@ -44,7 +44,7 @@ export default function Navigator() {
               </Link>
 
               {/* Dorpdown menu on navbar */}
-              <div className="flex gap-6 py-6 px-12">
+              <div className="flex gap-6 py-6 px-6">
                 {menuItems.map(({ label, Content }) => (
                   <DropdownMenu key={label}>
                     <DropdownMenuTrigger className="px-2 py-1 hover:bg-green-950/10 border-none rounded-full font-medium text-[16px]">
@@ -56,20 +56,29 @@ export default function Navigator() {
                   </DropdownMenu>
                 ))}
               </div>
-            </div>
 
-              {/* Right section */}
-              <div className="flex gap-4">
-                <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] border border-green-700 hover:border-none">
-                  Log in
-                </button>
-
-                <button className="text-white bg-green-900 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]">
-                  Sign up
-                </button>
+              {/* Pricing link */}
+              <div className="flex items-center">
+                <Link href="/pricing">
+                  <p className="px-2 py-1 hover:bg-green-950/10 border-none rounded-full font-medium text-[16px]">
+                    Pricing
+                  </p>
+                </Link>
               </div>
             </div>
+
+            {/* Right section */}
+            <div className="flex gap-4">
+              <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] border border-green-700 hover:border-none">
+                Log in
+              </button>
+
+              <button className="text-white bg-green-900 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]">
+                Sign up
+              </button>
+            </div>
           </div>
+        </div>
       </header>
     </div>
   );
