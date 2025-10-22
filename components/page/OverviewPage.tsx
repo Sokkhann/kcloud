@@ -2,14 +2,15 @@ import React from "react";
 import HeroComponent from "../HeroComponent";
 import { ProductTab } from "../tab/ProductTab";
 import SolutionCard from "../card/SolutionCard";
-import CustomerCard from "../card/CustomerCard";
 import GetStartedCard from "../card/GetStartedCard";
 import HoverExpandCards from "../card/HoverExpandCard";
 import SwitchCard from "../card/SwitchCard";
+import Link from "next/link";
+import CustomerCarousel from "../card/CustomerCarousel";
 
 export default function PageComponent() {
   return (
-    <div className="scrollbar-hide">
+    <div className="">
       {/* Hero section */}
       <HeroComponent
         height="h-[600px]"
@@ -99,22 +100,36 @@ export default function PageComponent() {
         </div>
 
         {/* Customer Testimonials Section */}
-        <div className="px-4 py-16">
-          <div className="max-w-7xl mx-auto mb-24">
-            {/* title and description */}
-            <div className="my-12 text-center">
-              <p className="text-5xl font-bold text-gray-700">
-                Customer Testimonials
-              </p>
-              <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
-                Real stories. Real results. Our customers share how GCX helped
-                them simplify operations and grwo faster. Discover why
-                businesses around the world choose GCX every day.
-              </p>
+        <div className="px-4 py-16 my-24">
+          <div>
+            <div className="max-w-7xl mx-auto mb-24">
+              {/* title and description */}
+              <div className="my-12 text-center justify-center">
+                <p className="text-5xl font-bold text-gray-700">
+                  Customer Testimonials
+                </p>
+                <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+                  Real stories. Real results. Our customers share how GCX helped
+                  them simplify operations and grwo faster. Discover why
+                  businesses around the world choose GCX every day.
+                </p>
+
+                <div className="pt-4">
+                  <Link href={"/customers"}>
+                    <p className="font-semibold text-gray-700 inline-block relative group cursor-pointer">
+                      <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
+                        See all cusomter feedbacks
+                      </span>
+                      {/* underline animation */}
+                      <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gray-700 transition-all duration-300 group-hover:w-full"></span>
+                    </p>
+                  </Link>
+                </div>
+              </div>
             </div>
 
-            {/* Solutions section */}
-            <CustomerCard />
+            {/* Customer section */}
+            <CustomerCarousel />
           </div>
         </div>
 
