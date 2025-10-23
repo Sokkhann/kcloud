@@ -1,10 +1,10 @@
-import DNSPage from '@/components/page/pricing/DNSPage'
+import TestingComponent from '@/components/TestingComponent'
 import React from 'react'
 
 export default function page() {
   return (
     <div className='w-full'>
-      <DNSPage/>
+      <TestingComponent/>
     </div>
   )
 }

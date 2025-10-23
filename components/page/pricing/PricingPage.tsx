@@ -10,6 +10,8 @@ export default function PricingPage() {
       <div>
         {/* Hero section */}
         <HeroComponent
+          showGetStarted
+          showContactSales
           height="h-[600px]"
           image="/hero-bg.png"
           title="Power Up with the Right Plan"
