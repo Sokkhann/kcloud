@@ -1,4 +1,5 @@
 import KubernetesDetailLayout from "@/components/layouts/KubernetesDetailLayout";
+import SnapshotLayout from "@/components/layouts/SnapshotLayout";
 import VirtualMachineDetailLayout from "@/components/layouts/VirtualMachineDetailLayout";
 
 export interface Products {
@@ -36,8 +37,8 @@ export const products: Products[] = [
   {
     slug: "snapshot",
     title: "Snapshots",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: VirtualMachineDetailLayout,
+    desc: "Snapshots provide a reliable way to back up your virtual machines, ensuring data consistency and enabling quick recovery in case of failures or accidental changes",
+    layout: SnapshotLayout,
   },
   {
     slug: "backup",

@@ -21,8 +21,6 @@ export default function PlanPage({ param }: VMProps) {
   const tabs = ["Regular", "Premium"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
-  const selectedProduct = pricingData.find((p) => p.id === slug);
-
   const data: PricingPlan[] = [
     {
       slug: "basic-plan",

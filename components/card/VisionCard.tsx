@@ -1,4 +1,4 @@
-import { Shield, Globe, ShieldQuestionMark, Headset, HandCoins } from "lucide-react"; // import your icons
+import { ShieldQuestionMark, Headset, HandCoins } from "lucide-react"; // import your icons
 
 const cards = [
   {
