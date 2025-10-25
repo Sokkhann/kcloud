@@ -25,7 +25,7 @@ const computeProducts = [
   },
   {
     logo: <BrickWallFire className="h-12 w-12 text-white" />,
-    title: "VNF Appliances",
+    title: "VNF Appliance",
     desc: "Deploy and manage Docker containers easily across your infrastructure.",
   },
   {

@@ -46,8 +46,8 @@ export default function OverviewMenuDropdown() {
   ];
 
   return (
-    <div className="top-full left-0 w-screen bg-white h-fit z-50">
-      <div className="max-w-[1400px] mx-auto flex flex-wrap justify-between gap-8 py-8 text-[16px]">
+    <div className="left-0 bg-white h-fit z-50  shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
+      <div className="max-w-7xl mx-auto flex flex-wrap justify-between gap-8 py-8 text-[16px]">
         {/* Highlight / Featured Section */}
         <section className="w-full sm:max-w-[292px] bg-green-700/10 p-8 rounded-lg">
           <p className="font-normal text-[12px] text-gray-500">

@@ -4,7 +4,7 @@ import { ProductTab } from "../tab/ProductTab";
 import SolutionCard from "../card/SolutionCard";
 import GetStartedCard from "../card/GetStartedCard";
 import HoverExpandCards from "../card/HoverExpandCard";
-import SwitchCard from "../card/SwitchCard";
+import SwitchCard from "../card/SwitchCarousel";
 import Link from "next/link";
 import CustomerCarousel from "../card/CustomerCarousel";
 
@@ -13,11 +13,11 @@ export default function PageComponent() {
     <div className="">
       {/* Hero section */}
       <HeroComponent
-        height="h-[600px]"
-        image="/hero-bg.png"
-        title="Smartest and Secure Choice for Connectivity"
-        description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
-      />
+              height="h-[600px]"
+              image="/hero-bg.png"
+              title="Smartest and Secure Choice for Connectivity"
+              description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
+            />
 
       {/* Product Section */}
       <div className=" bg-gray-100">
@@ -65,7 +65,7 @@ export default function PageComponent() {
             {/* title and description */}
             <div className="my-12 text-center">
               <p className="text-5xl font-bold text-gray-700">
-                Solution for Modern Agribusiness Systems
+                Why GCX Cloud?
               </p>
               <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
                 Enabling smarter operations across all functions of an
@@ -85,7 +85,7 @@ export default function PageComponent() {
           <div className="max-w-7xl mx-auto mb-24">
             {/* title and description */}
             <div className="my-12 text-center">
-              <p className="text-5xl font-bold text-gray-700">Why GCX Cloud?</p>
+              <p className="text-5xl font-bold text-gray-700">What makas us different</p>
               <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
                 Enabling smarter operations across all functions of an
                 integrated agribusiness — from production and processing to

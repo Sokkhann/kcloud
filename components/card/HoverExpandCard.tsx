@@ -29,7 +29,7 @@ export default function HoverExpandCards() {
       {cards.map((card) => (
         <div
           key={card.id}
-          className="relative group overflow-hidden rounded-2xl shadow-lg h-[350px] cursor-pointer bg-white"
+          className="relative group overflow-hidden rounded-2xl h-[350px] cursor-pointer bg-white"
         >
           {/* Background Image */}
           <div className="rounded-2xl w-full h-full relative overflow-hidden">

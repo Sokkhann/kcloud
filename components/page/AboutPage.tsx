@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import HeroComponent from "../HeroComponent";
-import VisionCard from "../card/VisionCard";
 import AboutUsCard from "../card/AboutUsCard";
 import GetStartedCard from "../card/GetStartedCard";
 import WrapCard from "../card/WrapCard";
+import VisionSecion from "../section/about-us/VisionSecion";
 
 const cards = [
   {
@@ -61,7 +61,7 @@ export default function AboutPage() {
 
           {/* Vision Card Section */}
           <div className="mb-24 max-w-7xl mx-auto ">
-            <VisionCard />
+            <VisionSecion />
           </div>
 
           {/* About Us Card Section */}

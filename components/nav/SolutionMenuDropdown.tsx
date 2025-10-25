@@ -21,8 +21,8 @@ export default function SolutionDropDown() {
   ];
 
   return (
-    <div className=" top-full left-0 w-screen bg-white h-fit z-50">
-      <div className="max-w-[1200px] py-6 mx-auto grid grid-cols-4 gap-8 text-[16px]">
+    <div className="left-0 bg-white h-fit z-50  shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
+      <div className="max-w-7xl py-6 mx-auto grid grid-cols-4 gap-8 text-[16px]">
         {cardItems.map((item, index) => (
           <div key={index}>
             <p className="font-semibold mb-2">{item.title}</p>

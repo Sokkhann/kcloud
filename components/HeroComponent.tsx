@@ -22,7 +22,7 @@ export default function HeroComponent({
 }: HeroProps) {
   return (
     <section
-      className={`relative w-screen ${height} flex items-center justify-center text-center overflow-hidden`}
+      className={`relative w-full ${height} flex items-center justify-center text-center overflow-hidden`}
     >
       {/* Background Image */}
       <Image
@@ -37,9 +37,9 @@ export default function HeroComponent({
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl  text-white">
-        <h1 className="text-7xl md:text-5xl font-bold mb-4">{title}</h1>
-        <p className="text-base md:text-lg mb-8">{description}</p>
+      <div className="relative z-10  text-white">
+        <h1 className="text-7xl md:text-5xl font-bold mb-4 max-w-4xl mx-auto">{title}</h1>
+        <p className=" md:text-lg mb-8 max-w-2xl mx-auto">{description}</p>
 
         <div className="flex items-center justify-center gap-4">
           {showGetStarted && (

@@ -1,14 +1,16 @@
+import AppDetailLayout from "@/components/layouts/AppDetailLayout";
 import KubernetesDetailLayout from "@/components/layouts/KubernetesDetailLayout";
 import VirtualMachineDetailLayout from "@/components/layouts/VirtualMachineDetailLayout";
+import VNFDetailLayout from "@/components/layouts/VNFDetailLayout";
 
-export interface Products {
+export interface productDetailLayout {
     slug: string;
     title: string;
     desc: string;
-    layout: React.FC<{ product: Products }>;
+    layout: React.FC<{ product: productDetailLayout }>;
 }
 
-export const products: Products[] = [
+export const productDetailLayout: productDetailLayout[] = [
   {
     slug: "virtual-machine",
     title: "Virtual Machine",
@@ -18,20 +20,20 @@ export const products: Products[] = [
   {
     slug: "kubernetes",
     title: "Kubernetes",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
+    desc: "Kubernetes (K8s) is your orchestration engine — it automates the deployment, scaling, and management of containerized applications.",
     layout: KubernetesDetailLayout,
   },
   {
     slug: "vnf-appliance",
     title: "VNF Appliance",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: VirtualMachineDetailLayout,
+    desc: "A Virtual Network Function (VNF) Appliance allows you to deploy network services such as firewalls, load balancers, and VPNs in virtualized environments — without dedicated hardware.",
+    layout: VNFDetailLayout,
   },
   {
     slug: "app",
     title: "Apps",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: KubernetesDetailLayout,
+    desc: "The Apps section provides pre-built or customizable applications you can deploy instantly — from monitoring tools to productivity or analytics software.",
+    layout: AppDetailLayout,
   },
   {
     slug: "snapshot",
