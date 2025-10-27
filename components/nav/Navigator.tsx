@@ -4,101 +4,87 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import OverviewMenuDropdown from "./OverviewMenuDropdown";
 import ProductDropDown from "./ProductMenuDropdown";
 import SolutionDropDown from "./SolutionMenuDropdown";
-import TopNavBar from "./Topper";
 
-interface MenuItem {
-  label: string;
-  Content: React.FC;
-}
-
-const menuItems: MenuItem[] = [
-  { label: "Overview", Content: OverviewMenuDropdown },
-  { label: "Products", Content: ProductDropDown },
-  { label: "Solutions", Content: SolutionDropDown },
-];
-
-export default function Navigator() {
-  // Track open state for each dropdown
-  const [openIndex, setOpenIndex] = React.useState<number | null>(null);
-
+export function Navigator() {
   return (
-    <div>
-      <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-lg border-b border-gray-300">
-        <div className="w-full">
-          <TopNavBar />
+    <NavigationMenu className="fixed top-0 z-50 bg-white shadow-lg border-gray-300">
+      <section className="w-full flex justify-between max-w-7xl mx-auto">
+        {/* left section */}
+        <NavigationMenuList>
+          {/* logo section */}
+          <NavigationMenuItem className="">
+            <Link href="/">
+              <Image
+                src="/gcx-logo.png"
+                alt="neo logo"
+                width={80}
+                height={80}
+              />
+            </Link>
+          </NavigationMenuItem>
 
-          <div className="flex justify-between items-center max-w-7xl mx-auto">
-            {/* Left section */}
-            <div className="flex h-20">
-              {/* Logo */}
-              <Link href="/">
-                <Image
-                  src="/gcx-logo.png"
-                  alt="neo logo"
-                  width={80}
-                  height={80}
-                />
-              </Link>
+          <section className="mx-4 flex">
+            {/* overview dropdown tab */}
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
 
-              {/* Dropdown menus */}
-              <div className="flex gap-6 py-6 px-6">
-                {menuItems.map(({ label, Content }, index) => (
-                  <DropdownMenu
-                    key={label}
-                    open={openIndex === index}
-                    onOpenChange={(isOpen) =>
-                      setOpenIndex(isOpen ? index : null)
-                    }
-                  >
-                    <DropdownMenuTrigger
-                      onMouseEnter={() => setOpenIndex(index)}
-                      onMouseLeave={() => setOpenIndex(null)}
-                      className="px-2 py-1 hover:bg-green-950/10 border-none rounded-full font-medium text-[16px] transition-all duration-300"
-                    >
-                      {label}
-                    </DropdownMenuTrigger>
+              {/* overview content dropdown */}
+              <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
+                <div className="px-8 py-10">
+                  <OverviewMenuDropdown />
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
 
-                    <DropdownMenuContent
-                      onMouseEnter={() => setOpenIndex(index)} // keep open when hovering content
-                      onMouseLeave={() => setOpenIndex(null)}
-                      className="mt-5 transition-all duration-500 shadow-lg rounded-none border-0 w-screen"
-                    >
-                      <Content />
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ))}
-              </div>
+            {/* products dropdown tab */}
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Products</NavigationMenuTrigger>
 
-              {/* Pricing link */}
-              <div className="flex items-center">
-                <Link href="/pricing">
-                  <p className="px-2 py-1 hover:bg-green-950/10 border-none rounded-full font-medium text-[16px] transition-all duration-300">
-                    Pricing
-                  </p>
-                </Link>
-              </div>
-            </div>
+              {/* product content dropdown */}
+              <NavigationMenuContent className="!w-screen !max-w-none left-0 !absolute p-0">
+                <div className="px-8 py-10">
+                  <ProductDropDown />
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
 
-            {/* Right section */}
-            <div className="flex gap-4">
-              <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] border border-green-700 hover:border-none">
-                Log in
-              </button>
+            {/* solution dropdown tab */}
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
 
-              <button className="text-white bg-green-900 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]">
-                Sign up
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-    </div>
+              {/* solution dropdown content */}
+              <NavigationMenuContent className="!w-screen !max-w-none left-0 !absolute p-0">
+                <div className="px-8 py-10">
+                  <SolutionDropDown />
+                </div>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+          </section>
+        </NavigationMenuList>
+
+        {/* right sectoin */}
+        <NavigationMenuList>
+         
+        </NavigationMenuList>
+        <NavigationMenuList className="mt-5">
+          <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-green-800/10">
+            Log in
+          </button>
+
+          <button className="text-white bg-green-700 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-green-900">
+            Sign up
+          </button>
+        </NavigationMenuList>
+      </section>
+    </NavigationMenu>
   );
 }

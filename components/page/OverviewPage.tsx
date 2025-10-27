@@ -133,9 +133,9 @@ export default function PageComponent() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto mb-36">
+        <section  id="products" className="max-w-7xl mx-auto mb-36">
           <GetStartedCard />
-        </div>
+        </section>
       </div>
     </div>
   );

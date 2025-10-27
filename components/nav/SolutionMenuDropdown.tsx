@@ -21,7 +21,7 @@ export default function SolutionDropDown() {
   ];
 
   return (
-    <div className="left-0 bg-white h-fit z-50  shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
+    <div className="left-0 bg-white h-fit z-50">
       <div className="max-w-7xl py-6 mx-auto grid grid-cols-4 gap-8 text-[16px]">
         {cardItems.map((item, index) => (
           <div key={index}>

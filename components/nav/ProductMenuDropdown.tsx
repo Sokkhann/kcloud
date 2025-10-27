@@ -50,7 +50,7 @@ export default function ProductDropDown() {
   ];
 
   return (
-    <div className="top-full left-0 bg-white h-fit z-50 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)]">
+    <div className="top-full left-0 flex">
       <div className="max-w-7xl py-6 mx-auto flex justify-between text-[16px] gap-8">
         {/* Featured Section */}
         <section className="w-full sm:max-w-[400px] bg-green-700/10 p-8 rounded-lg">
