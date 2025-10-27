@@ -1,12 +1,13 @@
+import BlockStorageLayout from "@/components/layouts/BlockStorageLayout";
 import KubernetesDetailLayout from "@/components/layouts/KubernetesDetailLayout";
 import SnapshotLayout from "@/components/layouts/SnapshotLayout";
 import VirtualMachineDetailLayout from "@/components/layouts/VirtualMachineDetailLayout";
 
 export interface Products {
-    slug: string;
-    title: string;
-    desc: string;
-    layout: React.FC<{ product: Products }>;
+  slug: string;
+  title: string;
+  desc: string;
+  layout: React.FC<{ product: Products }>;
 }
 
 export const products: Products[] = [
@@ -33,6 +34,12 @@ export const products: Products[] = [
     title: "Apps",
     desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
     layout: KubernetesDetailLayout,
+  },
+ {
+    slug: "block-storage",
+    title: "Block Storage",
+    desc: "Attach volumes to your VMs or containers instantly. Enjoy fast IOPS, low latency, and persistent data. Easily scale storage up or down as your needs grow. Reliable, flexible, and secure — built for cloud workloads.",
+    layout: BlockStorageLayout,
   },
   {
     slug: "snapshot",
@@ -75,5 +82,5 @@ export const products: Products[] = [
     title: "DNS",
     desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
     layout: VirtualMachineDetailLayout,
-  }
+  },
 ];

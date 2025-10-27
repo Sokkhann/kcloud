@@ -1,5 +1,5 @@
 "use client";
-import { pricingData } from "@/data/productPricing";
+
 import React, { useState } from "react";
 import HeroComponent from "@/components/HeroComponent";
 import { DataTable } from "./price-table/VMTable";

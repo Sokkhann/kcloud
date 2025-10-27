@@ -28,7 +28,7 @@ export default function SnapshotLayout() {
     },
   ];
 
-  const router = useRouter();
+
   return (
     <div className=" bg-gray-100">
       <div className="max-w-7xl mx-auto ">
