@@ -2,6 +2,7 @@ import BackupLayout from "@/components/layouts/BackupLayout";
 import BlockStorageLayout from "@/components/layouts/BlockStorageLayout";
 import KubernetesDetailLayout from "@/components/layouts/KubernetesDetailLayout";
 import SnapshotLayout from "@/components/layouts/SnapshotLayout";
+import TemplateLayout from "@/components/layouts/TemplateLayout";
 import VirtualMachineDetailLayout from "@/components/layouts/VirtualMachineDetailLayout";
 
 export interface Products {
@@ -57,8 +58,8 @@ export const products: Products[] = [
   {
     slug: "template",
     title: "Templates",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: VirtualMachineDetailLayout,
+    desc: "Choose from optimized OS, app, and infrastructure templates. Save time with consistent, repeatable deployments. Customize and save your own templates for future use. Streamline provisioning — deploy smarter with GCX Templates.",
+    layout: TemplateLayout,
   },
   {
     slug: "iso",
