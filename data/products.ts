@@ -1,3 +1,4 @@
+import BackupLayout from "@/components/layouts/BackupLayout";
 import BlockStorageLayout from "@/components/layouts/BlockStorageLayout";
 import KubernetesDetailLayout from "@/components/layouts/KubernetesDetailLayout";
 import SnapshotLayout from "@/components/layouts/SnapshotLayout";
@@ -51,7 +52,7 @@ export const products: Products[] = [
     slug: "backup",
     title: "Backups",
     desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: KubernetesDetailLayout,
+    layout: BackupLayout,
   },
   {
     slug: "template",

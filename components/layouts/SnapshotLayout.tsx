@@ -2,7 +2,6 @@
 import React from "react";
 import FeaturedCard from "../card/FeaturedCard";
 import GetStartedCard from "../card/GetStartedCard";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
