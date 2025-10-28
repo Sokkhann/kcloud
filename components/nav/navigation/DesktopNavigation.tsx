@@ -1,0 +1,113 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import {
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+import OverviewMenuDropdown from "../OverviewMenuDropdown";
+import ProductDropDown from "../ProductMenuDropdown";
+import SolutionDropDown from "../SolutionMenuDropdown";
+import TopNavBar from "../Topper";
+
+export default function DesktopNavigation() {
+  return (
+    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full ">
+      <div className="w-full">
+        <TopNavBar />
+      </div>
+      <NavigationMenu className="px-4">
+        <section className="w-full flex justify-between max-w-7xl mx-auto ">
+          {/* left section */}
+          <NavigationMenuList>
+            {/* logo section */}
+            <NavigationMenuItem className="">
+              <Link href="/">
+                <Image
+                  src="/gcx-logo.png"
+                  alt="neo logo"
+                  width={80}
+                  height={80}
+                />
+              </Link>
+            </NavigationMenuItem>
+
+            <section className="mx-4 flex">
+              {/* overview dropdown tab */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
+
+                {/* overview content dropdown */}
+                <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
+                  <ul>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <div className="px-8 py-10">
+                          <OverviewMenuDropdown />
+                        </div>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* product dropdown tab */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+
+                {/* overview content dropdown */}
+                <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
+                  <ul>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <div className="px-8 py-10">
+                          <ProductDropDown />
+                        </div>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* solution dropdown tab */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+
+                {/* solution dropdown content */}
+                <NavigationMenuContent className="!w-screen !max-w-none left-0 !absolute p-0">
+                  <NavigationMenuLink asChild>
+                    <div className="px-8 py-10">
+                      <SolutionDropDown />
+                    </div>
+                  </NavigationMenuLink>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* pricing tab */}
+              <NavigationMenuItem className="group inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-green-800/10 font-semibold">
+                <Link href="/pricing">Pricing</Link>
+              </NavigationMenuItem>
+            </section>
+          </NavigationMenuList>
+
+          {/* right sectoin */}
+          <NavigationMenuList></NavigationMenuList>
+          <NavigationMenuList className="mt-5">
+            <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-green-800/10">
+              Log in
+            </button>
+
+            <button className="text-white bg-green-700 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-green-900">
+              Sign up
+            </button>
+          </NavigationMenuList>
+        </section>
+      </NavigationMenu>
+    </div>
+  );
+}

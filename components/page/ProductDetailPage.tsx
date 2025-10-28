@@ -17,7 +17,7 @@ export default function ProductDetailPage({ slug }: ProductDetailProps) {
   const LayoutComponent = product.layout;
 
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-200 w-screen">
       <div>
         <HeroComponent
           image={"/hero-bg.png"}

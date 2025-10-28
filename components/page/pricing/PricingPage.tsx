@@ -6,18 +6,16 @@ import GetStartedCard from "@/components/card/GetStartedCard";
 
 export default function PricingPage() {
   return (
-    <div className="">
-      <div>
-        {/* Hero section */}
-        <HeroComponent
-          showGetStarted
-          showContactSales
-          height="h-[600px]"
-          image="/hero-bg.png"
-          title="Power Up with the Right Plan"
-          description="No hidden fees. No confusion. Just clear pricing that helps you move faster, achieve more, and focus on what truly matters — your success."
-        />
-      </div>
+    <div className="w-screen">
+      {/* Hero section */}
+      <HeroComponent
+        showGetStarted
+        showContactSales
+        height="h-[600px]"
+        image="/hero-bg.png"
+        title="Power Up with the Right Plan"
+        description="No hidden fees. No confusion. Just clear pricing that helps you move faster, achieve more, and focus on what truly matters — your success."
+      />
 
       <div className="mb-24 max-w-7xl mx-auto ">
         <div className="px-4 py-16 text-center">

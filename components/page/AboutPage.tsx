@@ -34,7 +34,7 @@ export default function AboutPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div>
+    <div className="w-screen bg-gray-200">
       {/* Hero Section About page */}
       <HeroComponent
         height="h-[300px]"
@@ -44,7 +44,7 @@ export default function AboutPage() {
       />
 
       {/* Vision Section */}
-      <div className="">
+      <div className="mt-24">
         <div className="mb-24 px-4 py-16 text-center">
           {/* title and description */}
           <div className="mb-12">

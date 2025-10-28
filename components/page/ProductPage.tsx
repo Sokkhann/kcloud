@@ -106,7 +106,7 @@ const policyProduct = [
 
 export default function ProductPage() {
   return (
-    <div className="mt-10">
+    <div className="bg-gray-200 w-screen">
       {/* Hero Section About page */}
       <HeroComponent
         height="h-[500px]"
@@ -207,7 +207,7 @@ export default function ProductPage() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mb-36">
+      <div className="max-w-7xl mx-auto pb-36">
         <GetStartedCard />
       </div>
     </div>

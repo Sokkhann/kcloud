@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+
 import HeroComponent from "../HeroComponent";
 import { ProductTab } from "../tab/ProductTab";
 import SolutionCard from "../card/SolutionCard";
@@ -9,19 +10,24 @@ import Link from "next/link";
 import CustomerCarousel from "../card/CustomerCarousel";
 
 export default function PageComponent() {
+
   return (
     <div className="">
       {/* Hero section */}
       <HeroComponent
-              height="h-[600px]"
-              image="/hero-bg.png"
-              title="Smartest and Secure Choice for Connectivity"
-              description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
-            />
+        height="h-[600px]"
+        image="/hero-bg.png"
+        title="Smartest and Secure Choice for Connectivity"
+        description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
+      />
 
       {/* Product Section */}
-      <div className=" bg-gray-100">
-        <div className="mb-24 max-w-7xl mx-auto px-4 py-16 text-center">
+      <section className=" bg-gray-100">
+        {/* products */}
+        <section
+          id="products"
+          className="mb-24 max-w-7xl mx-auto px-4 py-16 text-center"
+        >
           {/* title and description */}
           <div className="my-12">
             <p className="text-5xl font-bold text-gray-700">
@@ -36,10 +42,10 @@ export default function PageComponent() {
 
           {/* Product Tabs section */}
           <ProductTab />
-        </div>
+        </section>
 
         {/* Solution Section */}
-        <div className="px-4 py-16 bg-white">
+        <section id="solutions" className="px-4 py-16 bg-white">
           <div className="max-w-7xl mx-auto mb-24">
             {/* title and description */}
             <div className="my-12 text-center">
@@ -57,16 +63,14 @@ export default function PageComponent() {
             {/* Solutions section */}
             <SolutionCard />
           </div>
-        </div>
+        </section>
 
         {/* The reason why we use cloud GCX */}
-        <div className="px-4 py-16">
+        <section id="why-choose-gcx" className="px-4 py-16">
           <div className="max-w-7xl mx-auto mb-24">
             {/* title and description */}
             <div className="my-12 text-center">
-              <p className="text-5xl font-bold text-gray-700">
-                Why GCX Cloud?
-              </p>
+              <p className="text-5xl font-bold text-gray-700">Why GCX Cloud?</p>
               <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
                 Enabling smarter operations across all functions of an
                 integrated agribusiness, from cultivation and processing to
@@ -78,14 +82,16 @@ export default function PageComponent() {
             {/* Solutions section */}
             <HoverExpandCards />
           </div>
-        </div>
+        </section>
 
         {/* What makes us Different Section */}
-        <div className="px-4 py-16 bg-white">
+        <section id="what-make-us-different" className="px-4 py-16 bg-white">
           <div className="max-w-7xl mx-auto mb-24">
             {/* title and description */}
             <div className="my-12 text-center">
-              <p className="text-5xl font-bold text-gray-700">What makas us different</p>
+              <p className="text-5xl font-bold text-gray-700">
+                What makas us different
+              </p>
               <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
                 Enabling smarter operations across all functions of an
                 integrated agribusiness — from production and processing to
@@ -97,7 +103,7 @@ export default function PageComponent() {
             {/* Solutions section */}
             <SwitchCard />
           </div>
-        </div>
+        </section>
 
         {/* Customer Testimonials Section */}
         <div className="px-4 py-16 my-24">
@@ -133,10 +139,10 @@ export default function PageComponent() {
           </div>
         </div>
 
-        <section  id="products" className="max-w-7xl mx-auto mb-36">
+        <section className="max-w-7xl mx-auto mb-36">
           <GetStartedCard />
         </section>
-      </div>
+      </section>
     </div>
   );
 }
