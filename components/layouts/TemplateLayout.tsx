@@ -2,37 +2,10 @@
 import React from "react";
 import GetStartedCard from "../card/GetStartedCard";
 import { ArrowRight, Building, Cloud, Shield, Zap } from "lucide-react";
-import BenefitListCard from "../card/BenefitListCard";
 import Link from "next/link";
 import FeaturedCard from "../card/FeaturedCard";
 
 export default function TemplateLayout() {
-  const features = [
-    {
-      icon: <Cloud size={22} />,
-      title: "Weekly, hands-off protection.",
-      description:
-        "Backups are taken automatically, typically once a week, during a configurable four-hour window to minimize performance impact.",
-    },
-    {
-      icon: <Shield size={22} />,
-      title: "Full server environment recovery.",
-      description:
-        "Restore your entire server image to a new instance in minutes, including the OS, data, and configuration files.",
-    },
-    {
-      icon: <Building size={22} />,
-      title: "Rolling 4-week history.",
-      description:
-        "Multiple restoration points are maintained (e.g., 4 or 7 rotating weekly backups). The oldest backup is automatically replaced by the newest.",
-    },
-    {
-      icon: <Zap size={22} />,
-      title: "Secure, isolated storage.",
-      description:
-        "Backup images are stored on resilient infrastructure and are encrypted at rest for security and compliance.",
-    },
-  ];
 
   const cards = [
     {
@@ -110,7 +83,7 @@ export default function TemplateLayout() {
               </Link>
             </div>
           </div>
-
+ 
           <div className="flex gap-12">
             <div className="mb-6">
               <p className="mb-3 text-gray-600  text-lg">
