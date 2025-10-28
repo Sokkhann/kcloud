@@ -1,6 +1,13 @@
+import { Link } from "@radix-ui/react-navigation-menu";
 import React from "react";
 
-export default function SolutionDropDown() {
+interface OverviewMenuDropdownProps {
+  onClose?: () => void;
+}
+
+export default function SolutionDropDown({
+  onClose,
+}: OverviewMenuDropdownProps) {
   const cardItems = [
     {
       title: "Online Education",
@@ -38,9 +45,11 @@ export default function SolutionDropDown() {
             <div className="p-4 bg-green-950/10 rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
               <p className="text-gray-600">{item.desc}</p>
 
-              <p className="font-medium cursor-pointer mt-3 text-green-800 hover:underline">
-                View Detail
-              </p>
+              <Link onClick={onClose} href="/">
+                <p className="font-medium cursor-pointer mt-3 text-green-800 hover:underline">
+                  View Detail
+                </p>
+              </Link>
             </div>
           </div>
         ))}

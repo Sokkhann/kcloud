@@ -5,7 +5,7 @@ export default function page() {
 
   return (
     <div>
-      <PlanPage param={{slug: "virtual-machine"}}/>
+      <PlanPage/>
     </div>
   )
 }

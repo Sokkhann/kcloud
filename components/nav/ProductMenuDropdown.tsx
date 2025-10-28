@@ -1,11 +1,15 @@
 "use client";
 
-import { NavigationMenuLink } from "@radix-ui/react-navigation-menu";
-import Link from "next/link";
+import { Link } from "@radix-ui/react-navigation-menu";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function ProductDropDown() {
+interface OverviewMenuDropdownProps {
+  onClose?: () => void;
+}
+
+
+export default function ProductDropDown({onClose} : OverviewMenuDropdownProps) {
   const router = useRouter();
 
   const featuredProducts = [
@@ -97,9 +101,9 @@ export default function ProductDropDown() {
               </p>
               <div className="space-y-2 text-gray-700">
                 {category?.items.map((item, i) => (
-                  <NavigationMenuLink href={`/products/${item.id}`} key={i} className="block cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md">
+                  <Link onClick={onClose} href={`/products/${item.id}`} key={i} className="block cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md">
                     {item.name}
-                  </NavigationMenuLink>
+                  </Link>
                   
                 ))}
               </div>

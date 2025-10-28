@@ -4,7 +4,7 @@ import React from "react";
 export default function page() {
   return (
     <div>
-      <PlanPage param={{ slug: "vnf-appliance" }} />
+      <PlanPage/>
     </div>
   );
 }

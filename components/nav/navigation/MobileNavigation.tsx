@@ -83,9 +83,21 @@ export default function MobileNavigation() {
                               transition={{ duration: 0.3 }}
                               className="overflow-hidden pl-3 pt-2 text-sm text-gray-600"
                             >
-                              {label === "Overview" && <OverviewMenuDropdown />}
-                              {label === "Products" && <ProductDropDown />}
-                              {label === "Solutions" && <SolutionDropDown />}
+                              {label === "Overview" && (
+                                <OverviewMenuDropdown
+                                  onClose={() => setMenuOpen(false)}
+                                />
+                              )}
+                              {label === "Products" && (
+                                <ProductDropDown
+                                  onClose={() => setMenuOpen(false)}
+                                />
+                              )}
+                              {label === "Solutions" && (
+                                <SolutionDropDown
+                                  onClose={() => setMenuOpen(false)}
+                                />
+                              )}
                             </motion.div>
                           )}
                         </AnimatePresence>

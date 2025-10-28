@@ -1,7 +1,11 @@
-import Link from "next/link";
 import React from "react";
+import { Link } from "@radix-ui/react-navigation-menu";
 
-export default function OverviewMenuDropdown() {
+interface OverviewMenuDropdownProps {
+  onClose?: () => void;
+}
+
+export default function OverviewMenuDropdown({ onClose }: OverviewMenuDropdownProps) {
   const highlights = [
     {
       title: "Convenient Location",
@@ -56,14 +60,14 @@ export default function OverviewMenuDropdown() {
         <p className="font-normal text-[12px] text-gray-500">
           Cambodia&apos;s #1 Data Center
         </p>
-        <Link href={"/#what-make-us-different"}>
-          <p className="font-bold text-[16px] md:text-[18px] mt-1 text-gray-700 inline-block relative group cursor-pointer">
-            <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
+        <p className="font-bold text-[16px] md:text-[18px] mt-1 text-gray-700 inline-block relative group cursor-pointer">
+          <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
+            <Link onClick={onClose} href={"/#what-make-us-different"}>
               What Makes Us Different?
-            </span>
-            <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gray-700 transition-all duration-300 group-hover:w-full"></span>
-          </p>
-        </Link>
+            </Link>
+          </span>
+          <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gray-700 transition-all duration-300 group-hover:w-full"></span>
+        </p>
 
         <div className="mt-4 space-y-4 text-[14px]">
           {highlights.map((item, index) => (
@@ -82,7 +86,7 @@ export default function OverviewMenuDropdown() {
             key={index}
             className="w-full sm:w-[45%] md:w-[25%] lg:w-[60%] px-2 md:px-4"
           >
-            <Link href={`/#${section.id}`}>
+            <Link onClick={onClose} key={index} href={`/#${section.id}`}>
               <p className="font-semibold text-gray-700 inline-block relative group cursor-pointer">
                 <span className="relative text-base z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
                   {section.title}

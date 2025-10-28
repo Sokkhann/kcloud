@@ -44,15 +44,9 @@ export default function DesktopNavigation() {
 
                 {/* overview content dropdown */}
                 <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
-                  <ul>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <div className="px-8 py-10">
-                          <OverviewMenuDropdown />
-                        </div>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
+                  <div className="px-8 py-10">
+                    <OverviewMenuDropdown />
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -62,15 +56,9 @@ export default function DesktopNavigation() {
 
                 {/* overview content dropdown */}
                 <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
-                  <ul>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <div className="px-8 py-10">
-                          <ProductDropDown />
-                        </div>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
+                  <div className="px-8 py-10">
+                    <ProductDropDown />
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
