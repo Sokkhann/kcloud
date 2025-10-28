@@ -4,9 +4,7 @@ import FeaturedCard from "../card/FeaturedCard";
 import GetStartedCard from "../card/GetStartedCard";
 import { Building, Cloud, Shield, Zap } from "lucide-react";
 import BenefitListCard from "../card/BenefitListCard";
-import {
-  StoragePlan,
-} from "../page/pricing/price-table/StorageColumn";
+
 
 import {
   Select,
@@ -15,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import Link from "next/link";
+
 
 interface StoragePrice {
   value: string;
