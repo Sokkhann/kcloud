@@ -38,8 +38,8 @@ export default function HeroComponent({
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl  text-white">
-        <h1 className="text-7xl md:text-5xl font-bold mb-4">{title}</h1>
-        <p className="text-base md:text-lg mb-8">{description}</p>
+        <h1 className="xl:text-7xl md:text-5xl text-4xl font-bold mb-4">{title}</h1>
+        <p className="text-base md:text-lg mb-8 md:px-0 px-6">{description}</p>
 
         <div className="flex items-center justify-center gap-4">
           {showGetStarted && (

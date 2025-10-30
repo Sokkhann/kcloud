@@ -12,21 +12,21 @@ interface InfoListProps {
 
 export default function BenefitListCard({ items }: InfoListProps) {
   return (
-    <div className="w-full rounded-xl  bg-white">
+    <div className="w-full h-full  rounded-xl  bg-white shadow-sm border hover:shadow-md transition">
       {items.map((item, index) => (
         <div
           key={index}
-          className="flex flex-col items-start gap-3 p-6 rounded-xl shadow-sm border hover:shadow-md transition"
+          className="flex flex-col items-start gap-3 p-6 rounded-xl "
         >
           <div className="p-3 rounded-full bg-gray-100 flex justify-center items-center">
             {item.icon}
           </div>
 
-          <h4 className="font-semibold text-xl text-gray-800">
+          <h4 className="font-semibold xl:text-2xl md:text-xl text-lg text-gray-800">
             {item.title}
           </h4>
 
-          <p className="text-lg text-gray-600">
+          <p className="md:text-lg text-base text-gray-600">
             {item.description}
           </p>
         </div>

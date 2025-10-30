@@ -10,7 +10,7 @@ export default function FeaturedCard({
   description,
 }: InfoCardProps) {
   return (
-    <div className="flex flex-col bg-white rounded-2xl overflow-hidden transition-shadow duration-300">
+    <div className="flex flex-col bg-white rounded-2xl overflow-hidden transition-shadow duration-300 h-full">
       {/* Image Section with dark overlay */}
       <div className="h-64 relative">
         <div className="absolute inset-0 bg-black/40"></div>
