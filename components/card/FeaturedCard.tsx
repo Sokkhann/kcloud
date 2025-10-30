@@ -22,10 +22,10 @@ export default function FeaturedCard({
 
       {/* Content Section */}
       <div className="p-6 flex flex-col justify-between h-fit">
-        <h2 className="text-2xl font-bold text-gray-700 mb-4">
+        <h2 className="xl:text-2xl md:text-xl text-lg  font-bold text-gray-700 xl:mb-4 md:mb-2 mb-0">
           {title}
         </h2>
-        <p className="text-gray-600 mt-auto text-lg">{description}</p>
+        <p className="text-gray-600 mt-auto xl:text-lg text-base">{description}</p>
       </div>
     </div>
   );
