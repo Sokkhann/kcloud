@@ -1,6 +1,6 @@
 import React from "react";
 import HeroComponent from "../HeroComponent";
-import { products } from "@/data/products";
+import { productDetailLayout } from "@/data/productDetailLayout";
 
 interface ProductDetailProps {
   slug: string;
@@ -9,7 +9,7 @@ interface ProductDetailProps {
 export default function ProductDetailPage({ slug }: ProductDetailProps) {
   console.log("This is the slug: ", slug);
 
-  const product = products.find((p) => p.slug === slug);
+  const product = productDetailLayout.find((p) => p.slug === slug);
 
   if (!product)
     return <div className="p-8 text-red-500">Product not found</div>;
@@ -17,7 +17,7 @@ export default function ProductDetailPage({ slug }: ProductDetailProps) {
   const LayoutComponent = product.layout;
 
   return (
-    <div>
+    <div className="bg-gray-200 w-screen">
       <div>
         <HeroComponent
           image={"/hero-bg.png"}

@@ -1,8 +1,10 @@
 import React from "react";
-import Navigator from "./Navigator";
+import NavigatorComponent from "./navigation/NavigatorComponent";
 
 export default function Navbar() {
-  return <div>
-    <Navigator />
-  </div>;
+  return (
+    <div>
+      <NavigatorComponent />
+    </div>
+  );
 }

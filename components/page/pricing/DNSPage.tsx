@@ -42,9 +42,8 @@ export default function DNSPage() {
   ];
 
   return (
-    <div>
-      <div className="mt-10">
-        {/* Hero section */}
+    <div className="w-screen">
+      {/* Hero section */}
         <HeroComponent
           showGetStarted
           showContactSales
@@ -55,7 +54,6 @@ export default function DNSPage() {
           browsers can load internet resources. It acts as the internet’s
           address book, making websites accessible using easy-to-remember names."
         />
-      </div>
 
       {/* tab card section */}
       <div className="max-w-7xl mx-auto mt-24 w-full">

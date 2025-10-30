@@ -1,10 +1,15 @@
-"use client"
+"use client";
 
+import { Link } from "@radix-ui/react-navigation-menu";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function ProductDropDown() {
+interface OverviewMenuDropdownProps {
+  onClose?: () => void;
+}
 
+
+export default function ProductDropDown({onClose} : OverviewMenuDropdownProps) {
   const router = useRouter();
 
   const featuredProducts = [
@@ -33,27 +38,46 @@ export default function ProductDropDown() {
   const productCategories = [
     {
       title: "Compute",
-      items: ["Virtual Machines", "VNF Appliances", "Kubernetes", "Apps"],
+      items: [
+        { name: "Virtual Machines", id: "virtual-machine" },
+        { name: "VNF Appliances", id: "vnf-appliance" },
+        { name: "Kubernetes", id: "kubernetes" },
+        { name: "Apps", id: "apps" },
+      ],
     },
     {
       title: "Storage & Data Protection",
-      items: ["Block Storage", "Snapshots", "Backups", "Templates", "ISOs"],
+      items: [
+        { name: "Block Storage", id: "block-storage" },
+        { name: "Snapshots", id: "snapshot" },
+        { name: "Backups", id: "backup" },
+        { name: "Templates", id: "template" },
+        { name: "ISOs", id: "iso" },
+      ],
     },
     {
       title: "Networking",
-      items: ["Networks", "Load Balancers", "DNS"],
+      items: [
+        { name: "Networks", id: "network" },
+        { name: "Load Balancers", id: "load-balancer" },
+        { name: "DNS", id: "dns" },
+      ],
     },
     {
       title: "Security & Access",
-      items: ["Firewall", "VPN", "Access Control"],
+      items: [
+        { name: "Firewall", id: "firewall" },
+        { name: "VPN", id: "vpn" },
+        { name: "Affinity Group", id: "affinity-group" },
+      ],
     },
   ];
 
   return (
-    <div className="top-full left-0 w-screen bg-white h-fit z-50">
-      <div className="max-w-[1400px] py-6 mx-auto flex justify-between text-[16px] gap-8 border">
+    <div className="top-full left-0 flex flex-col gap-4 px-4 md:px-0">
+      <div className="max-w-7xl mx-auto py-6 flex flex-col md:flex-row justify-between gap-8 text-[16px]">
         {/* Featured Section */}
-        <section className="w-full sm:max-w-[400px] bg-green-700/10 p-8 rounded-lg">
+        <section className="w-full md:max-w-[400px] bg-green-700/10 p-6 md:p-8 rounded-lg">
           <p className="font-normal text-[12px] text-gray-500">
             Featured Products
           </p>
@@ -61,7 +85,7 @@ export default function ProductDropDown() {
           <div className="mt-4 space-y-4 text-[14px]">
             {featuredProducts.map((item, index) => (
               <div key={index} className="flex flex-col">
-                <p className="font-semibold">{item.title}</p>
+                <p className="font-semibold text-gray-800">{item.title}</p>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
             ))}
@@ -69,20 +93,18 @@ export default function ProductDropDown() {
         </section>
 
         {/* Product Categories */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8 items-start flex-1 h-fit">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 flex-1 h-fit mt-6 md:mt-0">
           {productCategories.map((category, index) => (
-            <section key={index} className="max-w-[292px] px-4">
-              <p className="font-semibold text-gray-700 inline-block relative group cursor-pointer mb-2 ml-4">
+            <section key={index} className="w-full px-2 md:px-4">
+              <p className="font-semibold text-gray-700 inline-block relative group mb-2 ml-4">
                 {category.title}
               </p>
               <div className="space-y-2 text-gray-700">
-                {category.items.map((item, i) => (
-                  <p
-                    key={i}
-                    className="cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100  hover:shadow-md"
-                  >
-                    {item}
-                  </p>
+                {category?.items.map((item, i) => (
+                  <Link onClick={onClose} href={`/products/${item.id}`} key={i} className="block cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md">
+                    {item.name}
+                  </Link>
+                  
                 ))}
               </div>
             </section>
@@ -90,6 +112,7 @@ export default function ProductDropDown() {
         </div>
       </div>
 
+      {/* Footer link */}
       <div className="text-center py-4">
         <p
           onClick={() => router.push("/products")}
@@ -98,7 +121,6 @@ export default function ProductDropDown() {
           <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
             See all products
           </span>
-          {/* underline animation */}
           <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-green-900 transition-all duration-300 group-hover:w-full"></span>
         </p>
       </div>

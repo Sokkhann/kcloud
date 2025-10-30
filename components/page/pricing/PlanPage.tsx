@@ -5,9 +5,7 @@ import HeroComponent from "@/components/HeroComponent";
 import { DataTable } from "./price-table/VMTable";
 import { columns, PricingPlan } from "./price-table/VMColumn";
 
-interface VMProps {
-  param: { slug: string };
-}
+
 
 export type Payment = {
   id: string;
@@ -16,8 +14,7 @@ export type Payment = {
   email: string;
 };
 
-export default function PlanPage({ param }: VMProps) {
-  const { slug } = param;
+export default function PlanPage() {
   const tabs = ["Regular", "Premium"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
@@ -79,16 +76,14 @@ export default function PlanPage({ param }: VMProps) {
   ];
 
   return (
-    <div>
-      <div className="mt-10">
-        {/* Hero section */}
-        <HeroComponent
-          height="h-[600px]"
-          image="/hero-bg.png"
-          title="Virtual Machine"
-          description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
-        />
-      </div>
+    <div className="w-screen">
+      {/* Hero section */}
+      <HeroComponent
+        height="h-[600px]"
+        image="/hero-bg.png"
+        title="Virtual Machine"
+        description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
+      />
       <div className="min-h-screen py-16">
         <div className="max-w-7xl mx-auto space-y-8">
           {/* {selectedProduct?.plans?.map((item) => (

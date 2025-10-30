@@ -6,7 +6,7 @@ import MapComponent from "../MapComponent";
 
 export default function ContactSalePage() {
   return (
-    <div className="mt-10 bg-gray-100">
+    <div className="w-screen bg-gray-200">
       {/* Hero Section About page */}
       <HeroComponent
         height="h-[500px]"

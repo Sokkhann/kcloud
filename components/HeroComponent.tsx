@@ -22,7 +22,7 @@ export default function HeroComponent({
 }: HeroProps) {
   return (
     <section
-      className={`relative w-screen ${height} flex items-center justify-center text-center overflow-hidden`}
+      className={`relative w-full top-[45px] ${height} flex items-center justify-center text-center overflow-hidden`}
     >
       {/* Background Image */}
       <Image

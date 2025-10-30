@@ -9,7 +9,7 @@ export default function CustomerCard({ title, description, logo }: CardProps) {
 
   const toggleExpand = () => setExpanded(!expanded);
   return (
-    <div className="w-[410px] bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-5 flex flex-col justify-between items-center">
+    <div className="w-[410px] bg-white rounded-2xl hover:shadow-md transition-all duration-300 p-5 flex flex-col justify-between items-center">
       {/* Top Section */}
       <div>
         <div className="flex flex-col gap-3 mb-3">
