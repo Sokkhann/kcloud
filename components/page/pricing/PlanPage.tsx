@@ -5,9 +5,7 @@ import HeroComponent from "@/components/HeroComponent";
 import { DataTable } from "./price-table/VMTable";
 import { columns, PricingPlan } from "./price-table/VMColumn";
 
-interface VMProps {
-  param?: { slug: string };
-}
+
 
 export type Payment = {
   id: string;
