@@ -39,11 +39,11 @@ export default function HeroComponent({
 
       {/* Content */}
       <ScrollReveal>
-        <div className="relative z-10 text-white px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 max-w-3xl sm:max-w-4xl mx-auto leading-tight">
+        <div className="relative z-10 max-w-7xl  text-white">
+          <h1 className="xl:text-7xl md:text-5xl text-4xl font-bold mb-4">
             {title}
           </h1>
-          <p className="text-sm sm:text-base md:text-lg mb-6 md:mb-8 max-w-xl sm:max-w-2xl mx-auto">
+          <p className="text-base md:text-lg mb-8 md:px-0 px-6">
             {description}
           </p>
 
@@ -70,4 +70,3 @@ export default function HeroComponent({
     </section>
   );
 }
-
