@@ -1,16 +1,10 @@
 "use client";
 
-import { Link } from "@radix-ui/react-navigation-menu";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import React from "react";
+import { NavigationMenuLink } from "../ui/navigation-menu";
 
-interface OverviewMenuDropdownProps {
-  onClose?: () => void;
-}
-
-
-export default function ProductDropDown({onClose} : OverviewMenuDropdownProps) {
-  const router = useRouter();
+export default function ProductDropDown() {
 
   const featuredProducts = [
     {
@@ -101,10 +95,15 @@ export default function ProductDropDown({onClose} : OverviewMenuDropdownProps) {
               </p>
               <div className="space-y-2 text-gray-700">
                 {category?.items.map((item, i) => (
-                  <Link onClick={onClose} href={`/products/${item.id}`} key={i} className="block cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md">
-                    {item.name}
-                  </Link>
-                  
+                  <NavigationMenuLink asChild key={i}>
+                    <Link
+                      href={`/products/${item.id}`}
+                      key={i}
+                      className="block !text-base cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md"
+                    >
+                      {item.name}
+                    </Link>
+                  </NavigationMenuLink>
                 ))}
               </div>
             </section>
@@ -114,15 +113,16 @@ export default function ProductDropDown({onClose} : OverviewMenuDropdownProps) {
 
       {/* Footer link */}
       <div className="text-center py-4">
-        <p
-          onClick={() => router.push("/products")}
-          className="font-semibold text-green-900 inline-block relative group cursor-pointer select-none"
-        >
-          <span className="relative z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
-            See all products
-          </span>
-          <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-green-900 transition-all duration-300 group-hover:w-full"></span>
-        </p>
+        <NavigationMenuLink asChild>
+          <Link href={"/products"}>
+            <p className="font-semibold text-green-900 inline-block relative group cursor-pointer select-none">
+              <span className="relative text-base z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
+                See all products
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-green-900 transition-all duration-300 group-hover:w-full"></span>
+            </p>
+          </Link>
+        </NavigationMenuLink>
       </div>
     </div>
   );

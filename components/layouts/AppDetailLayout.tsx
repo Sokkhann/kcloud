@@ -16,8 +16,6 @@ export default function AppDetailLayout() {
       {/* use case section */}
       <AppUseCaseSection />
 
-     
-
       {/* get started section */}
       <div className="max-w-7xl mx-auto py-24">
         <GetStartedCard />

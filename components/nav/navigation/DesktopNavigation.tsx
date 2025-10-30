@@ -43,7 +43,7 @@ export default function DesktopNavigation() {
                 <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
 
                 {/* overview content dropdown */}
-                <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
+                <NavigationMenuContent asChild className="!w-screen !max-w-none !absolute p-0">
                   <div className="px-8 py-10">
                     <OverviewMenuDropdown />
                   </div>

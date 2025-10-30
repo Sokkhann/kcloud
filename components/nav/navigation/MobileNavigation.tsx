@@ -43,10 +43,11 @@ export default function MobileNavigation() {
       </nav>
 
       {/* Mobile Menu */}
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <AnimatePresence>
+
+      <AnimatePresence>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
               {menuOpen && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
@@ -84,20 +85,20 @@ export default function MobileNavigation() {
                               className="overflow-hidden pl-3 pt-2 text-sm text-gray-600"
                             >
                               {label === "Overview" && (
-                                <OverviewMenuDropdown
-                                  onClose={() => setMenuOpen(false)}
-                                />
-                              )}
-                              {label === "Products" && (
-                                <ProductDropDown
-                                  onClose={() => setMenuOpen(false)}
-                                />
-                              )}
-                              {label === "Solutions" && (
-                                <SolutionDropDown
-                                  onClose={() => setMenuOpen(false)}
-                                />
-                              )}
+                          <div onClick={() => setMenuOpen(false)}>
+                            <OverviewMenuDropdown />
+                          </div>
+                        )}
+                        {label === "Products" && (
+                          <div onClick={() => setMenuOpen(false)}>
+                            <ProductDropDown />
+                          </div>
+                        )}
+                        {label === "Solutions" && (
+                          <div onClick={() => setMenuOpen(false)}>
+                            <SolutionDropDown />
+                          </div>
+                        )}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -125,10 +126,10 @@ export default function MobileNavigation() {
                   </div>
                 </motion.div>
               )}
-            </AnimatePresence>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </AnimatePresence>
     </div>
   );
 }

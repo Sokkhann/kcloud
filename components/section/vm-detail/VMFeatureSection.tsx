@@ -9,8 +9,8 @@ export default function VMFeatureSection() {
   return (
     <div>
       <div className="max-w-7xl mx-auto py-24">
-        <div className="text-center my-16">
-          <p className="text-4xl font-bold text-gray-700">
+        <div className="text-center my-16  mx-4 lg:mx-0 md:mx-0">
+          <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
             Comprehensive, cost-effective cloud computing
           </p>
           <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -22,7 +22,7 @@ export default function VMFeatureSection() {
         </div>
 
         {/* feature card section */}
-        <div className="flex flex-col md:flex-row gap-6 py-8 justify-center items-stretch">
+        <div className="flex flex-col md:flex-row gap-6 py-8 justify-center items-stretch px-0  mx-4 lg:mx-0 md:mx-0">
           {cards.map((card, index) => (
             <div key={index} className="flex-1">
               <FeaturedCard
