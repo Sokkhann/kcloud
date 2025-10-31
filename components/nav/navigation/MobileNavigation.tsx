@@ -24,22 +24,34 @@ export default function MobileNavigation() {
   };
 
   return (
-    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full md:hidden">
+    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full lg:hidden">
       <TopNavBar />
 
       <nav className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/">
-          <Image src="/gcx-logo.png" alt="neo logo" width={80} height={80} />
+          <Image src="/gcx-logo.png" alt="neo logo" width={70} height={70} />
         </Link>
 
-        {/* Hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2 text-gray-700 hover:bg-green-800/10 rounded-md"
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex">
+          {/* Buttons */}
+          <div className="md:flex hidden mr-4 gap-2 border-gray-200 items-center">
+            <button className="w-auto bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+              <Link href={""}>Log in</Link>
+            </button>
+            <button className="w-auto text-white bg-green-700 font-semibold px-6 py-2 rounded-full hover:bg-green-900 transition-all">
+              <Link href={""}>Sign up</Link>
+            </button>
+          </div>
+
+          {/* Hamburger */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="p-2 text-gray-700 hover:bg-green-800/10 rounded-md"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
@@ -82,23 +94,32 @@ export default function MobileNavigation() {
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.3 }}
-                              className="overflow-hidden pl-3 pt-2 text-sm text-gray-600"
+                              className="overflow-hidden pt-2 text-sm text-gray-600"
                             >
                               {label === "Overview" && (
-                          <div onClick={() => setMenuOpen(false)}>
-                            <OverviewMenuDropdown />
-                          </div>
-                        )}
-                        {label === "Products" && (
-                          <div onClick={() => setMenuOpen(false)}>
-                            <ProductDropDown />
-                          </div>
-                        )}
-                        {label === "Solutions" && (
-                          <div onClick={() => setMenuOpen(false)}>
-                            <SolutionDropDown />
-                          </div>
-                        )}
+                                <div
+                                  onClick={() => setMenuOpen(false)}
+                                  className="mb-4"
+                                >
+                                  <OverviewMenuDropdown />
+                                </div>
+                              )}
+                              {label === "Products" && (
+                                <div
+                                  onClick={() => setMenuOpen(false)}
+                                  className="mb-4"
+                                >
+                                  <ProductDropDown />
+                                </div>
+                              )}
+                              {label === "Solutions" && (
+                                <div
+                                  onClick={() => setMenuOpen(false)}
+                                  className="mb-4"
+                                >
+                                  <SolutionDropDown />
+                                </div>
+                              )}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -115,12 +136,34 @@ export default function MobileNavigation() {
                     </Link>
 
                     {/* Buttons */}
-                    <div className="flex flex-col gap-2 pt-4 border-t border-gray-200 items-center justify-center">
-                      <button className="w-1/3 sm:w-auto bg-white text-green-800 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all">
-                        Log in
+                    <div className="flex gap-2 pt-4 border-gray-200 items-center justify-center md:hidden">
+                      <button className="w-full bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+                        <Link href={""}>Log in</Link>
                       </button>
-                      <button className="w-1/3 sm:w-auto text-white bg-green-700 font-semibold px-6 py-2 rounded-full hover:bg-green-900 transition-all">
-                        Sign up
+                      <button className="w-full text-white bg-green-700 font-semibold px-6 py-2 rounded-full hover:bg-green-900 transition-all">
+                        <Link href={""}>Sign up</Link>
+                      </button>
+                    </div>
+
+                    {/* contact us and about us */}
+                    <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
+                      <button className="w-full bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+                        <Link
+                          href={"/about-us"}
+                          className="hover:underline"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          About Us
+                        </Link>
+                      </button>
+                      <button className="w-full bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+                        <Link
+                          href={"/contact-sale"}
+                          className="hover:underline"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          Contact Sale
+                        </Link>
                       </button>
                     </div>
                   </div>

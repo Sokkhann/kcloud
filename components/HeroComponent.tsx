@@ -6,7 +6,7 @@ import ScrollReveal from "./animations/ScrolReveal";
 
 interface HeroProps {
   height?: string;
-  image: string; // path inside public folder
+  image: string;
   title: string;
   description: string;
   showGetStarted?: boolean;

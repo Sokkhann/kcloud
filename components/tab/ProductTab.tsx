@@ -104,16 +104,60 @@ const policyProduct = [
 
 export function ProductTab() {
   return (
-    <div className="flex w-full flex-col bg-none">
+    <div className="">
       <Tabs defaultValue="compute" className="bg-none">
-        <TabsList className="w-full rounded-none h-24 border-b-2 bg- ">
-          <TabsTrigger className="text-gray-700" value="compute">Compute</TabsTrigger>
-          <TabsTrigger className="text-gray-700" value="storage">Storage & Data Protection</TabsTrigger>
-          <TabsTrigger className="text-gray-700" value="networking">Networking</TabsTrigger>
-          <TabsTrigger className="text-gray-700" value="policy">Policy & Placement</TabsTrigger>
+        {/* Tabs List */}
+        <TabsList
+          className="
+          w-screen
+          lg:w-full
+          md:w-full
+          lg:mx-0
+          md:mx-0
+          h-24
+          py-auto
+          border-b-2 
+          rounded-none 
+          flex
+          justify-start
+          lg:justify-center
+          md:justify-center
+          scroll-px-4
+          overflow-x-auto 
+          whitespace-nowrap
+          lg:overflow-visible 
+          scrollbar-hide 
+          snap-x 
+          snap-mandatory
+      "
+        >
+          <TabsTrigger
+            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
+            value="compute"
+          >
+            Compute
+          </TabsTrigger>
+          <TabsTrigger
+            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
+            value="storage"
+          >
+            Storage & Data Protection
+          </TabsTrigger>
+          <TabsTrigger
+            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
+            value="networking"
+          >
+            Networking
+          </TabsTrigger>
+          <TabsTrigger
+            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
+            value="policy"
+          >
+            Policy & Placement
+          </TabsTrigger>
         </TabsList>
 
-        {/* Compute Tab Content */}
+        {/* Compute Tab */}
         <TabsContent value="compute">
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
             {computeProducts.map((product, index) => (
@@ -127,9 +171,9 @@ export function ProductTab() {
           </div>
         </TabsContent>
 
-        {/* Storage Tab Content */}
+        {/* Storage Tab */}
         <TabsContent value="storage">
-          <div className="flex flex-wrap  justify-center gap-x-4 gap-y-20 mt-20">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
             {storageProduct.map((product, index) => (
               <ProductCard
                 key={index}
@@ -141,9 +185,9 @@ export function ProductTab() {
           </div>
         </TabsContent>
 
-        {/* Networking Tab Content */}
+        {/* Networking Tab */}
         <TabsContent value="networking">
-          <div className="flex flex-wrap  justify-center gap-x-4 gap-y-20 mt-20">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
             {networkingProduct.map((product, index) => (
               <ProductCard
                 key={index}
@@ -155,9 +199,9 @@ export function ProductTab() {
           </div>
         </TabsContent>
 
-        {/* Policy Tab Content */}
+        {/* Policy Tab */}
         <TabsContent value="policy">
-          <div className="flex flex-wrap  justify-center gap-x-4 gap-y-20 mt-20">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
             {policyProduct.map((product, index) => (
               <ProductCard
                 key={index}

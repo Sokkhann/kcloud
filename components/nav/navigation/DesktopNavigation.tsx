@@ -39,7 +39,7 @@ export default function DesktopNavigation() {
 
             <section className="mx-4 flex">
               {/* overview dropdown tab */}
-              <NavigationMenuItem>
+              <NavigationMenuItem className="hidden lg:!block ">
                 <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
 
                 {/* overview content dropdown */}
@@ -51,7 +51,7 @@ export default function DesktopNavigation() {
               </NavigationMenuItem>
 
               {/* product dropdown tab */}
-              <NavigationMenuItem>
+              <NavigationMenuItem className="hidden lg:!block ">
                 <NavigationMenuTrigger>Products</NavigationMenuTrigger>
 
                 {/* overview content dropdown */}
@@ -63,7 +63,7 @@ export default function DesktopNavigation() {
               </NavigationMenuItem>
 
               {/* solution dropdown tab */}
-              <NavigationMenuItem>
+              <NavigationMenuItem className="hidden lg:!block ">
                 <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
 
                 {/* solution dropdown content */}
@@ -77,7 +77,7 @@ export default function DesktopNavigation() {
               </NavigationMenuItem>
 
               {/* pricing tab */}
-              <NavigationMenuItem className="group inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-green-800/10 font-semibold">
+              <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-green-800/10 font-semibold hidden">
                 <Link href="/pricing">Pricing</Link>
               </NavigationMenuItem>
             </section>

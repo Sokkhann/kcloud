@@ -68,10 +68,10 @@ export default function ProductDropDown() {
   ];
 
   return (
-    <div className="top-full left-0 flex flex-col gap-4 px-4 md:px-0">
-      <div className="max-w-7xl mx-auto py-6 flex flex-col md:flex-row justify-between gap-8 text-[16px]">
+    <div className="max-w-7xl mx-auto  top-full left-0 flex flex-col gap-0 px-0 lg:px-4 lg:py-6 py-0">
+      <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-6 text-[16px]">
         {/* Featured Section */}
-        <section className="w-full md:max-w-[400px] bg-green-700/10 p-6 md:p-8 rounded-lg">
+        <section className="w-full lg:max-w-[400px] bg-green-700/10 p-6 rounded-lg">
           <p className="font-normal text-[12px] text-gray-500">
             Featured Products
           </p>
@@ -87,9 +87,9 @@ export default function ProductDropDown() {
         </section>
 
         {/* Product Categories */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 flex-1 h-fit mt-6 md:mt-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 flex-1 h-fit lg:mt-6 md:mt-0 mt-0">
           {productCategories.map((category, index) => (
-            <section key={index} className="w-full px-2 md:px-4">
+            <section key={index} className="w-full lg:px-2 px-0">
               <p className="font-semibold text-gray-700 inline-block relative group mb-2 ml-4">
                 {category.title}
               </p>
@@ -99,7 +99,7 @@ export default function ProductDropDown() {
                     <Link
                       href={`/products/${item.id}`}
                       key={i}
-                      className="block !text-base cursor-pointer px-4 py-2 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md"
+                      className="block !text-base cursor-pointer px-4 lg:py-2 py-0 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md"
                     >
                       {item.name}
                     </Link>
@@ -112,7 +112,7 @@ export default function ProductDropDown() {
       </div>
 
       {/* Footer link */}
-      <div className="text-center py-4">
+      <div className="text-center pt-12">
         <NavigationMenuLink asChild>
           <Link href={"/products"}>
             <p className="font-semibold text-green-900 inline-block relative group cursor-pointer select-none">

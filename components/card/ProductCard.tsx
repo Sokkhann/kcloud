@@ -15,7 +15,7 @@ export default function ProductCard({ logo, title, description, link }: ProductC
   const router = useRouter();
 
   return (
-    <div className="relative bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 text-center flex flex-col items-center w-72 p-6 pt-14">
+    <div className="relative bg-white rounded-2xl lg:shadow-md md:shadow-md shadow-sm transition-all duration-300 text-center flex flex-col items-center w-72 p-6 pt-14">
       {/* Floating Logo */}
       <div className="absolute -top-10 flex items-center justify-center bg-white rounded-full shadow-md w-20 h-20">
         <div className="flex items-center justify-center bg-green-900 rounded-full w-16 h-16 text-white">

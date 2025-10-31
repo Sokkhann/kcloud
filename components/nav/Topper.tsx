@@ -12,12 +12,12 @@ export default function TopNavBar() {
         </div>
 
         {/* Right side - Navigation links */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8 text-white gap-1 sm:gap-0 text-center sm:text-left">
+        <div className="hidden lg:flex md:flex flex-col sm:flex-row sm:items-center sm:space-x-8 text-white gap-1 sm:gap-0 text-center sm:text-left">
           <Link href={"/about-us"} className="hover:underline">
             About Us
           </Link>
           <Link href={"/contact-sale"} className="hover:underline">
-            Contact Sales
+            Contact Sale
           </Link>
         </div>
       </div>
