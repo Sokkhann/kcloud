@@ -46,7 +46,7 @@ export default function CustomerCarousel({ speed = 25 }) {
 
   return (
     <section
-      className="w-full overflow-hidden bg-blue-600"
+      className="w-full overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
