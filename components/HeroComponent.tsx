@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import ScrollReveal from "./animations/ScrolReveal";
 
 interface HeroProps {
   height?: string;
@@ -37,30 +38,35 @@ export default function HeroComponent({
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl  text-white">
-        <h1 className="xl:text-7xl md:text-5xl text-4xl font-bold mb-4">{title}</h1>
-        <p className="text-base md:text-lg mb-8 md:px-0 px-6">{description}</p>
+      <ScrollReveal>
+        <div className="relative z-10 max-w-7xl  text-white">
+          <h1 className="xl:text-7xl md:text-5xl text-4xl font-bold mb-4">
+            {title}
+          </h1>
+          <p className="text-base md:text-lg mb-8 md:px-0 px-6">
+            {description}
+          </p>
 
-        <div className="flex items-center justify-center gap-4">
-          {showGetStarted && (
-            <Link
-              href="/get-started"
-              className="text-white bg-green-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)]"
-            >
-              Get Started
-            </Link>
-
-          )}
-          {showContactSales && (
-            <Link
-              href="/contact-sale"
-              className="text-green-950 bg-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)]"
-            >
-              Contact Sales
-            </Link>
-          )}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+            {showGetStarted && (
+              <Link
+                href="/get-started"
+                className="text-white w-2/3 sm:w-auto bg-green-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] text-center"
+              >
+                Get Started
+              </Link>
+            )}
+            {showContactSales && (
+              <Link
+                href="/contact-sale"
+                className="text-green-950 w-2/3 sm:w-auto bg-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] text-center"
+              >
+                Contact Sales
+              </Link>
+            )}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

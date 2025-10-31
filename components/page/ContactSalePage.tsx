@@ -19,7 +19,7 @@ export default function ContactSalePage() {
       <div className="p-30">
         <ContactUsCard />
 
-        <div className="pt-30">
+        <div className="pt-30 max-w-7xl mx-auto">
           <GetStartedCard/>
         </div>
       </div>

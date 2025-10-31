@@ -3,17 +3,18 @@ import { problemSolutionCards } from "@/data/productDetail";
 import React from "react";
 
 export default function ProblemSolutionSection() {
-
   const cards = problemSolutionCards;
-  
+
   return (
     <div className="max-w-7xl mx-auto py-24">
-      <div className="text-center my-16">
-        <p className="text-4xl font-bold text-gray-700">Problem & Solution</p>
+      <div className="text-center my-16  mx-4 lg:mx-0 md:mx-0">
+        <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
+          Problem & Solution
+        </p>
         <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
           Eliminate the cost and rigidity of proprietary hardware appliances.
-          Our separates the network function from the box, allowing
-          you to deploy instantly on any cloud or NFVI.
+          Our separates the network function from the box, allowing you to
+          deploy instantly on any cloud or NFVI.
         </p>
       </div>
 

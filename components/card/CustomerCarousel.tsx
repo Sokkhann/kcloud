@@ -1,59 +1,74 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
+import { useMediaQuery } from "react-responsive";
 import CustomerCard from "./CustomerCard";
 import { customerFeedback } from "@/data/customerFeedback";
 
 export default function CustomerCarousel({ speed = 25 }) {
   const controls = useAnimation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Duplicate multiple times for smooth infinite effect
-  const duplicated = [...customerFeedback, ...customerFeedback];
+  // Duplicate cards multiple times for smooth infinite loop
+  const duplicated = customerFeedback;
 
+  // Infinite scroll animation for desktop
   useEffect(() => {
-    controls.start({
-      x: ["0%", "-50%"], // move full width of first 2 sets (since we have 3 copies)
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: speed,
-          ease: "linear",
+    if (!isMobile && !isHovered) {
+      controls.start({
+        x: ["0%", "-50%"],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: speed,
+            ease: "linear",
+          },
         },
-      },
-    });
-  }, [controls, speed]);
+      });
+    } else {
+      controls.stop();
+    }
+  }, [controls, speed, isMobile, isHovered]);
 
-  const handleMouseEnter = () => controls.stop();
-  const handleMouseLeave = () => {
-    controls.start({
-      x: ["0%", "-66.66%"],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: speed,
-          ease: "linear",
-        },
-      },
-    });
-  };
+  // Center carousel start for both desktop & mobile
+  useEffect(() => {
+    if (containerRef.current) {
+      const container = containerRef.current;
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      container.scrollLeft = (scrollWidth - clientWidth) / 2;
+    }
+  }, [isMobile]);
 
   return (
-    <section className="w-screen overflow-hidden bg-transparent">
+    <section
+      className="w-full overflow-hidden bg-blue-600"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div
-        className="w-full flex items-center"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        ref={containerRef}
+        className="w-full flex items-center overflow-x-hidden"
       >
         <motion.div
-          animate={controls}
-          className="flex gap-6 whitespace-nowrap py-6"
+          className="flex gap-6 whitespace-nowrap py-6 cursor-grab"
           style={{ willChange: "transform" }}
+          animate={controls}
+          drag={isMobile}             // Enable drag only on mobile
+          dragConstraints={{ left: 0, right: 0 }} // Allow free horizontal drag
+          dragElastic={0.1}           // Slight resistance for smooth feel
         >
           {duplicated.map((c, i) => (
-            <CustomerCard key={i} description={c.description} title={c.title} logo={c.logo}/>
+            <CustomerCard
+              key={i}
+              description={c.description}
+              title={c.title}
+              logo={c.logo}
+            />
           ))}
         </motion.div>
       </div>
