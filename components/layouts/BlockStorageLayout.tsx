@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-interface StoragePrice {
+export interface StoragePrice {
   value: string;
   label: string;
   pricePerHour: string;
@@ -61,6 +61,8 @@ export default function BlockStorageLayout() {
         "Protect your assets with mandatory AES-256 encryption for data both at rest and in transit. Control access with granular IAM policies, ensuring complete security and helping you meet compliance requirements.",
     },
   ];
+
+  
 
   const blockStoragePricing: StoragePrice[] = [
     {
