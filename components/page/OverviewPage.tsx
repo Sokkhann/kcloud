@@ -29,7 +29,7 @@ export default function OverviewPage() {
             className="mb-24 max-w-7xl mx-auto px-4 py-32 text-center"
           >
             {/* title and description */}
-            <div className="my-12 px-4 sm:px-6 lg:px-0">
+            <div className="my-12 px-4 sm:px-6 lg:px-0 mx-24">
               <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700">
                 See Our Products & Services
               </p>
@@ -50,8 +50,8 @@ export default function OverviewPage() {
           <ScrollReveal>
             <div className="max-w-7xl mx-auto mb-24">
               {/* title and description */}
-              <div className="my-12 text-center">
-                <p className="text-5xl font-bold text-gray-700">
+              <div className="my-12 text-center mx-24">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700">
                   Solution for Modern Agribusiness Systems
                 </p>
                 <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -73,8 +73,8 @@ export default function OverviewPage() {
           <ScrollReveal>
             <div className="max-w-7xl mx-auto mb-24">
               {/* title and description */}
-              <div className="my-12 text-center">
-                <p className="text-5xl font-bold text-gray-700">
+              <div className="my-12 text-center mx-24">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700">
                   Why GCX Cloud?
                 </p>
                 <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -92,12 +92,12 @@ export default function OverviewPage() {
         </section>
 
         {/* What makes us Different Section */}
-        <section id="what-make-us-different" className="px-4 py-16 bg-white">
+        <section id="what-make-us-different" className="lg:py-64 py-24 bg-white">
           <ScrollReveal>
             <div className="max-w-7xl mx-auto mb-24">
               {/* title and description */}
-              <div className="my-12 text-center">
-                <p className="text-5xl font-bold text-gray-700">
+              <div className="my-12 text-center mx-24">
+                <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700 lg:mx-0 mx-12">
                   What makas us different
                 </p>
                 <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -115,26 +115,24 @@ export default function OverviewPage() {
         </section>
 
         {/* Customer Testimonials Section */}
-        <div className="px-4 py-16 my-32">
-          <ScrollReveal>
-            <div>
-              <div className="max-w-7xl mx-auto mb-24">
-                {/* title and description */}
-                <div className="my-12 text-center justify-center">
-                  <p className="text-5xl font-bold text-gray-700">
-                    Customer Testimonials
-                  </p>
-                  <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
-                    Real stories. Real results. Our customers share how GCX
-                    helped them simplify operations and grwo faster. Discover
-                    why businesses around the world choose GCX every day.
-                  </p>
-                </div>
-              </div>
-
-              {/* Customer section */}
-              <CustomerCarousel />
+        <div className="mx-12 lg:my-64 my-24">
+          <div className="max-w-7xl mx-auto lg:mb-24">
+            {/* title and description */}
+            <div className="my-12 text-center justify-center lg:mx-0 mx-12">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700">
+                Customer Testimonials
+              </p>
+              <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+                Real stories. Real results. Our customers share how GCX helped
+                them simplify operations and grow faster. Discover why
+                businesses around the world choose GCX every day.
+              </p>
             </div>
+          </div>
+
+          {/* Customer section */}
+          <ScrollReveal>
+            <CustomerCarousel />
           </ScrollReveal>
         </div>
 
