@@ -6,6 +6,10 @@ import SnapshotLayout from "@/components/layouts/SnapshotLayout";
 import TemplateLayout from "@/components/layouts/TemplateLayout";
 import VirtualMachineDetailLayout from "@/components/layouts/VirtualMachineDetailLayout";
 import VNFDetailLayout from "@/components/layouts/VNFDetailLayout";
+import ISODetailLayout from "@/components/layouts/ISODetailLayout";
+import NetworkDetailLayout from "@/components/layouts/NetworkDetailLayout";
+import LoadBalancerDetailLayout from "@/components/layouts/LoadBalancerDetailLayout";
+import DNSDetailLayout from "@/components/layouts/DNSDetailLayout";
 
 export interface Products {
   slug: string;
@@ -24,7 +28,7 @@ export const productDetailLayout: productDetailLayout[] = [
   {
     slug: "virtual-machine",
     title: "Virtual Machine",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
+    desc: "Choosing your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
     layout: VirtualMachineDetailLayout,
   },
   {
@@ -72,25 +76,25 @@ export const productDetailLayout: productDetailLayout[] = [
   {
     slug: "iso",
     title: "ISOs",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: KubernetesDetailLayout,
+    desc: "ISO Images let you package an entire operating system or custom toolset into a single file. GCX's ISO support helps you spin up VMs with your own OS, install new systems, or perform disaster recovery without rebuilding from scratch.",
+    layout: ISODetailLayout,
   },
   {
     slug: "network",
     title: "Network",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: VirtualMachineDetailLayout,
+    desc: "Build resilient, secure and scalable cloud networks with public networks, virtual networks, virtual routers, security groups, IP management and VPN connectivity. From simple setups to complex multi-subnet architectures.",
+    layout: NetworkDetailLayout,
   },
   {
     slug: "load-balancer",
     title: "Load Balancer",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: KubernetesDetailLayout,
+    desc: "Keep cloud applications fast and resilient with enterprise-grade traffic distribution. High availability, flexible billing, sticky sessions and smart algorithms. From simple web apps to multi-tier microservices.",
+    layout: LoadBalancerDetailLayout,
   },
   {
     slug: "dns",
     title: "DNS",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: VirtualMachineDetailLayout,
+    desc: "The hassle-free way to manage your domains in the cloud. Easy domain creation, support for all record types, and built-in examples. Manage multiple projects with robust infrastructure and clear documentation.",
+    layout: DNSDetailLayout,
   },
 ];
