@@ -28,10 +28,18 @@ export default function Footer() {
             <li className="hover:underline cursor-pointer">Snapshots</li>
             <li className="hover:underline cursor-pointer">Backups</li>
             <li className="hover:underline cursor-pointer">Templates</li>
-            <li className="hover:underline cursor-pointer">ISOs</li>
-            <li className="hover:underline cursor-pointer">Networks</li>
-            <li className="hover:underline cursor-pointer">Load Balancers</li>
-            <li className="hover:underline cursor-pointer">DNS</li>
+            <Link href="/products/iso">
+              <li className="hover:underline cursor-pointer">ISOs</li>
+            </Link>
+            <Link href="/products/network">
+              <li className="hover:underline cursor-pointer">Networks</li>
+            </Link>
+            <Link href="/products/load-balancer">
+              <li className="hover:underline cursor-pointer">Load Balancers</li>
+            </Link>
+            <Link href="/products/dns">
+              <li className="hover:underline cursor-pointer">DNS</li>
+            </Link>
           </ul>
         </div>
 
