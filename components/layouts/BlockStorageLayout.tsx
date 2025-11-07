@@ -105,11 +105,11 @@ export default function BlockStorageLayout() {
   return (
     <div className=" bg-gray-100">
       <div className="max-w-7xl mx-auto ">
-        <div className="text-center xl:pt-24 pt-16 ">
+        <div className="md:text-center xl:pt-24 pt-12 xl:px-0 px-6 ">
           <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700 ">
             Core Functions
           </p>
-          <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2  px-6">
+          <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2 ">
             GCX block storage delivers high-performance, low-latency persistent
             block storage designed to be the foundational engine for your most
             demanding workloads. This capability is essential for:
@@ -117,7 +117,7 @@ export default function BlockStorageLayout() {
         </div>
 
         {/* feature card section */}
-        <div className="flex flex-col xl:flex-row gap-6 justify-center items-stretch xl:py-12 py-8">
+        <div className="flex flex-col xl:flex-row gap-6 justify-center items-stretch xl:pt-12 pt-8">
           {cards.map((card, index) => (
             <div key={index} className="flex-1 xl:px-0 px-6">
               <FeaturedCard
@@ -132,11 +132,11 @@ export default function BlockStorageLayout() {
 
       <div className="">
         <div className="max-w-7xl mx-auto ">
-          <div className="text-center xl:pt-24 pt-16">
-            <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700 text-wrap px-6">
+          <div className="md:text-center xl:pt-24 pt-8 xl:px-0 px-6 ">
+            <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700 text-wrap ">
               Scalable, Reliable, and Secure Data Access
             </p>
-            <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2 xl:px-0 px-6 ">
+            <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2">
               Our block storage is engineered for the three pillars of modern
               cloud computing:
             </p>

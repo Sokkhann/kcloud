@@ -30,15 +30,15 @@ export default function SnapshotLayout() {
   return (
     <div className=" bg-gray-100">
       <div className="max-w-7xl mx-auto ">
-        <div className="text-center xl:pt-24 pt-16">
+        <div className="md:text-center xl:pt-24 pt-12 xl:px-0 px-6">
           <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700">
             Snap, Restore, Protect
           </p>
-          <p className="md:text-lg text text-gray-600 mt-4 max-w-5xl mx-auto">
+          <p className="md:text-lg text text-gray-600 mt-4 max-w-5xl mx-auto  ">
             Protect your virtual machines instantly by capturing their full
             state configuration, data, and settings and restore them in seconds
             whenever needed. Snapshots make managing your VMs effortless,
-            ensuring your workloads are safe, organized, and always ready.
+           
           </p>
         </div>
 

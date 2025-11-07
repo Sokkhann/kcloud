@@ -28,7 +28,9 @@ export default function ProductDetailPage({ slug }: ProductDetailProps) {
         />
       </div>
 
-      <LayoutComponent product={product}/>
+      <div className=" pt-10">
+        <LayoutComponent product={product} />
+      </div>
     </div>
   );
 }

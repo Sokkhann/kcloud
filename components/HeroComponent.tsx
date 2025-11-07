@@ -43,11 +43,11 @@ export default function HeroComponent({
           <h1 className="xl:text-7xl md:text-5xl text-4xl font-bold mb-4">
             {title}
           </h1>
-          <p className="text-base md:text-lg mb-8 md:px-0 px-6">
+          <p className="text-base md:text-lg mb-8 px-6 ">
             {description}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4">
+          <div className="flex items-center justify-center md:gap-4  gap-2 mt-4 px-6">
             {showGetStarted && (
               <Link
                 href="/get-started"
