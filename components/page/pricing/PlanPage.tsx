@@ -5,8 +5,6 @@ import HeroComponent from "@/components/HeroComponent";
 import { DataTable } from "./price-table/VMTable";
 import { columns, PricingPlan } from "./price-table/VMColumn";
 
-
-
 export type Payment = {
   id: string;
   amount: number;
@@ -84,8 +82,8 @@ export default function PlanPage() {
         title="Virtual Machine"
         description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
       />
-      <div className="min-h-screen py-16">
-        <div className="max-w-7xl mx-auto space-y-8">
+      <div>
+        <div className="max-w-7xl mx-auto space-y-12">
           {/* {selectedProduct?.plans?.map((item) => (
             <PricingCard
               key={item.id}
@@ -98,9 +96,11 @@ export default function PlanPage() {
             />
           ))} */}
 
-          <div>
-            <p className="text-3xl font-semibold">Virtual Machine</p>
-            <p>
+          <div className="pt-26 px-6">
+            <p className=" xl:text-3xl text-2xl font-semibold mb-2">
+              Virtual Machine
+            </p>
+            <p className="md:text-lg text-base">
               Experience the power, flexibility, and reliability of our
               cutting-edge Virtual Machines (VMs). Designed for developers,
               startups, and enterprises, our VMs allow you to run applications,
@@ -110,17 +110,21 @@ export default function PlanPage() {
           </div>
 
           {/* Basic VM */}
-          <div>
-            <p className="text-2xl font-semibold">Basic Virtual Machine</p>
-            <p>
+          <div className="px-6">
+            <p className="xl:text-2xl text-xl font-semibold mb-2">
+              Basic Virtual Machine
+            </p>
+            <p className="md:text-lg text-base">
               Experience the power, flexibility, and reliability of our
               cutting-edge Virtual Machines (VMs). Designed for developers,
               startups, and enterprises, our VMs allow you to run applications,
               host websites, perform testing, or manage workloads in a secure
               and scalable cloud environment.
             </p>
+          </div>
 
-            <div className="mt-6 flex gap-4 items-center">
+          <div className="px-6 space-y-6">
+            <div className="mt-6 flex gap-4 items-center ">
               <p className="font-bold text-gcxPrimary">CPU Options</p>
               {tabs.map((tab) => (
                 <button
@@ -137,25 +141,35 @@ export default function PlanPage() {
                 </button>
               ))}
             </div>
-          </div>
-          {/* Tab content */}
-          <div>
-            {activeTab === "Regular" && (
-              <DataTable columns={columns} data={data} />
-            )}
-            {activeTab === "Premium" && (
-              <DataTable columns={columns} data={data} />
-            )}
+            {/* Tab content */}
+            <div>
+              {activeTab === "Regular" && (
+                <DataTable columns={columns} data={data} />
+              )}
+              {activeTab === "Premium" && (
+                <DataTable columns={columns} data={data} />
+              )}
+            </div>
           </div>
 
           {/* Basic VM */}
-          <div>
-            <p className="text-2xl font-semibold">CPU-Optimized Virtual Machine</p>
-            <p>
-              Maximize your computing power with our CPU-Optimized Virtual Machines — designed for workloads that demand high processing performance and low latency. Perfect for applications such as data analytics, high-performance computing (HPC), software compilation, machine learning inference, or real-time simulations, these VMs give you the processing capability you need without compromise.
+          <div className="px-6">
+            <p className="xl:text-2xl text-xl font-semibold mb-2">
+              CPU-Optimized Virtual Machine
             </p>
+            <p className="md:text-lg text-base">
+              Maximize your computing power with our CPU-Optimized Virtual
+              Machines — designed for workloads that demand high processing
+              performance and low latency. Perfect for applications such as data
+              analytics, high-performance computing (HPC), software compilation,
+              machine learning inference, or real-time simulations, these VMs
+              give you the processing capability you need without compromise.
+            </p>
+          </div>
 
-            <div className="mt-6 flex gap-4 items-center">
+          
+          <div className="px-6 space-y-6 mb-16">
+            <div className="mt-6 flex gap-4 items-center ">
               <p className="font-bold text-gcxPrimary">CPU Options</p>
               {tabs.map((tab) => (
                 <button
@@ -172,15 +186,15 @@ export default function PlanPage() {
                 </button>
               ))}
             </div>
-          </div>
-          {/* Tab content */}
-          <div>
-            {activeTab === "Regular" && (
-              <DataTable columns={columns} data={data} />
-            )}
-            {activeTab === "Premium" && (
-              <DataTable columns={columns} data={data} />
-            )}
+            {/* Tab content */}
+            <div>
+              {activeTab === "Regular" && (
+                <DataTable columns={columns} data={data} />
+              )}
+              {activeTab === "Premium" && (
+                <DataTable columns={columns} data={data} />
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -115,100 +115,110 @@ export default function ProductPage() {
         description="Always know what you’ll pay with monthly caps and flat pricing"
       />
 
-      <div className="m-36 max-w-7xl mx-auto">
-        {/* title and description */}
-        <div className="my-12 text-center">
-          <p className="text-5xl font-bold text-gray-700 ">Compute</p>
-          <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
-            Bringing your business to the next level with our innovative
-            solutions designed to enhance performance, efficiency, and long-term
-            growth.
-          </p>
-        </div>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
-          {computeProducts.map((product, index) => (
-            <ProductCard
-              key={index}
-              logo={product.logo}
-              title={product.title}
-              description={product.desc}
-            />
-          ))}
-        </div>
-      </div>
+      <div className="mt-10 space-y-16">
 
-      <div className="m-36 max-w-7xl mx-auto">
-        {/* title and description */}
-        <div className="my-12 text-center">
-          <p className="text-5xl font-bold text-gray-700 ">
-            Storage & Data Protection
-          </p>
-          <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
-            Bringing your business to the next level with our innovative
-            solutions designed to enhance performance, efficiency, and long-term
-            growth.
-          </p>
+        <div className="pt-16 max-w-7xl mx-auto">
+          {/* title and description */}
+          <div className="text-center px-6">
+            <p className="xl:text-5xl md:text-4xl text-3xl font-bold text-gray-700 ">
+              Compute
+            </p>
+            <p className="lg:text-lg text-base text-gray-600 mt-4 max-w-2xl mx-auto">
+              Bringing your business to the next level with our innovative
+              solutions designed to enhance performance, efficiency, and
+              long-term growth.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+            {computeProducts.map((product, index) => (
+              <ProductCard
+                key={index}
+                logo={product.logo}
+                title={product.title}
+                description={product.desc}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
-          {storageProduct.map((product, index) => (
-            <ProductCard
-              key={index}
-              logo={product.logo}
-              title={product.title}
-              description={product.desc}
-            />
-          ))}
-        </div>
-      </div>
 
-      <div className="m-36 max-w-7xl mx-auto">
-        {/* title and description */}
-        <div className="my-12 text-center">
-          <p className="text-5xl font-bold text-gray-700 ">Networking</p>
-          <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
-            Bringing your business to the next level with our innovative
-            solutions designed to enhance performance, efficiency, and long-term
-            growth.
-          </p>
+        <div className=" max-w-7xl mx-auto">
+          {/* title and description */}
+          <div className="text-center px-6">
+            <p className="xl:text-5xl md:text-4xl text-3xl font-bold text-gray-700 ">
+              Storage & Data Protection
+            </p>
+            <p className="lg:text-lg text-base text-gray-600 mt-4 max-w-2xl mx-auto">
+              Bringing your business to the next level with our innovative
+              solutions designed to enhance performance, efficiency, and
+              long-term growth.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+            {storageProduct.map((product, index) => (
+              <ProductCard
+                key={index}
+                logo={product.logo}
+                title={product.title}
+                description={product.desc}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
-          {networkingProduct.map((product, index) => (
-            <ProductCard
-              key={index}
-              logo={product.logo}
-              title={product.title}
-              description={product.desc}
-            />
-          ))}
-        </div>
-      </div>
 
-      <div className="mt-36 mb-36">
-        {/* title and description */}
-        <div className="my-12 text-center">
-          <p className="text-5xl font-bold text-gray-700 ">
-            Policy & Placement
-          </p>
-          <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
-            Bringing your business to the next level with our innovative
-            solutions designed to enhance performance, efficiency, and long-term
-            growth.
-          </p>
+        <div className=" max-w-7xl mx-auto">
+          {/* title and description */}
+          <div className="text-center px-6">
+            <p className="xl:text-5xl md:text-4xl text-3xl font-bold text-gray-700 ">
+              Networking
+            </p>
+            <p className="lg:text-lg text-base text-gray-600 mt-4 max-w-2xl mx-auto">
+              Bringing your business to the next level with our innovative
+              solutions designed to enhance performance, efficiency, and
+              long-term growth.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+            {networkingProduct.map((product, index) => (
+              <ProductCard
+                key={index}
+                logo={product.logo}
+                title={product.title}
+                description={product.desc}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
-          {policyProduct.map((product, index) => (
-            <ProductCard
-              key={index}
-              logo={product.logo}
-              title={product.title}
-              description={product.desc}
-            />
-          ))}
-        </div>
-      </div>
 
-      <div className="max-w-7xl mx-auto pb-36">
-        <GetStartedCard />
+        <div className=" mb-16">
+          {/* title and description */}
+          <div className="text-center px-6">
+            <p className="xl:text-5xl md:text-4xl text-3xl font-bold text-gray-700 ">
+              Policy & Placement
+            </p>
+            <p className="lg:text-lg text-base text-gray-600 mt-4 max-w-2xl mx-auto">
+              Bringing your business to the next level with our innovative
+              solutions designed to enhance performance, efficiency, and
+              long-term growth.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+            {policyProduct.map((product, index) => (
+              <ProductCard
+                key={index}
+                logo={product.logo}
+                title={product.title}
+                description={product.desc}
+              />
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto pb-16 px-6">
+          <GetStartedCard />
+        </div>
+
+
+
       </div>
     </div>
   );

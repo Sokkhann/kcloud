@@ -17,11 +17,11 @@ export default function PricingPage() {
         description="No hidden fees. No confusion. Just clear pricing that helps you move faster, achieve more, and focus on what truly matters — your success."
       />
 
-      <div className="mb-24 max-w-7xl mx-auto ">
-        <div className="px-4 py-16 text-center">
+      <div className="mt-26 max-w-7xl mx-auto space-y-16">
+        <div className=" text-center">
           {/* title and description */}
-          <div className="my-12">
-            <p className="text-5xl font-bold text-gray-700">Product Package</p>
+          <div className="px-6 md:text-center text-left">
+            <p className="xl:text-5xl md:text-4xl text-3xl font-bold text-gray-700">Product Package</p>
             <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
               Our pricing is built to match your momentum. From startups to
               enterprises, get the performance, features, and support you need —
@@ -30,7 +30,7 @@ export default function PricingPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
           {pricingData.map((item) => (
             <PricingCard
               key={item.id}
@@ -43,7 +43,7 @@ export default function PricingPage() {
           ))}
         </div>
 
-        <div className="my-32">
+        <div className="px-6 pb-16">
           <GetStartedCard />
         </div>
       </div>
