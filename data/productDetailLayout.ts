@@ -10,6 +10,7 @@ import ISODetailLayout from "@/components/layouts/ISODetailLayout";
 import NetworkDetailLayout from "@/components/layouts/NetworkDetailLayout";
 import LoadBalancerDetailLayout from "@/components/layouts/LoadBalancerDetailLayout";
 import DNSDetailLayout from "@/components/layouts/DNSDetailLayout";
+import AffinityGroupLayout from "@/components/layouts/AffinityGroupLayout";
 
 export interface Products {
   slug: string;
@@ -96,5 +97,11 @@ export const productDetailLayout: productDetailLayout[] = [
     title: "DNS",
     desc: "The hassle-free way to manage your domains in the cloud. Easy domain creation, support for all record types, and built-in examples. Manage multiple projects with robust infrastructure and clear documentation.",
     layout: DNSDetailLayout,
+  },
+  {
+    slug: "affinity-group",
+    title: "Affinity Group ",
+    desc: "Affinity Groups give you the power to define exactly where your Virtual Machines (VMs) are placed on our hypervisor hosts, transforming uncertainty into guaranteed performance and resilience.",
+    layout: AffinityGroupLayout,
   },
 ];
