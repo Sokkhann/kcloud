@@ -5,12 +5,22 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
-      <div className="max-w-[1400px] mx-auto px-6 py-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 text-gray-700">
+      {/* Top Section */}
+      <div
+        className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10 
+                  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 
+                  gap-8 text-gray-700"
+      >
         {/* Company Section */}
         <div>
-          <h3 className="font-bold mb-4 text-gray-900">Company</h3>
-          <ul className="space-y-2">
-            <Link href="/about-us" className="hover:underline cursor-pointer">
+          <h3 className="font-bold mb-4 text-gray-900 text-base sm:text-lg">
+            Company
+          </h3>
+          <ul className="space-y-2 text-sm sm:text-base">
+            <Link
+              href="/about-us"
+              className="hover:underline cursor-pointer block"
+            >
               About Us
             </Link>
             <li className="hover:underline cursor-pointer">Customers</li>
@@ -19,8 +29,10 @@ export default function Footer() {
 
         {/* Products Section */}
         <div>
-          <h3 className="font-bold mb-4 text-gray-900">Products</h3>
-          <ul className="space-y-2">
+          <h3 className="font-bold mb-4 text-gray-900 text-base sm:text-lg">
+            Products
+          </h3>
+          <ul className="space-y-2 text-sm sm:text-base">
             <li className="hover:underline cursor-pointer">Virtual Machines</li>
             <li className="hover:underline cursor-pointer">VNF Appliances</li>
             <li className="hover:underline cursor-pointer">Kubernetes</li>
@@ -45,8 +57,10 @@ export default function Footer() {
 
         {/* Solutions Section */}
         <div>
-          <h3 className="font-bold mb-4 text-gray-900">Solutions</h3>
-          <ul className="space-y-2">
+          <h3 className="font-bold mb-4 text-gray-900 text-base sm:text-lg">
+            Solutions
+          </h3>
+          <ul className="space-y-2 text-sm sm:text-base">
             <li className="hover:underline cursor-pointer">Online Education</li>
             <li className="hover:underline cursor-pointer">Audio & Video</li>
             <li className="hover:underline cursor-pointer">Game Solution</li>
@@ -58,17 +72,24 @@ export default function Footer() {
 
         {/* Resources Section */}
         <div>
-          <h3 className="font-bold mb-4 text-gray-900">Resources</h3>
-          <ul className="space-y-2">
+          <h3 className="font-bold mb-4 text-gray-900 text-base sm:text-lg">
+            Resources
+          </h3>
+          <ul className="space-y-2 text-sm sm:text-base">
             <li className="hover:underline cursor-pointer">Pricing</li>
           </ul>
         </div>
 
         {/* Contact Section */}
         <div>
-          <h3 className="font-bold mb-4 text-gray-900">Contact</h3>
-          <ul className="space-y-2">
-            <Link href="/contact-us" className="hover:underline cursor-pointer">
+          <h3 className="font-bold mb-4 text-gray-900 text-base sm:text-lg">
+            Contact
+          </h3>
+          <ul className="space-y-2 text-sm sm:text-base">
+            <Link
+              href="/contact-us"
+              className="hover:underline cursor-pointer block"
+            >
               Contact Us
             </Link>
           </ul>
@@ -77,9 +98,12 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-200 mt-8">
-        <div className="max-w-[1400px] mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div
+          className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 
+                    flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left"
+        >
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center sm:justify-start gap-2">
             <Image
               src="/gcx-logo.png"
               alt="GCX Logo"
@@ -90,18 +114,18 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-gray-500 text-sm text-center sm:text-left">
+          <p className="text-gray-500 text-xs sm:text-sm">
             © 2025 GCX. All rights reserved.
           </p>
 
           {/* Socials */}
-          <div className="flex gap-4">
+          <div className="flex justify-center sm:justify-end gap-4">
             <a
               href="#"
               className="text-gray-600 hover:text-green-600 transition"
               aria-label="Facebook"
             >
-              <Facebook strokeWidth={1.25} />
+              <Facebook strokeWidth={1.25} size={20} />
             </a>
           </div>
         </div>

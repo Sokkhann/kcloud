@@ -11,28 +11,41 @@ interface ProductCardProps {
   link?: string; // optional custom route
 }
 
-export default function ProductCard({ logo, title, description, link }: ProductCardProps) {
+export default function ProductCard({
+  logo,
+  title,
+  description,
+  link,
+}: ProductCardProps) {
   const router = useRouter();
 
   return (
-    <div className="relative bg-white rounded-2xl lg:shadow-md md:shadow-md shadow-sm transition-all duration-300 text-center flex flex-col items-center w-72 p-6 pt-14">
+    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 pt-14 flex-wrap h-full">
       {/* Floating Logo */}
       <div className="absolute -top-10 flex items-center justify-center bg-white rounded-full shadow-md w-20 h-20">
-        <div className="flex items-center justify-center bg-green-900 rounded-full w-16 h-16 text-white">
+        <div className="flex items-center justify-center bg-gcxprimary rounded-full w-16 h-16 text-white">
           {logo}
         </div>
       </div>
 
       {/* Title */}
-      <p className="text-lg font-semibold text-gray-800 mt-4">{title}</p>
+      <p className="text-lg font-semibold text-gray-800 mt-4">
+        {title}
+      </p>
 
       {/* Description */}
-      <p className="text-gray-600 text-sm mt-2 mb-6 px-2">{description}</p>
+      <p className="text-gray-600 mt-2 mb-6 px-2 sm:px-4">
+        {description}
+      </p>
 
       {/* Button */}
       <button
-        onClick={() => router.push(link || `/products/${title.toLowerCase().replace(/\s+/g, "-")}`)}
-        className="mt-auto flex items-center justify-center gap-2 px-4 py-2 border border-green-700 text-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all"
+        onClick={() =>
+          router.push(
+            link || `/products/${title.toLowerCase().replace(/\s+/g, "-")}`
+          )
+        }
+        className="mt-auto flex items-center justify-center gap-2 px-4 py-2 border border-gcxprimary text-gcxprimary rounded-full hover:bg-gcxprimary hover:text-white transition-all text-sm sm:text-base w-full sm:w-auto"
       >
         Learn More
         <ArrowRight size={16} />
