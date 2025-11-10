@@ -5,14 +5,6 @@ import GetStartedCard from "../card/GetStartedCard";
 import { Building, Cloud, Shield, Zap } from "lucide-react";
 import BenefitListCard from "../card/BenefitListCard";
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-
 export interface StoragePrice {
   value: string;
   label: string;
@@ -42,6 +34,7 @@ export default function AffinityGroupLayout() {
     },
 
   ];
+  
   const features = [
     {
       icon: <Cloud size={22} />,
@@ -69,44 +62,7 @@ export default function AffinityGroupLayout() {
     },
   ];
 
-  const blockStoragePricing: StoragePrice[] = [
-    {
-      value: "1gb",
-      label: "Storage 1 GiB",
-      pricePerHour: "0.01",
-      pricePerMonth: "0.10",
-    },
-    {
-      value: "10gb",
-      label: "Storage 10 GiB",
-      pricePerHour: "0.09",
-      pricePerMonth: "0.90",
-    },
-    {
-      value: "100gb",
-      label: "Storage 100 GiB",
-      pricePerHour: "0.75",
-      pricePerMonth: "7.50",
-    },
-    {
-      value: "1tb",
-      label: "Storage 1 TB",
-      pricePerHour: "6.50",
-      pricePerMonth: "65.00",
-    },
-  ];
-
-  const [selectedPrice, setSelectedPrice] = useState(blockStoragePricing[0]);
-
-  const handleStorageChange = (storageValue: string) => {
-    const newPrice = blockStoragePricing.find(
-      (item) => item.value === storageValue
-    );
-    if (newPrice) {
-      setSelectedPrice(newPrice);
-    }
-  };
-
+ 
   return (
     <div className=" bg-gray-100">
       <div className="">
@@ -118,7 +74,7 @@ export default function AffinityGroupLayout() {
             <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2 ">
               Our Affinity Group service allows you to strategically define
               relationships between your VMs, ensuring your infrastructure meets
-              your application's unique needs.
+              your application&aposs unique needs.
             </p>
           </div>
 
