@@ -21,13 +21,27 @@ export default function Footer() {
         <div>
           <h3 className="font-bold mb-4 text-gray-900">Products</h3>
           <ul className="space-y-2">
-            <li className="hover:underline cursor-pointer">Virtual Machines</li>
-            <li className="hover:underline cursor-pointer">VNF Appliances</li>
-            <li className="hover:underline cursor-pointer">Kubernetes</li>
-            <li className="hover:underline cursor-pointer">Apps</li>
-            <li className="hover:underline cursor-pointer">Snapshots</li>
-            <li className="hover:underline cursor-pointer">Backups</li>
-            <li className="hover:underline cursor-pointer">Templates</li>
+            <Link href="/products/virtual-machine">
+              <li className="hover:underline cursor-pointer">Virtual Machines</li>
+            </Link>
+            <Link href="/products/vnf-appliance">
+              <li className="hover:underline cursor-pointer">VNF Appliances</li>
+            </Link>
+            <Link href="/products/kubernetes">
+              <li className="hover:underline cursor-pointer">Kubernetes</li>
+            </Link>
+            <Link href="/products/app">
+              <li className="hover:underline cursor-pointer">Apps</li>
+            </Link>
+            <Link href="/products/snapshot">
+              <li className="hover:underline cursor-pointer">Snapshots</li>
+            </Link>
+            <Link href="/products/backup">
+              <li className="hover:underline cursor-pointer">Backups</li>
+            </Link>
+            <Link href="/products/template">
+              <li className="hover:underline cursor-pointer">Templates</li>
+            </Link>
             <Link href="/products/iso">
               <li className="hover:underline cursor-pointer">ISOs</li>
             </Link>
@@ -60,7 +74,9 @@ export default function Footer() {
         <div>
           <h3 className="font-bold mb-4 text-gray-900">Resources</h3>
           <ul className="space-y-2">
-            <li className="hover:underline cursor-pointer">Pricing</li>
+            <Link href="/pricing">
+              <li className="hover:underline cursor-pointer">Pricing</li>
+            </Link>
           </ul>
         </div>
 

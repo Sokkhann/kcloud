@@ -15,21 +15,21 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
       description:
         "Logically isolated environments with internet-facing IPs and clear traffic control.",
       bgColor: "bg-green-200",
-      image: "/public-network.png",
+      image: "/public-network.jpg",
     },
     {
       title: "Virtual Networks",
       description:
         "Fully isolated virtual networks for private cloud segments with custom CIDR and DNS.",
       bgColor: "bg-green-600",
-      image: "/virtual-network.png"
+      image: "/virtual-networks.jpg"
     },
     {
       title: "Virtual Routers",
       description:
         "Software routers connecting multiple subnets with NAT, routing and firewall services.",
       bgColor: "bg-green-300",
-      image: "/virtual-router.png"
+      image: "/virtual-router.jpg"
     },
   ];
 

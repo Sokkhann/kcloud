@@ -23,21 +23,21 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
       title: "Easy Domain Creation",
       description:
         "Add a new domain in a few clicks—just choose your project and enter your domain name.",
-      image: "/easy-domain-creation.png"
+      image: "/easy-domain-creation.jpg"
     },
     {
       icon: <FileText className="w-20 h-20 text-green-800" />,
       title: "All the Records You Need",
       description:
         "Support for A, AAAA, CNAME, MX, TXT, NS, SRV and SOA records for complete DNS management.",
-      image: "/all-the-records-you-need.png"
+      image: "/all-the-records-you-need.jpg"
     },
     {
       icon: <CheckCircle className="w-20 h-20 text-green-800" />,
       title: "Clear Examples",
       description:
         "Each record type comes with example values and TTL defaults to help you get up and running quickly.",
-      image: "/clear-example.png"
+      image: "/clear-example.jpg"
     },
   ];
 

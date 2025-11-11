@@ -25,14 +25,14 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
       title: "Custom OS",
       description: "Build VMs using any custom OS you want.",
       bgColor: "bg-green-200",
-      image: "/custom-os.png",
+      image: "/custom-os.jpg",
     },
     {
       icon: <PlayCircle className="w-20 h-20 text-green-800" />,
       title: "Flexible sources",
       description: "Upload a local image file.",
       bgColor: "bg-green-600",
-      image: "/upload-file.png",
+      image: "/upload-file.jpg",
     },
     {
       icon: <Scale className="w-20 h-20 text-green-800" />,
@@ -40,7 +40,7 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
       description:
         "Assign ISOs to project and choose where they are stored for organised resource tracking.",
       bgColor: "bg-green-300",
-      image: "/simple-management.png",
+      image: "/simple-management.jpg",
     },
   ];
 
