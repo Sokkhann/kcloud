@@ -15,7 +15,7 @@ export default function SwitchCarousel() {
   const nextIndex = (index + 1) % cards.length;
 
   return (
-    <div className="flex flex-col items-center justify-center w-full lg:mx-0 px-8">
+    <div className="flex flex-col items-center justify-center w-full lg:mx-0 md:px-8 px-4">
       {/* 🔹 Large Screens: Animated Card */}
       <div className="hidden lg:flex flex-col items-center justify-center w-full px-4">
         <div className="flex flex-col lg:flex-row items-end gap-4 w-full max-w-[1000px]">
@@ -32,10 +32,10 @@ export default function SwitchCarousel() {
               >
                 {/* Text Section */}
                 <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
-                  <h2 className="text-2xl md:text-4xl font-bold mb-4 text-gray-700">
+                  <h2 className="lg:text-2xl  font-bold mb-4 text-gray-700">
                     {cards[index].title}
                   </h2>
-                  <p className="text-gray-600 text-sm md:text-base">
+                  <p className="text-gray-600 lg:text-base text-sm">
                     {cards[index].desc}
                   </p>
                 </div>
@@ -91,11 +91,11 @@ export default function SwitchCarousel() {
       </div>
 
       {/* 🔹 Medium & Small Screens: Show All Cards */}
-      <div  className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 w-full mt-10 md:px-12 px-8">
+      <div  className="lg:hidden grid grid-cols-1 sm:grid-cols-2 md:gap-8 gap-4 w-full mt-10">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full"
+            className="bg-white rounded-2xl shadow-sm overflow-hidden flex flex-col h-full"
           >
             <div className="relative w-full h-56">
               <Image
@@ -107,10 +107,10 @@ export default function SwitchCarousel() {
             </div>
 
             <div className="p-6 flex flex-col flex-grow">
-              <h2 className="text-xl font-semibold mb-2 text-gray-800">
+              <h2 className="text-lg font-semibold mb-2 text-gray-800">
                 {card.title}
               </h2>
-              <p className="text-gray-600 text-sm">{card.desc}</p>
+              <p className="text-gray-600">{card.desc}</p>
             </div>
           </div>
         ))}
