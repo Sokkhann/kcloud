@@ -12,7 +12,6 @@ import {
   Earth,
   Cpu,
   Cloud,
-  Shield,
   Group,
 } from "lucide-react";
 import ProductCard from "../card/ProductCard";
@@ -24,21 +23,25 @@ const computeProducts = [
     logo: <CloudCog className="h-12 w-12 text-white" />,
     title: "Virtual Machine",
     desc: "Run scalable virtual machines optimized for performance and flexibility.",
+    link: "/products/virtual-machine",
   },
   {
     logo: <BrickWallFire className="h-12 w-12 text-white" />,
     title: "VNF Appliances",
     desc: "Deploy and manage Docker containers easily across your infrastructure.",
+    link: "/products/vnf-appliance",
   },
   {
     logo: <ShipWheel className="h-12 w-12 text-white" />,
     title: "Kubernetes",
     desc: "Build and host modern web applications with automatic scaling and updates.",
+    link: "/products/kubernetes",
   },
   {
     logo: <LayoutGrid className="h-12 w-12 text-white" />,
     title: "App",
     desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
+    link: "/products/app",
   },
 ];
 
@@ -48,26 +51,31 @@ const storageProduct = [
     logo: <Blocks className="h-12 w-12 text-white" />,
     title: "Block Storage",
     desc: "Run scalable virtual machines optimized for performance and flexibility.",
+    link: "/products/block-storage",
   },
   {
     logo: <SwitchCamera className="h-12 w-12 text-white" />,
     title: "Snapshot",
     desc: "Deploy and manage Docker containers easily across your infrastructure.",
+    link: "/products/snapshot",
   },
   {
     logo: <RotateCcw className="h-12 w-12 text-white" />,
     title: "Backup",
     desc: "Build and host modern web applications with automatic scaling and updates.",
+    link: "/products/backup",
   },
   {
     logo: <Archive className="h-12 w-12 text-white" />,
     title: "Template",
     desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
+    link: "/products/template",
   },
   {
     logo: <Earth className="h-12 w-12 text-white" />,
     title: "ISOs",
     desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
+    link: "/products/iso",
   },
 ];
 
@@ -75,23 +83,21 @@ const storageProduct = [
 const networkingProduct = [
   {
     logo: <Cpu className="h-12 w-12 text-white" />,
-    title: "Virtual Machine",
+    title: "Network",
     desc: "Run scalable virtual machines optimized for performance and flexibility.",
+    link: "/products/network",
   },
   {
     logo: <Cpu className="h-12 w-12 text-white" />,
-    title: "Container Service",
+    title: "Load Balancer",
     desc: "Deploy and manage Docker containers easily across your infrastructure.",
+    link: "/products/load-balancer",
   },
   {
     logo: <Cloud className="h-12 w-12 text-white" />,
-    title: "App Engine",
+    title: "DNS",
     desc: "Build and host modern web applications with automatic scaling and updates.",
-  },
-  {
-    logo: <Shield className="h-12 w-12 text-white" />,
-    title: "GPU Compute",
-    desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
+    link: "/products/dns",
   },
 ];
 
@@ -101,6 +107,7 @@ const policyProduct = [
     logo: <Group className="h-12 w-12 text-white" />,
     title: "Affinity Group",
     desc: "Deploy and manage Docker containers easily across your infrastructure.",
+    link: "/products/affinity-group",
   },
 ];
 
@@ -136,6 +143,7 @@ export default function ProductPage() {
                 logo={product.logo}
                 title={product.title}
                 description={product.desc}
+                link={product.link}
               />
             ))}
           </div>
@@ -160,6 +168,7 @@ export default function ProductPage() {
                 logo={product.logo}
                 title={product.title}
                 description={product.desc}
+                link={product.link}
               />
             ))}
           </div>
@@ -184,6 +193,7 @@ export default function ProductPage() {
                 logo={product.logo}
                 title={product.title}
                 description={product.desc}
+                link={product.link}
               />
             ))}
           </div>
@@ -208,6 +218,7 @@ export default function ProductPage() {
                 logo={product.logo}
                 title={product.title}
                 description={product.desc}
+                link={product.link}
               />
             ))}
           </div>

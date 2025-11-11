@@ -20,21 +20,21 @@ interface LoadBalancerDetailLayoutProps {
 export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutProps) {
   const features = [
     {
-      image: "/high-availability.png",
+      image: "/high-availability.jpg",
       title: "High Availability",
       description:
         "Spread incoming traffic across multiple servers, preventing overload and ensuring consistent uptime.",
       bgColor: "bg-green-200",
     },
     {
-      image: "/flexible-billing.png",
+      image: "/flexible-billing.jpg",
       title: "Flexible Billing",
       description:
         "Pay hourly, monthly or quarterly—choose a cycle that matches your workload and budget.",
       bgColor: "bg-green-600",
     },
     {
-      image: "/sticky-session.png",
+      image: "/sticky-session.jpg",
       title: "Sticky Sessions",
       description:
         "Keep user sessions persistent with load balancer or application cookies, or disable for true round robin.",

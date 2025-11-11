@@ -60,7 +60,6 @@ export default function ProductDropDown() {
     {
       title: "Security & Access",
       items: [
-        
         { name: "Affinity Group", id: "affinity-group" },
       ],
     },
