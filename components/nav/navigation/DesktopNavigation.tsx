@@ -64,7 +64,7 @@ export default function DesktopNavigation() {
 
               {/* solution dropdown tab */}
               <NavigationMenuItem className="hidden lg:!block ">
-                <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
 
                 {/* solution dropdown content */}
                 <NavigationMenuContent className="!w-screen !max-w-none left-0 !absolute p-0">
@@ -77,7 +77,7 @@ export default function DesktopNavigation() {
               </NavigationMenuItem>
 
               {/* pricing tab */}
-              <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-green-800/10 font-semibold hidden">
+              <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">
                 <Link href="/pricing">Pricing</Link>
               </NavigationMenuItem>
             </section>
@@ -86,11 +86,11 @@ export default function DesktopNavigation() {
           {/* right sectoin */}
           <NavigationMenuList></NavigationMenuList>
           <NavigationMenuList className="mt-5">
-            <button className="bg-white text-green-800 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-green-800/10">
+            <button className="bg-white text-gcxprimary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-gcxprimary/10">
               Log in
             </button>
 
-            <button className="text-white bg-green-700 font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-green-900">
+            <button className="text-white bg-gcxprimary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-gcxdarkgreen">
               Sign up
             </button>
           </NavigationMenuList>

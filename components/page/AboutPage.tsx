@@ -49,7 +49,7 @@ export default function AboutPage() {
           {/* title and description */}
           <div className="mb-12">
             <p className="font-bold text-green-800">Our Vision</p>
-            <p className="text-5xl font-bold text-gray-700 max-w-5xl mx-auto">
+            <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700 max-w-5xl mx-auto">
               Revolutionizing Cloud and Data Center Services in Cambodia
             </p>
             <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -65,12 +65,12 @@ export default function AboutPage() {
           </div>
 
           {/* About Us Card Section */}
-          <div className="px-4 py-16 bg-white">
+          <div className="py-16 bg-white">
             <div className="max-w-7xl mx-auto  mb-24">
               {/* title and description */}
               <div className="my-12 text-center">
                 <p className="text-5xl font-bold text-green-800">
-                  Welcome to GCX
+                  About GCX
                 </p>
               </div>
 

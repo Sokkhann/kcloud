@@ -36,7 +36,7 @@ export default function ProductDropDown() {
         { name: "Virtual Machines", id: "virtual-machine" },
         { name: "VNF Appliances", id: "vnf-appliance" },
         { name: "Kubernetes", id: "kubernetes" },
-        { name: "Apps", id: "apps" },
+        { name: "Apps", id: "app" },
       ],
     },
     {
@@ -60,8 +60,7 @@ export default function ProductDropDown() {
     {
       title: "Security & Access",
       items: [
-        { name: "Firewall", id: "firewall" },
-        { name: "VPN", id: "vpn" },
+        
         { name: "Affinity Group", id: "affinity-group" },
       ],
     },
@@ -71,7 +70,7 @@ export default function ProductDropDown() {
     <div className="max-w-7xl mx-auto  top-full left-0 flex flex-col gap-0 px-0 lg:px-4 lg:py-6 py-0">
       <div className="flex flex-col lg:flex-row justify-between lg:gap-8 gap-6 text-[16px]">
         {/* Featured Section */}
-        <section className="w-full lg:max-w-[400px] bg-green-700/10 p-6 rounded-lg">
+        <section className="w-full lg:max-w-[400px] bg-gcxprimary/10 p-6 rounded-lg">
           <p className="font-normal text-[12px] text-gray-500">
             Featured Products
           </p>
@@ -99,7 +98,7 @@ export default function ProductDropDown() {
                     <Link
                       href={`/products/${item.id}`}
                       key={i}
-                      className="block !text-base cursor-pointer px-4 lg:py-2 py-0 rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-md"
+                      className="block !text-base cursor-pointer px-4 lg:py-2 py-0 rounded-lg transition-all duration-300 hover:text-gcxprimary hover:shadow-sm"
                     >
                       {item.name}
                     </Link>
@@ -115,11 +114,11 @@ export default function ProductDropDown() {
       <div className="text-center pt-12">
         <NavigationMenuLink asChild>
           <Link href={"/products"}>
-            <p className="font-semibold text-green-900 inline-block relative group cursor-pointer select-none">
+            <p className="font-semibold text-gcxprimary inline-block relative group cursor-pointer select-none">
               <span className="relative text-base z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
                 See all products
               </span>
-              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-green-900 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gcxprimary transition-all duration-300 group-hover:w-full"></span>
             </p>
           </Link>
         </NavigationMenuLink>

@@ -3,9 +3,9 @@ import React from "react";
 
 export default function AboutUsCard() {
   return (
-    <div className="flex flex-col gap-12 md:flex-row overflow-hidden transition-transform transform cursor-pointer">
+    <div className="flex flex-col lg:flex-row gap-12 overflow-hidden transition-transform transform cursor-pointer">
       {/* Left content */}
-      <div className="flex-1 py-6 flex flex-col justify-center text-start">
+      <div className="lg:flex-1 py-6 flex flex-col justify-center text-start">
         <h2 className="text-4xl font-bold text-gray-700 mb-4">
           Your Solution for Co-Location
         </h2>
@@ -33,7 +33,7 @@ export default function AboutUsCard() {
 
       {/* Right image */}
       <div
-        className="flex-1 relative h-80 md:h-auto bg-cover bg-center rounded-lg"
+        className="lg:flex-1 relative h-64 md:h-80 lg:h-auto bg-cover bg-center rounded-lg"
         style={{ backgroundImage: `url(/about-us.png)` }}
       />
     </div>

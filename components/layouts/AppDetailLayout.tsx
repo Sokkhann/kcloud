@@ -9,16 +9,18 @@ export default function AppDetailLayout() {
     <div className=" bg-gray-200">
       {/* key feature section */}
       <AppFeatureSection />
-       
-       {/* why matters section */}
-       <AppMattersSection/>
 
       {/* use case section */}
       <AppUseCaseSection />
 
+      {/* why matters section */}
+      <AppMattersSection />
+
       {/* get started section */}
-      <div className="max-w-7xl mx-auto py-24">
-        <GetStartedCard />
+      <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
+        <div className="mx-4 lg:mx-8 md:mx-8">
+          <GetStartedCard />
+        </div>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-export default function SolutionDropDown() {
+export default function ResourceDropDown() {
   const cardItems = [
     {
       title: "Online Education",

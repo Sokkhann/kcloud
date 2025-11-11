@@ -6,8 +6,8 @@ export default function ProblemSolutionSection() {
   const cards = problemSolutionCards;
 
   return (
-    <div className="max-w-7xl mx-auto py-24">
-      <div className="text-center my-16  mx-4 lg:mx-0 md:mx-0">
+    <div className="max-w-7xl mx-auto lg:py-32 md:py-32 py-16">
+      <div className="text-center mx-4 lg:mx-8 md:mx-8 pb-8">
         <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
           Problem & Solution
         </p>
@@ -18,7 +18,7 @@ export default function ProblemSolutionSection() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 md:gap-8 mx-4 lg:mx-8 md:mx-8">
         {cards.map((i, index) => (
           <StackCard
             key={index}

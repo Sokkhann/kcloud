@@ -12,7 +12,7 @@ export type Payment = {
   email: string;
 };
 
-export default function PlanPage() {
+export default function VMPricinginPage() {
   const tabs = ["Regular", "Premium"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 

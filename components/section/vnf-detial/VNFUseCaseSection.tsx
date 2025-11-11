@@ -6,11 +6,11 @@ export default function VNFUseCaseSection() {
   const cards = vnfUseCaseCard;
 
   return (
-    <div className="max-w-7xl mx-auto pt-12">
+    <div className="max-w-7xl mx-auto py-16 lg:py-32 md:py-32">
       <div className="">
-        <div className="text-center my-16">
+        <div className="text-center mx-4 lg:mx-8 m:mx-8">
           <p className="text-4xl font-bold text-gray-700">Use Cases</p>
-          <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+          <p className="text-base text-gray-600 max-w-3xl mx-auto">
             Kubernetes (K8s) is an open-source system for automating the
             deployment, scaling, and management of containerized applications.
             Its primary use cases revolve around managing complex, distributed,
@@ -19,7 +19,7 @@ export default function VNFUseCaseSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 py-8 mx-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 py-8 lg:mx-8 md:mx-8 mx-4">
         {cards.map((card, index) => (
           <div key={index} className="relative">
             <SimpleCard title={card.title} desc={card.desc} />

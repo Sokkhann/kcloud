@@ -46,7 +46,7 @@ export const productDetailLayout: productDetailLayout[] = [
   },
   {
     slug: "app",
-    title: "Apps",
+    title: "App",
     desc: "The Apps section provides pre-built or customizable applications you can deploy instantly — from monitoring tools to productivity or analytics software.",
     layout: AppDetailLayout,
   },

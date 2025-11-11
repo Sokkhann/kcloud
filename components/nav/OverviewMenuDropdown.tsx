@@ -53,7 +53,7 @@ export default function OverviewMenuDropdown() {
   return (
     <div className="max-w-7xl mx-auto flex flex-col lg:flex-row md:justify-between md:gap-8 gap-6 px-0 lg:px-4 lg:py-6 py-0">
       {/* Highlight / Featured Section */}
-      <section className="lg:w-2/5 w-full flex flex-col bg-green-700/10 p-6 md:p-8 rounded-lg">
+      <section className="lg:w-2/5 w-full flex flex-col bg-gcxprimary/10 p-6 md:p-8 rounded-lg">
         <p className="font-normal text-[12px] text-gray-500">
           Cambodia&apos;s #1 Data Center
         </p>

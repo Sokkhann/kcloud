@@ -18,10 +18,10 @@ export default function PricingPage() {
       />
 
       <div className="mt-26 max-w-7xl mx-auto space-y-16">
-        <div className=" text-center">
+        <div className="text-center">
           {/* title and description */}
-          <div className="px-6 md:text-center text-left">
-            <p className="xl:text-5xl md:text-4xl text-3xl font-bold text-gray-700">Product Package</p>
+          <div className="px-6 md:text-center">
+            <p className="xl:text-4xl md:text-4xl text-2xl font-bold text-gray-700">Product Package</p>
             <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
               Our pricing is built to match your momentum. From startups to
               enterprises, get the performance, features, and support you need —
@@ -30,7 +30,7 @@ export default function PricingPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-8 px-4 lg:px-8 md:px-8">
           {pricingData.map((item) => (
             <PricingCard
               key={item.id}

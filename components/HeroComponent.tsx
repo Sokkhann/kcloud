@@ -51,7 +51,7 @@ export default function HeroComponent({
             {showGetStarted && (
               <Link
                 href="/get-started"
-                className="text-white w-2/3 sm:w-auto bg-green-800 font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] text-center"
+                className="text-white w-2/3 sm:w-auto bg-gcxprimary font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] text-center"
               >
                 Get Started
               </Link>
@@ -59,7 +59,7 @@ export default function HeroComponent({
             {showContactSales && (
               <Link
                 href="/contact-sale"
-                className="text-green-950 w-2/3 sm:w-auto bg-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] text-center"
+                className="text-gcxprimary w-2/3 sm:w-auto bg-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] text-center"
               >
                 Contact Sales
               </Link>

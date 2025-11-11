@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function TopNavBar() {
   return (
-    <nav className="w-full bg-green-950 px-4">
+    <nav className="w-full bg-gcxprimary px-4">
       <div className="max-w-7xl mx-auto py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-sm">
         {/* Left side - Phone number */}
         <div className="text-white text-center sm:text-left">

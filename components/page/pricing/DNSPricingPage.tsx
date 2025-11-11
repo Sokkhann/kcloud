@@ -6,7 +6,7 @@ import HeroComponent from "@/components/HeroComponent";
 import DNSTab from "@/components/tab/DNSTab";
 import React, { useState } from "react";
 
-export default function DNSPage() {
+export default function DNSPricingPage() {
   const tabs = ["Regional", "Global"];
   const [activeTab, setActiveTab] = useState(0);
 
@@ -56,13 +56,13 @@ export default function DNSPage() {
         />
 
       {/* tab card section */}
-      <div className="max-w-7xl mx-auto mt-24 w-full">
+      <div className="max-w-7xl mx-auto w-full mt-10 py-16 lg:py-32 md:py-32">
         {/* title and description */}
-        <div className="my-12 text-center py-12">
-          <p className="text-5xl font-bold text-gray-700">
+        <div className="max-w-5xl mx-4 lg:mx-8 md:mx-8 mb-8">
+          <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
             Domain Name System (DNS)
           </p>
-          <p className="text-base text-gray-600 mt-4 max-w-2xl mx-auto">
+          <p className="text-base text-gray-600 mt-4">
             The DNS translates human-readable domain names into IP addresses so
             browsers can load internet resources. It acts as the internet’s
             address book, making websites accessible using easy-to-remember
@@ -70,7 +70,7 @@ export default function DNSPage() {
           </p>
         </div>
 
-        <div className="max-w-7xl flex flex-col m-12">
+        <div className="max-w-7xl flex flex-col mx-4 lg:mx-8 md:mx-8">
           {/* dns tabs section */}
           <DNSTab tabs={tabs} activeTab={activeTab} onTabClick={setActiveTab} />
 

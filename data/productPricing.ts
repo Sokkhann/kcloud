@@ -28,7 +28,7 @@ export const pricingData: PricingProduct[] = [
   // --- VFN Appliance category ---
   {
     id: "vnf-appliance",
-    title: "VFN Appliance",
+    title: "VNF Appliance",
     subTitle: "Virtual Firewall Network appliance for secure connectivity",
     price: "18",
     desc: ["Scalable network security", "Managed rules", "High throughput"],

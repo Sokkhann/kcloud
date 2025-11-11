@@ -20,7 +20,7 @@ export default function WaveBackground({
   justify = "justify-start"
 }: WaveBackgroundProps) {
   return (
-    <div className={`relative ${width} ${mainColor} ${height} overflow-hidden rounded-r-2xl`}>
+    <div className={`relative ${width} ${mainColor} ${height} overflow-hidden lg:rounded-r-2xl md:rounded-r-2xl rounded-t-none`}>
       {/* Wave top */}
       <div className={`absolute top-0 w-full h-40 ${topColor} rounded-b-[50%]`} />
 

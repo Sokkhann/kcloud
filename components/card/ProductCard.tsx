@@ -47,7 +47,7 @@ export default function ProductCard({
         }
         className="mt-auto flex items-center justify-center gap-2 px-4 py-2 border border-gcxprimary text-gcxprimary rounded-full hover:bg-gcxprimary hover:text-white transition-all text-sm sm:text-base w-full sm:w-auto"
       >
-        Learn More
+        View Detail
         <ArrowRight size={16} />
       </button>
     </div>

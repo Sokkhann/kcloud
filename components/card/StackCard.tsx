@@ -1,7 +1,7 @@
 "use client";
 import { ProblemSolutionSwitchCardProps } from "@/data/productDetail";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 export default function StackCard({
@@ -10,16 +10,26 @@ export default function StackCard({
   solTitle,
   solDesc,
 }: ProblemSolutionSwitchCardProps) {
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [mounted, setMounted] = useState(false);
+
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const [showSolution, setShowSolution] = useState(false);
 
   const handleClick = () => {
     if (isMobile) setShowSolution(!showSolution);
   };
 
+  // ✅ prevent mismatched HTML by waiting for mount
+  if (!mounted) return null;
+
   return (
   <div
-    className="relative left-1/2 -translate-x-1/2 w-full max-w-md h-[300px] sm:h-[320px] md:h-[340px] lg:h-[360px] cursor-pointer group overflow-hidden rounded-2xl"
+    className="relative left-1/2 -translate-x-1/2 w-full h-[300px] sm:h-[320px] md:h-[340px] lg:h-[360px] cursor-pointer group overflow-hidden rounded-2xl"
     onClick={handleClick}
   >
     {/* --- Card 1: Problem --- */}
@@ -41,15 +51,15 @@ export default function StackCard({
             : "opacity-100 group-hover:opacity-0"
           }`}
       >
-        <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-bold text-white mb-2">
+        <h3 className="text-xl md:text-2xl lg:text-2xl font-bold text-white mb-2">
           {proTitle}
         </h3>
-        <p className="text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed text-white">
+        <p className="text-base leading-relaxed text-white">
           {proDesc}
         </p>
       </div>
 
-      <div className="absolute bottom-4 left-6 text-white font-semibold text-sm sm:text-base md:text-lg">
+      <div className="absolute bottom-4 left-6 text-white font-semibold text-base">
         Problem
       </div>
     </div>
@@ -73,15 +83,15 @@ export default function StackCard({
             : "opacity-0 group-hover:opacity-100"
           }`}
       >
-        <h3 className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl font-bold text-gray-700 mb-2">
+        <h3 className="text-xl md:text-2xl lg:text-2xl  font-bold text-gray-700 mb-2">
           {solTitle}
         </h3>
-        <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-600 leading-relaxed">
+        <p className="text-base text-gray-600 leading-relaxed">
           {solDesc}
         </p>
       </div>
 
-      <div className="absolute bottom-4 left-6 text-gray-700 font-semibold text-sm sm:text-base md:text-lg">
+      <div className="absolute bottom-4 left-6 text-gray-700 font-semibold text-base">
         Solution
       </div>
     </div>

@@ -22,11 +22,11 @@ export default function BenefitListCard({ items }: InfoListProps) {
             {item.icon}
           </div>
 
-          <h4 className="font-semibold xl:text-2xl md:text-xl text-lg text-gray-800">
+          <h4 className="font-semibold lg:text-2xl md:text-2xl text-lg text-gray-800">
             {item.title}
           </h4>
 
-          <p className="md:text-lg text-base text-gray-600">
+          <p className="text-base text-gray-600">
             {item.description}
           </p>
         </div>

@@ -14,7 +14,7 @@ export default function DNSTab({ tabs, activeTab = 0, onTabClick }: DNSTabProps)
           key={index}
           onClick={() => onTabClick?.(index)}
           className={`
-            w-48 h-12 rounded-t-2xl text-center p-4 cursor-pointer tranasition-colors font-bold
+            lg:w-48 md:w-32 w-32 h-12 rounded-t-2xl text-center p-4 cursor-pointer tranasition-colors font-bold
             ${activeTab === index ? "bg-green-900/10 text-green-800" : "bg-green-900/30 text-green-800"}
           `}
         >

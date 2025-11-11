@@ -3,36 +3,34 @@ import { vmFeatureDetail } from "@/data/productDetail";
 import React from "react";
 
 export default function VMFeatureSection() {
-
-  const cards =vmFeatureDetail
+  const cards = vmFeatureDetail;
 
   return (
-    <div>
-      <div className="max-w-7xl mx-auto py-24">
-        <div className="text-center my-16  mx-4 lg:mx-0 md:mx-0">
-          <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
-            Comprehensive, cost-effective cloud computing
-          </p>
-          <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
-            Flexible and powerful computing resources to run your workloads
-            efficiently. Scale CPU, memory, and storage as needed. Ideal for
-            applications, services, and containerized workloads. Reliable, high
-            performance, and ready for any demand.
-          </p>
-        </div>
+    <div className="max-w-7xl mx-auto lg:py-32 md:py-32 py-16">
+      <div className="text-center pb-8 lg:mx-8 md:mx-8 mx-4">
+        <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
+          Comprehensive, cost-effective cloud computing
+        </p>
+        <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+          Flexible and powerful computing resources to run your workloads
+          efficiently. Scale CPU, memory, and storage as needed. Ideal for
+          applications, services, and containerized workloads. Reliable, high
+          performance, and ready for any demand.
+        </p>
+      </div>
 
-        {/* feature card section */}
-        <div className="flex flex-col md:flex-row gap-6 py-8 justify-center items-stretch px-0  mx-4 lg:mx-0 md:mx-0">
-          {cards.map((card, index) => (
-            <div key={index} className="flex-1">
-              <FeaturedCard
-                image={card.image}
-                title={card.title}
-                description={card.description}
-              />
-            </div>
-          ))}
-        </div>
+      {/* feature card section */}
+      <div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center items-stretch lg:mx-8 md:mx-8 mx-4"
+      >
+        {cards.map((card, index) => (
+          <FeaturedCard
+            key={index}
+            image={card.image}
+            title={card.title}
+            description={card.description}
+          />
+        ))}
       </div>
     </div>
   );
