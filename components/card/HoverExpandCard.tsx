@@ -25,7 +25,7 @@ export default function HoverExpandCards() {
   ];
 
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-8 gap-4 w-full lg:px-8 md:px-8 px-4">
       {cards.map((card) => (
         <div
           key={card.id}
@@ -47,10 +47,10 @@ export default function HoverExpandCards() {
           h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[130px] sm:group-hover:h-[140px]"
             style={{ transformOrigin: "bottom" }}
           >
-            <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
+            <h3 className="font-semibold text-xl text-gray-700">
               {card.title}
             </h3>
-            <p className="text-gray-600 mt-1 sm:mt-2 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <p className="text-gray-600 mt-1 sm:mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
               {card.desc}
             </p>
           </div>

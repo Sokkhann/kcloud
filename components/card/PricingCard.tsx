@@ -23,13 +23,13 @@ export default function PricingCard({
   const route = useRouter();
 
   return (
-    <div className="w-full mx-auto rounded-2xl overflow-hidden flex flex-col h-[600px] bg-green-900/10">
+    <div className="w-full mx-auto rounded-2xl overflow-hidden flex flex-col h-[600px] bg-gcxprimary/10">
       {/* Top Section */}
       <div className="p-8 text-left">
-        <h3 className="text-lg font-bold text-green-900">{title}</h3>
+        <h3 className="text-lg font-bold text-gcxprimary">{title}</h3>
         <p className="text-base text-gray-600 mt-2 font-bold">Starting at</p>
         <div className="mt-4">
-          <div className="text-4xl font-bold text-green-900 mb-4">
+          <div className="text-4xl font-bold text-gcxprimary mb-4">
             ${price}
             <span className="text-base">/month</span>
           </div>
@@ -46,7 +46,7 @@ export default function PricingCard({
           {desc.map((item, index) => (
             <li key={index} className="flex items-start gap-3">
               <svg
-                className="w-5 h-5 flex-shrink-0 mt-0.5 text-green-900"
+                className="w-5 h-5 flex-shrink-0 mt-0.5 text-gcxprimary"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -64,7 +64,7 @@ export default function PricingCard({
 
       {/* Bottom Section */}
       <div className="group">
-        <div className="w-full text-left py-5 px-8 bg-green-900">
+        <div className="w-full text-left py-5 px-8 bg-gcxprimary">
           <span onClick={() => route.push(`/pricing/${id}`)} className="relative inline-block text-white text-base font-medium">
             <span className="inline-block cursor-pointer">{buttonLabel}</span>
             <span className="absolute left-0 -bottom-0.5 h-[2px] w-full bg-white transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />

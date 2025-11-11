@@ -1,5 +1,7 @@
+"use client";
+
 import React from "react";
-import FeatureCard from "@/components/page/iso/FeatureCard";
+import Image from "next/image";
 import {
   BookOpen,
   PlayCircle,
@@ -23,12 +25,14 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
       title: "Custom OS",
       description: "Build VMs using any custom OS you want.",
       bgColor: "bg-green-200",
+      image: "/custom-os.jpg",
     },
     {
       icon: <PlayCircle className="w-20 h-20 text-green-800" />,
       title: "Flexible sources",
       description: "Upload a local image file.",
       bgColor: "bg-green-600",
+      image: "/upload-file.jpg",
     },
     {
       icon: <Scale className="w-20 h-20 text-green-800" />,
@@ -36,6 +40,7 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
       description:
         "Assign ISOs to project and choose where they are stored for organised resource tracking.",
       bgColor: "bg-green-300",
+      image: "/simple-management.jpg",
     },
   ];
 
@@ -93,28 +98,56 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
     <div className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Features Section */}
-        <div className="mb-20 mt-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            Attaching an ISO
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            From the Instance Overview page, select Attach ISO for VM to mount
-            your image to a virtual machine. Your VM will boot from the ISO,
-            letting you install the OS or run recovery tools immediately.
-          </p>
+        <section className="px-4 py-6">
+          <div className="max-w-7xl mx-auto mb-24">
+            {/* title and description */}
+            <div className="my-12 text-center mx-24">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700">
+                Attaching an ISO
+              </p>
+              <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+                From the Instance Overview page, select Attach ISO for VM to
+                mount your image to a virtual machine. Your VM will boot from
+                the ISO, letting you install the OS or run recovery tools
+                immediately.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                bgColor={feature.bgColor}
-              />
-            ))}
+            {/* Features grid with hover animation */}
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="relative group overflow-hidden rounded-2xl h-[300px] sm:h-[320px] lg:h-[350px] cursor-pointer bg-white w-full"
+                >
+                  {/* Background Image */}
+                  <div className="rounded-2xl w-full h-full relative overflow-hidden">
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </div>
+
+                  {/* Expanding White Panel */}
+                  <div
+                    className="absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8 transition-all duration-500 ease-in-out
+                  h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[160px] sm:group-hover:h-[170px]"
+                    style={{ transformOrigin: "bottom" }}
+                  >
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </section>
           </div>
-        </div>
+        </section>
 
         {/* How It Works Section */}
         <div className="mb-20">

@@ -1,5 +1,5 @@
 import React from "react";
-import FeatureCard from "@/components/page/iso/FeatureCard";
+import Image from "next/image";
 import {
   Globe,
   MousePointerClick,
@@ -7,7 +7,7 @@ import {
   CheckCircle,
   Zap,
   Shield,
-  Settings
+  Settings,
 } from "lucide-react";
 import { productDetailLayout } from "@/data/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
@@ -23,21 +23,21 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
       title: "Easy Domain Creation",
       description:
         "Add a new domain in a few clicks—just choose your project and enter your domain name.",
-      bgColor: "bg-green-200",
+      image: "/easy-domain-creation.jpg"
     },
     {
       icon: <FileText className="w-20 h-20 text-green-800" />,
       title: "All the Records You Need",
       description:
         "Support for A, AAAA, CNAME, MX, TXT, NS, SRV and SOA records for complete DNS management.",
-      bgColor: "bg-green-600",
+      image: "/all-the-records-you-need.jpg"
     },
     {
       icon: <CheckCircle className="w-20 h-20 text-green-800" />,
       title: "Clear Examples",
       description:
         "Each record type comes with example values and TTL defaults to help you get up and running quickly.",
-      bgColor: "bg-green-300",
+      image: "/clear-example.jpg"
     },
   ];
 
@@ -94,7 +94,6 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-16">
-
         {/* Features Section */}
         <div className="mb-20 mt-10">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
@@ -104,17 +103,38 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
             Everything you need to manage DNS records with confidence and ease
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
             {features.map((feature, index) => (
-              <FeatureCard
+              <div
                 key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                bgColor={feature.bgColor}
-              />
+                className="relative group overflow-hidden rounded-2xl h-[300px] sm:h-[320px] lg:h-[350px] cursor-pointer bg-white w-full"
+              >
+                {/* Background Image */}
+                <div className="rounded-2xl w-full h-full relative overflow-hidden">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+
+                {/* Expanding White Panel */}
+                <div
+                  className="absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8 transition-all duration-500 ease-in-out
+                h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[160px] sm:group-hover:h-[170px]"
+                  style={{ transformOrigin: "bottom" }}
+                >
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             ))}
-          </div>
+          </section>
         </div>
 
         {/* How It Works Section */}
@@ -143,7 +163,7 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
             ))}
           </div>
         </div>
-    
+
         {/* Why Choose GCX Section */}
         <div className="mb-20">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
@@ -174,7 +194,6 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
         {/* Conclusion Section */}
         <div className="mb-20 bg-white rounded-lg p-8 shadow-sm border border-gray-200">
           <div className="flex items-start gap-4">
-            
             <div>
               <h2 className="text-2xl font-bold text-gray-700 mb-4">
                 Focus on Building, Not DNS Management
@@ -182,8 +201,9 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
               <p className="text-gray-600 leading-relaxed">
                 GCX&apos;s DNS simplifies domain management so you can focus on
                 building apps, services and websites without worrying about
-                where they&apos;re pointing. Start by adding your domain, configuring
-                the right records and let our platform handle the rest.
+                where they&apos;re pointing. Start by adding your domain,
+                configuring the right records and let our platform handle the
+                rest.
               </p>
             </div>
           </div>

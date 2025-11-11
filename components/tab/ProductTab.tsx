@@ -86,11 +86,11 @@ const networkingProduct = [
     title: "DNS",
     desc: "Build and host modern web applications with automatic scaling and updates.",
   },
-  {
-    logo: <Shield className="h-12 w-12 text-white" />,
-    title: "GPU Compute",
-    desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
-  },
+  // {
+  //   logo: <Shield className="h-12 w-12 text-white" />,
+  //   title: "GPU Compute",
+  //   desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
+  // },
 ];
 
 // --- product tab products ---
@@ -112,8 +112,9 @@ export function ProductTab() {
           w-screen
           lg:w-full
           md:w-full
-          lg:mx-0
-          md:mx-0
+          lg:px-0
+          md:px-8
+          px-4
           h-24
           py-auto
           border-b-2 
@@ -129,6 +130,7 @@ export function ProductTab() {
           scrollbar-hide 
           snap-x 
           snap-mandatory
+          bg-gray-100
       "
         >
           <TabsTrigger
@@ -159,21 +161,29 @@ export function ProductTab() {
 
         {/* Compute Tab */}
         <TabsContent value="compute">
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
-            {computeProducts.map((product, index) => (
-              <ProductCard
-                key={index}
-                logo={product.logo}
-                title={product.title}
-                description={product.desc}
-              />
-            ))}
-          </div>
+          <TabsContent value="compute">
+            <div className="grid justify-center justify-items-center 
+               md:gap-x-8 gap-x-4 gap-y-16 mt-20 mx-4 md:mx-8 lg:md-0
+               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
+              {computeProducts.map((product, index) => (
+                <ProductCard
+                  key={index}
+                  logo={product.logo}
+                  title={product.title}
+                  description={product.desc}
+                />
+              ))}
+            </div>
+          </TabsContent>
         </TabsContent>
 
         {/* Storage Tab */}
         <TabsContent value="storage">
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+          <div
+            className="grid justify-center justify-items-center 
+               md:gap-x-8 gap-x-4 gap-y-16 mt-20 mx-4 md:mx-8 lg:md-0
+               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
+          >
             {storageProduct.map((product, index) => (
               <ProductCard
                 key={index}
@@ -187,7 +197,9 @@ export function ProductTab() {
 
         {/* Networking Tab */}
         <TabsContent value="networking">
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+          <div className="grid justify-center justify-items-center 
+               md:gap-x-8 gap-x-4 gap-y-16 mt-20 mx-4 md:mx-8 lg:md-0
+               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
             {networkingProduct.map((product, index) => (
               <ProductCard
                 key={index}
@@ -201,7 +213,9 @@ export function ProductTab() {
 
         {/* Policy Tab */}
         <TabsContent value="policy">
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-20 mt-20">
+          <div className="grid justify-center justify-items-center 
+               md:gap-x-8 gap-x-4 gap-y-16 mt-20 mx-4 md:mx-8 lg:md-0
+               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]">
             {policyProduct.map((product, index) => (
               <ProductCard
                 key={index}

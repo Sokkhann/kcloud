@@ -52,15 +52,12 @@ body {
   --radius-xl: calc(var(--radius) + 4px);
 
     /* Customize Colors */
-  --color-neoPrimary: #e96a23;
-  --color-neobackground: #f5f4f7;
-  --color-neosecondary: #7a7a7a;
-  --color-neotext: #333333;
-  --color-neoblue: #0052b4;
-  --color-neogray: #64748b;
-  --color-neogreen: #34C759;
-
-  --color-gcxPrimary: #0D793E
+  --color-gcxtext: #333333;
+  --color-gcxgray: #64748b;
+  --color-gcxprimary: #0d793e;
+  --color-gcxdarkgreen: #0d7057;
+  --color-gcxblue: #1e4399;
+  --color-gcxdarkblue: #15528f
 }
 
 /* Customize scrollbar hidden */

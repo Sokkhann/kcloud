@@ -90,7 +90,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/about-us"
+                href="/policy"
                 className="hover:underline cursor-pointer md:text-base text-sm"
               >
                 Privacy Policy
@@ -251,7 +251,7 @@ export default function Footer() {
       <div className="border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-6 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center justify-center sm:justify-start gap-2">
             <Image
               src="/gcx-logo.png"
               alt="GCX Cloud Services Logo"
@@ -262,7 +262,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <p className="text-gray-500 text-sm text-center sm:text-left">
+          <p className="text-gray-500 text-xs sm:text-sm">
             © 2025 GCX. All rights reserved.
           </p>
         </div>

@@ -36,7 +36,7 @@ export default function ProductDropDown() {
         { name: "Virtual Machines", id: "virtual-machine" },
         { name: "VNF Appliances", id: "vnf-appliance" },
         { name: "Kubernetes", id: "kubernetes" },
-        { name: "Apps", id: "apps" },
+        { name: "Apps", id: "app" },
       ],
     },
     {
@@ -60,8 +60,6 @@ export default function ProductDropDown() {
     {
       title: "Security & Access",
       items: [
-        { name: "Firewall", id: "firewall" },
-        { name: "VPN", id: "vpn" },
         { name: "Affinity Group", id: "affinity-group" },
       ],
     },

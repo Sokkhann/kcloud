@@ -1,14 +1,6 @@
 import React from "react";
-import FeatureCard from "@/components/page/iso/FeatureCard";
-import {
-  Globe,
-  Network,
-  Router,
-  Shield,
-  Wifi,
-  Lock,
-  Cloud,
-} from "lucide-react";
+import Image from "next/image";
+import { Globe, Network, Shield, Wifi, Lock, Cloud } from "lucide-react";
 import { productDetailLayout } from "@/data/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
 
@@ -19,25 +11,25 @@ interface NetworkDetailLayoutProps {
 export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
   const features = [
     {
-      icon: <Globe className="w-20 h-20 text-green-800" />,
       title: "Public Networks",
       description:
         "Logically isolated environments with internet-facing IPs and clear traffic control.",
       bgColor: "bg-green-200",
+      image: "/public-network.jpg",
     },
     {
-      icon: <Network className="w-20 h-20 text-green-800" />,
       title: "Virtual Networks",
       description:
         "Fully isolated virtual networks for private cloud segments with custom CIDR and DNS.",
       bgColor: "bg-green-600",
+      image: "/virtual-networks.jpg"
     },
     {
-      icon: <Router className="w-20 h-20 text-green-800" />,
       title: "Virtual Routers",
       description:
         "Software routers connecting multiple subnets with NAT, routing and firewall services.",
       bgColor: "bg-green-300",
+      image: "/virtual-router.jpg"
     },
   ];
 
@@ -92,7 +84,7 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
   ];
 
   return (
-    <div className="bg- min-h-screen">
+    <div className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Features Section */}
         <div className="mb-20 mt-10">
@@ -104,17 +96,47 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
             your gateway, netmask, CIDR and network type at a glance.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
             {features.map((feature, index) => (
-              <FeatureCard
+              <div
                 key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                bgColor={feature.bgColor}
-              />
+                className="relative group overflow-hidden rounded-2xl h-[300px] sm:h-[320px] lg:h-[350px] cursor-pointer bg-white w-full"
+              >
+                {/* Background Image */}
+                <div className="rounded-2xl w-full h-full relative overflow-hidden">
+                  {feature.image && (
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  )}
+                  {!feature.image && (
+                    <div
+                      className={`w-full h-full ${
+                        feature.bgColor || "bg-green-600"
+                      }`}
+                    />
+                  )}
+                </div>
+
+                {/* Expanding White Panel */}
+                <div
+                  className="absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8 transition-all duration-500 ease-in-out
+                  h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[160px] sm:group-hover:h-[170px]"
+                  style={{ transformOrigin: "bottom" }}
+                >
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             ))}
-          </div>
+          </section>
         </div>
 
         {/* How It Works Section */}

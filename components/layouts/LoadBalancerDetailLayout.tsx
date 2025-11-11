@@ -1,7 +1,7 @@
 import React from "react";
-import FeatureCard from "@/components/page/iso/FeatureCard";
+import Image from "next/image";
+
 import {
-  Activity,
   Clock,
   Cookie,
   Gauge,
@@ -20,21 +20,21 @@ interface LoadBalancerDetailLayoutProps {
 export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutProps) {
   const features = [
     {
-      icon: <Activity className="w-20 h-20 text-green-800" />,
+      image: "/high-availability.jpg",
       title: "High Availability",
       description:
         "Spread incoming traffic across multiple servers, preventing overload and ensuring consistent uptime.",
       bgColor: "bg-green-200",
     },
     {
-      icon: <Clock className="w-20 h-20 text-green-800" />,
+      image: "/flexible-billing.jpg",
       title: "Flexible Billing",
       description:
         "Pay hourly, monthly or quarterly—choose a cycle that matches your workload and budget.",
       bgColor: "bg-green-600",
     },
     {
-      icon: <Cookie className="w-20 h-20 text-green-800" />,
+      image: "/sticky-session.jpg",
       title: "Sticky Sessions",
       description:
         "Keep user sessions persistent with load balancer or application cookies, or disable for true round robin.",
@@ -105,17 +105,38 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
             applications fast and resilient with extra control and flexibility.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
             {features.map((feature, index) => (
-              <FeatureCard
+              <div
                 key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                bgColor={feature.bgColor}
-              />
+                className="relative group overflow-hidden rounded-2xl h-[300px] sm:h-[320px] lg:h-[350px] cursor-pointer bg-white w-full"
+              >
+                {/* Background Image */}
+                <div className="rounded-2xl w-full h-full relative overflow-hidden">
+                  <Image
+                    src={feature.image}
+                    alt={feature.title}
+                    fill
+                    className="object-cover object-center"
+                  />
+                </div>
+
+                {/* Expanding White Panel */}
+                <div
+                  className="absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8 transition-all duration-500 ease-in-out
+                h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[160px] sm:group-hover:h-[170px]"
+                  style={{ transformOrigin: "bottom" }}
+                >
+                  <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             ))}
-          </div>
+          </section>
         </div>
 
         {/* Why Choose Section */}
