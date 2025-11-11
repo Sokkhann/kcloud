@@ -93,7 +93,7 @@ export default function Footer() {
                 href="/about-us"
                 className="hover:underline cursor-pointer md:text-base text-sm"
               >
-                Policies
+                Privacy Policy
               </Link>
             </li>
             
