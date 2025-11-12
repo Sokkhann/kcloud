@@ -3,13 +3,13 @@ import React from "react";
 
 export default function AboutUsCard() {
   return (
-    <div className="flex flex-col lg:flex-row gap-12 overflow-hidden transition-transform transform cursor-pointer">
+    <div className="flex flex-col lg:flex-row lg:gap-12 gap-4 overflow-hidden transition-transform transform cursor-pointer px-4 lg:px-8 md:px-8">
       {/* Left content */}
-      <div className="lg:flex-1 py-6 flex flex-col justify-center text-start">
-        <h2 className="text-4xl font-bold text-gray-700 mb-4">
+      <div className="lg:flex-1 flex flex-col justify-center ">
+        <h2 className="lg:text-2xl md:text-2xl text-lg font-bold text-gray-700 mb-4 lg:text-start text-center">
           Your Solution for Co-Location
         </h2>
-        <span>
+        <span className="text-justify lg:text-start">
           <p className="text-gray-600 leading-relaxed mb-2">
             GCX, a Cambodian company, is the nation’s first “Carrier Neutral”
             Tier 3 Data Center. We meet the strictest international standards

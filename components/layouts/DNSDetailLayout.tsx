@@ -152,7 +152,7 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
                 key={index}
                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center"
               >
-                <div className="w-12 h-12 bg-green-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="w-12 h-12 bg-gcxprimary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-gray-700 mb-2">

@@ -6,6 +6,7 @@ import AboutUsCard from "../card/AboutUsCard";
 import GetStartedCard from "../card/GetStartedCard";
 import WrapCard from "../card/WrapCard";
 import VisionSecion from "../section/about-us/VisionSecion";
+import ScrollReveal from "../animations/ScrolReveal";
 
 const cards = [
   {
@@ -44,67 +45,74 @@ export default function AboutPage() {
       />
 
       {/* Vision Section */}
-      <div className="mt-24">
-        <div className="mb-24 px-4 py-16 text-center">
+      <div className="mt-10">
+        <div className="text-center">
           {/* title and description */}
-          <div className="mb-12">
-            <p className="font-bold text-green-800">Our Vision</p>
-            <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700 max-w-5xl mx-auto">
-              Revolutionizing Cloud and Data Center Services in Cambodia
-            </p>
-            <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
-              To be the leading force in empowering businesses in Cambodia and
-              beyond through tailored cloud solutions and data center services,
-              fostering growth and prosperity.
-            </p>
-          </div>
+          <div className="py-16 lg:py-32 md:py-32">
+            <div className="mx-4 lg:mx-8 md:mx-8">
+              <p className="font-bold text-gcxprimary lg:text-4xl md:text-4xl text-2xl ">Our Vision</p>
+              <p className="text-base text-gray-600 max-w-3xl mx-auto font-medium">
+                Revolutionizing Cloud and Data Center Services in Cambodia
+              </p>
+            </div>
 
-          {/* Vision Card Section */}
-          <div className="mb-24 max-w-7xl mx-auto ">
-            <VisionSecion />
+            <ScrollReveal>
+              {/* Vision Card Section */}
+              <div className="max-w-7xl mx-auto">
+                <VisionSecion />
+              </div>
+            </ScrollReveal>
           </div>
 
           {/* About Us Card Section */}
-          <div className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto  mb-24">
+          <div className="py-16 lg:py-32 md:py-32 bg-white">
+            <div className="max-w-7xl mx-auto">
               {/* title and description */}
-              <div className="my-12 text-center">
-                <p className="text-5xl font-bold text-green-800">
+              <div className="text-center lg:mb-12 md:mb-6">
+                <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gcxprimary">
                   About GCX
                 </p>
               </div>
 
-              {/* Solutions section */}
-              <AboutUsCard />
+              <ScrollReveal>
+                {/* Solutions section */}
+                <AboutUsCard />
+              </ScrollReveal>
             </div>
           </div>
 
-          <div className="px-4 py-16 h-[650px] overflow-hidden">
+          <div className="py-16 lg:py-32 md:py-32 overflow-hidden max-w-7xl mx-auto">
             <div className="mb-12">
-              <div className="mt-12 mb-24 text-center">
-                <p className="text-5xl font-bold text-green-800">
+              <div className="mb-12 text-center">
+                <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gcxprimary">
                   Welcome to GCX
                 </p>
               </div>
 
-              <div className="flex gap-6 justify-center items-start flex-wrap">
-                {cards.map((card, index) => (
-                  <WrapCard
-                    key={index}
-                    image={card.image}
-                    title={card.title}
-                    desc={card.desc}
-                    isActive={activeIndex === index}
-                    onHover={() => setActiveIndex(index)}
-                  />
-                ))}
-              </div>
+              <ScrollReveal>
+                <div className="gap-4 lg:gap-8 md:gap-8 px-4 lg:px-8 md:px-8 justify-center items-start flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+                  {cards.map((card, index) => (
+                    <WrapCard
+                      key={index}
+                      image={card.image}
+                      title={card.title}
+                      desc={card.desc}
+                      isActive={activeIndex === index}
+                      onHover={() => setActiveIndex(index)}
+                    />
+                  ))}
+                </div>
+              </ScrollReveal>
             </div>
           </div>
 
-          <div className="px-4 py-16 max-w-7xl mx-auto">
-            <GetStartedCard />
-          </div>
+          <section className="max-w-7xl mx-auto lg:pb-32 md:pb-32 pb-16">
+            <ScrollReveal>
+              <div className=" lg:px-8 md:px-8 px-4">
+                <GetStartedCard />
+              </div>
+            </ScrollReveal>
+          </section>
         </div>
       </div>
     </div>

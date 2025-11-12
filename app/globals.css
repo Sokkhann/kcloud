@@ -165,4 +165,21 @@ body::-webkit-scrollbar {
   scrollbar-width: none;
 }
 
-/* animation of drop down */
+/* animation toast */
+@keyframes slideFadeIn {
+  0% { transform: translate(-50%, -20px); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@keyframes slideFadeOut {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, -20px); opacity: 0; }
+}
+
+.animate-slideFadeIn {
+  animation: slideFadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideFadeOut {
+  animation: slideFadeOut 0.3s ease-in forwards;
+}

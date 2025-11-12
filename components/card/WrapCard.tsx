@@ -12,27 +12,12 @@ interface CardProps {
 export default function WrapCard({
   image,
   title,
-  desc,
-  isActive,
-  onHover,
+  desc
 }: CardProps) {
   return (
-    <div
-      onMouseEnter={onHover}
-      className={`relative w-72 bg-white rounded-2xl shadow-md p-4 transition-all duration-700 ease-in-out ${
-        isActive ? "shadow-2xl scale-[1.02]" : "shadow-md scale-100"
-      }`}
-      style={{ overflow: "visible" }} // Allow image to pop outside
-    >
+    <div className="w-full bg-white rounded-2xl overflow-hidden p-4 flex flex-col">
       {/* Image Section */}
-      <div
-        className={`relative h-40 w-full rounded-xl overflow-hidden transition-all duration-700 ease-in-out ${
-          isActive
-            ? "-translate-y-16 scale-80 z-20 shadow-2xl"
-            : "translate-y-0 scale-100 z-10"
-        }`}
-        style={{ position: "relative" }}
-      >
+      <div className="relative w-full h-40 rounded-xl overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -41,21 +26,13 @@ export default function WrapCard({
         />
       </div>
 
-      {/* Title & Desc Section */}
-      <div
-        className={`mt-4 text-center transition-all duration-700 ease-in-out ${
-          isActive ? "-translate-y-20" : "translate-y-0"
-        }`}
-      >
-        <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
-        <p
-          className={`text-sm text-gray-500 mt-2  ${
-            isActive ? "opacity-100 max-h-20 transition-all duration-700 ease-in" : "opacity-0 max-h-0 transition-all duration-100 ease-out"
-          }`}
-        >
-          {desc}
-        </p>
-      </div>
+      {/* Title Section */}
+      <h2 className="mt-4 text-lg font-semibold text-gray-800 text-center">
+        {title}
+      </h2>
+
+      {/* Description Section */}
+      <p className="mt-2 text-sm text-gray-600 text-center">{desc}</p>
     </div>
   );
 }

@@ -25,10 +25,10 @@ export default function IconCard({
 
   return (
     <div
-      className={`${align} flex flex-col bg-white rounded-2xl p-6 hover:shadow-md transition-shadow duration-300 h-full gap-4`}
+      className={`${align} flex flex-col bg-white rounded-2xl p-6 hover:shadow-md transition-shadow duration-300 h-full lg:gap-4 gap-2`}
     >
       <Icon className="text-gcxprimary" size={iconSize} />
-      <h3 className="lg:text-2xl md:text-2xl text-lg font-semibold mb-2 text-gray-700">
+      <h3 className="lg:text-2xl md:text-2xl text-lg font-semibold text-gray-700">
         {title}
       </h3>
       <p className="text-gray-600 text-base">{desc}</p>
