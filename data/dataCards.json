@@ -1,0 +1,156 @@
+{
+  "visionCards": [
+    {
+      "icon": "ShieldQuestionMark",
+      "title": "Security",
+      "desc": "Deploy and scale your applications effortlessly with our cloud platform."
+    },
+    {
+      "icon": "Headset",
+      "title": "Efficienct Fault Reporting",
+      "desc": "Your data is protected with enterprise-grade security and compliance."
+    },
+    {
+      "icon": "HandCoins",
+      "title": "Always Reliable",
+      "desc": "Connect seamlessly with a fast and reliable network across the globe."
+    }
+  ],
+
+  "welcomeGCXCards": [
+    {
+      "image": "/cloud.png",
+      "title": "Explore the Cloud",
+      "desc": "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability."
+    },
+    {
+      "image": "/cloud.png",
+      "title": "Secure Infrastructure",
+      "desc": "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability."
+    },
+    {
+      "image": "/cloud.png",
+      "title": "Data Insights",
+      "desc": "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability."
+    },
+    {
+      "image": "/cloud.png",
+      "title": "Data Insights",
+      "desc": "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability."
+    }
+  ],
+
+  "whatMakeUsDiffCards": [
+    {
+      "id": 1,
+      "title": "Prioritize Your Security and Privacy",
+      "desc": "Data Protection & Encryption, Networking Security, Identity Access Managament, Mornitoring & Detectoin, Firewall protection, and Web Application Firewall (WAFF)",
+      "image": "/security.png"
+    },
+    {
+      "id": 2,
+      "title": "Cloud Infrastructure",
+      "desc": "A reliable cloud platform ensures up-time with redundancy, performance, and scalability to handle any workload. With strong security and continuous monitoring, it protects data and maintains system integrity.",
+      "image": "/cloud.png"
+    },
+    {
+      "id": 3,
+      "title": "24/7 Support Cloud Support in Khmer &English",
+      "desc": "24/7 availibility, Group chat, support step by step, and Guidance step by step guidance.",
+      "image": "/support.png"
+    }
+  ],
+
+  "whyGCXCards": [
+    {
+      "id": 1,
+      "title": "Convenient Location",
+      "desc": "Data centers strategically positioned for easy access and minimal latency",
+      "image": "/convenient-location.png"
+    },
+    {
+      "id": 2,
+      "title": "Stable Power Zone",
+      "desc": "Uninterrupted, reliable power for maximum up-time and data security",
+      "image": "/stable-zone.png"
+    },
+    {
+      "id": 3,
+      "title": "Flood Free Area",
+      "desc": "Data centers strategically located in flood-free zones for worry-free data protection",
+      "image": "/flood-free.png"
+    }
+  ],
+
+  "vmFeatures": [
+    {
+      "image": "/featured1.png",
+      "title": "Easily deploy and manage Virtual Machine",
+      "description": "Interact with your VM how you want. Our intuitive UI, CLI, API, and Terraform Provider make it simple to manage your virtual machines."
+    },
+    {
+      "image": "/featured2.png",
+      "title": "Reliably Scale as Demands Shifts",
+      "description": "Resize a VM or scale horizontally with many of them. Deploy across globally distributed data centers each with our 99.99% uptime SLA."
+    },
+    {
+      "image": "/featured3.png",
+      "title": "Build, monitor, and secure your apps for less",
+      "description": "Get exceptional bandwidth pricing and 500 GiB per month of outbound data transfer—plus monitoring and firewalls for free with every VM."
+    }
+  ],
+
+  "vmUseCase": [
+    {
+      "id": "1",
+      "title": "Software Development & Testing",
+      "desc": "Run multiple virtual machines to test applications across different operating systems without needing separate hardware."
+    },
+    {
+      "id": "2",
+      "title": "Server Consolidation",
+      "desc": "Host multiple servers on a single physical machine to save cost, reduce space, and improve efficiency."
+    },
+    {
+      "id": "3",
+      "title": "Disaster Recovery",
+      "desc": "Quickly back up and restore virtual machines to recover from hardware failures or unexpected outages."
+    },
+    {
+      "id": "4",
+      "title": "Cloud Hosting & SaaS",
+      "desc": "Provide scalable and isolated environments for clients, forming the foundation of most cloud services."
+    },
+    {
+      "id": "5",
+      "title": "Training & Sandbox Environments",
+      "desc": "Use isolated virtual machines for safe experimentation, learning, or testing new software."
+    },
+    {
+      "id": "6",
+      "title": "Running Legacy Applications",
+      "desc": "Run older operating systems or applications on modern hardware without compatibility issues."
+    }
+  ],
+
+  "vnfProblem": [
+    {
+      "proTitle": "Vendor Lock-in",
+      "proDesc": "Tied to proprietary, expensive hardware.",
+      "solTitle": "Cloud-Agnostic Portability",
+      "solDesc": "Runs on any Commercial Off-The-Shelf (COTS) server, hypervisor (VMware, KVM), or major public cloud."
+    },
+    {
+      "proTitle": "Slow Deployment",
+      "proDesc": "Takes weeks or months to provision and rack new physical appliances.",
+      "solTitle": "Rapid, Automated Deployment",
+      "solDesc": "Spin up new instances instantly via orchestration (e.g., integration with NFV MANO, OpenStack, or Kubernetes)."
+    },
+    {
+      "proTitle": "Over-Provisioning",
+      "proDesc": "Buying hardware for peak capacity, leading to wasted resources and high CapEx.",
+      "solTitle": "Dynamic Scaling & Elasticity",
+      "solDesc": "Scale up (vertical) or scale out (horizontal) on-demand to match real-time traffic, then scale back down to save resources."
+    }
+  ]
+}

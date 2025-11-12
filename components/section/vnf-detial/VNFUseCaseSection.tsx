@@ -1,5 +1,5 @@
 import SimpleCard from "@/components/card/SimpleCard";
-import { vnfUseCaseCard } from "@/data/productDetail";
+import { vnfUseCaseCard } from "@/type/productDetail";
 import React from "react";
 
 export default function VNFUseCaseSection() {

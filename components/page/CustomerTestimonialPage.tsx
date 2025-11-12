@@ -1,7 +1,7 @@
 import React from "react";
 import HeroComponent from "../HeroComponent";
 import CustomerCard from "../card/CustomerCard";
-import { customerFeedback } from "@/data/customerFeedback";
+import { customerFeedback } from "@/type/customerFeedback";
 import GetStartedCard from "../card/GetStartedCard";
 
 export default function CustomerTestimonialPage() {

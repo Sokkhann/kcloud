@@ -1,6 +1,6 @@
 import React from "react";
 import HeroComponent from "../HeroComponent";
-import { productDetailLayout } from "@/data/productDetailLayout";
+import { productDetailLayout } from "@/type/productDetailLayout";
 
 interface ProductDetailProps {
   slug: string;

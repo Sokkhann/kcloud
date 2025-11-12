@@ -11,7 +11,7 @@ import {
   Shield,
   CheckCircle,
 } from "lucide-react";
-import { productDetailLayout } from "@/data/productDetailLayout";
+import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
 
 interface ISODetailLayoutProps {

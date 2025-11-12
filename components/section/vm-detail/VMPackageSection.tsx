@@ -1,5 +1,5 @@
 import PricingCard from "@/components/card/PricingCard";
-import { pricingData } from "@/data/productPricing";
+import { pricingData } from "@/type/productPricing";
 import React from "react";
 
 export default function VMPackageSection() {

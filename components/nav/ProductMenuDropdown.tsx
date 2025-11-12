@@ -85,19 +85,19 @@ export default function ProductDropDown() {
         </section>
 
         {/* Product Categories */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 flex-1 h-fit lg:mt-6 md:mt-0 mt-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 flex-1 h-fit md:mt-0 mt-0">
           {productCategories.map((category, index) => (
             <section key={index} className="w-full lg:px-2 px-0">
               <p className="font-semibold text-gray-700 inline-block relative group mb-2 ml-4">
                 {category.title}
               </p>
-              <div className="space-y-2 text-gray-700">
+              <div className="space-y-0 text-gray-700">
                 {category?.items.map((item, i) => (
                   <NavigationMenuLink asChild key={i}>
                     <Link
                       href={`/products/${item.id}`}
                       key={i}
-                      className="block !text-base cursor-pointer px-4 lg:py-2 py-0 rounded-lg transition-all duration-300 hover:text-gcxprimary hover:shadow-sm"
+                      className="block !text-base cursor-pointer px-4 lg:py-2 py-0 rounded-lg transition-all duration-300 hover:text-gcxprimary"
                     >
                       {item.name}
                     </Link>
@@ -109,19 +109,7 @@ export default function ProductDropDown() {
         </div>
       </div>
 
-      {/* Footer link */}
-      <div className="text-center pt-12">
-        <NavigationMenuLink asChild>
-          <Link href={"/products"}>
-            <p className="font-semibold text-gcxprimary inline-block relative group cursor-pointer select-none">
-              <span className="relative text-base z-10 group-hover:translate-x-2 transition-transform duration-300 ease-in-out">
-                See all products
-              </span>
-              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-gcxprimary transition-all duration-300 group-hover:w-full"></span>
-            </p>
-          </Link>
-        </NavigationMenuLink>
-      </div>
+     
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { ImageTitleDescCardPorps } from "@/data/productDetail";
+import { ImageTitleDescCardPorps } from "@/type/productDetail";
 
 interface SwitchCardProps extends ImageTitleDescCardPorps {
   isActive: boolean;

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { carouselCard } from "@/data/overviewProps";
+import { carouselCard } from "@/type/overviewProps";
 
 export default function SwitchCarousel() {
   const [index, setIndex] = useState(0);

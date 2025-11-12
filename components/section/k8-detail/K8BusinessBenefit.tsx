@@ -1,5 +1,5 @@
 import IconCard from "@/components/card/IconCard";
-import { businessCards } from "@/data/productDetail";
+import { businessCards } from "@/type/productDetail";
 import React from "react";
 
 export default function K8BusinessBenefit() {

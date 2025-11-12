@@ -1,5 +1,5 @@
 import SimpleCard from "@/components/card/SimpleCard";
-import { appUseCaseCard } from "@/data/productDetail";
+import { appUseCaseCard } from "@/type/productDetail";
 import React from "react";
 
 export default function AppUseCaseSection() {

@@ -1,5 +1,5 @@
 import FeaturedCard from "@/components/card/FeaturedCard";
-import { k8sFeatureDetail } from "@/data/productDetail";
+import { k8sFeatureDetail } from "@/type/productDetail";
 import React from "react";
 
 export default function K8FeatureSection() {

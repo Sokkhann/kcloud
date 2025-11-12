@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IconCardProps } from "@/data/productDetail";
+import { IconCardProps } from "@/type/productDetail";
 import { useMediaQuery } from "react-responsive";
 
 export default function IconCard({

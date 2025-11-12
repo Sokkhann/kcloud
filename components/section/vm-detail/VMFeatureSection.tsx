@@ -1,9 +1,9 @@
 import FeaturedCard from "@/components/card/FeaturedCard";
-import { vmFeatureDetail } from "@/data/productDetail";
+import {vmFeatures} from "@/data/dataCards.json"
 import React from "react";
 
 export default function VMFeatureSection() {
-  const cards = vmFeatureDetail;
+  const cards = vmFeatures;
 
   return (
     <div className="max-w-7xl mx-auto lg:py-32 md:py-32 py-16">

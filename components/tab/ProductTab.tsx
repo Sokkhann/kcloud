@@ -3,7 +3,6 @@ import ProductCard from "../card/ProductCard";
 import {
   Cpu,
   Cloud,
-  Shield,
   CloudCog,
   BrickWallFire,
   ShipWheel,
@@ -86,11 +85,6 @@ const networkingProduct = [
     title: "DNS",
     desc: "Build and host modern web applications with automatic scaling and updates.",
   },
-  // {
-  //   logo: <Shield className="h-12 w-12 text-white" />,
-  //   title: "GPU Compute",
-  //   desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
-  // },
 ];
 
 // --- product tab products ---

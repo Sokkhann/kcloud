@@ -29,16 +29,16 @@ export default function OverviewMenuDropdown() {
         "Policy & Placement",
       ],
     },
-    {
-      title: "Solutions",
-      id: "solutions",
-      items: [
-        "Online Education",
-        "Gaming Solution",
-        "Audio and Video",
-        "Game Media Solution",
-      ],
-    },
+    // {
+    //   title: "Solutions",
+    //   id: "solutions",
+    //   items: [
+    //     "Online Education",
+    //     "Gaming Solution",
+    //     "Audio and Video",
+    //     "Game Media Solution",
+    //   ],
+    // },
     {
       title: "Why Choose GCX Cloud",
       id: "why-choose-gcx",
