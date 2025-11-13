@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
+import { LucideIcon } from "lucide-react";
 
 type InfoItem = {
-  icon: ReactNode;
+  icon: LucideIcon;
   title: string;
-  description: string;
+  desc: string;
 };
 
 interface InfoListProps {
@@ -19,7 +19,7 @@ export default function BenefitListCard({ items }: InfoListProps) {
           className="flex flex-col items-start gap-3 p-6 rounded-xl "
         >
           <div className="p-3 rounded-full bg-gray-100 flex justify-center items-center">
-            {item.icon}
+            <item.icon size={32}/>
           </div>
 
           <h4 className="font-semibold lg:text-2xl md:text-2xl text-lg text-gray-800">
@@ -27,7 +27,7 @@ export default function BenefitListCard({ items }: InfoListProps) {
           </h4>
 
           <p className="text-base text-gray-600">
-            {item.description}
+            {item.desc}
           </p>
         </div>
       ))}

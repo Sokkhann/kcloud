@@ -1,9 +1,9 @@
 import StackCard from "@/components/card/StackCard";
-import {vnfProblem} from "@/data/dataCards.json"
+import data from "@/data/dataCards.json";
 import React from "react";
 
 export default function ProblemSolutionSection() {
-  const cardProblems = vnfProblem;
+  const cardProblems = data.vnfProblemCards ?? [];
 
   return (
     <div className="max-w-7xl mx-auto lg:py-32 md:py-32 py-16">

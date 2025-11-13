@@ -1,10 +1,10 @@
 import FeaturedCard from "@/components/card/FeaturedCard";
-import { k8sFeatureDetail } from "@/type/productDetail";
+import data from "@/data/dataCards.json"
 import React from "react";
 
 export default function VNFFeatureSection() {
 
-  const cards = k8sFeatureDetail
+  const cards = data.vnfFeatureDetailCards ?? []
 
   return (
     <div className="w-screen bg-gcxprimary/10">

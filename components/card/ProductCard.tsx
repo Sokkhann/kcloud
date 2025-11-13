@@ -1,42 +1,41 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-
-interface ProductCardProps {
-  logo: React.ReactNode;
-  title: string;
-  description: string;
-  link?: string; // optional custom route
-}
+import { IconCardProps } from "@/type/dataTypes";
+import { useMediaQuery } from "react-responsive";
 
 export default function ProductCard({
-  logo,
+  icon: Icon,
   title,
-  description,
+  desc,
   link,
-}: ProductCardProps) {
+}: IconCardProps) {
+  const [mounted, setMounted] = useState(false);
+  const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+  const isLg = useMediaQuery({ minWidth: 1024 });
   const router = useRouter();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Default size for server (to avoid mismatch)
+  let iconSize = 48;
+  if (mounted) {
+    if (isMd) iconSize = 56;
+    if (isLg) iconSize = 64;
+  }
   return (
-    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 pt-14 flex-wrap h-full">
-      {/* Floating Logo */}
-      <div className="absolute -top-10 flex items-center justify-center bg-white rounded-full shadow-md w-20 h-20">
-        <div className="flex items-center justify-center bg-gcxprimary rounded-full w-16 h-16 text-white">
-          {logo}
-        </div>
-      </div>
+    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full">
+      <Icon className="text-gcxprimary" size={iconSize} />
 
       {/* Title */}
-      <p className="text-lg font-semibold text-gray-800 mt-4">
-        {title}
-      </p>
+      <p className="text-lg font-semibold text-gray-800 mt-4">{title}</p>
 
       {/* Description */}
-      <p className="text-gray-600 mt-2 mb-6 px-2 sm:px-4">
-        {description}
-      </p>
+      <p className="text-gray-600 mt-2 mb-6 px-2 sm:px-4">{desc}</p>
 
       {/* Button */}
       <button

@@ -4,28 +4,10 @@ import GetStartedCard from "../card/GetStartedCard";
 import { ArrowRight} from "lucide-react";
 import Link from "next/link";
 import FeaturedCard from "../card/FeaturedCard";
+import data from "@/data/dataCards.json";
 
 export default function TemplateLayout() {
-  const cards = [
-    {
-      image: "/featured1.png",
-      title: "Slash Time-to-Deployment",
-      description:
-        "Move from idea to testing in minutes. Templates eliminate repetitive setups, dramatically cutting provisioning lead times and freeing your engineers for innovation.",
-    },
-    {
-      image: "/featured2.png",
-      title: "Containerized Applications ",
-      description:
-        "Deploy with precision. Use the exact resources and configuration you need to reduce unnecessary compute costs and simplify budget forecasting.",
-    },
-    {
-      image: "/featured2.png",
-      title: "Containerized Applications ",
-      description:
-        "Guarantee an identical starting point for every launch. Templates prevent drift, reduce hard-to-find bugs, and ensure reliable, smoother production rollouts.",
-    },
-  ];
+  const cards = data.templateFeatureDetailCards ?? []
 
   return (
     <div className=" bg-gray-100">

@@ -1,15 +1,15 @@
 import React from "react";
 import Image from "next/image";
-import { ImageTitleDescCardPorps } from "@/type/productDetail";
+import { ImgTitleDescCardProps } from "@/type/dataTypes";
 
-interface SwitchCardProps extends ImageTitleDescCardPorps {
+interface SwitchCardProps extends ImgTitleDescCardProps {
   isActive: boolean;
 }
 
 export default function SwitchCard({
   image,
   title,
-  description,
+  desc,
   isActive,
 }: SwitchCardProps) {
   return (
@@ -25,7 +25,7 @@ export default function SwitchCard({
         `}
       >
         <h3 className="text-2xl font-semibold mb-1 text-gray-700">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <p className="text-gray-600">{desc}</p>
       </div>
 
       {/* Image + overlay */}

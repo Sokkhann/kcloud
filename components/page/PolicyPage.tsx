@@ -13,7 +13,7 @@ import {
   privacyQ12,
   privacySummaryData,
   privacyTOC,
-} from "@/type/PrivacyPolicy";
+} from "@/data/privacyPolicy.json";
 
 // 🧩 Define TypeScript interfaces for all data
 interface PrivacyBullet {

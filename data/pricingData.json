@@ -1,0 +1,587 @@
+[
+  {
+    "id": "virtual-machine",
+    "title": "Virtual Machine",
+    "subTitle": "Simple, managed compute for your workloads",
+    "price": "12",
+    "desc": ["Flexible VM sizes", "High availability SLA", "Easy deployment"],
+    "plans": [
+      {
+        "id": "vm-basic",
+        "title": "VM Basic",
+        "subTitle": "Entry-level VM Simple, managed compute for your workloads",
+        "price": "12",
+        "desc": ["1 vCPU / 2GB RAM", "50GB SSD Storage", "SLA-backed support"]
+      },
+      {
+        "id": "vm-standard",
+        "title": "VM Standard",
+        "subTitle": "Standard performance",
+        "price": "20",
+        "desc": ["2 vCPU / 4GB RAM", "100GB SSD Storage", "99.99% uptime SLA"]
+      },
+      {
+        "id": "vm-premium",
+        "title": "VM Premium",
+        "subTitle": "High-performance VM",
+        "price": "35",
+        "desc": ["4 vCPU / 8GB RAM", "200GB SSD Storage", "Dedicated bandwidth"]
+      },
+      {
+        "id": "vm-high",
+        "title": "VM High",
+        "subTitle": "Optimized for heavy workloads",
+        "price": "50",
+        "desc": ["8 vCPU / 16GB RAM", "400GB SSD Storage", "Priority support"]
+      },
+      {
+        "id": "vm-ultra",
+        "title": "VM Ultra",
+        "subTitle": "Extreme performance VM",
+        "price": "75",
+        "desc": ["16 vCPU / 32GB RAM", "800GB SSD Storage", "High availability"]
+      },
+      {
+        "id": "vm-enterprise",
+        "title": "VM Enterprise",
+        "subTitle": "Enterprise-grade VM",
+        "price": "120",
+        "desc": ["32 vCPU / 64GB RAM", "2TB SSD Storage", "SLA 99.999%"]
+      }
+    ]
+  },
+  {
+    "id": "vnf-appliance",
+    "title": "VNF Appliance",
+    "subTitle": "Virtual Firewall Network appliance for secure connectivity",
+    "price": "18",
+    "desc": ["Scalable network security", "Managed rules", "High throughput"],
+    "plans": [
+      {
+        "id": "vfn-basic",
+        "title": "VFN Basic",
+        "subTitle": "Entry-level firewall",
+        "price": "18",
+        "desc": ["1 vCPU / 1GB RAM", "10Gbps throughput", "Managed rules"]
+      },
+      {
+        "id": "vfn-standard",
+        "title": "VFN Standard",
+        "subTitle": "Enhanced firewall",
+        "price": "30",
+        "desc": ["2 vCPU / 2GB RAM", "20Gbps throughput", "IDS/IPS enabled"]
+      },
+      {
+        "id": "vfn-pro",
+        "title": "VFN Pro",
+        "subTitle": "Advanced network appliance",
+        "price": "50",
+        "desc": ["4 vCPU / 4GB RAM", "40Gbps throughput", "Advanced monitoring"]
+      },
+      {
+        "id": "vfn-premium",
+        "title": "VFN Premium",
+        "subTitle": "High-security appliance",
+        "price": "75",
+        "desc": ["8 vCPU / 8GB RAM", "80Gbps throughput", "Dedicated support"]
+      },
+      {
+        "id": "vfn-ultra",
+        "title": "VFN Ultra",
+        "subTitle": "Enterprise firewall solution",
+        "price": "100",
+        "desc": ["16 vCPU / 16GB RAM", "120Gbps throughput", "24/7 support"]
+      },
+      {
+        "id": "vfn-enterprise",
+        "title": "VFN Enterprise",
+        "subTitle": "Full enterprise network security",
+        "price": "150",
+        "desc": [
+          "32 vCPU / 32GB RAM",
+          "200Gbps throughput",
+          "High availability"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kubernetes",
+    "title": "Kubernetes Cluster",
+    "subTitle": "Fully managed Kubernetes control plane",
+    "price": "45",
+    "desc": [
+      "Auto-scaling nodes",
+      "Integrated monitoring",
+      "3-node HA cluster"
+    ],
+    "plans": [
+      {
+        "id": "k8s-small",
+        "title": "K8s Small",
+        "subTitle": "3-node HA cluster",
+        "price": "45",
+        "desc": ["3-node cluster", "Auto-scaling nodes", "Basic monitoring"]
+      },
+      {
+        "id": "k8s-medium",
+        "title": "K8s Medium",
+        "subTitle": "5-node HA cluster",
+        "price": "75",
+        "desc": ["5-node cluster", "Auto-scaling nodes", "Integrated logging"]
+      },
+      {
+        "id": "k8s-large",
+        "title": "K8s Large",
+        "subTitle": "7-node HA cluster",
+        "price": "120",
+        "desc": ["7-node cluster", "Auto-scaling nodes", "Advanced monitoring"]
+      },
+      {
+        "id": "k8s-premium",
+        "title": "K8s Premium",
+        "subTitle": "10-node enterprise cluster",
+        "price": "200",
+        "desc": ["10-node cluster", "Private registry", "24/7 support"]
+      },
+      {
+        "id": "k8s-ultra",
+        "title": "K8s Ultra",
+        "subTitle": "15-node high-availability cluster",
+        "price": "350",
+        "desc": ["15-node cluster", "Dedicated resources", "High availability"]
+      },
+      {
+        "id": "k8s-enterprise",
+        "title": "K8s Enterprise",
+        "subTitle": "Enterprise-grade cluster",
+        "price": "500",
+        "desc": ["20-node cluster", "SLA 99.999%", "Advanced security"]
+      }
+    ]
+  },
+  {
+    "id": "app-platform",
+    "title": "Web App Hosting",
+    "subTitle": "Deploy web apps instantly with auto scaling",
+    "price": "8",
+    "desc": ["SSL included", "Auto deploy via Git", "Scalable hosting"],
+    "plans": [
+      {
+        "id": "app-basic",
+        "title": "App Basic",
+        "subTitle": "Entry-level hosting",
+        "price": "8",
+        "desc": ["1 vCPU / 1GB RAM", "SSL included", "Auto deploy via Git"]
+      },
+      {
+        "id": "app-standard",
+        "title": "App Standard",
+        "subTitle": "Standard web app hosting",
+        "price": "15",
+        "desc": ["2 vCPU / 2GB RAM", "SSL + CDN", "Load balancing"]
+      },
+      {
+        "id": "app-premium",
+        "title": "App Premium",
+        "subTitle": "High-traffic apps",
+        "price": "25",
+        "desc": ["4 vCPU / 4GB RAM", "SSL + CDN", "Auto scaling"]
+      },
+      {
+        "id": "app-business",
+        "title": "App Business",
+        "subTitle": "Business web apps",
+        "price": "40",
+        "desc": ["8 vCPU / 8GB RAM", "Dedicated resources", "Priority support"]
+      },
+      {
+        "id": "app-enterprise",
+        "title": "App Enterprise",
+        "subTitle": "Enterprise apps",
+        "price": "60",
+        "desc": ["16 vCPU / 16GB RAM", "Private network", "High availability"]
+      }
+    ]
+  },
+  {
+    "id": "block-storage",
+    "title": "Block Storage",
+    "subTitle": "Attachable, high-speed block volumes",
+    "price": "5",
+    "desc": ["Flexible volumes", "Instant attach/detach", "High performance"],
+    "plans": [
+      {
+        "id": "block-basic",
+        "title": "Block Basic",
+        "subTitle": "100GB SSD volume",
+        "price": "5",
+        "desc": ["100GB capacity", "Up to 500 IOPS", "Instant attach/detach"]
+      },
+      {
+        "id": "block-standard",
+        "title": "Block Standard",
+        "subTitle": "200GB SSD volume",
+        "price": "10",
+        "desc": ["200GB capacity", "Up to 1,000 IOPS", "Snapshot support"]
+      },
+      {
+        "id": "block-premium",
+        "title": "Block Premium",
+        "subTitle": "500GB SSD volume",
+        "price": "20",
+        "desc": ["500GB capacity", "Up to 5,000 IOPS", "Encrypted"]
+      },
+      {
+        "id": "block-high",
+        "title": "Block High",
+        "subTitle": "1TB SSD volume",
+        "price": "35",
+        "desc": ["1TB capacity", "10,000 IOPS", "High availability"]
+      },
+      {
+        "id": "block-ultra",
+        "title": "Block Ultra",
+        "subTitle": "2TB SSD volume",
+        "price": "50",
+        "desc": ["2TB capacity", "20,000 IOPS", "Enterprise SLA"]
+      }
+    ]
+  },
+  {
+    "id": "snapshot",
+    "title": "Snapshot Service",
+    "subTitle": "Automated snapshot backups for instances",
+    "price": "3",
+    "desc": ["Daily snapshots", "One-click restore", "Region replication"],
+    "plans": [
+      {
+        "id": "snapshot-basic",
+        "title": "Snapshot Basic",
+        "subTitle": "Daily snapshots",
+        "price": "3",
+        "desc": ["Daily snapshots", "One-click restore", "Region replication"]
+      },
+      {
+        "id": "snapshot-standard",
+        "title": "Snapshot Standard",
+        "subTitle": "Hourly snapshots",
+        "price": "6",
+        "desc": ["Hourly snapshots", "Multiple regions", "Automated cleanup"]
+      },
+      {
+        "id": "snapshot-premium",
+        "title": "Snapshot Premium",
+        "subTitle": "Fast restore snapshots",
+        "price": "10",
+        "desc": ["Fast restore", "Retention up to 90 days", "Encrypted storage"]
+      },
+      {
+        "id": "snapshot-business",
+        "title": "Snapshot Business",
+        "subTitle": "Snapshot + monitoring",
+        "price": "15",
+        "desc": [
+          "Monitoring included",
+          "High frequency snapshots",
+          "Multi-region replication"
+        ]
+      },
+      {
+        "id": "snapshot-enterprise",
+        "title": "Snapshot Enterprise",
+        "subTitle": "Enterprise-grade snapshot",
+        "price": "25",
+        "desc": ["High frequency", "Unlimited retention", "SLA 99.999%"]
+      }
+    ]
+  },
+  {
+    "id": "backup",
+    "title": "Cloud Backup",
+    "subTitle": "Reliable cloud-based backup for your data",
+    "price": "10",
+    "desc": [
+      "Automated daily sync",
+      "Versioning support",
+      "Secure cloud storage"
+    ],
+    "plans": [
+      {
+        "id": "backup-basic",
+        "title": "Backup Basic",
+        "subTitle": "Entry-level backup",
+        "price": "10",
+        "desc": ["100GB storage", "Automated daily sync", "Versioning support"]
+      },
+      {
+        "id": "backup-standard",
+        "title": "Backup Standard",
+        "subTitle": "200GB backup",
+        "price": "20",
+        "desc": ["200GB storage", "Encrypted backups", "Automated daily sync"]
+      },
+      {
+        "id": "backup-premium",
+        "title": "Backup Premium",
+        "subTitle": "500GB backup",
+        "price": "35",
+        "desc": ["500GB storage", "Encrypted + compressed", "High availability"]
+      },
+      {
+        "id": "backup-business",
+        "title": "Backup Business",
+        "subTitle": "Business backup",
+        "price": "50",
+        "desc": ["1TB storage", "Multi-region replication", "Priority support"]
+      },
+      {
+        "id": "backup-enterprise",
+        "title": "Backup Enterprise",
+        "subTitle": "Enterprise backup solution",
+        "price": "80",
+        "desc": ["5TB storage", "Multi-region replication", "SLA 99.999%"]
+      }
+    ]
+  },
+  {
+    "id": "template",
+    "title": "System Templates",
+    "subTitle": "Prebuilt templates for rapid deployment",
+    "price": "2",
+    "desc": ["Popular OS images", "Fast provisioning", "Custom image creation"],
+    "plans": [
+      {
+        "id": "template-basic",
+        "title": "Template Basic",
+        "subTitle": "Common Linux/Windows images",
+        "price": "2",
+        "desc": [
+          "Popular OS images",
+          "Fast provisioning",
+          "Community templates"
+        ]
+      },
+      {
+        "id": "template-standard",
+        "title": "Template Standard",
+        "subTitle": "Additional OS & apps",
+        "price": "5",
+        "desc": [
+          "Linux/Windows + apps",
+          "Fast provisioning",
+          "Custom templates"
+        ]
+      },
+      {
+        "id": "template-premium",
+        "title": "Template Premium",
+        "subTitle": "Preconfigured enterprise templates",
+        "price": "10",
+        "desc": ["Enterprise OS", "Preinstalled apps", "Custom configurations"]
+      },
+      {
+        "id": "template-business",
+        "title": "Template Business",
+        "subTitle": "Business-ready templates",
+        "price": "15",
+        "desc": ["Optimized OS", "Business apps", "High availability"]
+      },
+      {
+        "id": "template-enterprise",
+        "title": "Template Enterprise",
+        "subTitle": "Enterprise-grade templates",
+        "price": "25",
+        "desc": ["Optimized OS + apps", "Security hardened", "SLA backed"]
+      }
+    ]
+  },
+  {
+    "id": "iso",
+    "title": "ISO Manager",
+    "subTitle": "Upload and mount custom ISO images",
+    "price": "1",
+    "desc": ["Max 5 ISO files", "Fast boot support", "Private storage"],
+    "plans": [
+      {
+        "id": "iso-basic",
+        "title": "ISO Basic",
+        "subTitle": "Up to 5 ISO files",
+        "price": "1",
+        "desc": ["Max 5 ISO files", "Fast boot support", "Private storage"]
+      },
+      {
+        "id": "iso-standard",
+        "title": "ISO Standard",
+        "subTitle": "Up to 10 ISO files",
+        "price": "2",
+        "desc": ["Max 10 ISO files", "Fast boot support", "Encrypted storage"]
+      },
+      {
+        "id": "iso-premium",
+        "title": "ISO Premium",
+        "subTitle": "Up to 20 ISO files",
+        "price": "4",
+        "desc": ["Max 20 ISO files", "Fast boot support", "High availability"]
+      },
+      {
+        "id": "iso-business",
+        "title": "ISO Business",
+        "subTitle": "Up to 50 ISO files",
+        "price": "8",
+        "desc": ["Max 50 ISO files", "Fast boot support", "Priority support"]
+      },
+      {
+        "id": "iso-enterprise",
+        "title": "ISO Enterprise",
+        "subTitle": "Unlimited ISO files",
+        "price": "15",
+        "desc": ["Unlimited ISO files", "Fast boot", "Enterprise SLA"]
+      }
+    ]
+  },
+  {
+    "id": "network",
+    "title": "Private Network",
+    "subTitle": "Isolated private networking for your infrastructure",
+    "price": "6",
+    "desc": ["10Gbps connection", "Private subnets", "Custom routing options"],
+    "plans": [
+      {
+        "id": "network-basic",
+        "title": "Network Basic",
+        "subTitle": "10Gbps private network",
+        "price": "6",
+        "desc": ["10Gbps connection", "Private subnets", "Custom routing"]
+      },
+      {
+        "id": "network-standard",
+        "title": "Network Standard",
+        "subTitle": "20Gbps throughput",
+        "price": "12",
+        "desc": ["20Gbps connection", "Multiple subnets", "Custom routing"]
+      },
+      {
+        "id": "network-premium",
+        "title": "Network Premium",
+        "subTitle": "40Gbps throughput",
+        "price": "20",
+        "desc": ["40Gbps connection", "High-speed routing", "Private VLANs"]
+      },
+      {
+        "id": "network-business",
+        "title": "Network Business",
+        "subTitle": "80Gbps throughput",
+        "price": "35",
+        "desc": ["80Gbps connection", "Redundant paths", "Advanced routing"]
+      },
+      {
+        "id": "network-enterprise",
+        "title": "Network Enterprise",
+        "subTitle": "Enterprise-grade networking",
+        "price": "60",
+        "desc": [
+          "100Gbps connection",
+          "Redundant private network",
+          "SLA 99.999%"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "load-balancer",
+    "title": "Load Balancer",
+    "subTitle": "Distribute traffic efficiently across your servers",
+    "price": "20",
+    "desc": ["Layer 4/7 support", "SSL termination", "Health checks"],
+    "plans": [
+      {
+        "id": "lb-basic",
+        "title": "LB Basic",
+        "subTitle": "Layer 4 load balancing",
+        "price": "20",
+        "desc": ["Layer 4 support", "Basic health checks", "SSL offload"]
+      },
+      {
+        "id": "lb-standard",
+        "title": "LB Standard",
+        "subTitle": "Layer 4 + 7 load balancing",
+        "price": "35",
+        "desc": ["Layer 4/7 support", "Health checks", "SSL termination"]
+      },
+      {
+        "id": "lb-premium",
+        "title": "LB Premium",
+        "subTitle": "High-performance LB",
+        "price": "50",
+        "desc": ["Layer 4/7 support", "Advanced health checks", "Auto scaling"]
+      },
+      {
+        "id": "lb-business",
+        "title": "LB Business",
+        "subTitle": "Business-grade LB",
+        "price": "75",
+        "desc": [
+          "Global load balancing",
+          "SSL termination",
+          "Monitoring & alerting"
+        ]
+      },
+      {
+        "id": "lb-enterprise",
+        "title": "LB Enterprise",
+        "subTitle": "Enterprise-grade LB",
+        "price": "120",
+        "desc": ["Global LB", "SLA 99.999%", "Advanced routing"]
+      }
+    ]
+  },
+  {
+    "id": "dns",
+    "title": "Managed DNS",
+    "subTitle": "Fast and reliable DNS management",
+    "price": "3",
+    "desc": ["Global Anycast network", "Automatic failover", "DNSSEC support"],
+    "plans": [
+      {
+        "id": "dns-basic",
+        "title": "DNS Basic",
+        "subTitle": "Basic DNS management",
+        "price": "3",
+        "desc": ["Global Anycast", "Automatic failover", "Basic records"]
+      },
+      {
+        "id": "dns-standard",
+        "title": "DNS Standard",
+        "subTitle": "Enhanced DNS",
+        "price": "6",
+        "desc": ["Anycast network", "Failover support", "Advanced records"]
+      },
+      {
+        "id": "dns-premium",
+        "title": "DNS Premium",
+        "subTitle": "Premium DNS management",
+        "price": "12",
+        "desc": [
+          "Anycast + monitoring",
+          "Failover & alerting",
+          "DNSSEC enabled"
+        ]
+      },
+      {
+        "id": "dns-business",
+        "title": "DNS Business",
+        "subTitle": "Business DNS",
+        "price": "20",
+        "desc": ["High performance", "24/7 support", "DNSSEC + GeoDNS"]
+      },
+      {
+        "id": "dns-enterprise",
+        "title": "DNS Enterprise",
+        "subTitle": "Enterprise-grade DNS",
+        "price": "35",
+        "desc": ["Global Anycast", "High availability", "SLA 99.999%"]
+      }
+    ]
+  }
+]

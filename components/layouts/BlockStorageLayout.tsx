@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import FeaturedCard from "../card/FeaturedCard";
 import GetStartedCard from "../card/GetStartedCard";
-import { Building, Cloud, Shield, Zap } from "lucide-react";
 import BenefitListCard from "../card/BenefitListCard";
+import data from "@/data/dataCards.json";
 
 import {
   Select,
@@ -12,6 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { IconCardProps, ImgTitleDescCardProps } from "@/type/dataTypes";
+import { getReactIcon } from "@/type/getReactIcon";
 
 export interface StoragePrice {
   value: string;
@@ -21,75 +23,21 @@ export interface StoragePrice {
 }
 
 export default function BlockStorageLayout() {
-  const cards = [
-    {
-      image: "/featured1.png",
-      title: "Virtual Machines",
-      description:
-        "Giving your VMs the speed and persistence of a local NVMe drive, but with the scalability and resilience of the cloud.",
-    },
-    {
-      image: "/featured2.png",
-      title: "Containerized Applications ",
-      description:
-        "Providing reliable, stateful persistent volumes that follow your containers, ensuring data integrity even during scaling or pod migration.",
-    },
-  ];
-  const features = [
-    {
-      icon: <Cloud size={22} />,
-      title: "Dedicated Performance",
-      description:
-        "Achieve the lowest latency and highest throughput for your applications. Guarantee up to IOPS and GB/s throughput with dedicated volumes, ensuring your databases and transaction systems never suffer from noisy neighbor issues",
-    },
-    {
-      icon: <Shield size={22} />,
-      title: "Elastic Scalability",
-      description:
-        "Provision from 1 GB up to 16 TB and scale your capacity instantly and without downtime. Dynamically grow or shrink volumes to perfectly match your workload demands and budget.",
-    },
-    {
-      icon: <Building size={22} />,
-      title: "Enterprise Reliability",
-      description:
-        "Trust your critical data to 99.999% durability. Data is automatically replicated across multiple devices, offering built-in fault tolerance and high availability to keep your applications running continuously.",
-    },
-    {
-      icon: <Zap size={22} />,
-      title: "Zero-Trust Security",
-      description:
-        "Protect your assets with mandatory AES-256 encryption for data both at rest and in transit. Control access with granular IAM policies, ensuring complete security and helping you meet compliance requirements.",
-    },
-  ];
 
-  
+  // data of core functions
+  const cards: ImgTitleDescCardProps[] = data.blockStorageCoreFunctionCards ?? [];
 
-  const blockStoragePricing: StoragePrice[] = [
-    {
-      value: "1gb",
-      label: "Storage 1 GiB",
-      pricePerHour: "0.01",
-      pricePerMonth: "0.10",
-    },
-    {
-      value: "10gb",
-      label: "Storage 10 GiB",
-      pricePerHour: "0.09",
-      pricePerMonth: "0.90",
-    },
-    {
-      value: "100gb",
-      label: "Storage 100 GiB",
-      pricePerHour: "0.75",
-      pricePerMonth: "7.50",
-    },
-    {
-      value: "1tb",
-      label: "Storage 1 TB",
-      pricePerHour: "6.50",
-      pricePerMonth: "65.00",
-    },
-  ];
+  // data of features
+  const featureCards = data.blockStorageFeatureDetailCards ?? [];
+  const features: IconCardProps[] = featureCards.map(
+    (card) => ({
+      ...card,
+      icon: getReactIcon(card.icon),
+    })
+  );
+
+  // data of pricing
+  const blockStoragePricing: StoragePrice[] = data.blockStoragePricingCards ?? [];
 
   const [selectedPrice, setSelectedPrice] = useState(blockStoragePricing[0]);
 
@@ -123,7 +71,7 @@ export default function BlockStorageLayout() {
               <FeaturedCard
                 image={card.image}
                 title={card.title}
-                description={card.description}
+                description={card.desc}
               />
             </div>
           ))}
@@ -151,10 +99,10 @@ export default function BlockStorageLayout() {
           </div>
         </div>
       </div>
-      
-       <div className="bg-white xl:py-36 xl:px-0 md:py-16 py-12 px-6">
+
+      <div className="bg-white xl:py-36 xl:px-0 md:py-16 py-12 px-6">
         <div className="max-w-7xl mx-auto inset-0 md:flex justify-between z-10 items-center">
-          <div >
+          <div>
             <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-800">
               Pricing{" "}
               <span className="py-1 px-2 bg-gcxPrimary text-white md:text-base text-sm font-medium ">
@@ -187,8 +135,6 @@ export default function BlockStorageLayout() {
                 </SelectContent>
               </Select>
             </div>
-
-      
           </div>
 
           <div>
@@ -220,7 +166,6 @@ export default function BlockStorageLayout() {
           </div>
         </div>
       </div>
-     
 
       {/* get started card section */}
       <div className="max-w-7xl mx-auto xl:py-24 md:py-16 py-8 px-6">

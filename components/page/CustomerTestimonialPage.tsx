@@ -1,7 +1,7 @@
 import React from "react";
 import HeroComponent from "../HeroComponent";
 import CustomerCard from "../card/CustomerCard";
-import { customerFeedback } from "@/type/customerFeedback";
+import customerOverview from "@/data/cusomterReviews.json";
 import GetStartedCard from "../card/GetStartedCard";
 
 export default function CustomerTestimonialPage() {
@@ -17,7 +17,7 @@ export default function CustomerTestimonialPage() {
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full py-12">
-          {customerFeedback.map((item, index) => (
+          {customerOverview.map((item, index) => (
             <CustomerCard
               key={index}
               description={item.description}

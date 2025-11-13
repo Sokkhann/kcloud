@@ -1,26 +1,19 @@
 import React from "react";
 import Image from "next/image";
+import { ImgTitleDescCardProps } from "@/type/dataTypes";
 
-interface CardProps {
-  image: string;
-  title: string;
-  desc: string;
-  isActive: boolean;
-  onHover: () => void;
+interface Props {
+  card: ImgTitleDescCardProps
 }
 
-export default function WrapCard({
-  image,
-  title,
-  desc
-}: CardProps) {
+export default function WrapCard({card}: Props) {
   return (
     <div className="w-full bg-white rounded-2xl overflow-hidden p-4 flex flex-col">
       {/* Image Section */}
       <div className="relative w-full h-40 rounded-xl overflow-hidden">
         <Image
-          src={image}
-          alt={title}
+          src={card.image}
+          alt={card.title}
           fill
           className="object-cover rounded-xl"
         />
@@ -28,11 +21,11 @@ export default function WrapCard({
 
       {/* Title Section */}
       <h2 className="mt-4 text-lg font-semibold text-gray-800 text-center">
-        {title}
+        {card.title}
       </h2>
 
       {/* Description Section */}
-      <p className="mt-2 text-sm text-gray-600 text-center">{desc}</p>
+      <p className="mt-2 text-sm text-gray-600 text-center">{card.desc}</p>
     </div>
   );
 }

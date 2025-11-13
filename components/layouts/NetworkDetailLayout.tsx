@@ -1,88 +1,19 @@
 import React from "react";
 import Image from "next/image";
-import { Globe, Network, Shield, Wifi, Lock, Cloud } from "lucide-react";
+import { Globe, Network } from "lucide-react";
 import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
+import data from "@/data/dataCards.json";
 
 interface NetworkDetailLayoutProps {
   product: productDetailLayout;
 }
 
 export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
-  const features = [
-    {
-      title: "Public Networks",
-      description:
-        "Logically isolated environments with internet-facing IPs and clear traffic control.",
-      bgColor: "bg-green-200",
-      image: "/public-network.jpg",
-    },
-    {
-      title: "Virtual Networks",
-      description:
-        "Fully isolated virtual networks for private cloud segments with custom CIDR and DNS.",
-      bgColor: "bg-green-600",
-      image: "/virtual-networks.jpg"
-    },
-    {
-      title: "Virtual Routers",
-      description:
-        "Software routers connecting multiple subnets with NAT, routing and firewall services.",
-      bgColor: "bg-green-300",
-      image: "/virtual-router.jpg"
-    },
-  ];
-
-  const networkingFeatures = [
-    {
-      title: "Security Groups",
-      description:
-        "Virtual firewalls to control inbound and outbound traffic with protocol, port ranges and CIDR specifications.",
-      icon: <Shield className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "IP Management",
-      description:
-        "Dynamic IP addressing and public IP pools. Acquire new IPs, add firewall rules and set up port forwarding.",
-      icon: <Wifi className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "VPN & Hybrid Connectivity",
-      description:
-        "Connect remote users and on-premises environments with secure VPN access and customer gateways.",
-      icon: <Lock className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "Scalable Architecture",
-      description:
-        "Build resilient networks from simple public networks to complex multi-subnet architectures.",
-      icon: <Cloud className="w-8 h-8 text-green-600" />,
-    },
-  ];
-
-  const howItWorks = [
-    {
-      step: "1",
-      title: "Choose Network Type",
-      description: "Select public or virtual network based on your needs",
-    },
-    {
-      step: "2",
-      title: "Configure Settings",
-      description: "Define CIDR, subnet mask, gateway and DNS",
-    },
-    {
-      step: "3",
-      title: "Add Security Rules",
-      description: "Set up security groups and firewall policies",
-    },
-    {
-      step: "4",
-      title: "Connect & Deploy",
-      description: "Attach instances and enable VPN connectivity",
-    },
-  ];
-
+  const features = data.networkFeatureDetailCards ?? [];
+  const howItWorks = data.networkHowItWorkCards ?? [];
+  const networkingFeatures = data.networkCapabilities ?? [];
+  
   return (
     <div className="bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 py-16">

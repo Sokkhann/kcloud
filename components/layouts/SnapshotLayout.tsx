@@ -4,28 +4,10 @@ import FeaturedCard from "../card/FeaturedCard";
 import GetStartedCard from "../card/GetStartedCard";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import data from "@/data/dataCards.json";
 
 export default function SnapshotLayout() {
-  const cards = [
-    {
-      image: "/featured1.png",
-      title: "Instant VM Protection",
-      description:
-        "Snapshots capture your virtual machine’s entire state, including configuration and data, so you can restore it in seconds if anything goes wrong.",
-    },
-    {
-      image: "/featured2.png",
-      title: "Effortless Management",
-      description:
-        "Take snapshots with just a few clicks, assign them to projects, pick the hosting location, and give them memorable names for perfect organization.",
-    },
-    {
-      image: "/featured3.png",
-      title: "Build, monitor, and secure your apps for less",
-      description:
-        "Choose flexible hourly billing, review costs upfront, and confirm your snapshot with confidence — no surprises, just peace of mind.",
-    },
-  ];
+  const cards = data.snapshotFeatureDetailCards ?? [];
 
   return (
     <div className=" bg-gray-100">

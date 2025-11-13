@@ -1,8 +1,8 @@
-import { k8UseCaseCard } from "@/type/productDetail";
+import data from "@/data/dataCards.json";
 import SimpleCard from "@/components/card/SimpleCard";
 
 export default function K8UseCaseSection() {
-  const cards = k8UseCaseCard;
+  const cards = data.k8UseCaseCards ?? [];
 
   return (
     <div className="bg-gcxprimary/10 w-screen">

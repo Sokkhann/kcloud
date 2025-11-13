@@ -3,13 +3,13 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import CustomerCard from "./CustomerCard";
-import { customerFeedback } from "@/type/customerFeedback";
+import customerOverview from "@/data/cusomterReviews.json";
 
 export default function CustomerCarousel() {
   const controls = useAnimation();
 
   // Duplicate data for smooth infinite effect
-  const duplicated = [...customerFeedback, ...customerFeedback];
+  const duplicated = [...customerOverview, ...customerOverview];
 
   useEffect(() => {
     const isMobile = window.innerWidth < 1024;
@@ -69,7 +69,7 @@ export default function CustomerCarousel() {
 
         {/* Mobile & Tablet: Scroll manually */}
         <div className="flex lg:hidden w-full overflow-x-auto space-x-4 md:space-x-8 py-6 scrollbar-hide">
-          {customerFeedback.map((item, index) => (
+          {customerOverview.map((item, index) => (
             <div
               key={index}
               className="w-[350px] md:w-[310px] flex-shrink-0"

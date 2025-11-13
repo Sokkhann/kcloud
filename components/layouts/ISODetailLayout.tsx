@@ -2,97 +2,26 @@
 
 import React from "react";
 import Image from "next/image";
-import {
-  BookOpen,
-  PlayCircle,
-  Scale,
-  HardDrive,
-  Zap,
-  Shield,
-  CheckCircle,
-} from "lucide-react";
 import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
+import data from "@/data/dataCards.json"
+import { getReactIcon } from "@/type/getReactIcon";
+import { IconCardProps } from "@/type/dataTypes";
 
 interface ISODetailLayoutProps {
   product: productDetailLayout;
 }
 
 export default function ISODetailLayout({}: ISODetailLayoutProps) {
-  const features = [
-    {
-      icon: <BookOpen className="w-20 h-20 text-green-800" />,
-      title: "Custom OS",
-      description: "Build VMs using any custom OS you want.",
-      bgColor: "bg-green-200",
-      image: "/custom-os.jpg",
-    },
-    {
-      icon: <PlayCircle className="w-20 h-20 text-green-800" />,
-      title: "Flexible sources",
-      description: "Upload a local image file.",
-      bgColor: "bg-green-600",
-      image: "/upload-file.jpg",
-    },
-    {
-      icon: <Scale className="w-20 h-20 text-green-800" />,
-      title: "Simple Management",
-      description:
-        "Assign ISOs to project and choose where they are stored for organised resource tracking.",
-      bgColor: "bg-green-300",
-      image: "/simple-management.jpg",
-    },
-  ];
+  const features = data.isoFeatureDetailCards ?? []
 
-  const useCases = [
-    {
-      title: "Custom OS Installation",
-      description:
-        "Deploy specialized Linux distributions or custom-built operating systems tailored to your needs.",
-      icon: <HardDrive className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "System Recovery",
-      description:
-        "Boot into recovery environments to diagnose issues, repair systems, or restore data.",
-      icon: <Shield className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "Testing & Development",
-      description:
-        "Test new OS versions, beta releases, or development builds in isolated environments.",
-      icon: <Zap className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "Specialized Appliances",
-      description:
-        "Run network appliances, security tools, or specialized software distributions.",
-      icon: <CheckCircle className="w-8 h-8 text-green-600" />,
-    },
-  ];
+  const useCasesCards = data.isoUseCaseCards ?? []
+  const useCases: IconCardProps[] = useCasesCards.map((card) => ({
+      ...card,
+      icon: getReactIcon(card.icon),
+    }));
 
-  const howItWorks = [
-    {
-      step: "1",
-      title: "Upload Your ISO",
-      description: "Upload ISO files via web interface",
-    },
-    {
-      step: "2",
-      title: "Attach to VM",
-      description: "Mount the ISO to any virtual machine",
-    },
-    {
-      step: "3",
-      title: "Boot & Install",
-      description: "VM boots from ISO automatically",
-    },
-    {
-      step: "4",
-      title: "Detach When Done",
-      description: "Remove ISO after installation completes",
-    },
-  ];
+  const howItWorks = data.isoHowItWorkCards ?? []
 
   return (
     <div className="bg-gray-50">
@@ -191,12 +120,12 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
                 key={index}
                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex gap-4"
               >
-                <div className="flex-shrink-0">{useCase.icon}</div>
+                <div className="flex-shrink-0">{<useCase.icon/>}</div>
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-2">
                     {useCase.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{useCase.description}</p>
+                  <p className="text-sm text-gray-600">{useCase.desc}</p>
                 </div>
               </div>
             ))}

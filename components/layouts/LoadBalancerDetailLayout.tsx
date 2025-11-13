@@ -12,85 +12,17 @@ import {
 } from "lucide-react";
 import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
+import data from "@/data/dataCards.json"
 
 interface LoadBalancerDetailLayoutProps {
   product: productDetailLayout;
 }
 
 export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutProps) {
-  const features = [
-    {
-      image: "/high-availability.jpg",
-      title: "High Availability",
-      description:
-        "Spread incoming traffic across multiple servers, preventing overload and ensuring consistent uptime.",
-      bgColor: "bg-green-200",
-    },
-    {
-      image: "/flexible-billing.jpg",
-      title: "Flexible Billing",
-      description:
-        "Pay hourly, monthly or quarterly—choose a cycle that matches your workload and budget.",
-      bgColor: "bg-green-600",
-    },
-    {
-      image: "/sticky-session.jpg",
-      title: "Sticky Sessions",
-      description:
-        "Keep user sessions persistent with load balancer or application cookies, or disable for true round robin.",
-      bgColor: "bg-green-300",
-    },
-  ];
 
-  const whyChoose = [
-    {
-      title: "High Availability & Reliability",
-      description:
-        "Incoming traffic is spread across multiple servers, preventing overload and ensuring consistent uptime for your applications.",
-      icon: <Shield className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "Flexible Billing Options",
-      description:
-        "Pay hourly, monthly or even quarterly—choose a billing cycle that matches your workload and budget requirements.",
-      icon: <Clock className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "Built-in Sticky Sessions",
-      description:
-        "Keep user sessions persistent with load balancer or application cookies, or disable stickiness for true round robin distribution.",
-      icon: <Cookie className="w-8 h-8 text-green-600" />,
-    },
-    {
-      title: "Smart Algorithms",
-      description:
-        "Pick from Source-based routing, Round Robin or Least Connections to optimize performance for your specific use case.",
-      icon: <Gauge className="w-8 h-8 text-green-600" />,
-    },
-  ];
-
-  const algorithms = [
-    {
-      step: "1",
-      title: "Round Robin",
-      description: "Distribute requests evenly across all servers",
-    },
-    {
-      step: "2",
-      title: "Least Connections",
-      description: "Route to server with fewest active connections",
-    },
-    {
-      step: "3",
-      title: "Source-Based",
-      description: "Route based on client IP for consistency",
-    },
-    {
-      step: "4",
-      title: "Sticky Sessions",
-      description: "Maintain session persistence with cookies",
-    },
-  ];
+  const features = data.loadBalanceFeatureDetailCards ?? [];
+  const whyChoose = data.loadBalanceWhyChooseCards ?? [];
+  const algorithms = data.loadBalanceAlgorithmCards ?? [];
 
   return (
     <div className="bg-gray-50 min-h-screen">

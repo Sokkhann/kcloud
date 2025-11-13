@@ -1,115 +1,39 @@
+"use client"
 import React from "react";
 import HeroComponent from "../HeroComponent";
-import {
-  CloudCog,
-  BrickWallFire,
-  ShipWheel,
-  LayoutGrid,
-  Blocks,
-  SwitchCamera,
-  RotateCcw,
-  Archive,
-  Earth,
-  Cpu,
-  Cloud,
-  Group,
-} from "lucide-react";
 import ProductCard from "../card/ProductCard";
 import GetStartedCard from "../card/GetStartedCard";
+import data from "@/data/products.json";
+import { getReactIcon } from "@/type/getReactIcon";
+import { IconCardProps } from "@/type/dataTypes";
 
 // --- Compute tab products ---
-const computeProducts = [
-  {
-    logo: <CloudCog className="h-12 w-12 text-white" />,
-    title: "Virtual Machine",
-    desc: "Run scalable virtual machines optimized for performance and flexibility.",
-    link: "/products/virtual-machine",
-  },
-  {
-    logo: <BrickWallFire className="h-12 w-12 text-white" />,
-    title: "VNF Appliances",
-    desc: "Deploy and manage Docker containers easily across your infrastructure.",
-    link: "/products/vnf-appliance",
-  },
-  {
-    logo: <ShipWheel className="h-12 w-12 text-white" />,
-    title: "Kubernetes",
-    desc: "Build and host modern web applications with automatic scaling and updates.",
-    link: "/products/kubernetes",
-  },
-  {
-    logo: <LayoutGrid className="h-12 w-12 text-white" />,
-    title: "App",
-    desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
-    link: "/products/app",
-  },
-];
+const computeProductCards = data.computeProducts;
+const computeProducts: IconCardProps[] = computeProductCards.map((card) => ({
+  ...card,
+  icon: getReactIcon(card.icon),
+}));
 
 // --- storage tab products ---
-const storageProduct = [
-  {
-    logo: <Blocks className="h-12 w-12 text-white" />,
-    title: "Block Storage",
-    desc: "Run scalable virtual machines optimized for performance and flexibility.",
-    link: "/products/block-storage",
-  },
-  {
-    logo: <SwitchCamera className="h-12 w-12 text-white" />,
-    title: "Snapshot",
-    desc: "Deploy and manage Docker containers easily across your infrastructure.",
-    link: "/products/snapshot",
-  },
-  {
-    logo: <RotateCcw className="h-12 w-12 text-white" />,
-    title: "Backup",
-    desc: "Build and host modern web applications with automatic scaling and updates.",
-    link: "/products/backup",
-  },
-  {
-    logo: <Archive className="h-12 w-12 text-white" />,
-    title: "Template",
-    desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
-    link: "/products/template",
-  },
-  {
-    logo: <Earth className="h-12 w-12 text-white" />,
-    title: "ISOs",
-    desc: "Boost your AI and ML workloads using GPU-accelerated compute power.",
-    link: "/products/iso",
-  },
-];
+const storageProductCards = data.storageProducts;
+const storageProduct: IconCardProps[] = storageProductCards.map((card) => ({
+  ...card,
+  icon: getReactIcon(card.icon),
+}));
 
 // --- networking tab products ---
-const networkingProduct = [
-  {
-    logo: <Cpu className="h-12 w-12 text-white" />,
-    title: "Network",
-    desc: "Run scalable virtual machines optimized for performance and flexibility.",
-    link: "/products/network",
-  },
-  {
-    logo: <Cpu className="h-12 w-12 text-white" />,
-    title: "Load Balancer",
-    desc: "Deploy and manage Docker containers easily across your infrastructure.",
-    link: "/products/load-balancer",
-  },
-  {
-    logo: <Cloud className="h-12 w-12 text-white" />,
-    title: "DNS",
-    desc: "Build and host modern web applications with automatic scaling and updates.",
-    link: "/products/dns",
-  },
-];
+const networkingProductCards = data.networkingProducts
+const networkingProduct: IconCardProps[] = networkingProductCards.map((card) => ({
+  ...card,
+  icon: getReactIcon(card.icon),
+}));
 
 // --- product tab products ---
-const policyProduct = [
-  {
-    logo: <Group className="h-12 w-12 text-white" />,
-    title: "Affinity Group",
-    desc: "Deploy and manage Docker containers easily across your infrastructure.",
-    link: "/products/affinity-group",
-  },
-];
+const policyProductCards = data.policyProducts
+const policyProduct: IconCardProps[] = policyProductCards.map((card) => ({
+  ...card,
+  icon: getReactIcon(card.icon),
+}));
 
 export default function ProductPage() {
   return (
@@ -123,7 +47,6 @@ export default function ProductPage() {
       />
 
       <div className="mt-10 space-y-16">
-
         <div className="pt-16 max-w-7xl mx-auto">
           {/* title and description */}
           <div className="text-center px-6">
@@ -140,9 +63,9 @@ export default function ProductPage() {
             {computeProducts.map((product, index) => (
               <ProductCard
                 key={index}
-                logo={product.logo}
+                icon={product.icon}
                 title={product.title}
-                description={product.desc}
+                desc={product.desc}
                 link={product.link}
               />
             ))}
@@ -165,9 +88,9 @@ export default function ProductPage() {
             {storageProduct.map((product, index) => (
               <ProductCard
                 key={index}
-                logo={product.logo}
+                icon={product.icon}
                 title={product.title}
-                description={product.desc}
+                desc={product.desc}
                 link={product.link}
               />
             ))}
@@ -190,9 +113,9 @@ export default function ProductPage() {
             {networkingProduct.map((product, index) => (
               <ProductCard
                 key={index}
-                logo={product.logo}
+                icon={product.icon}
                 title={product.title}
-                description={product.desc}
+                desc={product.desc}
                 link={product.link}
               />
             ))}
@@ -215,9 +138,9 @@ export default function ProductPage() {
             {policyProduct.map((product, index) => (
               <ProductCard
                 key={index}
-                logo={product.logo}
+                icon={product.icon}
                 title={product.title}
-                description={product.desc}
+                desc={product.desc}
                 link={product.link}
               />
             ))}
@@ -227,9 +150,6 @@ export default function ProductPage() {
         <div className="max-w-7xl mx-auto pb-16 px-6">
           <GetStartedCard />
         </div>
-
-
-
       </div>
     </div>
   );

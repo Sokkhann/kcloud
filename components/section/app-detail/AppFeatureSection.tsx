@@ -1,9 +1,9 @@
 import FeaturedCard from "@/components/card/FeaturedCard";
-import { appFeatureDetail } from "@/type/productDetail";
+import data from "@/data/dataCards.json";
 import React from "react";
 
 export default function AppFeatureSection() {
-  const cards = appFeatureDetail;
+  const cards = data.appFeatureDetailCards ?? [];
 
   return (
     <div className="">

@@ -1,73 +1,73 @@
 {
   "computeProducts": [
     {
-      "logo": "CloudCog",
+      "icon": "CloudCog",
       "title": "Virtual Machine",
       "desc": "Run scalable virtual machines optimized for performance and flexibility."
     },
     {
-      "logo": "BrickWallFire",
+      "icon": "BrickWallFire",
       "title": "VNF Appliance",
       "desc": "Deploy and manage Docker containers easily across your infrastructure."
     },
     {
-      "logo": "ShipWheel",
+      "icon": "ShipWheel",
       "title": "Kubernetes",
       "desc": "Build and host modern web applications with automatic scaling and updates."
     },
     {
-      "logo": "LayoutGrid",
+      "icon": "LayoutGrid",
       "title": "App",
       "desc": "Boost your AI and ML workloads using GPU-accelerated compute power."
     }
   ],
   "storageProducts": [
     {
-      "logo": "Blocks",
+      "icon": "Blocks",
       "title": "Block Storage",
       "desc": "Run scalable virtual machines optimized for performance and flexibility."
     },
     {
-      "logo": "SwitchCamera",
+      "icon": "SwitchCamera",
       "title": "Snapshot",
       "desc": "Deploy and manage Docker containers easily across your infrastructure."
     },
     {
-      "logo": "RotateCcw",
+      "icon": "RotateCcw",
       "title": "Backup",
       "desc": "Build and host modern web applications with automatic scaling and updates."
     },
     {
-      "logo": "Archive",
+      "icon": "Archive",
       "title": "Template",
       "desc": "Boost your AI and ML workloads using GPU-accelerated compute power."
     },
     {
-      "logo": "Earth",
+      "icon": "Earth",
       "title": "ISOs",
       "desc": "Boost your AI and ML workloads using GPU-accelerated compute power."
     }
   ],
   "networkingProducts": [
     {
-      "logo": "Cpu",
+      "icon": "Cpu",
       "title": "Network",
       "desc": "Run scalable virtual machines optimized for performance and flexibility."
     },
     {
-      "logo": "Cpu",
+      "icon": "Cpu",
       "title": "Load Balancer",
       "desc": "Deploy and manage Docker containers easily across your infrastructure."
     },
     {
-      "logo": "Cloud",
+      "icon": "Cloud",
       "title": "DNS",
       "desc": "Build and host modern web applications with automatic scaling and updates."
     }
   ],
   "policyProducts": [
     {
-      "logo": "Group",
+      "icon": "Group",
       "title": "Affinity Group",
       "desc": "Deploy and manage Docker containers easily across your infrastructure."
     }

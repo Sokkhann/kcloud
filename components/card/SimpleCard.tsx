@@ -1,4 +1,4 @@
-import { SimpleCardProps } from "@/type/productDetail";
+import { SimpleCardProps } from "@/type/dataTypes";
 import React from "react";
 
 export default function SimpleCard({ title, desc }: SimpleCardProps) {

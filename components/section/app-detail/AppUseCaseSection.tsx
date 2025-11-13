@@ -1,9 +1,9 @@
 import SimpleCard from "@/components/card/SimpleCard";
-import { appUseCaseCard } from "@/type/productDetail";
+import data from "@/data/dataCards.json";
 import React from "react";
 
 export default function AppUseCaseSection() {
-  const cards = appUseCaseCard;
+  const cards = data.appUseCaseCards ?? [];
 
   return (
     <div className="w-screen bg-gcxprimary/10">

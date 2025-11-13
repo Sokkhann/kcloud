@@ -1,38 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
 import HeroComponent from "../HeroComponent";
 import AboutUsCard from "../card/AboutUsCard";
 import GetStartedCard from "../card/GetStartedCard";
 import WrapCard from "../card/WrapCard";
 import VisionSecion from "../section/about-us/VisionSecion";
 import ScrollReveal from "../animations/ScrolReveal";
-
-const cards = [
-  {
-    image: "/cloud.png",
-    title: "Explore the Cloud",
-    desc: "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability.",
-  },
-  {
-    image: "/cloud.png",
-    title: "Secure Infrastructure",
-    desc: "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability.",
-  },
-  {
-    image: "/cloud.png",
-    title: "Data Insights",
-    desc: "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability.",
-  },
-  {
-    image: "/cloud.png",
-    title: "Data Insights",
-    desc: "Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability. Discover powerful cloud solutions for growth and scalability.",
-  },
-];
+import data from "@/data/dataCards.json"
+import { ImgTitleDescCardProps } from "@/type/dataTypes";
 
 export default function AboutPage() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const WelcomeCards = data.welcomeGCXCards as ImgTitleDescCardProps[]
 
   return (
     <div className="w-screen bg-gray-200">
@@ -91,14 +69,10 @@ export default function AboutPage() {
 
               <ScrollReveal>
                 <div className="gap-4 lg:gap-8 md:gap-8 px-4 lg:px-8 md:px-8 justify-center items-start flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
-                  {cards.map((card, index) => (
+                  {WelcomeCards.map((card, index) => (
                     <WrapCard
                       key={index}
-                      image={card.image}
-                      title={card.title}
-                      desc={card.desc}
-                      isActive={activeIndex === index}
-                      onHover={() => setActiveIndex(index)}
+                      card={card}
                     />
                   ))}
                 </div>

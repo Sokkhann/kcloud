@@ -2,8 +2,10 @@
 import React from "react";
 import FeaturedCard from "../card/FeaturedCard";
 import GetStartedCard from "../card/GetStartedCard";
-import { Building, Cloud, Shield, Zap } from "lucide-react";
 import BenefitListCard from "../card/BenefitListCard";
+import data from "@/data/dataCards.json"
+import { IconCardProps } from "@/type/dataTypes";
+import { getReactIcon } from "@/type/getReactIcon";
 
 export interface StoragePrice {
   value: string;
@@ -13,56 +15,14 @@ export interface StoragePrice {
 }
 
 export default function AffinityGroupLayout() {
-  const cards = [
-    {
-      image: "/featured1.png",
-      title: "Maximize Performance",
-      description:
-        "Affinity rules ensure interdependent VMs are co-located on the same host, which eliminates network latency and guarantees peak application speed.",
-    },
-    {
-      image: "/featured2.png",
-      title: "Ensure Fault Tolerance",
-      description:
-        "Anti-Affinity rules strategically separate redundant services across different hosts, preventing any single hardware failure from causing a total service disruption.",
-    },
-     {
-      image: "/featured1.png",
-      title: "Optimize Infrastructure",
-      description:
-        "The strategic placement controls spread heavy workloads evenly across the cloud, avoiding resource bottlenecks and ensuring optimal utilization of all physical hosts.",
-    },
-
-  ];
+  const cards = data.affinityGroupOfferCards ?? []
   
-  const features = [
-    {
-      icon: <Cloud size={22} />,
-      title: "Affinity Placement",
-      description:
-        "Dictates the mandatory clustering of selected VMs onto the same physical host, delivering the tangible benefit of near-zero network latency essential for hyper-accelerated communication between tightly integrated application components.",
-    },
-    {
-      icon: <Shield size={22} />,
-      title: "Anti-Affinity Placement",
-      description:
-        "Enforces the strategic dispersal of selected VMs across distinct physical hosts, delivering the essential benefit of ironclad high availability by isolating redundant services from single points of physical failure.",
-    },
-    {
-      icon: <Building size={22} />,
-      title: "Hard Rules",
-      description:
-        "The policy represents a non-negotiable deployment commitment—if the stringent placement criteria cannot be met, the provisioning request is halted—making it the ultimate lever for guaranteed placement required by critical compliance or mission-critical HA mandates.",
-    },
-    {
-      icon: <Zap size={22} />,
-      title: "Soft Rules",
-      description:
-        "The policy establishes an optimal placement preference that the orchestrator diligently pursues, yet allows for successful deployment if the preference is unattainable, ensuring intelligent deployment flexibility without sacrificing the integrity of the provisioning process.",
-    },
-  ];
+  const featureCards = data.affinityGroupFeatureDetailCards ?? []
+  const features: IconCardProps[] = featureCards.map((card) => ({
+      ...card,
+      icon: getReactIcon(card.icon),
+    }));
 
- 
   return (
     <div className=" bg-gray-100">
       <div className="">
@@ -107,7 +67,7 @@ export default function AffinityGroupLayout() {
                   <FeaturedCard
                     image={card.image}
                     title={card.title}
-                    description={card.description}
+                    description={card.desc}
                   />
                 </div>
               ))}

@@ -8,11 +8,9 @@ import {
   NavigationMenuItem,
   NavigationMenuTrigger,
   NavigationMenuContent,
-  NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
 import OverviewMenuDropdown from "../OverviewMenuDropdown";
 import ProductDropDown from "../ProductMenuDropdown";
-import SolutionDropDown from "../SolutionMenuDropdown";
 import TopNavBar from "../Topper";
 
 export default function DesktopNavigation() {

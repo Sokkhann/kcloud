@@ -1,9 +1,9 @@
 import SimpleCard from "@/components/card/SimpleCard";
-import {vmUseCase} from "@/data/dataCards.json"
+import data from "@/data/dataCards.json"
 import React from "react";
 
 export default function VMUseCaseSection() {
-  const cardUseCases = vmUseCase
+  const cardUseCases = data.vmUseCaseCards ?? []
 
   return (
     <div className=" w-screen">

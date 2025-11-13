@@ -5,7 +5,7 @@ export interface CardProps {
   link?: string;
 }
 
-export const customerFeedback: CardProps[] = [
+export const customerOverview: CardProps[] = [
   {
     title: "NeocomISP Co Limited",
     description:

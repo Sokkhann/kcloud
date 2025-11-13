@@ -1,16 +1,17 @@
-import FeaturedCard from "@/components/card/FeaturedCard";
-import { k8sFeatureDetail } from "@/type/productDetail";
 import React from "react";
+import data from "@/data/dataCards.json";
+import FeaturedCard from "@/components/card/FeaturedCard";
 
 export default function K8FeatureSection() {
-
-  const cards = k8sFeatureDetail
+  const cards = data.k8sFeatureDetailCards ?? [];
 
   return (
     <div>
       <div className="max-w-7xl mx-auto py-16 lg:py-32 md:py-32">
         <div className="text-center pb-8 mx-4 lg:mx-8 md:mx-8">
-          <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">Key Features</p>
+          <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
+            Key Features
+          </p>
           <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
             Flexible and powerful computing resources to run your workloads
             efficiently. Scale CPU, memory, and storage as needed. Ideal for

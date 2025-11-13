@@ -1,28 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import data from "@/data/dataCards.json"
 
 export default function HoverExpandCards() {
-  const cards = [
-    {
-      id: 1,
-      title: "Convenient Location",
-      desc: "Data centers strategically positioned for easy access and minimal latency",
-      image: "/convenient-location.png",
-    },
-    {
-      id: 2,
-      title: "Stable Power Zone",
-      desc: "Uninterrupted, reliable power for maximum up-time and data security",
-      image: "/stable-zone.png",
-    },
-    {
-      id: 3,
-      title: "Flood Free Area",
-      desc: "Data centers strategically located in flood-free zones for worry-free data protection",
-      image: "/flood-free.png",
-    },
-  ];
+  const cards = data.whyGCXCards
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-8 gap-4 w-full lg:px-8 md:px-8 px-4">

@@ -1,9 +1,9 @@
 import SimpleCard from "@/components/card/SimpleCard";
-import { vnfUseCaseCard } from "@/type/productDetail";
+import data from "@/data/dataCards.json";
 import React from "react";
 
 export default function VNFUseCaseSection() {
-  const cards = vnfUseCaseCard;
+  const cards = data.vnfUseCaseCards ?? [];
 
   return (
     <div className="max-w-7xl mx-auto py-16 lg:py-32 md:py-32">
