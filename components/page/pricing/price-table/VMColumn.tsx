@@ -53,7 +53,7 @@ export const columns: ColumnDef<PricingPlan>[] = [
     cell: () => {
       return (
         <div className="flex justify-end">
-          <Button className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary">
+          <Button className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90">
             <ArrowRight className="w-4 h-4" />
           </Button>
         </div>
