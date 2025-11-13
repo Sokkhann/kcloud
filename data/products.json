@@ -1,0 +1,75 @@
+{
+  "computeProducts": [
+    {
+      "logo": "CloudCog",
+      "title": "Virtual Machine",
+      "desc": "Run scalable virtual machines optimized for performance and flexibility."
+    },
+    {
+      "logo": "BrickWallFire",
+      "title": "VNF Appliance",
+      "desc": "Deploy and manage Docker containers easily across your infrastructure."
+    },
+    {
+      "logo": "ShipWheel",
+      "title": "Kubernetes",
+      "desc": "Build and host modern web applications with automatic scaling and updates."
+    },
+    {
+      "logo": "LayoutGrid",
+      "title": "App",
+      "desc": "Boost your AI and ML workloads using GPU-accelerated compute power."
+    }
+  ],
+  "storageProducts": [
+    {
+      "logo": "Blocks",
+      "title": "Block Storage",
+      "desc": "Run scalable virtual machines optimized for performance and flexibility."
+    },
+    {
+      "logo": "SwitchCamera",
+      "title": "Snapshot",
+      "desc": "Deploy and manage Docker containers easily across your infrastructure."
+    },
+    {
+      "logo": "RotateCcw",
+      "title": "Backup",
+      "desc": "Build and host modern web applications with automatic scaling and updates."
+    },
+    {
+      "logo": "Archive",
+      "title": "Template",
+      "desc": "Boost your AI and ML workloads using GPU-accelerated compute power."
+    },
+    {
+      "logo": "Earth",
+      "title": "ISOs",
+      "desc": "Boost your AI and ML workloads using GPU-accelerated compute power."
+    }
+  ],
+  "networkingProducts": [
+    {
+      "logo": "Cpu",
+      "title": "Network",
+      "desc": "Run scalable virtual machines optimized for performance and flexibility."
+    },
+    {
+      "logo": "Cpu",
+      "title": "Load Balancer",
+      "desc": "Deploy and manage Docker containers easily across your infrastructure."
+    },
+    {
+      "logo": "Cloud",
+      "title": "DNS",
+      "desc": "Build and host modern web applications with automatic scaling and updates."
+    }
+  ],
+  "policyProducts": [
+    {
+      "logo": "Group",
+      "title": "Affinity Group",
+      "desc": "Deploy and manage Docker containers easily across your infrastructure."
+    }
+  ]
+}

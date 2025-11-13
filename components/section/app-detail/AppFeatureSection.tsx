@@ -1,5 +1,5 @@
 import FeaturedCard from "@/components/card/FeaturedCard";
-import { appFeatureDetail } from "@/data/productDetail";
+import { appFeatureDetail } from "@/type/productDetail";
 import React from "react";
 
 export default function AppFeatureSection() {

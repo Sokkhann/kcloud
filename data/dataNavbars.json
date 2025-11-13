@@ -1,0 +1,124 @@
+{
+  "overviewHighlights": [
+    {
+      "title": "Convenient Location",
+      "desc": "Easily accessible and strategically located for optimal connectivity."
+    },
+    {
+      "title": "Stable Power Zone",
+      "desc": "Reliable and redundant power systems ensuring uptime and performance."
+    },
+    {
+      "title": "Flood-Free Area",
+      "desc": "Physically secure and environmentally safe data center location."
+    }
+  ],
+
+  "overviewItems": [
+    {
+      "title": "Our Products & Services",
+      "id": "products",
+      "items": [
+        "Compute",
+        "Storage & Data Protection",
+        "Networking",
+        "Policy & Placement"
+      ]
+    },
+    {
+      "title": "Solutions",
+      "id": "solutions",
+      "items": [
+        "Online Education",
+        "Gaming Solution",
+        "Audio and Video",
+        "Game Media Solution"
+      ]
+    },
+    {
+      "title": "Why Choose GCX Cloud",
+      "id": "why-choose-gcx",
+      "items": [
+        "Prioritize your security and privacy",
+        "Cloud infrastructure",
+        "24/7 cloud support in Khmer & English"
+      ]
+    }
+  ],
+
+  "productHightlihgts": [
+    {
+      "title": "Snapshots",
+      "desc": "Point-in-time copy of a VM or volume."
+    },
+    {
+      "title": "Backups",
+      "desc": "Data protection for recovery."
+    },
+    {
+      "title": "Templates",
+      "desc": "Pre-built VM images to speed instance creation."
+    },
+    {
+      "title": "ISOs",
+      "desc": "Bootable OS or tool images used to install or rescue a VM."
+    },
+    {
+      "title": "Affinity Groups",
+      "desc": "Policies to keep VMs together or apart for performance/HA."
+    }
+  ],
+
+  "productItems": [
+    {
+      "title": "Compute",
+      "items": [
+        { "name": "Virtual Machines", "id": "virtual-machine" },
+        { "name": "VNF Appliances", "id": "vnf-appliance" },
+        { "name": "Kubernetes", "id": "kubernetes" },
+        { "name": "Apps", "id": "app" }
+      ]
+    },
+    {
+      "title": "Storage & Data Protection",
+      "items": [
+        { "name": "Block Storage", "id": "block-storage" },
+        { "name": "Snapshots", "id": "snapshot" },
+        { "name": "Backups", "id": "backup" },
+        { "name": "Templates", "id": "template" },
+        { "name": "ISOs", "id": "iso" }
+      ]
+    },
+    {
+      "title": "Networking",
+      "items": [
+        { "name": "Networks", "id": "network" },
+        { "name": "Load Balancers", "id": "load-balancer" },
+        { "name": "DNS", "id": "dns" }
+      ]
+    },
+    {
+      "title": "Security & Access",
+      "items": [{ "name": "Affinity Group", "id": "affinity-group" }]
+    }
+  ],
+
+  "solutionItems": [
+  {
+    "title": "Online Education",
+    "desc": "Build a successful platform for online eaduction, with advanced technologies."
+  },
+  {
+    "title": "Gaming Solution",
+    "desc": "Build a successful platform for online eaduction, with advanced technologies."
+  },
+  {
+    "title": "Audio and Video",
+    "desc": "Build a successful platform for online eaduction, with advanced technologies."
+  },
+  {
+    "title": "Game Media Solution",
+    "desc": "Build a successful platform for online eaduction, with advanced technologies."
+  }
+]
+}

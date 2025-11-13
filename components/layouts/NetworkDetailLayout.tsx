@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Globe, Network, Shield, Wifi, Lock, Cloud } from "lucide-react";
-import { productDetailLayout } from "@/data/productDetailLayout";
+import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
 
 interface NetworkDetailLayoutProps {

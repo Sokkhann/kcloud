@@ -1,5 +1,5 @@
 "use client";
-import { ProblemSolutionSwitchCardProps } from "@/data/productDetail";
+import { ProblemSolutionSwitchCardProps } from "@/type/productDetail";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import CustomerCard from "./CustomerCard";
-import { customerFeedback } from "@/data/customerFeedback";
+import { customerFeedback } from "@/type/customerFeedback";
 
 export default function CustomerCarousel() {
   const controls = useAnimation();

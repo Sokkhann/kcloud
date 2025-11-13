@@ -63,10 +63,9 @@ export default function DesktopNavigation() {
               </NavigationMenuItem>
 
               {/* solution dropdown tab */}
-              <NavigationMenuItem className="hidden lg:!block ">
+              {/* <NavigationMenuItem className="hidden lg:!block ">
                 <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
 
-                {/* solution dropdown content */}
                 <NavigationMenuContent className="!w-screen !max-w-none left-0 !absolute p-0">
                   <NavigationMenuLink asChild>
                     <div className="px-8 py-10">
@@ -74,7 +73,7 @@ export default function DesktopNavigation() {
                     </div>
                   </NavigationMenuLink>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
 
               {/* pricing tab */}
               <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">

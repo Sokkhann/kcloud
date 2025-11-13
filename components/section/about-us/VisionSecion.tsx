@@ -1,5 +1,5 @@
 import IconCard from "../../card/IconCard";
-import { visionCard } from "@/data/aboutUs";
+import { visionCard } from "@/type/aboutUs";
 
 
 export default function VisionSecion() {

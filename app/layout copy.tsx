@@ -16,18 +16,13 @@ const suwannaphum = Suwannaphum({
 });
 
 export const metadata: Metadata = {
-  title: "Global Cloud Exchange",
+  title: "Global Cloud Exchange haahhahah",
   description: "GCX Global Cloud Exchange in Cambodia number",
   icons: {
-    icon: [
-      {
-        url: "/gcx-logo.png",
-        type: "image/png",
-        sizes: ""
-      },
-    ],
+    icon: "/gcx-logo.png",
   },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,17 +30,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen`}
-      >
+      <body className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen`}>
         {/* navbar section */}
         <header className="">
           <Navbar />
         </header>
 
-        <section className="flex-grow flex justify-center items-center bg-gray-50 mt-20">
-          {children}
-        </section>
+        <section className="flex-grow flex justify-center items-center bg-gray-50 mt-20">{children}</section>
 
         {/* footer section */}
         <Footer />

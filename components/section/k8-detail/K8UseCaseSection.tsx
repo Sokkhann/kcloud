@@ -1,4 +1,4 @@
-import { k8UseCaseCard } from "@/data/productDetail";
+import { k8UseCaseCard } from "@/type/productDetail";
 import SimpleCard from "@/components/card/SimpleCard";
 
 export default function K8UseCaseSection() {

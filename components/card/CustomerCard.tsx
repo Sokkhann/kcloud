@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { CardProps } from "@/data/customerFeedback";
+import { CardProps } from "@/type/customerFeedback";
 
 export default function CustomerCard({ title, description, logo }: CardProps) {
   const [expanded, setExpanded] = useState(false);

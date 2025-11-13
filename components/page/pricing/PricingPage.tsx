@@ -1,6 +1,6 @@
 import React from "react";
 import PricingCard from "../../card/PricingCard";
-import { pricingData } from "@/data/productPricing";
+import { pricingData } from "@/type/productPricing";
 import HeroComponent from "@/components/HeroComponent";
 import GetStartedCard from "@/components/card/GetStartedCard";
 
