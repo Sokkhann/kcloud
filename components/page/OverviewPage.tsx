@@ -19,7 +19,7 @@ export default function OverviewPage() {
         description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
       />
 
-      <div className="mt-10">
+      <div className="">
         {/* Product Section */}
         <section className=" bg-gray-100">
           {/* products */}

@@ -9,16 +9,14 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
-import OverviewMenuDropdown from "../OverviewMenuDropdown";
 import ProductDropDown from "../ProductMenuDropdown";
-import TopNavBar from "../Topper";
 
 export default function DesktopNavigation() {
   return (
     <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full ">
-      <div className="w-full">
+      {/* <div className="w-full">
         <TopNavBar />
-      </div>
+      </div> */}
       <NavigationMenu className="px-4">
         <section className="w-full flex justify-between max-w-7xl mx-auto ">
           {/* left section */}
@@ -37,16 +35,15 @@ export default function DesktopNavigation() {
 
             <section className="mx-4 flex">
               {/* overview dropdown tab */}
-              <NavigationMenuItem className="hidden lg:!block ">
+              {/* <NavigationMenuItem className="hidden lg:!block ">
                 <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
 
-                {/* overview content dropdown */}
                 <NavigationMenuContent asChild className="!w-screen !max-w-none !absolute p-0">
                   <div className="px-8 py-10">
                     <OverviewMenuDropdown />
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
 
               {/* product dropdown tab */}
               <NavigationMenuItem className="hidden lg:!block ">
@@ -76,6 +73,16 @@ export default function DesktopNavigation() {
               {/* pricing tab */}
               <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">
                 <Link href="/pricing">Pricing</Link>
+              </NavigationMenuItem>
+
+              {/* about us tab */}
+              <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">
+                <Link href="/about-us">About Us</Link>
+              </NavigationMenuItem>
+
+              {/* contact us tab */}
+              <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">
+                <Link href="/contact-us">Contact Us</Link>
               </NavigationMenuItem>
             </section>
           </NavigationMenuList>

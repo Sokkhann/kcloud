@@ -17,7 +17,7 @@ export default function ContactSalePage() {
       />
 
       {/* Contact Form Section */}
-      <div className="max-w-7xl mx-auto mt-10 lg:mt-0 md:mt-0">
+      <div className="max-w-7xl mx-auto lg:mt-0 md:mt-0">
         <div className="py-4 lg:py-18 md:py-18 px-4 lg:px-8 md:px-8">
           <div className="block lg:hidden md:hidden text-center mt-10">
             <p className="text-2xl font-bold text-gcxprimary block lg:hidden md:hidden">

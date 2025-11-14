@@ -23,7 +23,7 @@ export default function HeroComponent({
 }: HeroProps) {
   return (
     <section
-      className={`relative w-full top-[45px] ${height} flex items-center justify-center text-center overflow-hidden`}
+      className={`relative w-full ${height} flex items-center justify-center text-center overflow-hidden`}
     >
       {/* Background Image */}
       <Image
@@ -58,10 +58,10 @@ export default function HeroComponent({
             )}
             {showContactSales && (
               <Link
-                href="/contact-sale"
+                href="/contact-us"
                 className="text-gcxprimary w-2/3 sm:w-auto bg-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(34,197,94,0.5)] text-center"
               >
-                Contact Sales
+                Contact Us
               </Link>
             )}
           </div>

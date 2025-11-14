@@ -57,7 +57,7 @@ export default function ProductDetailPage({ slug }: ProductDetailProps) {
         />
       </div>
 
-      <div className=" pt-10">
+      <div className="">
         <LayoutComponent product={product} />
       </div>
     </div>

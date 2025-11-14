@@ -6,7 +6,7 @@ import VMUseCaseSection from "../section/vm-detail/VMUseCaseSection";
 
 export default function VirtualMachineDetailLayout() {
   return (
-    <div className=" bg-gray-100">
+    <div className="bg-gray-100">
       <VMFeatureSection />
       <VMPackageSection />
       <VMUseCaseSection/>

@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import OverviewMenuDropdown from "../OverviewMenuDropdown";
 import ProductDropDown from "../ProductMenuDropdown";
 import SolutionDropDown from "../SolutionMenuDropdown";
-import TopNavBar from "../Topper";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -25,7 +24,7 @@ export default function MobileNavigation() {
 
   return (
     <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full lg:hidden">
-      <TopNavBar />
+      {/* <TopNavBar /> */}
 
       <nav className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
         {/* Logo */}
@@ -36,7 +35,7 @@ export default function MobileNavigation() {
         <div className="flex">
           {/* Buttons */}
           <div className="md:flex hidden mr-4 gap-2 border-gray-200 items-center">
-            <button className="w-auto bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+            <button className="w-auto bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all ">
               <Link href={""}>Log in</Link>
             </button>
             <button className="w-auto text-white bg-green-700 font-semibold px-6 py-2 rounded-full hover:bg-green-900 transition-all">
@@ -146,7 +145,7 @@ export default function MobileNavigation() {
                     </div>
 
                     {/* contact us and about us */}
-                    <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
+                    {/* <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
                       <button className="w-full bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
                         <Link
                           href={"/about-us"}
@@ -165,7 +164,7 @@ export default function MobileNavigation() {
                           Contact Sale
                         </Link>
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               )}

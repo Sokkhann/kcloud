@@ -23,7 +23,7 @@ export default function AboutPage() {
       />
 
       {/* Vision Section */}
-      <div className="mt-10">
+      <div className="">
         <div className="text-center">
           {/* title and description */}
           <div className="py-16 lg:py-32 md:py-32">

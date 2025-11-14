@@ -95,7 +95,7 @@ export function ProductTab() {
           <TabsContent value="compute">
             <div
               className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 mt-20 mx-4 md:mx-8 lg:md-0
+               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
                grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
             >
               {computeProductCards.map((card, index) => {
@@ -117,7 +117,7 @@ export function ProductTab() {
         <TabsContent value="storage">
           <div
             className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 mt-20 mx-4 md:mx-8 lg:md-0
+               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
                grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
           >
             {storageProductCards.map((card, index) => {
@@ -138,7 +138,7 @@ export function ProductTab() {
         <TabsContent value="networking">
           <div
             className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 mt-20 mx-4 md:mx-8 lg:md-0
+               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
                grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
           >
             {networkingProductCards.map((card, index) => {
@@ -159,7 +159,7 @@ export function ProductTab() {
         <TabsContent value="policy">
           <div
             className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 mt-20 mx-4 md:mx-8 lg:md-0
+               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
                grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
           >
             {policyProductCards.map((card, index) => {
