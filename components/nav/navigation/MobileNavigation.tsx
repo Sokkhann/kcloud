@@ -5,9 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import OverviewMenuDropdown from "../OverviewMenuDropdown";
 import ProductDropDown from "../ProductMenuDropdown";
-import SolutionDropDown from "../SolutionMenuDropdown";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -54,7 +52,6 @@ export default function MobileNavigation() {
       </nav>
 
       {/* Mobile Menu */}
-
       <AnimatePresence>
         <NavigationMenu>
           <NavigationMenuList>
@@ -68,8 +65,10 @@ export default function MobileNavigation() {
                   className="border-t border-gray-200 bg-white shadow-md max-h-[calc(100vh-64px)] overflow-y-auto"
                 >
                   <div className="flex flex-col p-4 space-y-2">
-                    {/* Dropdown Sections */}
-                    {["Overview", "Products", "Solutions"].map((label) => (
+                    
+                    {/* Dropdown Sections we can add overview or solution and other */}
+
+                    {["Products"].map((label) => (
                       <div key={label}>
                         <button
                           onClick={() => toggleSection(label)}
@@ -95,14 +94,14 @@ export default function MobileNavigation() {
                               transition={{ duration: 0.3 }}
                               className="overflow-hidden pt-2 text-sm text-gray-600"
                             >
-                              {label === "Overview" && (
+                              {/* {label === "Overview" && (
                                 <div
                                   onClick={() => setMenuOpen(false)}
                                   className="mb-4"
                                 >
                                   <OverviewMenuDropdown />
                                 </div>
-                              )}
+                              )} */}
                               {label === "Products" && (
                                 <div
                                   onClick={() => setMenuOpen(false)}
@@ -111,14 +110,14 @@ export default function MobileNavigation() {
                                   <ProductDropDown />
                                 </div>
                               )}
-                              {label === "Solutions" && (
+                              {/* {label === "Solutions" && (
                                 <div
                                   onClick={() => setMenuOpen(false)}
                                   className="mb-4"
                                 >
                                   <SolutionDropDown />
                                 </div>
-                              )}
+                              )} */}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -132,6 +131,22 @@ export default function MobileNavigation() {
                       onClick={() => setMenuOpen(false)}
                     >
                       Pricing
+                    </Link>
+                    {/* Pricing link */}
+                    <Link
+                      href="/about-us"
+                      className="text-gray-700 font-semibold hover:text-green-700 py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Abous Us
+                    </Link>
+                    {/* Pricing link */}
+                    <Link
+                      href="/contact-us"
+                      className="text-gray-700 font-semibold hover:text-green-700 py-2"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      Contact Us
                     </Link>
 
                     {/* Buttons */}
