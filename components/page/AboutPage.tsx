@@ -8,6 +8,7 @@ import VisionSecion from "../section/about-us/VisionSecion";
 import ScrollReveal from "../animations/ScrolReveal";
 import data from "@/data/dataCards.json"
 import { ImgTitleDescCardProps } from "@/type/dataTypes";
+import WaveCard from "../card/WaveCard";
 
 export default function AboutPage() {
   const WelcomeCards = data.welcomeGCXCards as ImgTitleDescCardProps[]
@@ -68,14 +69,16 @@ export default function AboutPage() {
               </div>
 
               <ScrollReveal>
-                <div className="gap-4 lg:gap-8 md:gap-8 px-4 lg:px-8 md:px-8 justify-center items-start flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+                <div className="gap-4 lg:gap-8 md:gap-8 px-4 lg:px-8 md:px-8 justify-center items-start flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
                   {WelcomeCards.map((card, index) => (
-                    <WrapCard
+                    <WaveCard
                       key={index}
                       card={card}
                     />
                   ))}
                 </div>
+
+                
               </ScrollReveal>
             </div>
           </div>
