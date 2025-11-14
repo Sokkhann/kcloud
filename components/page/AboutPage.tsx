@@ -3,7 +3,6 @@
 import HeroComponent from "../HeroComponent";
 import AboutUsCard from "../card/AboutUsCard";
 import GetStartedCard from "../card/GetStartedCard";
-import WrapCard from "../card/WrapCard";
 import VisionSecion from "../section/about-us/VisionSecion";
 import ScrollReveal from "../animations/ScrolReveal";
 import data from "@/data/dataCards.json"
@@ -11,6 +10,7 @@ import { ImgTitleDescCardProps } from "@/type/dataTypes";
 import WaveCard from "../card/WaveCard";
 
 export default function AboutPage() {
+  
   const WelcomeCards = data.welcomeGCXCards as ImgTitleDescCardProps[]
 
   return (
@@ -77,8 +77,6 @@ export default function AboutPage() {
                     />
                   ))}
                 </div>
-
-                
               </ScrollReveal>
             </div>
           </div>
