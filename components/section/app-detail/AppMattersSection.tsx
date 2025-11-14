@@ -17,13 +17,13 @@ export default function AppMattersSection() {
   // Default size for server (to avoid mismatch)
   let iconSize = 24;
   if (mounted) {
-    if (isMd) iconSize = 32;
-    if (isLg) iconSize = 32;
+    if (isMd) iconSize = 24;
+    if (isLg) iconSize = 24;
   }
   
   return (
-    <div className="max-w-7xl mx-auto py-16 lg:py-32 md:py-32">
-      <section className=" lg:mx-8 md:mx-8 mx-4 lg:py-24 md:py-24 py-12 bg-gradient-to-br bg-white text-center rounded-2xl px-4">
+    <div className="max-w-7xl mx-auto py-16 lg:py-32 md:py-32 ">
+      <section className=" lg:mx-8 md:mx-8 mx-4 lg:py-24 md:py-24 py-12 bg-gradient-to-br bg-white text-center rounded-2xl px-4 shadow-sm border hover:shadow-md transition ">
         <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold mb-6 text-gray-600">
           Why It Matters
         </h2>
@@ -35,7 +35,7 @@ export default function AppMattersSection() {
 
         <div className="mt-10 grid lg:flex md:flex lg:gap-8 md:gap-8 gap-4 mx-4 lg:mx-8 md:mx-8">
           <div className="p-4 rounded-xl bg-gcxprimary/10 backdrop-blur-sm text-gray-700">
-            <span className="lg:text-2xl md:text-2xl text-lg font-semibold flex items-center justify-center gap-4">
+            <span className="text-lg font-semibold flex items-center justify-center gap-4">
               {" "}
               <Zap className="text-gcxprimary" size={iconSize} /> Speed
             </span>
@@ -44,7 +44,7 @@ export default function AppMattersSection() {
             </p>
           </div>
           <div className="p-4 rounded-xl bg-gcxprimary/10 backdrop-blur-sm text-gray-700">
-            <span className="lg:text-2xl md:text-2xl text-lg font-semibold flex items-center justify-center gap-4">
+            <span className="text-lg font-semibold flex items-center justify-center gap-4">
               {" "}
               <Shield className="text-gcxprimary" size={iconSize} /> Stability
             </span>
@@ -53,7 +53,7 @@ export default function AppMattersSection() {
             </p>
           </div>
           <div className="p-4 rounded-xl bg-gcxprimary/10 backdrop-blur-sm text-gray-700">
-            <span className="lg:text-2xl md:text-2xl text-lg font-semibold flex items-center justify-center gap-4">
+            <span className="text-lg font-semibold flex items-center justify-center gap-4">
               {" "}
               <Lightbulb className="text-gcxprimary" size={iconSize} /> Focus
             </span>

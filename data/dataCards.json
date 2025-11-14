@@ -616,22 +616,22 @@
   "networkCapabilities": [
     {
       "title": "Security Groups",
-      "description": "Virtual firewalls to control inbound and outbound traffic with protocol, port ranges and CIDR specifications.",
+      "desc": "Virtual firewalls to control inbound and outbound traffic with protocol, port ranges and CIDR specifications.",
       "icon": "Shield"
     },
     {
       "title": "IP Management",
-      "description": "Dynamic IP addressing and public IP pools. Acquire new IPs, add firewall rules and set up port forwarding.",
+      "desc": "Dynamic IP addressing and public IP pools. Acquire new IPs, add firewall rules and set up port forwarding.",
       "icon": "Wifi"
     },
     {
       "title": "VPN & Hybrid Connectivity",
-      "description": "Connect remote users and on-premises environments with secure VPN access and customer gateways.",
+      "desc": "Connect remote users and on-premises environments with secure VPN access and customer gateways.",
       "icon": "Lock"
     },
     {
       "title": "Scalable Architecture",
-      "description": "Build resilient networks from simple public networks to complex multi-subnet architectures.",
+      "desc": "Build resilient networks from simple public networks to complex multi-subnet architectures.",
       "icon": "Cloud"
     }
   ],
@@ -660,22 +660,22 @@
   "loadBalanceWhyChooseCards": [
     {
       "title": "High Availability & Reliability",
-      "description": "Incoming traffic is spread across multiple servers, preventing overload and ensuring consistent uptime for your applications.",
+      "desc": "Incoming traffic is spread across multiple servers, preventing overload and ensuring consistent uptime for your applications.",
       "icon": "Shield"
     },
     {
       "title": "Flexible Billing Options",
-      "description": "Pay hourly, monthly or even quarterly—choose a billing cycle that matches your workload and budget requirements.",
+      "desc": "Pay hourly, monthly or even quarterly—choose a billing cycle that matches your workload and budget requirements.",
       "icon": "Clock"
     },
     {
       "title": "Built-in Sticky Sessions",
-      "description": "Keep user sessions persistent with load balancer or application cookies, or disable stickiness for true round robin distribution.",
+      "desc": "Keep user sessions persistent with load balancer or application cookies, or disable stickiness for true round robin distribution.",
       "icon": "Cookie"
     },
     {
       "title": "Smart Algorithms",
-      "description": "Pick from Source-based routing, Round Robin or Least Connections to optimize performance for your specific use case.",
+      "desc": "Pick from Source-based routing, Round Robin or Least Connections to optimize performance for your specific use case.",
       "icon": "Gauge"
     }
   ],
@@ -700,6 +700,73 @@
       "step": "4",
       "title": "Sticky Sessions",
       "description": "Maintain session persistence with cookies"
+    }
+  ],
+
+  "dnsFeatureDetailCards": [
+    {
+      "icon": "MousePointerClick",
+      "title": "Easy Domain Creation",
+      "description": "Add a new domain in a few clicks—just choose your project and enter your domain name.",
+      "image": "/easy-domain-creation.jpg"
+    },
+    {
+      "icon": "FileText",
+      "title": "All the Records You Need",
+      "description": "Support for A, AAAA, CNAME, MX, TXT, NS, SRV and SOA records for complete DNS management.",
+      "image": "/all-the-records-you-need.jpg"
+    },
+    {
+      "icon": "CheckCircle",
+      "title": "Clear Examples",
+      "description": "Each record type comes with example values and TTL defaults to help you get up and running quickly.",
+      "image": "/clear-example.jpg"
+    }
+  ],
+
+  "dnsWhyChooseCards": [
+    {
+      "title": "Flexibility",
+      "desc": "Manage multiple projects and zones with a single interface. Organize domains across different projects effortlessly.",
+      "icon": "Settings"
+    },
+    {
+      "title": "Reliability",
+      "desc": "Robust infrastructure ensures your DNS responds quickly and consistently, keeping your services always accessible.",
+      "icon": "Shield"
+    },
+    {
+      "title": "Clarity",
+      "desc": "Built-in examples and tooltips mean you don't need to be a DNS expert to make it work. Simple and intuitive.",
+      "icon": "Zap"
+    },
+    {
+      "title": "Root or Subdomain",
+      "desc": "Use @ to set records for the root domain or specify any subdomain you want for flexible configuration.",
+      "icon": "Globe"
+    }
+  ],
+
+  "dnsHowItWordCards": [
+    {
+      "step": "1",
+      "title": "Add Your Domain",
+      "description": "Choose your project and enter your domain name"
+    },
+    {
+      "step": "2",
+      "title": "Configure Records",
+      "description": "Add A, AAAA, CNAME, MX, TXT or other record types"
+    },
+    {
+      "step": "3",
+      "title": "Set TTL Values",
+      "description": "Use default TTL or customize based on your needs"
+    },
+    {
+      "step": "4",
+      "title": "Let It Run",
+      "description": "Our platform handles DNS resolution automatically"
     }
   ],
 

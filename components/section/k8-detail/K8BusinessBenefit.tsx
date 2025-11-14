@@ -34,7 +34,7 @@ export default function K8BusinessBenefit() {
                   icon={Icon}
                   title={card.title}
                   desc={card.desc}
-                  align="items-center"
+                  align="items-start"
                 />
               );
             })}

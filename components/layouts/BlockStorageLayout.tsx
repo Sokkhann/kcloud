@@ -23,21 +23,20 @@ export interface StoragePrice {
 }
 
 export default function BlockStorageLayout() {
-
   // data of core functions
-  const cards: ImgTitleDescCardProps[] = data.blockStorageCoreFunctionCards ?? [];
+  const cards: ImgTitleDescCardProps[] =
+    data.blockStorageCoreFunctionCards ?? [];
 
   // data of features
   const featureCards = data.blockStorageFeatureDetailCards ?? [];
-  const features: IconCardProps[] = featureCards.map(
-    (card) => ({
-      ...card,
-      icon: getReactIcon(card.icon),
-    })
-  );
+  const features: IconCardProps[] = featureCards.map((card) => ({
+    ...card,
+    icon: getReactIcon(card.icon),
+  }));
 
   // data of pricing
-  const blockStoragePricing: StoragePrice[] = data.blockStoragePricingCards ?? [];
+  const blockStoragePricing: StoragePrice[] =
+    data.blockStoragePricingCards ?? [];
 
   const [selectedPrice, setSelectedPrice] = useState(blockStoragePricing[0]);
 
@@ -52,9 +51,9 @@ export default function BlockStorageLayout() {
 
   return (
     <div className=" bg-gray-100">
-      <div className="max-w-7xl mx-auto ">
-        <div className="md:text-center xl:pt-24 pt-12 xl:px-0 px-6 ">
-          <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700 ">
+      <div className="max-w-7xl mx-auto py-16 md:py-32 lg:py-32">
+        <div className="text-center px-4 lg:px-8 md:px-8">
+          <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700 ">
             Core Functions
           </p>
           <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2 ">
@@ -65,9 +64,9 @@ export default function BlockStorageLayout() {
         </div>
 
         {/* feature card section */}
-        <div className="flex flex-col xl:flex-row gap-6 justify-center items-stretch xl:pt-12 pt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 xl:pt-12 pt-8 px-4 lg:px-8 md:px-8">
           {cards.map((card, index) => (
-            <div key={index} className="flex-1 xl:px-0 px-6">
+            <div key={index} className="">
               <FeaturedCard
                 image={card.image}
                 title={card.title}
@@ -79,9 +78,9 @@ export default function BlockStorageLayout() {
       </div>
 
       <div className="">
-        <div className="max-w-7xl mx-auto ">
-          <div className="md:text-center xl:pt-24 pt-8 xl:px-0 px-6 ">
-            <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700 text-wrap ">
+        <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
+          <div className="text-center px-4 lg:px-8 md:px-8">
+            <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700 text-wrap ">
               Scalable, Reliable, and Secure Data Access
             </p>
             <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2">
@@ -90,9 +89,9 @@ export default function BlockStorageLayout() {
             </p>
           </div>
 
-          <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 xl:py-12 py-8 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 xl:py-12 py-8 px-4 lg:px-8 md:px-8">
             {features.map((feature, index) => (
-              <div key={index} className="xl:px-0 px-6">
+              <div key={index} className="">
                 <BenefitListCard items={[feature]} />
               </div>
             ))}
@@ -100,8 +99,8 @@ export default function BlockStorageLayout() {
         </div>
       </div>
 
-      <div className="bg-white xl:py-36 xl:px-0 md:py-16 py-12 px-6">
-        <div className="max-w-7xl mx-auto inset-0 md:flex justify-between z-10 items-center">
+      <div className="bg-white mb-16 lg:mb-32 md:mb-32">
+        <div className="max-w-7xl mx-auto inset-0 md:flex justify-between z-10 items-center  py-16 lg:py-32 md:py-32 px-4 lg:px-8 md:px-8">
           <div>
             <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-800">
               Pricing{" "}
@@ -168,8 +167,10 @@ export default function BlockStorageLayout() {
       </div>
 
       {/* get started card section */}
-      <div className="max-w-7xl mx-auto xl:py-24 md:py-16 py-8 px-6">
-        <GetStartedCard />
+      <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
+        <div className="mx-4 lg:mx-8 md:mx-8">
+          <GetStartedCard />
+        </div>
       </div>
     </div>
   );
