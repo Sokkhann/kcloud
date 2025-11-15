@@ -12,9 +12,9 @@ export default function TemplateLayout() {
   return (
     <div className=" bg-gray-100">
       <div className="">
-        <div className="max-w-7xl mx-auto ">
-          <div className="text-center xl:pt-24 pt-16">
-            <p className="xl:text-4xl md:text-3xl text-2xl  font-bold text-gray-700 ">
+        <div className="max-w-7xl mx-auto py-16 md:py-32 lg:py-32 ">
+          <div className="text-center px-4 lg:px-8 md:px-8">
+            <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700 ">
               Why Build with Templates
             </p>
             {/* <p className="text-lg text-gray-600 mt-4 max-w-5xl mx-auto">
@@ -27,9 +27,9 @@ export default function TemplateLayout() {
           </div>
 
           {/* feature card section */}
-          <div className="flex flex-col xl:flex-row gap-6 justify-center items-stretch xl:py-12 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 md:gap-8 xl:pt-12 pt-8 px-4 lg:px-8 md:px-8">
             {cards.map((card, index) => (
-              <div key={index} className="flex-1 xl:px-0 px-6">
+              <div key={index} className="">
                 <FeaturedCard
                   image={card.image}
                   title={card.title}
@@ -41,8 +41,8 @@ export default function TemplateLayout() {
         </div>
       </div>
 
-      <div className="bg-white xl:py-36 xl:px-0 md:py-16 py-12 px-6">
-        <div className="max-w-7xl mx-auto inset-0 xl:flex justify-between z-10 items-center">
+      <div className="bg-white mb-16 lg:mb-32 md:mb-32">
+        <div className="max-w-7xl mx-auto inset-0 xl:flex justify-between z-10 items-center py-16 lg:py-32 md:py-32 px-4 lg:px-8 md:px-8">
           <div>
             <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-800">
               Pricing{" "}

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
-import data from "@/data/dataCards.json"
+import data from "@/data/dataCards.json";
 import { getReactIcon } from "@/type/getReactIcon";
 import { IconCardProps } from "@/type/dataTypes";
 
@@ -13,28 +13,28 @@ interface ISODetailLayoutProps {
 }
 
 export default function ISODetailLayout({}: ISODetailLayoutProps) {
-  const features = data.isoFeatureDetailCards ?? []
+  const features = data.isoFeatureDetailCards ?? [];
 
-  const useCasesCards = data.isoUseCaseCards ?? []
+  const useCasesCards = data.isoUseCaseCards ?? [];
   const useCases: IconCardProps[] = useCasesCards.map((card) => ({
-      ...card,
-      icon: getReactIcon(card.icon),
-    }));
+    ...card,
+    icon: getReactIcon(card.icon),
+  }));
 
-  const howItWorks = data.isoHowItWorkCards ?? []
+  const howItWorks = data.isoHowItWorkCards ?? [];
 
   return (
     <div className="bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto">
         {/* Features Section */}
-        <section className="px-4 py-6">
-          <div className="max-w-7xl mx-auto mb-24">
+        <section className="px-4 lg:px-8 md:px-8  py-16 md:py-32 lg:py-32">
+          <div className="max-w-7xl mx-auto">
             {/* title and description */}
-            <div className="my-12 text-center mx-24">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-700">
+            <div className="pb-8 text-center max-w-3xl mx-auto">
+              <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700">
                 Attaching an ISO
               </p>
-              <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+              <p className="text-base text-gray-600 mt-4">
                 From the Instance Overview page, select Attach ISO for VM to
                 mount your image to a virtual machine. Your VM will boot from
                 the ISO, letting you install the OS or run recovery tools
@@ -43,7 +43,7 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
             </div>
 
             {/* Features grid with hover animation */}
-            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 md:gap-8">
               {features.map((feature, index) => (
                 <div
                   key={index}
@@ -79,15 +79,17 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
         </section>
 
         {/* How It Works Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            How It Works
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Get your custom OS running in four simple steps
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  pb-16 md:pb-32 lg:pb-32">
+          <div className="mb-8 max-w-3xl mx-auto">
+            <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold mb-4 text-center text-gray-700">
+              How It Works
+            </h2>
+            <p className="text-center text-gray-600 max-w-3xl mx-auto">
+              Get your custom OS running in four simple steps
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 md:gap-8">
             {howItWorks.map((item, index) => (
               <div
                 key={index}
@@ -96,23 +98,25 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
                 <div className="w-12 h-12 bg-green-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-semibold text-gray-700 mb-2">
+                <h3 className="text-lg font-semibold text-gray-700 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
+                <p className=" text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Use Cases Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            Common Use Cases
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            ISOs are perfect for a variety of scenarios
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  pb-16 md:pb-32 lg:pb-32">
+          <div className="mb-8 max-w-3xl mx-auto">
+            <h2 className="lg:text-4xl md:text-4xl text-2xl font-bold text-center mb-4 text-gray-700">
+              Common Use Cases
+            </h2>
+            <p className="text-center text-gray-600 mx-auto">
+              ISOs are perfect for a variety of scenarios
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {useCases.map((useCase, index) => (
@@ -120,12 +124,12 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
                 key={index}
                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex gap-4"
               >
-                <div className="flex-shrink-0">{<useCase.icon/>}</div>
+                <div className="flex-shrink-0">{<useCase.icon className="h-8 w-8 text-gcxPrimary" />}</div>
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-2">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">
                     {useCase.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{useCase.desc}</p>
+                  <p className=" text-gray-600">{useCase.desc}</p>
                 </div>
               </div>
             ))}
@@ -133,15 +137,17 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
         </div>
 
         {/* Popular ISOs Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            Popular ISO Images
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Commonly used operating systems and tools
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  pb-16 md:pb-32 lg:pb-32">
+          <div className="mb-8 max-w-3xl mx-auto">
+            <h2 className="lg:text-4xl md:text-4xl text-2xl  font-bold text-center mb-4 text-gray-700">
+              Popular ISO Images
+            </h2>
+            <p className="text-center text-gray-600 ">
+              Commonly used operating systems and tools
+            </p>
+          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 md:gap-8">
             {[
               "Ubuntu Server",
               "CentOS Stream",
@@ -163,7 +169,11 @@ export default function ISODetailLayout({}: ISODetailLayoutProps) {
         </div>
 
         {/* get started card section */}
-        <GetStartedCard />
+        <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
+          <div className="mx-4 lg:mx-8 md:mx-8">
+            <GetStartedCard />
+          </div>
+        </div>
       </div>
     </div>
   );

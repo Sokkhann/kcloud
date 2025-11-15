@@ -17,18 +17,18 @@ export default function IconCard({
   }, []);
 
   // Default size for server (to avoid mismatch)
-  let iconSize = 48;
+  let iconSize = 32;
   if (mounted) {
-    if (isMd) iconSize = 56;
-    if (isLg) iconSize = 64;
+    if (isMd) iconSize = 32;
+    if (isLg) iconSize = 32;
   }
 
   return (
     <div
-      className={`${align} flex flex-col bg-white rounded-2xl p-6 hover:shadow-md transition-shadow duration-300 h-full lg:gap-4 gap-2`}
+      className={`${align} flex flex-col bg-white rounded-xl shadow-sm border hover:shadow-md transition p-6 duration-300 h-full lg:gap-4 gap-2`}
     >
       <Icon className="text-gcxprimary" size={iconSize} />
-      <h3 className="lg:text-2xl md:text-2xl text-lg font-semibold text-gray-700">
+      <h3 className="text-lg font-bold text-gray-700">
         {title}
       </h3>
       <p className="text-gray-600 text-base">{desc}</p>

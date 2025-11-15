@@ -51,7 +51,7 @@ export default function StackCard({
             : "opacity-100 group-hover:opacity-0"
           }`}
       >
-        <h3 className="text-xl md:text-2xl lg:text-2xl font-bold text-white mb-2">
+        <h3 className="text-lg font-bold text-white mb-2">
           {proTitle}
         </h3>
         <p className="text-base leading-relaxed text-white">
@@ -83,7 +83,7 @@ export default function StackCard({
             : "opacity-0 group-hover:opacity-100"
           }`}
       >
-        <h3 className="text-xl md:text-2xl lg:text-2xl  font-bold text-gray-700 mb-2">
+        <h3 className="text-lg font-bold text-gray-700 mb-2">
           {solTitle}
         </h3>
         <p className="text-base text-gray-600 leading-relaxed">

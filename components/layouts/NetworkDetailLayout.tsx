@@ -1,9 +1,12 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { Globe, Network } from "lucide-react";
 import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
 import data from "@/data/dataCards.json";
+import { IconCardProps } from "@/type/dataTypes";
+import { getReactIcon } from "@/type/getReactIcon";
 
 interface NetworkDetailLayoutProps {
   product: productDetailLayout;
@@ -12,22 +15,30 @@ interface NetworkDetailLayoutProps {
 export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
   const features = data.networkFeatureDetailCards ?? [];
   const howItWorks = data.networkHowItWorkCards ?? [];
-  const networkingFeatures = data.networkCapabilities ?? [];
-  
+  const networkingFeatureCards = data.networkCapabilities ?? [];
+  const networkingFeatures: IconCardProps[] = networkingFeatureCards.map(
+    (card) => ({
+      ...card,
+      icon: getReactIcon(card.icon),
+    })
+  );
+
   return (
     <div className="bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto">
         {/* Features Section */}
-        <div className="mb-20 mt-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            Core Network Features
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-            Control traffic types and routing with a clear UI that lets you see
-            your gateway, netmask, CIDR and network type at a glance.
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  py-16 md:py-32 lg:py-32">
+          <div className="mb-8">
+            <h2 className="text-2xl lg:text-4xl md:text-4xl font-bold text-center mb-4 text-gray-700">
+              Core Network Features
+            </h2>
+            <p className="text-center text-gray-600 max-w-3xl mx-auto">
+              Control traffic types and routing with a clear UI that lets you
+              see your gateway, netmask, CIDR and network type at a glance.
+            </p>
+          </div>
 
-          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full lg:px-0 md:px-16 px-12">
+          <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-8 md:gap-8 w-full">
             {features.map((feature, index) => (
               <div
                 key={index}
@@ -71,15 +82,17 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
         </div>
 
         {/* How It Works Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            How It Works
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Build your cloud network in four simple steps
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  pb-16 md:pb-32 lg:pb-32">
+          <div className="mb-8">
+            <h2 className="text-2xl lg:text-4xl md:text-4xl font-bold text-center mb-4 text-gray-700">
+              How It Works
+            </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Build your cloud network in four simple steps
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 md:gap-8">
             {howItWorks.map((item, index) => (
               <div
                 key={index}
@@ -98,27 +111,31 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
         </div>
 
         {/* Advanced Features Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            Advanced Networking Capabilities
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Everything you need for a resilient, secure and scalable cloud
-            network
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  pb-16 md:pb-32 lg:pb-32">
+          <div className="mb-8">
+            <h2 className="text-2xl lg:text-4xl md:text-4xl  font-bold text-center mb-4 text-gray-700">
+              Advanced Networking Capabilities
+            </h2>
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Everything you need for a resilient, secure and scalable cloud
+              network
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 md:gap-8">
             {networkingFeatures.map((feature, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex gap-4"
               >
-                <div className="flex-shrink-0">{feature.icon}</div>
+                <div className="flex-shrink-0">
+                  <feature.icon className="text-gcxPrimary h-8 w-8" />
+                </div>
                 <div>
-                  <h3 className="font-semibold text-gray-700 mb-2">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
+                  <p className=" text-gray-600">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -126,19 +143,21 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
         </div>
 
         {/* Network Types Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-700">
-            Network Types
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Choose the right network configuration for your workload
-          </p>
+        <div className="px-4 lg:px-8 md:px-8  pb-16 md:pb-32 lg:pb-32">
+          <div className="mb-8">
+            <h2 className="text-2xl lg:text-4xl md:text-4xl font-bold text-center mb-4 text-gray-700">
+              Network Types
+            </h2>
+            <p className="text-center text-gray-600 max-w-2xl mx-auto">
+              Choose the right network configuration for your workload
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 md:gap-8">
             <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Globe className="w-10 h-10 text-green-600" />
-                <h3 className="text-xl font-semibold text-gray-700">
+                <Globe className="w-8 h-8 text-gcxprimary" />
+                <h3 className="text-lg font-semibold text-gray-700">
                   Public Networks
                 </h3>
               </div>
@@ -171,8 +190,8 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
 
             <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Network className="w-10 h-10 text-green-600" />
-                <h3 className="text-xl font-semibold text-gray-700">
+                <Network className="w-8 h-8 text-gcxprimary" />
+                <h3 className="text-lg font-semibold text-gray-700">
                   Virtual Networks
                 </h3>
               </div>
@@ -206,7 +225,11 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
         </div>
 
         {/* get started card section */}
-        <GetStartedCard />
+        <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
+          <div className="mx-4 lg:mx-8 md:mx-8">
+            <GetStartedCard />
+          </div>
+        </div>
       </div>
     </div>
   );

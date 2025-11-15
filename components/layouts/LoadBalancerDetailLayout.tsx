@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 
@@ -9,6 +10,8 @@ import {
 import { productDetailLayout } from "@/type/productDetailLayout";
 import GetStartedCard from "../card/GetStartedCard";
 import data from "@/data/dataCards.json"
+import { IconCardProps } from "@/type/dataTypes";
+import { getReactIcon } from "@/type/getReactIcon";
 
 interface LoadBalancerDetailLayoutProps {
   product: productDetailLayout;
@@ -17,8 +20,12 @@ interface LoadBalancerDetailLayoutProps {
 export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutProps) {
 
   const features = data.loadBalanceFeatureDetailCards ?? [];
-  const whyChoose = data.loadBalanceWhyChooseCards ?? [];
   const algorithms = data.loadBalanceAlgorithmCards ?? [];
+  const whyChooseCards = data.loadBalanceWhyChooseCards ?? [];
+  const whyChoose: IconCardProps[] = whyChooseCards.map((card) => ({
+        ...card,
+        icon: getReactIcon(card.icon),
+      }));
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -82,12 +89,12 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
                 key={index}
                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex gap-4"
               >
-                <div className="flex-shrink-0">{feature.icon}</div>
+                <div className="flex-shrink-0"><feature.icon className="text-gcxPrimary h-8 w-8"/></div>
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{feature.description}</p>
+                  <p className="text-sm text-gray-600">{feature.desc}</p>
                 </div>
               </div>
             ))}
@@ -109,7 +116,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
                 key={index}
                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center"
               >
-                <div className="w-12 h-12 bg-green-700 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+                <div className="w-12 h-12 bg-gcxprimary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-gray-700 mb-2">
@@ -132,7 +139,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
 
           <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
             <div className="flex items-start gap-4 mb-6">
-              <Settings className="w-10 h-10 text-green-600 flex-shrink-0" />
+              <Settings className="w-10 h-10 text-gcxprimary flex-shrink-0" />
               <div>
                 <h3 className="text-xl font-semibold text-gray-700 mb-3">
                   Custom Load Balancer Packages
@@ -144,21 +151,21 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">•</span>
+                    <span className="text-gcxprimary mt-1">•</span>
                     <span>Custom package naming and tagging</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">•</span>
+                    <span className="text-gcxprimary mt-1">•</span>
                     <span>
                       Flexible pricing models (hourly, monthly, quarterly)
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">•</span>
+                    <span className="text-gcxprimary mt-1">•</span>
                     <span>Multi-zone and multi-provider support</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-green-600 mt-1">•</span>
+                    <span className="text-gcxprimary mt-1">•</span>
                     <span>Easy configuration management</span>
                   </li>
                 </ul>
@@ -179,7 +186,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Zap className="w-10 h-10 text-green-600" />
+                <Zap className="w-10 h-10 text-gcxprimary" />
                 <h3 className="text-xl font-semibold text-gray-700">
                   Web Applications
                 </h3>
@@ -190,15 +197,15 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">•</span>
+                  <span className="text-gcxprimary mt-1">•</span>
                   <span>SSL/TLS termination</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">•</span>
+                  <span className="text-gcxprimary mt-1">•</span>
                   <span>Session persistence</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">•</span>
+                  <span className="text-gcxprimary mt-1">•</span>
                   <span>Health monitoring</span>
                 </li>
               </ul>
@@ -206,7 +213,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
 
             <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="w-10 h-10 text-green-600" />
+                <TrendingUp className="w-10 h-10 text-gcxprimary" />
                 <h3 className="text-xl font-semibold text-gray-700">
                   Microservices
                 </h3>
@@ -217,15 +224,15 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">•</span>
+                  <span className="text-gcxprimary mt-1">•</span>
                   <span>Service discovery integration</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">•</span>
+                  <span className="text-gcxprimary mt-1">•</span>
                   <span>Dynamic scaling support</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-green-600 mt-1">•</span>
+                  <span className="text-gcxprimary mt-1">•</span>
                   <span>Advanced routing rules</span>
                 </li>
               </ul>

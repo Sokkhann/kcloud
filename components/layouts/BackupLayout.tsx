@@ -20,9 +20,9 @@ export default function BackupLayout() {
   return (
     <div className=" bg-gray-100">
       <div className="">
-        <div className="max-w-7xl mx-auto ">
-          <div className="md:text-center xl:pt-24 pt-16 px-6">
-            <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-700">
+        <div className="max-w-7xl mx-auto py-16 md:py-32 lg:py-32">
+          <div className="text-center px-4 md:px-8 lg:px-8">
+            <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700">
               Automated Backups: Your Hands-Off Safety Net
             </p>
             <p className="md:text-lg text-base text-gray-600 mt-4 max-w-5xl mx-auto">
@@ -34,9 +34,9 @@ export default function BackupLayout() {
             </p>
           </div>
 
-          <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 xl:py-12 py-8 ">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 xl:py-12 py-8 px-4 lg:px-8 md:px-8">
             {features.map((feature, index) => (
-              <div key={index} className="xl:px-0 px-6">
+              <div key={index} className="">
                 <BenefitListCard items={[feature]} />
               </div>
             ))}
@@ -44,8 +44,8 @@ export default function BackupLayout() {
         </div>
       </div>
 
-      <div className="bg-white xl:py-36 xl:px-0 md:py-16 py-12 px-6">
-        <div className="max-w-7xl mx-auto inset-0 xl:flex justify-between z-10 items-center">
+      <div className="bg-white  mb-16 lg:mb-32 md:mb-32">
+        <div className="max-w-7xl mx-auto inset-0 xl:flex justify-between z-10 items-center  py-16 lg:py-32 md:py-32 px-4 lg:px-8 md:px-8">
           <div>
             <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-800">
               Pricing
