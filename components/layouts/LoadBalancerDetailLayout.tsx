@@ -63,7 +63,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
                             `}
                   style={{ transformOrigin: "bottom" }}
                 >
-                  <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
+                  <h3 className=" font-semibold text-gray-700">
                     {feature.title}
                   </h3>
 
@@ -132,7 +132,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
                 <div className="w-12 h-12 bg-gcxprimary text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-semibold text-gray-700 mb-2">
+                <h3 className="text-lg font-bold text-gray-700 mb-2">
                   {item.title}
                 </h3>
                 <p className="text-sm text-gray-600">{item.description}</p>
@@ -152,9 +152,9 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
 
           <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
             <div className="flex items-start gap-4 mb-6">
-              <Settings className="w-10 h-10 text-gcxprimary flex-shrink-0" />
+              <Settings className="w-8 h-8 text-gcxprimary flex-shrink-0" />
               <div>
-                <h3 className="text-xl font-semibold text-gray-700 mb-3">
+                <h3 className="text-lg font-bold text-gray-700 mb-3">
                   Custom Load Balancer Packages
                 </h3>
                 <p className="text-gray-600 mb-4">
@@ -199,8 +199,8 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <Zap className="w-10 h-10 text-gcxprimary" />
-                <h3 className="text-xl font-semibold text-gray-700">
+                <Zap className="w-8 h-8 text-gcxprimary" />
+                <h3 className="text-lg font-bold text-gray-700">
                   Web Applications
                 </h3>
               </div>
@@ -226,8 +226,8 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
 
             <div className="bg-white rounded-lg p-8 shadow-sm border border-gray-200">
               <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="w-10 h-10 text-gcxprimary" />
-                <h3 className="text-xl font-semibold text-gray-700">
+                <TrendingUp className="w-8 h-8 text-gcxprimary" />
+                <h3 className="text-lg font-bold text-gray-700">
                   Microservices
                 </h3>
               </div>
