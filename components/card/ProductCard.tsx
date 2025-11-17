@@ -22,15 +22,16 @@ export default function ProductCard({
   }, []);
 
   // Default size for server (to avoid mismatch)
-  let iconSize = 48;
+  let iconSize = 32 ;
   if (mounted) {
-    if (isMd) iconSize = 56;
-    if (isLg) iconSize = 64;
+    if (isMd) iconSize = 32;
+    if (isLg) iconSize = 32;
   }
   return (
-    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full">
-      <Icon className="text-gcxprimary" size={iconSize} />
-
+    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full hadow-sm border border-gray-200">
+      <div className="p-4 rounded-full bg-green-100 flex items-center justify-center">
+        <Icon className="text-gcxprimary" size={iconSize} />
+      </div>
       {/* Title */}
       <p className="text-lg font-semibold text-gray-800 mt-4">{title}</p>
 

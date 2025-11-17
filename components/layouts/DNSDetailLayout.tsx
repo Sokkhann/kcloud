@@ -54,14 +54,30 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
 
                 {/* Expanding White Panel */}
                 <div
-                  className="absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8 transition-all duration-500 ease-in-out
-                h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[160px] sm:group-hover:h-[170px]"
+                  className={`
+                              absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8
+                              transition-all duration-500 ease-in-out
+                              ${/* LG: hover expand */ ""}
+                              lg:h-[90px] lg:group-hover:h-[170px]
+                              ${/* SM + MD: always expanded */ ""}
+                              h-[170px] sm:h-[170px] md:h-[170px]
+                            `}
                   style={{ transformOrigin: "bottom" }}
                 >
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-700">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+
+                  <p
+                    className={`
+                                text-gray-600 mt-3 sm:mt-4 text-sm sm:text-base
+                                transition-opacity duration-500
+                                ${/* LG: fade in on hover */ ""}
+                                lg:opacity-0 lg:group-hover:opacity-100
+                                ${/* SM + MD: always visible */ ""}
+                                opacity-100
+                              `}
+                  >
                     {feature.description}
                   </p>
                 </div>
@@ -81,7 +97,7 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8 md:gap-8">
             {howItWorks.map((item, index) => (
               <div
                 key={index}
