@@ -44,7 +44,7 @@ export default function BackupLayout() {
         </div>
       </div>
 
-      <div className="bg-white  mb-16 lg:mb-32 md:mb-32">
+      <div className="bg-white mb-16 lg:mb-32 md:mb-32">
         <div className="max-w-7xl mx-auto inset-0 xl:flex justify-between z-10 items-center  py-16 lg:py-32 md:py-32 px-4 lg:px-8 md:px-8">
           <div>
             <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-800">
