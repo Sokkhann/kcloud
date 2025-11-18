@@ -8,7 +8,7 @@ import GetStartedCard from "../card/GetStartedCard";
 
 export default function KubernetesDetailLayout() {
   return (
-    <div className=" bg-gray-200">
+    <div className=" bg-gray-100">
       {/* key feature section */}
       <K8FeatureSection />
 

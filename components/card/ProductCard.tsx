@@ -28,7 +28,7 @@ export default function ProductCard({
     if (isLg) iconSize = 32;
   }
   return (
-    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full hadow-sm border border-gray-200">
+    <div className="relative  transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full bg-white rounded-lg shadow-sm border border-gray-200">
       <div className="p-4 rounded-full bg-green-100 flex items-center justify-center">
         <Icon className="text-gcxprimary" size={iconSize} />
       </div>

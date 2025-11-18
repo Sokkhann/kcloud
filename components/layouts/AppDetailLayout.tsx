@@ -6,7 +6,7 @@ import AppMattersSection from "../section/app-detail/AppMattersSection";
 
 export default function AppDetailLayout() {
   return (
-    <div className=" bg-gray-200">
+    <div className=" bg-gray-100">
       {/* key feature section */}
       <AppFeatureSection />
 

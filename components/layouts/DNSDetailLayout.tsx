@@ -23,7 +23,7 @@ export default function DNSDetailLayout({}: DNSDetailLayoutProps) {
   }));
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-100 min-h-screen">
       <div className="max-w-7xl mx-auto">
         {/* Features Section */}
         <div className="px-4 lg:px-8 md:px-8  py-16 md:py-32 lg:py-32">

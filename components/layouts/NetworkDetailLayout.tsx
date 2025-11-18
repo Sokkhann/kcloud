@@ -24,7 +24,7 @@ export default function NetworkDetailLayout({}: NetworkDetailLayoutProps) {
   );
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-100">
       <div className="max-w-7xl mx-auto">
         {/* Features Section */}
         <div className="px-4 lg:px-8 md:px-8  py-16 md:py-32 lg:py-32">

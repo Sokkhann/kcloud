@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "./animations/ScrolReveal";
+import { useRouter } from "next/navigation";
 
 interface HeroProps {
   height?: string;
@@ -11,6 +12,7 @@ interface HeroProps {
   description: string;
   showGetStarted?: boolean;
   showContactSales?: boolean;
+  slug?: string;
 }
 
 export default function HeroComponent({
@@ -20,7 +22,22 @@ export default function HeroComponent({
   description,
   showGetStarted = false,
   showContactSales = false,
+  slug,
 }: HeroProps) {
+  const router = useRouter();
+
+  const handleGetStarted = () => {
+    const target = `/stack-console/products/${slug}`;
+
+    const isLoggedIn = !!localStorage.getItem("token");
+
+    if (!isLoggedIn) {
+      router.push(`/login?redirect=${encodeURIComponent(target)}`);
+    } else {
+      router.push(target);
+    }
+  };
+
   return (
     <section
       className={`relative w-full ${height} flex items-center justify-center text-center overflow-hidden`}
@@ -49,12 +66,12 @@ export default function HeroComponent({
 
           <div className="flex items-center justify-center md:gap-4  gap-2 mt-4 px-6">
             {showGetStarted && (
-              <Link
-                href="/"
+              <button
+                onClick={handleGetStarted}
                 className="text-white w-2/3 sm:w-auto bg-gcxprimary font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] text-center"
               >
                 Get Started
-              </Link>
+              </button>
             )}
             {showContactSales && (
               <Link

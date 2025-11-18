@@ -23,7 +23,7 @@ export default function LoadBalancerDetailLayout({}: LoadBalancerDetailLayoutPro
   }));
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-100 min-h-screen">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Features Section */}
         <div className="mb-20 mt-10">

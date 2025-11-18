@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -8,7 +8,7 @@ interface PricingProps {
   price: string;
   subTitle: string;
   desc: string[];
-  id: string;
+  slug: string;
   buttonLabel?: string;
 }
 
@@ -17,13 +17,38 @@ export default function PricingCard({
   price,
   subTitle,
   desc,
-  id,
-  buttonLabel = "View pricing"
+  slug,
+  buttonLabel = "View pricing",
 }: PricingProps) {
-  const route = useRouter();
+  const router = useRouter();
+
+  const handleClick = () => {
+    const label = buttonLabel.toLowerCase();
+
+    // ✔ If button is NOT "get started", go to pricing page
+    if (label !== "get started") {
+      router.push(`/pricing/${slug}`);
+      return;
+    }
+
+    // ✔ If button IS "get started" → stack console logic
+    // const productTarget = `/pricing/${slug}`;
+
+    // Replace with your real login detection
+    // const isLoggedIn = !!localStorage.getItem("token");
+
+    // if (!isLoggedIn) {
+    //   const loginUrl = `https://stack-console.cloudlab.cam/login?redirect=${encodeURIComponent(
+    //     productTarget
+    //   )}`;
+    //   window.location.href = loginUrl;
+    // } else {
+    //   router.push(productTarget);
+    // }
+  };
 
   return (
-    <div className="w-full mx-auto rounded-2xl overflow-hidden flex flex-col h-[600px] bg-gcxprimary/10">
+    <div className="w-full mx-auto rounded-2xl overflow-hidden flex flex-col h-full border-2 border-green-600 bg-white">
       {/* Top Section */}
       <div className="p-8 text-left">
         <h3 className="text-lg font-bold text-gcxprimary">{title}</h3>
@@ -63,13 +88,16 @@ export default function PricingCard({
       </div>
 
       {/* Bottom Section */}
-      <div className="group">
-        <div className="w-full text-left py-5 px-8 bg-gcxprimary">
-          <span onClick={() => route.push(`/pricing/${id}`)} className="relative inline-block text-white text-base font-medium">
-            <span className="inline-block cursor-pointer">{buttonLabel}</span>
+      <div className="group m-8">
+        <button className="w-full py-2 px-8 bg-gcxprimary bg-none rounded-xl text-white">
+          <span
+            onClick={handleClick}
+            className="relative inline-block font-medium cursor-pointer"
+          >
+            <span>{buttonLabel}</span>
             <span className="absolute left-0 -bottom-0.5 h-[2px] w-full bg-white transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />
           </span>
-        </div>
+        </button>
       </div>
     </div>
   );

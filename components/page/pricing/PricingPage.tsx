@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import PricingCard from "../../card/PricingCard";
 import pricingData from "@/data/pricingData.json";
@@ -6,7 +8,7 @@ import GetStartedCard from "@/components/card/GetStartedCard";
 
 export default function PricingPage() {
   return (
-    <div className="w-screen">
+    <div className="w-screen bg-gray-100">
       {/* Hero section */}
       <HeroComponent
         showGetStarted
@@ -34,7 +36,7 @@ export default function PricingPage() {
           {pricingData.map((item) => (
             <PricingCard
               key={item.id}
-              id={item.id}
+              slug={item.id}
               title={item.title}
               price={item.price}
               subTitle={item.subTitle}

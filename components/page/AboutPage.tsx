@@ -3,15 +3,15 @@
 import HeroComponent from "../HeroComponent";
 import AboutUsCard from "../card/AboutUsCard";
 import GetStartedCard from "../card/GetStartedCard";
-import VisionSecion from "../section/about-us/VisionSecion";
+import VisionSecion from "../section/about-us/VisionSection";
 import ScrollReveal from "../animations/ScrolReveal";
-import data from "@/data/dataCards.json"
+import data from "@/data/dataCards.json";
 import { ImgTitleDescCardProps } from "@/type/dataTypes";
 import WaveCard from "../card/WaveCard";
+import MissionSection from "../section/about-us/MissionSection";
 
 export default function AboutPage() {
-  
-  const WelcomeCards = data.welcomeGCXCards as ImgTitleDescCardProps[]
+  const WelcomeCards = data.welcomeGCXCards as ImgTitleDescCardProps[];
 
   return (
     <div className="w-screen bg-gray-200">
@@ -29,7 +29,9 @@ export default function AboutPage() {
           {/* title and description */}
           <div className="py-16 lg:py-32 md:py-32">
             <div className="mx-4 lg:mx-8 md:mx-8">
-              <p className="font-bold text-gcxprimary lg:text-4xl md:text-4xl text-2xl ">Our Vision</p>
+              <p className="font-bold text-gcxprimary lg:text-4xl md:text-4xl text-2xl ">
+                Our Vision
+              </p>
               <p className="text-base text-gray-600 max-w-3xl mx-auto font-medium">
                 Revolutionizing Cloud and Data Center Services in Cambodia
               </p>
@@ -39,6 +41,25 @@ export default function AboutPage() {
               {/* Vision Card Section */}
               <div className="max-w-7xl mx-auto">
                 <VisionSecion />
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* title and description */}
+          <div className="pb-16 lg:pb-32 md:pb-32">
+            <div className="mx-4 lg:mx-8 md:mx-8 mb-8">
+              <p className="font-bold text-gcxprimary lg:text-4xl md:text-4xl text-2xl ">
+                Our Mission
+              </p>
+              <p className="text-base text-gray-600 max-w-3xl mx-auto font-medium">
+                Revolutionizing Cloud and Data Center Services in Cambodia
+              </p>
+            </div>
+            
+            <ScrollReveal>
+              {/* Mission Card Section */}
+              <div className="max-w-7xl mx-auto">
+                <MissionSection />
               </div>
             </ScrollReveal>
           </div>
@@ -71,10 +92,7 @@ export default function AboutPage() {
               <ScrollReveal>
                 <div className="gap-4 lg:gap-8 md:gap-8 px-4 lg:px-8 md:px-8 justify-center items-start flex-wrap grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
                   {WelcomeCards.map((card, index) => (
-                    <WaveCard
-                      key={index}
-                      card={card}
-                    />
+                    <WaveCard key={index} card={card} />
                   ))}
                 </div>
               </ScrollReveal>

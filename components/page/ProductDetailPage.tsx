@@ -54,6 +54,7 @@ export default function ProductDetailPage({ slug }: ProductDetailProps) {
           description={product.desc}
           showContactSales={true}
           showGetStarted={true}
+          slug={product.slug}
         />
       </div>
 
