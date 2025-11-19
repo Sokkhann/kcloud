@@ -17,19 +17,6 @@
     }
   ],
 
-  "missionCards": [
-    {
-      "icon": "Rocket",
-      "title": "Empowering Modern Technology",
-      "desc": "We deliver secure, scalable, and intuitive solutions that help businesses operate efficiently and grow with confidence. Our mission is to make advanced technology accessible to teams of all sizes by providing tools that are simple to adopt, powerful to use, and reliable under any workload. We are committed to driving innovation that strengthens performance, enhances stability, and supports long-term digital transformation."
-    },
-    {
-      "icon": "Layers",
-      "title": "Simplifying Digital Operations",
-      "desc": "Our mission is to create reliable, user-focused tools that remove complexity, enhance productivity, and enable teams to focus on what truly matters. We streamline everyday operations with smart automation, seamless integration, and thoughtful design that improves the entire user experience. By reducing technical barriers, we help organizations save time, reduce costs, and unlock their full operational potential."
-    }
-  ],
-
   "welcomeGCXCards": [
     {
       "image": "/cloud.png",
