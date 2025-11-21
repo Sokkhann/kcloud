@@ -3,6 +3,7 @@ import ProblemSolutionSection from "../section/vnf-detial/ProblemSolutionSection
 import VNFFeatureSection from "../section/vnf-detial/VNFFeatureSection";
 import GetStartedCard from "../card/GetStartedCard";
 import VNFUseCaseSection from "../section/vnf-detial/VNFUseCaseSection";
+import VNFFAQSection from "../section/vnf-detial/VNFFAQSection";
 
 export default function VNFDetailLayout() {
   return (
@@ -16,6 +17,8 @@ export default function VNFDetailLayout() {
           <GetStartedCard />
         </div>
       </div>
+
+      <VNFFAQSection/>
     </div>
   );
 }

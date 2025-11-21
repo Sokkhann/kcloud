@@ -3,6 +3,7 @@ import GetStartedCard from "../card/GetStartedCard";
 import AppFeatureSection from "../section/app-detail/AppFeatureSection";
 import AppUseCaseSection from "../section/app-detail/AppUseCaseSection";
 import AppMattersSection from "../section/app-detail/AppMattersSection";
+import AppFAQSection from "../section/app-detail/AppFAQSection";
 
 export default function AppDetailLayout() {
   return (
@@ -22,6 +23,8 @@ export default function AppDetailLayout() {
           <GetStartedCard />
         </div>
       </div>
+
+      <AppFAQSection/>
     </div>
   );
 }

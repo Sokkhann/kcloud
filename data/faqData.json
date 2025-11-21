@@ -1,0 +1,300 @@
+{
+  "vmFAQ": [
+    {
+      "question": "What is a Virtual Machine (VM) and what can I use it for?",
+      "answer": "A Virtual Machine (VM) is a fully isolated computing environment that runs on top of physical hardware. It allows you to deploy applications, host websites, run databases, build development environments, or support enterprise workloads without managing physical servers. Our platform provides flexible VM sizes, automated scaling options, and backup integrations to support a wide range of business needs."
+    },
+    {
+      "question": "How fast can I deploy a new VM?",
+      "answer": "VM deployment typically takes less than one minute. Once you select your operating system, resources, and network configuration, our system automatically provisions the VM, attaches storage, and configures networking. You can access the VM immediately via SSH or Remote Console. Larger VM templates or custom images may take slightly longer depending on size."
+    },
+    {
+      "question": "Can I upgrade or downgrade my VM resources later?",
+      "answer": "Yes, you can scale your VM at any time. You may increase CPU, RAM, and storage capacity based on your workload requirements. Most upgrades can be done live without shutting down the VM, although some operating systems may require a brief reboot. Scaling down is also supported for certain configurations, allowing you to reduce costs when traffic is low."
+    },
+    {
+      "question": "Do you offer automated backups for VMs?",
+      "answer": "Yes. Our VM service includes optional automated backups with daily, weekly, and custom schedules. Backups are stored in a separate, durable storage system to ensure recovery even in case of hardware failure. You can restore a full VM or recover individual data volumes directly from the management console."
+    },
+    {
+      "question": "How secure are my Virtual Machines?",
+      "answer": "All VMs run on isolated compute nodes with strict hypervisor-level security. Your data is protected with encrypted storage, firewall rules, private networking, and access control policies. You can also configure security groups, SSH key-based authentication, and IP whitelisting to further secure your environment. Our platform continuously monitors for unauthorized activity to ensure your workloads remain safe."
+    }
+  ],
+   "vnfFAQ": [
+    {
+      "question": "What is a Virtual Network Function (VNF) and why should I use it?",
+      "answer": "A Virtual Network Function (VNF) is a software-based network service that runs on virtualized hardware instead of dedicated physical appliances. VNFs can include firewalls, load balancers, routers, and intrusion detection systems. Using VNFs allows you to quickly deploy, scale, and update network services with reduced hardware costs and simplified management."
+    },
+    {
+      "question": "How quickly can I deploy a new VNF?",
+      "answer": "Deployment of a new VNF typically takes just a few minutes. Once you select the type of network function and configure the required parameters, our system automatically provisions the virtual instance, integrates it into your network, and applies the necessary policies. This rapid deployment helps accelerate network service delivery."
+    },
+    {
+      "question": "Can VNFs be scaled or updated without downtime?",
+      "answer": "Yes, VNFs are designed for dynamic scaling. You can increase or decrease resources such as CPU, memory, and bandwidth based on network demand. Most updates and patches can be applied live without service interruption, although certain major configuration changes may require a brief restart depending on the VNF type."
+    },
+    {
+      "question": "Do you offer monitoring and automated management for VNFs?",
+      "answer": "Absolutely. Our platform provides real-time monitoring, performance analytics, and automated management tools for VNFs. You can track resource utilization, network throughput, and health status, as well as configure alerts for anomalies. Automated scaling and policy adjustments help maintain optimal performance without manual intervention."
+    },
+    {
+      "question": "How secure are VNFs in your platform?",
+      "answer": "VNFs run in isolated virtual environments with strict network segmentation to ensure security. All network traffic is encrypted, and access controls are implemented to prevent unauthorized access. Additional security features include firewall policies, role-based access, and integration with security monitoring systems to protect your virtual network services."
+    }
+  ],
+  "k8FAQ": [
+    {
+      "question": "What is Kubernetes and why should I use it?",
+      "answer": "Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It allows you to run applications reliably across multiple environments, manage resources efficiently, and ensure high availability. Using Kubernetes reduces operational complexity and provides flexibility for modern cloud-native applications."
+    },
+    {
+      "question": "How fast can I deploy a Kubernetes cluster?",
+      "answer": "Deployment of a Kubernetes cluster can take just a few minutes depending on the cluster size and configuration. Our platform automates provisioning of control planes, worker nodes, networking, and storage, so you can quickly start deploying containerized applications without manual setup. Larger clusters may require slightly longer for full orchestration."
+    },
+    {
+      "question": "Can I scale applications dynamically in Kubernetes?",
+      "answer": "Yes. Kubernetes supports horizontal and vertical scaling of applications. You can automatically increase or decrease the number of pods based on CPU, memory usage, or custom metrics. Kubernetes also allows rolling updates, ensuring minimal downtime while updating applications or services."
+    },
+    {
+      "question": "Does Kubernetes provide monitoring and self-healing capabilities?",
+      "answer": "Absolutely. Kubernetes continuously monitors the state of pods, nodes, and services. It automatically replaces failed pods, reschedules containers, and restarts unhealthy components to maintain desired state. Integrated logging, metrics, and alerting systems allow you to track performance and respond quickly to issues."
+    },
+    {
+      "question": "How secure is my Kubernetes cluster?",
+      "answer": "Kubernetes provides multiple layers of security including RBAC (Role-Based Access Control), network policies, secret management, and container isolation. Our platform also integrates with security monitoring tools and offers automated patching for nodes and components to protect against vulnerabilities. All traffic can be encrypted, and strict access controls ensure cluster safety."
+    }
+  ],
+   "appFAQ": [
+    {
+      "question": "What is the App Platform and what can I use it for?",
+      "answer": "The App Platform is a fully managed platform for building, deploying, and scaling applications without managing infrastructure. You can deploy web apps, APIs, and microservices quickly, integrate databases and storage, and leverage built-in CI/CD pipelines. It simplifies operations, reduces overhead, and allows developers to focus on writing code rather than managing servers."
+    },
+    {
+      "question": "How fast can I deploy an application?",
+      "answer": "Deploying an application on the App Platform is fast and automated. Once you connect your repository and configure the runtime environment, the platform builds the application, provisions resources, and deploys it. Depending on the size and complexity, deployments typically take just a few minutes, allowing rapid iteration and updates."
+    },
+    {
+      "question": "Can I scale my applications automatically?",
+      "answer": "Yes. The App Platform supports both vertical and horizontal scaling. Applications can automatically scale based on traffic, CPU, memory, or custom metrics. You can also manually adjust resources to match workload demands, ensuring high availability and optimized performance while controlling costs."
+    },
+    {
+      "question": "Does the platform provide monitoring and logging?",
+      "answer": "Absolutely. The App Platform includes built-in monitoring, logging, and alerting tools. You can track application performance, view logs in real-time, and set up notifications for errors or performance issues. This ensures that you can troubleshoot quickly and maintain smooth operation of your applications."
+    },
+    {
+      "question": "How secure are applications deployed on the platform?",
+      "answer": "Applications on the App Platform are protected through multiple layers of security, including isolated environments, encrypted storage, secure networking, and automated patching of runtime components. Access controls, role-based permissions, and SSL/TLS encryption ensure your applications and data remain safe from unauthorized access."
+    }
+  ],
+  "storageFAQ": [
+    {
+      "question": "What is Block Storage and how can I use it?",
+      "answer": "Block Storage provides persistent, high-performance storage volumes that can be attached to virtual machines or containers. You can store databases, application data, logs, or any files requiring fast read/write access. Volumes are flexible, can be resized on-demand, and support multiple attachments for enhanced management."
+    },
+    {
+      "question": "Can I attach multiple block storage volumes to a single VM?",
+      "answer": "Yes, multiple block storage volumes can be attached to a single VM to separate different types of data, improve performance, or manage storage tiers independently. Each volume can be resized and managed individually."
+    },
+    {
+      "question": "How reliable is block storage?",
+      "answer": "Block storage is highly reliable with redundancy built into the system. Data is replicated across multiple storage nodes to protect against hardware failures, ensuring durability and availability for critical applications."
+    },
+    {
+      "question": "Can I resize block storage volumes without downtime?",
+      "answer": "Yes. Most modern platforms allow resizing of block storage volumes on the fly. You can increase storage capacity without shutting down your VM, although reducing size may require careful handling to avoid data loss."
+    },
+    {
+      "question": "How secure is my data on block storage?",
+      "answer": "Block storage data is encrypted at rest and in transit. Access controls, authentication, and isolated storage environments ensure that only authorized users can access your data."
+    }
+  ],
+  "snapshotFAQ": [
+    {
+      "question": "What is a snapshot and why should I use it?",
+      "answer": "A snapshot is a point-in-time copy of a storage volume or VM. Snapshots allow quick recovery in case of accidental deletion, corruption, or system failures, and they can also be used to clone environments for testing or development."
+    },
+    {
+      "question": "Can I create snapshots while the VM is running?",
+      "answer": "Yes, most platforms support live snapshots, allowing you to capture the VM state without shutting it down. This ensures minimal disruption to services while creating a recovery point."
+    },
+    {
+      "question": "Are snapshots incremental or full copies?",
+      "answer": "Most systems use incremental snapshots to save storage space and reduce backup time. Only changes since the last snapshot are stored, while the first snapshot is usually a full copy of the volume or VM."
+    },
+    {
+      "question": "How long can I keep snapshots?",
+      "answer": "Snapshot retention depends on your platform policies. You can keep snapshots short-term for quick rollbacks or long-term as part of disaster recovery plans. Automated deletion policies can help manage storage efficiently."
+    },
+    {
+      "question": "Can I restore individual files from a snapshot?",
+      "answer": "Some platforms allow granular restore from snapshots, enabling recovery of individual files or volumes rather than restoring the entire VM. This makes snapshots very flexible for data recovery scenarios."
+    },
+    {
+      "question": "Are snapshots secure?",
+      "answer": "Snapshots inherit the same security measures as the original volumes, including encryption, access control, and isolated environments, ensuring data protection and integrity."
+    }
+  ],
+  "backupFAQ": [
+    {
+      "question": "What is a backup and why is it important?",
+      "answer": "A backup is a copy of data, VMs, or applications stored separately for recovery purposes. Backups protect against accidental data loss, system failures, or cyberattacks, ensuring business continuity."
+    },
+    {
+      "question": "Can backups be automated?",
+      "answer": "Yes, you can schedule daily, weekly, or custom backups to automate data protection. Automated backups reduce human error and ensure consistent recovery points."
+    },
+    {
+      "question": "Are backups incremental or full?",
+      "answer": "Most backup solutions offer both full and incremental backups. Incremental backups store only changes since the last backup, saving time and storage, while full backups provide a complete copy of the system."
+    },
+    {
+      "question": "How long can I keep backups?",
+      "answer": "Backup retention depends on your policies. You can keep backups short-term for quick recovery or long-term for compliance and disaster recovery purposes."
+    },
+    {
+      "question": "Can I restore specific files or full VMs from a backup?",
+      "answer": "Yes, modern backup systems allow granular restores of individual files or complete VM recovery, providing flexibility depending on the recovery scenario."
+    },
+    {
+      "question": "How secure are my backups?",
+      "answer": "Backups are encrypted both in transit and at rest, and access is controlled by strict authentication and permissions. Some platforms also store backups in separate geographic locations for added safety."
+    }
+  ],
+  "templateFAQ": [
+    {
+      "question": "What is a template and why use it?",
+      "answer": "A template is a pre-configured image of an operating system, software stack, or fully configured VM. Templates allow rapid, consistent deployment of new VMs without manual configuration each time."
+    },
+    {
+      "question": "Can I create custom templates?",
+      "answer": "Yes, you can convert any VM or environment into a custom template. This is useful for creating standardized environments for development, testing, or production."
+    },
+    {
+      "question": "How do templates save time?",
+      "answer": "Templates eliminate repetitive setup steps. Instead of configuring a VM from scratch, you can deploy a pre-configured template, which drastically reduces deployment time and errors."
+    },
+    {
+      "question": "Can templates include applications and data?",
+      "answer": "Yes, templates can include both the OS and pre-installed applications or datasets, making it easy to replicate entire environments quickly."
+    },
+    {
+      "question": "Are templates secure?",
+      "answer": "Templates are stored securely and can be restricted to authorized users. They inherit the platform’s encryption and access control mechanisms to ensure safe deployment."
+    }
+  ],
+  "isoFAQ": [
+    {
+      "question": "What is an ISO image and how do I use it?",
+      "answer": "An ISO image is a disk image file containing a complete copy of an optical disc, typically an operating system installer. ISO images can be mounted to VMs for OS installation or recovery tasks."
+    },
+    {
+      "question": "Can I upload custom ISOs?",
+      "answer": "Yes, you can upload your own ISO images to deploy custom operating systems or software environments. This allows flexibility in creating specialized VMs."
+    },
+    {
+      "question": "How do ISOs help in recovery?",
+      "answer": "ISOs can be used to boot a VM into a recovery environment to repair or reinstall operating systems, recover data, or troubleshoot issues without affecting the main system."
+    },
+    {
+      "question": "Are ISOs reusable?",
+      "answer": "Yes, once uploaded, an ISO can be reused multiple times to deploy multiple VMs, making it a cost-effective and efficient way to manage system images."
+    },
+    {
+      "question": "How secure are ISO images?",
+      "answer": "ISOs are stored in secure, isolated environments with access control. Only authorized users can mount or deploy them, ensuring safe usage and distribution."
+    },
+    {
+      "question": "Can I combine ISOs with templates?",
+      "answer": "Yes, you can use an ISO to create a VM, configure it with software and settings, and then save it as a template for rapid, consistent future deployments."
+    }
+  ],
+  "networkFAQ": [
+    {
+      "question": "What is a network and why is it important?",
+      "answer": "A network is a virtual or physical system that connects VMs, containers, and other resources, allowing them to communicate. Networks are essential for application connectivity, data transfer, and maintaining secure communication between services."
+    },
+    {
+      "question": "Can I create multiple networks for different workloads?",
+      "answer": "Yes, you can create multiple isolated networks to separate environments such as production, development, or testing. This helps improve security and manage traffic effectively."
+    },
+    {
+      "question": "How do subnets work in a network?",
+      "answer": "Subnets divide a network into smaller segments to organize and control traffic flow. They help allocate IP addresses efficiently and improve network security and performance."
+    },
+    {
+      "question": "Can I assign static IPs to my VMs?",
+      "answer": "Yes, static IPs can be assigned to VMs for consistent addressing, which is useful for DNS records, load balancers, and critical services requiring a fixed IP."
+    },
+    {
+      "question": "How secure are my networks?",
+      "answer": "Networks are secured with firewall rules, private routing, and access control. Only authorized resources can communicate, and traffic can be encrypted to prevent unauthorized access."
+    }
+  ],
+  "loadBalancerFAQ": [
+    {
+      "question": "What is a Load Balancer and why use it?",
+      "answer": "A Load Balancer distributes network traffic across multiple servers or VMs to ensure high availability, improved performance, and fault tolerance. It helps prevent overloading a single server and maintains service continuity."
+    },
+    {
+      "question": "What types of Load Balancers are available?",
+      "answer": "Common types include Layer 4 (TCP/UDP) for network-level balancing and Layer 7 (HTTP/HTTPS) for application-level balancing. Each type handles traffic differently depending on your needs."
+    },
+    {
+      "question": "Can I configure automatic health checks?",
+      "answer": "Yes, Load Balancers can automatically monitor the health of backend servers and route traffic only to healthy instances. This ensures continuous availability and reduces downtime."
+    },
+    {
+      "question": "Does the Load Balancer support SSL termination?",
+      "answer": "Yes, many load balancers support SSL termination, which decrypts HTTPS traffic at the load balancer level, reducing the load on backend servers and simplifying certificate management."
+    },
+    {
+      "question": "Can I scale the Load Balancer automatically?",
+      "answer": "Yes, modern Load Balancers can scale based on traffic demand, automatically adding or removing resources to handle spikes and maintain performance."
+    }
+  ],
+  "dnsFAQ": [
+    {
+      "question": "What is DNS and why is it important?",
+      "answer": "DNS (Domain Name System) translates human-readable domain names into IP addresses, allowing users and services to locate resources easily. It is crucial for internet connectivity and application accessibility."
+    },
+    {
+      "question": "Can I manage custom DNS records?",
+      "answer": "Yes, you can create A, CNAME, MX, TXT, and other record types to map your domain names to IP addresses or services, supporting email, verification, and other functions."
+    },
+    {
+      "question": "How fast do DNS changes propagate?",
+      "answer": "DNS propagation time depends on the TTL (Time To Live) value set for the record. Changes can take seconds to hours to propagate globally, but most platforms allow low TTL for faster updates."
+    },
+    {
+      "question": "Is DNS secure?",
+      "answer": "DNS security includes authentication, DNSSEC, and access control to prevent hijacking, spoofing, or unauthorized changes. Properly configured DNS ensures safe and reliable service resolution."
+    },
+    {
+      "question": "Can I use DNS for load balancing?",
+      "answer": "Yes, DNS-based load balancing can distribute traffic among multiple endpoints, providing a simple form of high availability and geographic routing."
+    }
+  ],
+  "affinityGroupFAQ": [
+    {
+      "question": "What is an Affinity Group?",
+      "answer": "An Affinity Group is a logical grouping of resources, such as VMs, to control their placement within the data center. It allows you to keep related resources close together for performance or separate them for fault tolerance."
+    },
+    {
+      "question": "Why should I use an Affinity Group?",
+      "answer": "Using Affinity Groups improves performance by reducing network latency between related VMs and ensures that workloads are deployed according to policies like high availability or isolation."
+    },
+    {
+      "question": "Can I combine multiple VMs in one Affinity Group?",
+      "answer": "Yes, you can group multiple VMs or services to define placement rules, ensuring they are deployed on the same host or separate hosts depending on your requirements."
+    },
+    {
+      "question": "How does an Anti-Affinity Group work?",
+      "answer": "Anti-Affinity Groups ensure that grouped VMs are deployed on separate hosts to reduce the risk of simultaneous failure. This is useful for high-availability workloads."
+    },
+    {
+      "question": "Are Affinity Groups flexible?",
+      "answer": "Yes, Affinity Groups can be modified or deleted as your resource placement needs change. This allows you to manage performance, redundancy, and fault tolerance dynamically."
+    }
+  ]
+}

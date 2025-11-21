@@ -3,6 +3,7 @@ import VMFeatureSection from "../section/vm-detail/VMFeatureSection";
 import VMPackageSection from "../section/vm-detail/VMPackageSection";
 import GetStartedCard from "../card/GetStartedCard";
 import VMUseCaseSection from "../section/vm-detail/VMUseCaseSection";
+import VMFAQSection from "../section/vm-detail/VMFAQSection";
 
 export default function VirtualMachineDetailLayout() {
   return (
@@ -16,6 +17,8 @@ export default function VirtualMachineDetailLayout() {
           <GetStartedCard/>
         </div>
       </div>
+
+      <VMFAQSection/>
     </div>
   );
 }

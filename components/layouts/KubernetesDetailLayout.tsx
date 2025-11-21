@@ -5,6 +5,7 @@ import K8FeatureSection from "../section/k8-detail/K8FeatureSection";
 import K8UseCaseSection from "../section/k8-detail/K8UseCaseSection";
 import K8BusinessBenefit from "../section/k8-detail/K8BusinessBenefit";
 import GetStartedCard from "../card/GetStartedCard";
+import K8FAQSection from "../section/k8-detail/K8FAQSection";
 
 export default function KubernetesDetailLayout() {
   return (
@@ -24,6 +25,8 @@ export default function KubernetesDetailLayout() {
           <GetStartedCard />
         </div>
       </div>
+
+      <K8FAQSection/>
     </div>
   );
 }

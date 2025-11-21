@@ -6,6 +6,8 @@ import BenefitListCard from "../card/BenefitListCard";
 import data from "@/data/dataCards.json";
 import { IconCardProps } from "@/type/dataTypes";
 import { getReactIcon } from "@/type/getReactIcon";
+import FAQDropdown from "../card/FAQDropdown";
+import faq from "@/data/faqData.json";
 
 export interface StoragePrice {
   value: string;
@@ -22,6 +24,7 @@ export default function AffinityGroupLayout() {
     ...card,
     icon: getReactIcon(card.icon),
   }));
+  const faqLists = faq.affinityGroupFAQ ?? [];
 
   return (
     <div className=" bg-gray-100">
@@ -53,13 +56,13 @@ export default function AffinityGroupLayout() {
           <div className=" px-4 lg:px-8 md:px-8 ">
             <div className="mb-8 text-center">
               <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-800">
-              Benefits of Utilizing Affinity Groups{" "}
-            </p>
-            <p className="md:text-lg text-base text-gray-700 mt-4 ">
-              Affinity Groups are more than just a configuration setting; they
-              are a critical tool that directly translates into measurable
-              improvements for your applications and operational efficiency.
-            </p>
+                Benefits of Utilizing Affinity Groups{" "}
+              </p>
+              <p className="md:text-lg text-base text-gray-700 mt-4 ">
+                Affinity Groups are more than just a configuration setting; they
+                are a critical tool that directly translates into measurable
+                improvements for your applications and operational efficiency.
+              </p>
             </div>
 
             {/* feature card section */}
@@ -82,6 +85,32 @@ export default function AffinityGroupLayout() {
       <div className="max-w-7xl mx-auto py-16 lg:py-32 md:py-32">
         <div className="mx-4 lg:mx-8 md:mx-8">
           <GetStartedCard />
+        </div>
+      </div>
+
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto lg:py-32 md:py-32 py-16">
+          <div className="text-center pb-8 lg:mx-8 md:mx-8 mx-4">
+            <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
+              Frequently Asked Questions
+            </p>
+          </div>
+
+          {/* feature card section */}
+          <div className="w-full lg:max-w-3xl md:max-w-2xl px-8 lg:mx-auto md:mx-auto space-y-4">
+            {faqLists.map((faq, index) => (
+              <div
+                key={index}
+                className="py-4 border-b border-b-gray-300 last:border-b-0"
+              >
+                <FAQDropdown
+                  question={faq.question}
+                  answer={faq.answer}
+                  index={index}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

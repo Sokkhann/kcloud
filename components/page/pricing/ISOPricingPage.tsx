@@ -110,7 +110,7 @@ export default function ISOPricingPage() {
                   {isoData.map((item) => (
                     <PricingCard
                       key={item.id}
-                      id={item.id}
+                      slug={item.id}
                       title={item.title}
                       price={item.price}
                       subTitle={item.subTitle}

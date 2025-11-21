@@ -28,7 +28,7 @@ export default function AboutPage() {
         <div className="text-center">
           {/* title and description */}
           <div className="py-16 lg:py-32 md:py-32">
-            <div className="mx-4 lg:mx-8 md:mx-8">
+            <div className="mx-4 lg:mx-8 md:mx-8 mb-8">
               <p className="font-bold text-gcxprimary lg:text-4xl md:text-4xl text-2xl ">
                 Our Vision
               </p>
@@ -52,7 +52,7 @@ export default function AboutPage() {
                 Our Mission
               </p>
               <p className="text-base text-gray-600 max-w-3xl mx-auto font-medium">
-                Revolutionizing Cloud and Data Center Services in Cambodia
+                Building Cambodia’s most trusted cloud platform. Powering growth through security, reliability, and innovation.
               </p>
             </div>
             

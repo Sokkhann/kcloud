@@ -7,15 +7,16 @@ import Link from "next/link";
 import data from "@/data/dataCards.json";
 import { IconCardProps } from "@/type/dataTypes";
 import { getReactIcon } from "@/type/getReactIcon";
+import faq from "@/data/faqData.json";
+import FAQDropdown from "../card/FAQDropdown";
 
 export default function BackupLayout() {
-  const featureCards = data.backupFeatureDetailCards ?? []
-  const features: IconCardProps[] = featureCards.map(
-      (card) => ({
-        ...card,
-        icon: getReactIcon(card.icon),
-      })
-    );
+  const featureCards = data.backupFeatureDetailCards ?? [];
+  const features: IconCardProps[] = featureCards.map((card) => ({
+    ...card,
+    icon: getReactIcon(card.icon),
+  }));
+  const faqLists = faq.backupFAQ ?? [];
 
   return (
     <div className=" bg-gray-100">
@@ -54,10 +55,10 @@ export default function BackupLayout() {
               </span>
             </p>
             <p className="xl:text-xl text-base text- text-gray-700 mt-4 max-w-2xl">
-              GCX Backups are priced simply as a small percentage of your compute
-              instance monthly cost, making budgeting straightforward.
+              GCX Backups are priced simply as a small percentage of your
+              compute instance monthly cost, making budgeting straightforward.
             </p>
-         
+
             <div className="mt-6 text-lg hidden xl:block">
               <Link
                 href="/get-started"
@@ -75,8 +76,12 @@ export default function BackupLayout() {
                 Weekly Backup
               </p>
               <div className="mt-4">
-                <p className="xl:text-6xl md:text-5xl text-4xl font-bold text-gcxPrimary">20%</p>
-                <p className="mb-3 text-gray-600 md:text-base text-sm">of your VM cost</p>
+                <p className="xl:text-6xl md:text-5xl text-4xl font-bold text-gcxPrimary">
+                  20%
+                </p>
+                <p className="mb-3 text-gray-600 md:text-base text-sm">
+                  of your VM cost
+                </p>
               </div>
             </div>
             <div className="mb-6">
@@ -84,29 +89,56 @@ export default function BackupLayout() {
                 Daily Backup
               </p>
               <div className="mt-4">
-                <p className="xl:text-6xl md:text-5xl text-4xl font-bold text-gcxPrimary">30%</p>
-                <p className="mb-3 text-gray-600 md:text-base text-sm">of your VM cost</p>
+                <p className="xl:text-6xl md:text-5xl text-4xl font-bold text-gcxPrimary">
+                  30%
+                </p>
+                <p className="mb-3 text-gray-600 md:text-base text-sm">
+                  of your VM cost
+                </p>
               </div>
             </div>
-            <div className=" md:text-lg text-base xl:hidden block">
-           
-          </div>
-          
+            <div className=" md:text-lg text-base xl:hidden block"></div>
           </div>
 
-           <Link
-              href="/get-started"
-              className="group text-gcxPrimary font-bold  rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] inline-flex items-center"
-            >
-              Add Backup
-              <ArrowRight className="ml-0.5 transition-all duration-300 group-hover:ml-2" />
-            </Link>
+          <Link
+            href="/get-started"
+            className="group text-gcxPrimary font-bold  rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] inline-flex items-center"
+          >
+            Add Backup
+            <ArrowRight className="ml-0.5 transition-all duration-300 group-hover:ml-2" />
+          </Link>
         </div>
       </div>
 
       {/* get started card section */}
       <div className="max-w-7xl mx-auto xl:py-24 md:py-16 py-8 px-6">
         <GetStartedCard />
+      </div>
+
+      <div className="bg-white">
+        <div className="max-w-7xl mx-auto lg:py-32 md:py-32 py-16">
+          <div className="text-center pb-8 lg:mx-8 md:mx-8 mx-4">
+            <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
+              Frequently Asked Questions
+            </p>
+          </div>
+
+          {/* feature card section */}
+          <div className="w-full lg:max-w-3xl md:max-w-2xl px-8 lg:mx-auto md:mx-auto space-y-4">
+            {faqLists.map((faq, index) => (
+              <div
+                key={index}
+                className="py-4 border-b border-b-gray-300 last:border-b-0"
+              >
+                <FAQDropdown
+                  question={faq.question}
+                  answer={faq.answer}
+                  index={index}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -60,8 +60,8 @@ export default function CustomerCarousel() {
             >
               <CustomerCard
                 logo={item.logo}
-                title={item.title}
-                description={item.description}
+                title={item.companyName}
+                description={item.review}
               />
             </div>
           ))}
@@ -76,8 +76,8 @@ export default function CustomerCarousel() {
             >
               <CustomerCard
                 logo={item.logo}
-                title={item.title}
-                description={item.description}
+                title={item.companyName}
+                description={item.review}
               />
             </div>
           ))}

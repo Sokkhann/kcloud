@@ -85,7 +85,7 @@ export default function TemplatePricingPage() {
               {templateData.map((item) => (
                 <PricingCard
                   key={item.id}
-                  id={item.id}
+                  slug={item.id}
                   title={item.title}
                   price={item.price}
                   subTitle={item.subTitle}

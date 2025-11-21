@@ -20,8 +20,8 @@ export default function CustomerTestimonialPage() {
           {customerOverview.map((item, index) => (
             <CustomerCard
               key={index}
-              description={item.description}
-              title={item.title}
+              description={item.review}
+              title={item.companyName}
               logo={item.logo}
             />
           ))}
