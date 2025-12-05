@@ -97,22 +97,19 @@
 
   "whyGCXCards": [
     {
-      "id": 1,
       "title": "Convenient Location",
       "desc": "Data centers strategically positioned for easy access and minimal latency",
-      "image": "/convenient-location.png"
+      "icon": "MapPin"
     },
     {
-      "id": 2,
       "title": "Stable Power Zone",
       "desc": "Uninterrupted, reliable power for maximum up-time and data security",
-      "image": "/stable-zone.png"
+      "icon": "Plug"
     },
     {
-      "id": 3,
       "title": "Flood Free Area",
       "desc": "Data centers strategically located in flood-free zones for worry-free data protection",
-      "image": "/flood-free.png"
+      "icon": "DropletOff"
     }
   ],
 

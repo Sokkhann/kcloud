@@ -1,43 +1,59 @@
 "use client";
 
-import Image from "next/image";
-import data from "@/data/dataCards.json"
+import data from "@/data/dataCards.json";
+import { IconCardProps } from "@/type/dataTypes";
+import { getReactIcon } from "@/type/getReactIcon";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 export default function HoverExpandCards() {
-  const cards = data.whyGCXCards
+  const [mounted, setMounted] = useState(false);
+  const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+  const isLg = useMediaQuery({ minWidth: 1024 });
+
+  useEffect(() => {
+      setMounted(true);
+    }, []);
+  
+    // Default size for server (to avoid mismatch)
+    let iconSize = 60 ;
+    if (mounted) {
+      if (isMd) iconSize = 80;
+      if (isLg) iconSize = 100;
+    }
+  
+  const featureCards = data.whyGCXCards ?? [];
+  const cards: IconCardProps[] = featureCards.map((card) => ({
+    ...card,
+    icon: getReactIcon(card.icon),
+  }));
 
   return (
     <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 md:gap-8 gap-4 w-full lg:px-8 md:px-8 px-4">
-      {cards.map((card) => (
-        <div
-          key={card.id}
-          className="relative group overflow-hidden rounded-2xl h-[300px] sm:h-[320px] lg:h-[350px] cursor-pointer bg-white w-full"
-        >
-          {/* Background Image */}
-          <div className="rounded-2xl w-full h-full relative overflow-hidden">
-            <Image
-              src={card.image}
-              alt={card.title}
-              fill
-              className="object-cover object-center"
-            />
-          </div>
+      {cards.map((item, index) => {
+        const Icon = item.icon; // typed from IconCardProps
 
-          {/* Expanding White Panel */}
-          <div
-            className="absolute bottom-0 left-0 w-full bg-white p-6 sm:p-8 transition-all duration-500 ease-in-out
-          h-[80px] sm:h-[90px] lg:h-[90px] group-hover:h-[130px] sm:group-hover:h-[140px]"
-            style={{ transformOrigin: "bottom" }}
-          >
-            <h3 className="font-semibold text-xl text-gray-700">
-              {card.title}
-            </h3>
-            <p className="text-gray-600 mt-1 sm:mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              {card.desc}
-            </p>
+        return (
+          <div key={index}>
+            <div className="p-4 lg:p-8 md:p-8 bg-white rounded-2xl border-2 border-gray-200 overflow-hidden h-full flex flex-wrap justify-between">
+              {/* Title */}
+              <h3 className="text-lg md:text-xl lg:text-2xl font-semibold leading-tight text-gray-700">
+                {item.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-sm md:text-base lg:text-lg text-gray-600">
+                {item.desc}
+              </p>
+
+              {/* Icon */}
+              <div className="flex justify-end w-full pt-8">
+                <Icon className="text-gcxprimary opacity-70" size={iconSize}/>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 }
