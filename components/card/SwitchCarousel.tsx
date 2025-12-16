@@ -32,7 +32,7 @@ export default function SwitchCarousel() {
               >
                 {/* Text Section */}
                 <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
-                  <h2 className="lg:text-2xl  font-bold mb-4 text-gray-700">
+                  <h2 className="lg:text-2xl font-bold mb-4 text-gray-700">
                     {cards[index].title}
                   </h2>
                   <p className="text-gray-600 lg:text-base text-sm">

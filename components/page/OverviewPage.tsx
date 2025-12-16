@@ -7,6 +7,8 @@ import HoverExpandCards from "../card/HoverExpandCard";
 import SwitchCard from "../card/SwitchCarousel";
 import CustomerCarousel from "../card/CustomerCarousel";
 import ScrollReveal from "../animations/ScrolReveal";
+import ProductCardCarousel from "../card/ProductCardCarousel";
+import WhyGCXCloudSection from "../section/overview-detail/WhyGCXCloudSection";
 
 export default function OverviewPage() {
   return (
@@ -42,8 +44,10 @@ export default function OverviewPage() {
                 </div>
 
                 {/* Product Tabs section */}
-                <ProductTab />
+                {/* <ProductTab /> */}
+                <ProductCardCarousel />
               </div>
+
             </ScrollReveal>
           </section>
 
@@ -91,13 +95,41 @@ export default function OverviewPage() {
                 </div>
 
                 {/* Solutions section */}
-                <HoverExpandCards />
+                {/* <HoverExpandCards /> */}
+                <WhyGCXCloudSection />
               </div>
             </ScrollReveal>
           </section>
 
           {/* Customer Testimonials Section */}
           <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16 bg-white">
+            <ScrollReveal>
+              <div className="">
+                {/* title and description */}
+                <div className="max-w-7xl mx-auto lg:mb-24">
+                  {/* title and description */}
+                  <div className="my-12 text-center justify-center lg:mx-0 mx-4 mb-12">
+                    <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
+                      Customer Testimonials
+                    </p>
+                    <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
+                      Real stories. Real results. Our customers share how GCX
+                      helped them simplify operations and grow faster. Discover
+                      why businesses around the world choose GCX every day.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Data Center Section */}
+                {/* <ScrollReveal>
+                  
+                </ScrollReveal> */}
+              </div>
+            </ScrollReveal>
+          </section>
+
+          {/* Customer Testimonials Section */}
+          <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16">
             <ScrollReveal>
               <div className="">
                 {/* title and description */}

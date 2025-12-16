@@ -1,11 +1,11 @@
-import StoragePage from "@/components/page/pricing/StoragePage";
+import BlockStoragePricingPage from "@/components/page/pricing/BlockStoragePricingPage";
 import React from "react";
 
 export default function page() {
 
   return (
     <div>
-      <StoragePage/>
+      <BlockStoragePricingPage/>
     </div>
   );
 }

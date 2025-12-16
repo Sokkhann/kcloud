@@ -1,5 +1,4 @@
-"use client";
-
+"client side"
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -10,8 +9,13 @@ import {
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
 import ProductDropDown from "../ProductMenuDropdown";
+import { NavbarProducts } from "@/type/dataTypes";
 
-export default function DesktopNavigation() {
+interface DesktopNavigationProps {
+  menu: NavbarProducts[];
+}
+
+export default function DesktopNavigation({menu}: DesktopNavigationProps) {
   return (
     <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full ">
       {/* <div className="w-full">
@@ -52,23 +56,10 @@ export default function DesktopNavigation() {
                 {/* overview content dropdown */}
                 <NavigationMenuContent className="!w-screen !max-w-none !absolute p-0">
                   <div className="px-8 py-10">
-                    <ProductDropDown />
+                    <ProductDropDown products={menu} />
                   </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
-              {/* solution dropdown tab */}
-              {/* <NavigationMenuItem className="hidden lg:!block ">
-                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-
-                <NavigationMenuContent className="!w-screen !max-w-none left-0 !absolute p-0">
-                  <NavigationMenuLink asChild>
-                    <div className="px-8 py-10">
-                      <SolutionDropDown />
-                    </div>
-                  </NavigationMenuLink>
-                </NavigationMenuContent>
-              </NavigationMenuItem> */}
 
               {/* pricing tab */}
               <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">

@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroComponent from "@/components/HeroComponent";
 import { DataTable } from "./price-table/VMTable";
-import { columns, PricingPlan } from "./price-table/VMColumn";
+import { columns, vmColumns, PricingPlan } from "./price-table/VMColumn";
+import { dataPlan } from "@/type/dataTypes";
 
 export type Payment = {
   id: string;
@@ -12,10 +13,9 @@ export type Payment = {
   email: string;
 };
 
-export default function VMPricinginPage() {
+export default function VirtualMachinePricinginPage() {
   const tabs = ["Regular", "Premium"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
-
   const data: PricingPlan[] = [
     {
       slug: "basic-plan",
@@ -72,6 +72,64 @@ export default function VMPricinginPage() {
       priceMonth: "$160",
     },
   ];
+
+  const [plans, setPlans] = useState<PricingPlan[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const res = await fetch(`/api/pricing/Virtual Machine`);
+        const json = await res.json();
+
+        // Mapping API response to display-ready PricingPlan
+        const formattedPlans: PricingPlan[] = (json.data ?? []).map(
+          (plan: dataPlan) => ({
+            name: plan.name,
+            slug: plan.name?.toLowerCase().replace(/\s+/g, "-") ?? "plan",
+            // Use formatted memory in GB if available
+            memory:
+              plan.attribute?.memory !== undefined
+                ? `${(plan.attribute.memory / 1024).toFixed(1)} MB`
+                : undefined,
+            cpu:
+              plan.attribute?.cpu !== undefined
+                ? `${plan.attribute.cpu} GB`
+                : undefined,
+            storage:
+              plan.attribute?.storage !== undefined
+                ? `${plan.attribute.storage} GB`
+                : "undefined",
+            bandwidth:
+              plan.attribute?.bandwidth_threshold !== undefined
+                ? `${plan.attribute.bandwidth_threshold} GB`
+                : "undefined",
+            gpu:
+              plan.attribute?.gpu !== undefined
+                ? `${plan.attribute.gpu} GB`
+                : "undefined",
+            priceHour:
+              plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",
+            priceMonth:
+              plan.monthly_price !== undefined
+                ? `$${plan.monthly_price}`
+                : "$0",
+            planCategory: plan.plan_category?.name ?? "N/A", // Plan Category
+            computeCategory: plan.compute_category?.name ?? "N/A", // Compute Category
+          })
+        );
+
+        setPlans(formattedPlans);
+        console.log("Respone data => ", formattedPlans);
+      } catch (error) {
+        console.error("Failed to load pricing:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlans();
+  }, []);
 
   return (
     <div className="w-screen">
@@ -167,7 +225,6 @@ export default function VMPricinginPage() {
             </p>
           </div>
 
-          
           <div className="px-6 space-y-6 mb-16">
             <div className="mt-6 flex gap-4 items-center ">
               <p className="font-bold text-gcxPrimary">CPU Options</p>
@@ -195,6 +252,43 @@ export default function VMPricinginPage() {
                 <DataTable columns={columns} data={data} />
               )}
             </div>
+          </div>
+
+          {/* dat fetching here */}
+          <div className="px-6 space-y-6 mb-16">
+            {/* for tabs for other options */}
+            {/* <div className="mt-6 flex gap-4 items-center ">
+              <p className="font-bold text-gcxPrimary">Data Fetching</p>
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  className={`px-4 py-2 rounded-full font-semibold transition
+              ${
+                activeTab === tab
+                  ? "bg-gcxPrimary text-white"
+                  : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+              }`}
+                  onClick={() => setActiveTab(tab)}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div> */}
+            {/* Tab content */}
+            {/* <div>
+              {activeTab === "Regular" && (
+                <DataTable columns={columns} data={plans} />
+              )}
+              {activeTab === "Premium" && (
+                <DataTable columns={columns} data={data} />
+              )}
+            </div> */}
+
+            {/* data is here */}
+            <DataTable
+              columns={vmColumns("Virtual Machine")}
+              data={plans}
+            />
           </div>
         </div>
       </div>

@@ -1,6 +1,11 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import PricingCard from "../../card/PricingCard";
 import HeroComponent from "@/components/HeroComponent";
+import { dataPlan } from "@/type/dataTypes";
+import { k8Columns, PricingPlan } from "./price-table/VMColumn";
+import { DataTable } from "./price-table/VMTable";
 
 export default function KubernetesPricingPage() {
   const pricingData = [
@@ -54,6 +59,57 @@ export default function KubernetesPricingPage() {
     },
   ];
 
+  const [plans, setPlans] = useState<PricingPlan[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      try {
+        const res = await fetch(`/api/pricing/Kubernetes`);
+        const json = await res.json();
+
+        // Mapping API response to display-ready PricingPlan
+        const formattedPlans: PricingPlan[] = (json.data ?? []).map(
+          (plan: dataPlan) => ({
+            name: plan.name,
+            slug: plan.name?.toLowerCase().replace(/\s+/g, "-") ?? "plan",
+            // Use formatted memory in GB if available
+            bandwidth:
+              plan.cloud_provider_setup?.config?.bandwidth_threshold !==
+              undefined
+                ? `${plan.cloud_provider_setup?.config.bandwidth_threshold} GB`
+                : undefined,
+            memory:
+              plan.attribute?.memory !== undefined
+                ? `${(plan.attribute.memory / 1024).toFixed(1)} MB`
+                : undefined,
+            cpu:
+              plan.attribute?.cpu !== undefined
+                ? `${plan.attribute.cpu} GB`
+                : undefined,
+            priceHour:
+              plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",
+            priceMonth:
+              plan.monthly_price !== undefined
+                ? `$${plan.monthly_price}`
+                : "$0",
+            cloudProvider: plan.cloud_provider?.display_name ?? "Cloud",
+            region: plan.plan_region?.region?.name ?? "Region",
+          })
+        );
+
+        setPlans(formattedPlans);
+        console.log("Respone data => ", formattedPlans);
+      } catch (error) {
+        console.error("Failed to load pricing:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlans();
+  }, []);
+
   return (
     <div>
       {/* Hero section */}
@@ -89,6 +145,10 @@ export default function KubernetesPricingPage() {
                   buttonLabel="Get Started"
                 />
               ))}
+            </div>
+
+            <div className="px-4 lg:px-8 md:px-8">
+              <DataTable columns={k8Columns("Kubernetes")} data={plans} />
             </div>
           </div>
         </div>

@@ -11,8 +11,13 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
+import { NavbarProducts } from "@/type/dataTypes";
 
-export default function MobileNavigation() {
+interface MobileNavigationProps {
+  menu: NavbarProducts[];
+}
+
+export default function MobileNavigation({menu} : MobileNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
@@ -107,7 +112,7 @@ export default function MobileNavigation() {
                                   onClick={() => setMenuOpen(false)}
                                   className="mb-4"
                                 >
-                                  <ProductDropDown />
+                                  <ProductDropDown products={menu}/>
                                 </div>
                               )}
                               {/* {label === "Solutions" && (

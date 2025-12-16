@@ -1,4 +1,4 @@
-import PlanPage from '@/components/page/pricing/VMPricingPage'
+import PlanPage from '@/components/page/pricing/VirtualMachinePricingPage'
 import React from 'react'
 
 export default function page() {
