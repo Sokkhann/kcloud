@@ -38,7 +38,7 @@ export default function PowerSection() {
                 </div>
 
                 {/* Left section */}
-                <div className="flex items-center justify-center rounded-2xl bg-violet-500">
+                <div className="flex items-center justify-center rounded-2xl  bg-violet-500">
                     <Image
                     width={1200}
                     height={1200}
