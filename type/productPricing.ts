@@ -7,6 +7,7 @@ export interface PricingProduct {
   plans?: PricingProduct[]; // optional, only for categories
 }
 
+
 export const pricingData: PricingProduct[] = [
   // --- Virtual Machine category ---
   {
