@@ -38,11 +38,11 @@ export default function PowerSection() {
                 </div>
 
                 {/* Left section */}
-                <div className="flex items-center justify-center rounded-2xl  bg-violet-500">
+                <div className="flex items-center justify-center rounded-2xl bg-violet-500">
                     <Image
                     width={1200}
                     height={1200}
-                    src={'/power-img.png'}
+                    src={'/power-img.png'} 
                         alt="card"
                         className="rounded-2xl object-cover w-full lg:h-[530px] md:h-[480px] h-[320px]"
                     />
