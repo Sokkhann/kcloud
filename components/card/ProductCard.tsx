@@ -1,55 +1,45 @@
-"use client";
+import React from 'react'
+import {icons} from "lucide-react";
+import { ProductListProps } from '@/type/dataTypes'
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight } from "lucide-react";
-import { IconCardProps } from "@/type/dataTypes";
-import { useMediaQuery } from "react-responsive";
+export default function ProductCard({ name, description, icon, path }: ProductListProps) {
 
-export default function ProductCard({
-  icon: Icon,
-  title,
-  desc,
-  link,
-}: IconCardProps) {
-  const [mounted, setMounted] = useState(false);
-  const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const isLg = useMediaQuery({ minWidth: 1024 });
-  const router = useRouter();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Default size for server (to avoid mismatch)
-  let iconSize = 32 ;
-  if (mounted) {
-    if (isMd) iconSize = 32;
-    if (isLg) iconSize = 32;
-  }
+  const IconComponent = icons[icon];
   return (
-    <div className="relative bg-white rounded-2xl transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full hadow-sm border border-gray-200">
-      <div className="p-4 rounded-full bg-green-100 flex items-center justify-center">
-        <Icon className="text-gcxprimary" size={iconSize} />
-      </div>
-      {/* Title */}
-      <p className="text-lg font-semibold text-gray-800 mt-4">{title}</p>
-
-      {/* Description */}
-      <p className="text-gray-600 mt-2 mb-6 px-2 sm:px-4">{desc}</p>
-
-      {/* Button */}
-      <button
-        onClick={() =>
-          router.push(
-            link || `/products/${title.toLowerCase().replace(/\s+/g, "-")}`
-          )
-        }
-        className="mt-auto flex items-center justify-center gap-2 px-4 py-2 border border-gcxprimary text-gcxprimary rounded-full hover:bg-gcxprimary hover:text-white transition-all text-sm sm:text-base w-full sm:w-auto"
+    <div>
+      <a
+        data-card
+        href={path}
+        className="relative min-w-[320px] h-[320px] rounded-2xl bg-white cursor-pointer group transition-all duration-500 flex flex-col items-center p-8 border border-gray-100 hover:shadow-lg hover:shadow-gcxPrimary/60"
       >
-        View Detail
-        <ArrowRight size={16} />
-      </button>
+
+        {/* --- 2. Middle Section: Layered Circle Setup --- */}
+        <div className="relative z-10 mb-6">
+          <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center transition-all duration-500">
+            {/* The Icon (Scaled to fit nicely) */}
+            <IconComponent
+              size={44}
+              strokeWidth={2}
+              className="text-gray-700 group-hover:text-gcxPrimary transition-colors duration-300"
+            />
+          </div>
+        </div>
+
+        {/* --- 3. Bottom Section: Content --- */}
+        <div className="relative z-10 text-center flex flex-col flex-grow">
+          <h3 className="text-xl font-bold text-gray-700 group-hover:text-gcxPrimary transition-colors duration-300">
+            {name}
+          </h3>
+          <p className="text-gray-600 mt-3 text-sm leading-relaxed line-clamp-4">
+            {description}
+          </p>
+
+          {/* Optional: Visual Indicator for Clickability */}
+          <div className="mt-auto pt-4 flex justify-center">
+            <div className="w-8 h-1 bg-gray-200 rounded-full group-hover:w-16 group-hover:bg-gcxPrimary transition-all duration-500" />
+          </div>
+        </div>
+      </a>
     </div>
-  );
+  )
 }

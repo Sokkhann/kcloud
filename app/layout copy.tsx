@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Suwannaphum } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/nav/Navbar";
-import Footer from "@/components/FooterClient";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   variable: "--font-en",
@@ -39,7 +39,7 @@ export default function RootLayout({
         <section className="flex-grow flex justify-center items-center bg-gray-50 mt-20">{children}</section>
 
         {/* footer section */}
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

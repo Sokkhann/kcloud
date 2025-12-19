@@ -1,67 +1,15 @@
 "use client";
 
 import HeroComponent from "@/components/HeroComponent";
-import React, { useEffect, useState } from "react";
-import { blockStorageColumns, PricingPlan } from "./price-table/VMColumn";
+import { blockStorageColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
-import { dataPlan } from "@/type/dataTypes";
+import { PackageData } from "@/type/dataTypes";
 
-export default function BlockStoragePricingPage() {
-  const [plans, setPlans] = useState<PricingPlan[]>([]);
-  const [loading, setLoading] = useState(true);
+interface PackageProps {
+  plans: PackageData[]
+}
 
-  useEffect(() => {
-    const fetchPlans = async () => {
-      try {
-        const res = await fetch(`/api/pricing/Block Storage`);
-        const json = await res.json();
-
-        // Mapping API response to display-ready PricingPlan
-        const formattedPlans: PricingPlan[] = (json.data ?? []).map(
-          (plan: dataPlan) => ({
-            name: plan.name,
-            slug: plan.name?.toLowerCase().replace(/\s+/g, "-") ?? "plan",
-            // Use formatted memory in GB if available
-            memory:
-              plan.attribute?.memory !== undefined
-                ? `${(plan.attribute.memory / 1024).toFixed(1)} MB`
-                : undefined,
-            cpu:
-              plan.attribute?.cpu !== undefined
-                ? `${plan.attribute.cpu} GB`
-                : undefined,
-            storage:
-              plan.attribute?.storage !== undefined
-                ? `${plan.attribute.storage} GB`
-                : "undefined",
-            capacity:
-              plan.attribute?.size !== undefined
-                ? `${plan.attribute.size} GB`
-                : "undefined",
-            priceHour:
-              plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",
-            priceMonth:
-              plan.monthly_price !== undefined
-                ? `$${plan.monthly_price}`
-                : "$0",
-            planCategory: plan.plan_category?.name ?? "N/A", // Plan Category
-            displayName: plan.cloud_provider?.display_name ?? "Display Name",
-            region: plan.plan_region?.region?.name ?? "Region",
-            
-          })
-        );
-
-        setPlans(formattedPlans);
-        console.log("Respone data => ", formattedPlans);
-      } catch (error) {
-        console.error("Failed to load pricing:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPlans();
-  }, []);
+export default function BlockStoragePricingPage({plans} : PackageProps) {
 
   return (
     <div>
@@ -69,7 +17,7 @@ export default function BlockStoragePricingPage() {
       <HeroComponent
         height="h-[600px]"
         image="/hero-bg.png"
-        title="Private Network"
+        title="Block Storage"
         description="GCX Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
       />
 

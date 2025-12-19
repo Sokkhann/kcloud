@@ -1,55 +1,15 @@
 "use client";
 
 import HeroComponent from "@/components/HeroComponent";
-import React, { useEffect, useState } from "react";
-import { PricingPlan, vmSnapshotColumns } from "./price-table/VMColumn";
+import { vmSnapshotColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
-import { dataPlan } from "@/type/dataTypes";
+import { PackageData } from "@/type/dataTypes";
 
-export default function TemplatePricingPage() {
-  const [plans, setPlans] = useState<PricingPlan[]>([]);
-  const [loading, setLoading] = useState(true);
+interface PackageProps {
+  plans: PackageData[]
+}
 
-  useEffect(() => {
-    const fetchPlans = async () => {
-      try {
-        const res = await fetch(`/api/pricing/Template`);
-        const json = await res.json();
-
-        // Mapping API response to display-ready PricingPlan
-        const formattedPlans: PricingPlan[] = (json.data ?? []).map(
-          (plan: dataPlan) => ({
-            name: plan.name,
-            slug: plan.name?.toLowerCase().replace(/\s+/g, "-") ?? "plan",
-            // Use formatted memory in GB if available
-            storage:
-              plan.cloud_provider_setup?.config?.storage_cluster !== undefined
-                ? `${plan.cloud_provider_setup?.config?.storage_cluster}`
-                : "undefined",
-            priceHour:
-              plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",
-            priceMonth:
-              plan.monthly_price !== undefined
-                ? `$${plan.monthly_price}`
-                : "$0",
-            planCategory: plan.plan_category?.name ?? "N/A", // Plan Category
-            displayName: plan.cloud_provider?.display_name ?? "Display Name",
-            region: plan.plan_region?.region?.name ?? "Region",
-            
-          })
-        );
-
-        setPlans(formattedPlans);
-        console.log("Respone data of the => ", formattedPlans);
-      } catch (error) {
-        console.error("Failed to load pricing:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPlans();
-  }, []);
+export default function TemplatePricingPage({ plans }: PackageProps) {
 
   return (
     <div>
@@ -57,7 +17,7 @@ export default function TemplatePricingPage() {
       <HeroComponent
         height="h-[600px]"
         image="/hero-bg.png"
-        title="Private Network"
+        title="My Template"
         description="GCX Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
       />
 
@@ -66,7 +26,7 @@ export default function TemplatePricingPage() {
           <div className="max-w-7xl mx-auto space-y-8">
             <div className="lg:mx-8 md:mx-8 mx-4">
               <p className="lg:text-4xl md:text-4xl text-2xl mb-4 font-bold text-gray-700">
-                Virtual Machine Snapshot
+                My Template
               </p>
               <p className="text-base text-gray-600">
                 An IP Address is a unique identifier that allows your server or

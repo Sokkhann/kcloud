@@ -1,14 +1,12 @@
-"use client";
-
 import HeroComponent from "../HeroComponent";
-import { ProductTab } from "../tab/ProductTab";
 import GetStartedCard from "../card/GetStartedCard";
-import HoverExpandCards from "../card/HoverExpandCard";
 import SwitchCard from "../card/SwitchCarousel";
-import CustomerCarousel from "../card/CustomerCarousel";
 import ScrollReveal from "../animations/ScrolReveal";
-import ProductCardCarousel from "../card/ProductCardCarousel";
 import WhyGCXCloudSection from "../section/overview-detail/WhyGCXCloudSection";
+import DataCenterSection from "../section/overview-detail/DataCenterSection";
+import CustomerListSection from "../section/overview-detail/CustomerListSection";
+import PowerSection from "../section/overview-detail/PowerSection";
+import ProductListSection from "../section/overview-detail/ProductListSection";
 
 export default function OverviewPage() {
   return (
@@ -45,7 +43,7 @@ export default function OverviewPage() {
 
                 {/* Product Tabs section */}
                 {/* <ProductTab /> */}
-                <ProductCardCarousel />
+                <ProductListSection />
               </div>
 
             </ScrollReveal>
@@ -95,35 +93,32 @@ export default function OverviewPage() {
                 </div>
 
                 {/* Solutions section */}
-                {/* <HoverExpandCards /> */}
                 <WhyGCXCloudSection />
               </div>
             </ScrollReveal>
           </section>
 
-          {/* Customer Testimonials Section */}
+          {/* Data Centers Section */}
           <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16 bg-white">
             <ScrollReveal>
-              <div className="">
+              <div className="max-w-7xl mx-auto">
                 {/* title and description */}
-                <div className="max-w-7xl mx-auto lg:mb-24">
+                <div className="max-w-7xl mx-auto">
                   {/* title and description */}
-                  <div className="my-12 text-center justify-center lg:mx-0 mx-4 mb-12">
+                  <div className="mt-12 text-center justify-center lg:mx-0 mx-4 mb-12">
                     <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
-                      Customer Testimonials
+                      Our Data Centers
                     </p>
                     <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
-                      Real stories. Real results. Our customers share how GCX
-                      helped them simplify operations and grow faster. Discover
-                      why businesses around the world choose GCX every day.
+                      Located in the heart of Phnom Penh, our data center pushes the pinnacle of connectivity to the next level and unlock your potential with us
                     </p>
                   </div>
                 </div>
 
-                {/* Data Center Section */}
-                {/* <ScrollReveal>
-                  
-                </ScrollReveal> */}
+                <div className="lg:px-8 md:px-8 px-4">
+                  {/* Data Center Section */}
+                  <DataCenterSection />
+                </div>
               </div>
             </ScrollReveal>
           </section>
@@ -145,19 +140,28 @@ export default function OverviewPage() {
                       why businesses around the world choose GCX every day.
                     </p>
                   </div>
-                </div>
 
-                {/* Customer section */}
-                <ScrollReveal>
-                  <CustomerCarousel />
-                </ScrollReveal>
+                  <CustomerListSection />
+                </div>
+              </div>
+            </ScrollReveal>
+          </section>
+
+          {/* Power Section */}
+          <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16 bg-white">
+            <ScrollReveal>
+              <div className="max-w-7xl mx-auto">
+                <div className="lg:px-8 md:px-8 px-4">
+                  {/* Data Center Section */}
+                  <PowerSection />
+                </div>
               </div>
             </ScrollReveal>
           </section>
 
           <section className="max-w-7xl mx-auto my-32">
             <ScrollReveal>
-              <div className=" lg:px-8 md:px-8 px-4">
+              <div className="lg:px-8 md:px-8 px-4">
                 <GetStartedCard />
               </div>
             </ScrollReveal>

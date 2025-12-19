@@ -1,10 +1,13 @@
 import TemplatePricingPage from '@/components/page/pricing/TemplatePricingPage'
+import { getPackageVM } from '@/lib/api/getPackageVM'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+
+  const packages = await getPackageVM({service: "My Template"})
   return (
     <div>
-      <TemplatePricingPage/>
+      <TemplatePricingPage plans={packages ?? []}/>
     </div>
   )
 }

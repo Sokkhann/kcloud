@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Facebook, Linkedin, Send, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { NavbarProducts } from "@/type/dataTypes";
 
 // ----------------------------------------------------------------------
 // 1. Reusable Component for List Sections (Now defaults to Mobile Dropdown)
@@ -69,16 +70,10 @@ const FooterColumn = ({
   );
 };
 
-interface ProductMenuItem {
-  id: string;
-  name: string;
-  path: string;
-}
-
 interface FooterClientProps {
-  productMenu: ProductMenuItem[];
+  productMenu: NavbarProducts[];
 }
-
+ 
 // ----------------------------------------------------------------------
 // 2. Main Footer Component
 // ----------------------------------------------------------------------

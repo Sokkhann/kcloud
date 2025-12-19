@@ -1,8 +1,8 @@
+import { getMenu } from "@/lib/navbarMenu";
 import FooterClient from "./FooterClient";
-import { getFullNavbarMenu } from "@/lib/navbarMenu";
 
 export default async function Footer() {
-  const productMenu = await getFullNavbarMenu();
+  const productMenu = await getMenu();
 
   return <FooterClient productMenu={productMenu} />;
 }

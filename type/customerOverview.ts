@@ -9,7 +9,7 @@ export const customerOverview: CardProps[] = [
   {
     title: "NeocomISP Co Limited",
     description:
-      "The team provided outstanding support and guidance throughout our project. The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project",
+      "The team provided outstanding support and guidance throughout our project. The team provided",
     logo: "/neocom-logo.png",
   },
   {

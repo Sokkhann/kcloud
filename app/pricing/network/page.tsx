@@ -1,10 +1,14 @@
 import NetworkPricingPage from '@/components/page/pricing/NetworkPricingPage'
+import { getPackageVM } from '@/lib/api/getPackageVM'
 import React from 'react'
 
-export default function page() {
+export default async function page() {
+
+  const packages = await getPackageVM({service: "Network"})
+
   return (
     <div>
-      <NetworkPricingPage/>
+      <NetworkPricingPage plans={packages ?? []}/>
     </div>
   )
 }

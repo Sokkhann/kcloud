@@ -1,4 +1,4 @@
-import { LucideIcon } from "lucide-react";
+import { icons, LucideIcon } from "lucide-react";
 
 export interface ImgTitleDescCardProps {
   image: string;
@@ -23,7 +23,7 @@ export interface PricingProduct {
   plans?: PricingProduct[]; // optional, only for categories
 }
 
-export interface SimpleCardProps  {
+export interface SimpleCardProps {
   title: string,
   desc: string
 }
@@ -38,8 +38,21 @@ export interface ProblemSolutionSwitchCardProps {
 export interface NavbarProducts {
   id: string;
   name: string;
-  path?: string;
+  path: string;
   image: string;
+}
+
+export interface PackageProps {
+  name: string;
+  path: string;
+  description: string;
+}
+
+export interface ProductListProps {
+  name: string;
+  path: string;
+  icon: keyof typeof icons;
+  description: string;
 }
 
 export interface dataPlan {
@@ -62,7 +75,7 @@ export interface dataPlan {
   compute_category: {
     name?: string;
   };
-  cloud_provider:{
+  cloud_provider: {
     name?: string;
     display_name?: string;
     description?: string;
@@ -84,4 +97,36 @@ export interface dataPlan {
     regions?: string;
   };
   timezone?: string;
+}
+
+export interface PackageData {
+  name: string;
+  slug: string;
+
+  cpu?: string;
+  memory?: string;
+  storage?: string;
+  bandwidth?: string;
+  gpu?: string;
+
+  priceHour: string;
+  priceMonth: string;
+
+  planCategory?: string;
+  computeCategory?: string;
+}
+
+export interface dataPlanVM {
+  name?: string;
+  attribute?: {
+    cpu?: number;
+    memory?: number;
+    storage?: number;
+    gpu?: number;
+    bandwidth_threshold?: number;
+  };
+  hourly_price?: number;
+  monthly_price?: number;
+  plan_category?: { name?: string };
+  compute_category?: { name?: string };
 }

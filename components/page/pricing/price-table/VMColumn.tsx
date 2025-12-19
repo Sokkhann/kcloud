@@ -1,12 +1,14 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { PackageData } from "@/type/dataTypes";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowRight } from "lucide-react";
 
 export type PricingPlan = {
   slug: string;
   name?: string;
+
   memory?: string;
   vcpu?: string;
   gpu?: string;
@@ -14,6 +16,7 @@ export type PricingPlan = {
   storage?: string;
   transfer?: string;
   ssd?: string;
+
   timezone?: string;
   priceHour: string | number;
   priceMonth: string | number;
@@ -67,7 +70,7 @@ export const columns: ColumnDef<PricingPlan>[] = [
   },
 ];
 
-export const vmColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const vmColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -113,7 +116,7 @@ export const vmColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
+        const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
           window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
@@ -136,7 +139,7 @@ export const vmColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
   ];
 };
 
-export const vmRouterColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const vmRouterColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -182,7 +185,7 @@ export const vmRouterColumns = ( serviceName: string ): ColumnDef<PricingPlan>[]
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
+        const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
           window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
@@ -205,7 +208,7 @@ export const vmRouterColumns = ( serviceName: string ): ColumnDef<PricingPlan>[]
   ];
 };
 
-export const lbColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const lbColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -243,7 +246,7 @@ export const lbColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
+        const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
           window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
@@ -266,7 +269,7 @@ export const lbColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
   ];
 };
 
-export const k8Columns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const k8Columns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -312,7 +315,7 @@ export const k8Columns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
+        const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
           window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
@@ -335,7 +338,7 @@ export const k8Columns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
   ];
 }
 
-export const ipColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const ipColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -369,7 +372,7 @@ export const ipColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
+        const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
           window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
@@ -392,80 +395,7 @@ export const ipColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
   ];
 };
 
-export const blockStorageColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
-  return [
-    {
-      accessorKey: "name",
-      header: "Name",
-    },
-    {
-      accessorKey: "capacity",
-      header: "Capacity",
-    },
-    {
-      accessorKey: "cpu",
-      header: "CPU",
-    },
-    {
-      accessorKey: "ram",
-      header: "RAM",
-    },
-    {
-      accessorKey: "storage",
-      header: "Storage",
-    },
-    {
-      accessorKey: "displayName",
-      header: "Cloud Provider",
-    },
-    {
-      accessorKey: "region",
-      header: "Region",
-    },
-    {
-      accessorKey: "priceHour",
-      header: "$/hr",
-      cell: ({ row }) => {
-        const value = row.original.priceHour;
-        return <span className="text-gcxPrimary font-semibold">{value}</span>;
-      },
-    },
-    {
-      accessorKey: "priceMonth",
-      header: "$/mo",
-      cell: ({ row }) => {
-        const value = row.original.priceMonth;
-        return <span className="text-gcxPrimary font-semibold">{value}</span>;
-      },
-    },
-    {
-      id: "actions",
-      header: () => <div className="text-right"></div>,
-      cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
-
-        const handleClick = () => {
-          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
-            serviceName
-          )}/${encodeURIComponent(plan.slug)}`;
-        };
-
-        return (
-          <div className="flex justify-end">
-            <Button
-              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
-              onClick={handleClick}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        );
-      },
-    },
-  ];
-};
-
-export const objectStorageComlumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const blockStorageColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -515,7 +445,7 @@ export const objectStorageComlumns = ( serviceName: string ): ColumnDef<PricingP
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
+        const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
           window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
@@ -538,7 +468,141 @@ export const objectStorageComlumns = ( serviceName: string ): ColumnDef<PricingP
   ];
 };
 
-export const vmSnapshotColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
+export const objectStorageComlumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "capacity",
+      header: "Capacity",
+    },
+    {
+      accessorKey: "cpu",
+      header: "CPU",
+    },
+    {
+      accessorKey: "ram",
+      header: "RAM",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "displayName",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const vmSnapshotColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "displayName",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const templateColumns = ( serviceName: string ): ColumnDef<PackageData>[] => {
   return [
     {
       accessorKey: "name",
@@ -599,66 +663,7 @@ export const vmSnapshotColumns = ( serviceName: string ): ColumnDef<PricingPlan>
   ];
 };
 
-export const templateColumns = ( serviceName: string ): ColumnDef<PricingPlan>[] => {
-  return [
-    {
-      accessorKey: "name",
-      header: "Name",
-    },
-    {
-      accessorKey: "storage",
-      header: "Storage",
-    },
-    {
-      accessorKey: "displayName",
-      header: "Cloud Provider",
-    },
-    {
-      accessorKey: "region",
-      header: "Region",
-    },
-    {
-      accessorKey: "priceHour",
-      header: "$/hr",
-      cell: ({ row }) => {
-        const value = row.original.priceHour;
-        return <span className="text-gcxPrimary font-semibold">{value}</span>;
-      },
-    },
-    {
-      accessorKey: "priceMonth",
-      header: "$/mo",
-      cell: ({ row }) => {
-        const value = row.original.priceMonth;
-        return <span className="text-gcxPrimary font-semibold">{value}</span>;
-      },
-    },
-    {
-      id: "actions",
-      header: () => <div className="text-right"></div>,
-      cell: ({ row }) => {
-        const plan = row.original; // This is your PricingPlan object
 
-        const handleClick = () => {
-          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
-            serviceName
-          )}/${encodeURIComponent(plan.slug)}`;
-        };
-
-        return (
-          <div className="flex justify-end">
-            <Button
-              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
-              onClick={handleClick}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        );
-      },
-    },
-  ];
-};
 
 
 

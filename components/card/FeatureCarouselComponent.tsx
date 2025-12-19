@@ -28,7 +28,7 @@ const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({
       nextSlide();
     }, 5000);
     return () => clearInterval(interval);
-  }, [items.length]);
+  });
 
   return (
     <div className="relative h-84 overflow-hidden rounded-2xl group">

@@ -1,10 +1,14 @@
 import React from "react";
-import PricingCard from "../../card/PricingCard";
-import pricingData from "@/data/pricingData.json";
 import HeroComponent from "@/components/HeroComponent";
 import GetStartedCard from "@/components/card/GetStartedCard";
+import PricingCardV2 from "@/components/card/PricingCardV2";
+import { getPackageMenu } from "@/lib/navbarMenu";
+import ScrollReveal from "@/components/animations/ScrolReveal";
 
-export default function PricingPage() {
+export default async function PricingPage() {
+
+  const packageMenu = await getPackageMenu();
+
   return (
     <div className="w-screen">
       {/* Hero section */}
@@ -30,19 +34,13 @@ export default function PricingPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-8 px-4 lg:px-8 md:px-8">
-          {pricingData.map((item) => (
-            <PricingCard
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              price={item.price}
-              subTitle={item.subTitle}
-              desc={item.desc}
-            />
-          ))}
-        </div>
-
+        <ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-8 px-4 lg:px-8 md:px-8">
+            {packageMenu.map((item, index) => (
+              <PricingCardV2 key={index} title={item.name} description={item.description} path={item.path} />
+            ))}
+          </div>
+        </ScrollReveal>
         <div className="px-6 pb-16">
           <GetStartedCard />
         </div>
