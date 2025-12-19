@@ -2,7 +2,6 @@
 
 import { useCountUp } from '@/lib/useCountUp';
 import Image from 'next/image';
-import React from 'react'
 
 export default function PowerSection() {
     const standard = useCountUp(3000, true);
@@ -41,8 +40,8 @@ export default function PowerSection() {
                 {/* Left section */}
                 <div className="flex items-center justify-center rounded-2xl bg-violet-500">
                     <Image
-                    width={1}
-                    height={1}
+                    width={1200}
+                    height={1200}
                     src={'/power-img.png'}
                         alt="card"
                         className="rounded-2xl object-cover w-full lg:h-[530px] md:h-[480px] h-[320px]"
