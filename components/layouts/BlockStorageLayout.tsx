@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/select";
 import { IconCardProps, ImgTitleDescCardProps } from "@/type/dataTypes";
 import { getReactIcon } from "@/type/getReactIcon";
+import BlockStorageFeatureSection from "../section/block-storage-dotail/BlockStorageFeatureSection";
+import BlockStorageUseCaseSection from "../section/block-storage-dotail/BlockStorageUseCaseSection";
 
 export interface StoragePrice {
   value: string;
@@ -50,56 +52,14 @@ export default function BlockStorageLayout() {
   };
 
   return (
-    <div className=" bg-gray-100">
-      <div className="max-w-7xl mx-auto py-16 md:py-32 lg:py-32">
-        <div className="text-center px-4 lg:px-8 md:px-8">
-          <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700 ">
-            Core Functions
-          </p>
-          <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2 ">
-            GCX block storage delivers high-performance, low-latency persistent
-            block storage designed to be the foundational engine for your most
-            demanding workloads. This capability is essential for:
-          </p>
-        </div>
+    <div className="bg-gray-100">
+      {/* feature card section */}
+      <BlockStorageFeatureSection />
 
-        {/* feature card section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 xl:pt-12 pt-8 px-4 lg:px-8 md:px-8">
-          {cards.map((card, index) => (
-            <div key={index} className="">
-              <FeaturedCard
-                image={card.image}
-                title={card.title}
-                description={card.desc}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* use case secton */}
+      <BlockStorageUseCaseSection/>
 
-      <div className="">
-        <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
-          <div className="text-center px-4 lg:px-8 md:px-8">
-            <p className="lg:text-4xl md:text-4xl text-2xl  font-bold text-gray-700 text-wrap ">
-              Scalable, Reliable, and Secure Data Access
-            </p>
-            <p className="md:text-lg text-base text-gray-600 xl:mt-4 mt-2">
-              Our block storage is engineered for the three pillars of modern
-              cloud computing:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 xl:py-12 py-8 px-4 lg:px-8 md:px-8">
-            {features.map((feature, index) => (
-              <div key={index} className="">
-                <BenefitListCard items={[feature]} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white mb-16 lg:mb-32 md:mb-32">
+      {/* <div className="bg-white mb-16 lg:mb-32 md:mb-32">
         <div className="max-w-7xl mx-auto inset-0 md:flex justify-between z-10 items-center  py-16 lg:py-32 md:py-32 px-4 lg:px-8 md:px-8">
           <div>
             <p className="xl:text-4xl md:text-3xl text-2xl font-bold text-gray-800">
@@ -115,17 +75,14 @@ export default function BlockStorageLayout() {
             </p>
 
             <div className="mt-6 font-bold text-gcxPrimary ">
-              {/* 3. Add onChange handler to Select and use the initial/default value */}
               <Select
                 onValueChange={handleStorageChange}
                 defaultValue={selectedPrice.value} // Set the default selected item
               >
                 <SelectTrigger className="max-w-[380px]">
-                  {/* Display the current label of the selected item */}
                   <SelectValue placeholder="Storage" />
                 </SelectTrigger>
                 <SelectContent>
-                  {/* 4. Map the pricing data to dynamically create SelectItems */}
                   {blockStoragePricing.map((item) => (
                     <SelectItem key={item.value} value={item.value}>
                       {item.label}
@@ -143,7 +100,6 @@ export default function BlockStorageLayout() {
             <div className="flex gap-12">
               <div className="mb-6">
                 <div className="mt-4">
-                  {/* 5. Use state value for hourly price */}
                   <p className="xl:text-6xl md:text-5xl text-4xl font-bold text-gcxPrimary">
                     ${selectedPrice.pricePerHour}
                   </p>
@@ -152,7 +108,6 @@ export default function BlockStorageLayout() {
               </div>
               <div className="mb-6">
                 <div className="mt-4">
-                  {/* 6. Use state value for monthly price */}
                   <p className="xl:text-6xl md:text-5xl text-4xl font-bold text-gcxPrimary">
                     ${selectedPrice.pricePerMonth}
                   </p>
@@ -163,8 +118,10 @@ export default function BlockStorageLayout() {
               </div>
             </div>
           </div>
+
+          
         </div>
-      </div>
+      </div> */}
 
       {/* get started card section */}
       <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">

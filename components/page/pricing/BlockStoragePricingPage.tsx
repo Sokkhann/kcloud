@@ -4,12 +4,13 @@ import HeroComponent from "@/components/HeroComponent";
 import { blockStorageColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
+import BlockStoragePricingSection from "@/components/section/pricing/block-storage/BlockStoragePricingSection";
 
 interface PackageProps {
   plans: PackageData[]
 }
 
-export default function BlockStoragePricingPage({plans} : PackageProps) {
+export default function BlockStoragePricingPage({ plans }: PackageProps) {
 
   return (
     <div>
@@ -43,6 +44,8 @@ export default function BlockStoragePricingPage({plans} : PackageProps) {
           </div>
         </div>
       </div>
+      
+      <BlockStoragePricingSection />
     </div>
   );
 }

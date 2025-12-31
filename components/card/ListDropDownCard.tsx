@@ -32,18 +32,18 @@ export default function ListDropDownCard({ image, items }: DropdownImageCardProp
             {/* Left section */}
             <div className="flex items-center justify-center rounded-2xl bg-violet-500">
                 <Image
-                width={1200}
-                height={1200}
+                    width={1200}
+                    height={1200}
                     src={image}
                     alt="card"
-                    className="rounded-2xl object-cover w-full h-[530px]"
+                    className="rounded-2xl object-cover w-full lg:h-[530px] h-fit"
                 />
             </div>
 
             {/* Right section */}
-            <div className="h-[530px] flex flex-col justify-between">
+            <div className="lg:h-[530px] h-fit flex flex-col justify-between">
                 <div className="lg:mb-0 mb-8">
-                    <h3 className="lg:text-2xl text-lg font-bold text-gray-700">GCX Asia Phnom Penh</h3>
+                    <h3 className="lg:text-2xl text-lg font-bold text-gray-700"><span className="text-gcxprimary">GCX</span> Asia Phnom Penh</h3>
                     <p className="text-gray-600">Comprehensive Specifications </p>
                 </div>
                 <div className="flex-1 overflow-auto min-h-0 grid lg:items-center items-start">

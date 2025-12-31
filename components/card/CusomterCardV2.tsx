@@ -1,18 +1,25 @@
 import { CardProps } from "@/type/customerOverview";
+import { Quote } from "lucide-react";
 import Image from "next/image";
 
-export default function CustomerCardV2({ description, logo, title }: CardProps) {
+export default function FeaturedTestimonial({ description, logo, title }: CardProps) {
     return (
-        <div className="flex flex-col justify-between rounded-2xl p-6 bg-white w-[400px] h-[340px] hover:shadow-lg hover:shadow-gcxPrimary/60 transition-all duration-500">
-            {/* Top Section - Quote */}
-            <div className="mb-6 relative">
-                <p className="leading-relaxed text-gray-600 p-4"><span className="text-gcxPrimary font-bold">“</span>{description}<span className="text-gcxPrimary font-bold">”</span></p>
+        <div className="group relative flex flex-col justify-between rounded-2xl p-8 bg-white border border-gray-100 lg:w-[400px] w-[350px] lg:h-[340px] h-[300px] hover:-translate-y-2 transition-all duration-500 shadow-sm hover:shadow-lg hover:shadow-gcxPrimary/60">
+            {/* Accent Bar */}
+            <div className="absolute left-0 top-12 bottom-12 w-1 bg-gcxPrimary/40 group-hover:bg-gcxPrimary rounded-r-full" />
+
+            <div className="relative">
+                <Quote className="w-8 h-8 text-gcxPrimary/40 group-hover:text-gcxPrimary mb-4 duration-300" />
+                <p className="italic text-gray-600 leading-relaxed line-clamp-5">
+                    {description}
+                </p>
             </div>
 
-            {/* Bottom Section - Logos */}
-            <div className="p-6">
-                <Image width={100} height={100} src={logo} alt={title} className="w-12 h-12 object-contain" />
-                <p className="text-sm text-gray-700">{title}</p>
+            <div className="flex items-center gap-4 border-t border-gray-50 pt-6">
+                <div className="p-2 bg-gray-50 rounded-xl">
+                    <Image width={100} height={100} src={logo} alt={title} className="w-10 h-10 object-contain transition-all" />
+                </div>
+                <p className="font-bold text-gray-800 text-sm tracking-tight uppercase">{title}</p>
             </div>
         </div>
     );

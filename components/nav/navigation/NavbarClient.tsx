@@ -4,9 +4,10 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileNavigation from "./MobileNavigation";
 import { NavbarProducts } from "@/type/dataTypes";
+import { GroupedMenu } from "@/lib/navbarMenu";
 
 interface NavProps {
-  menu: NavbarProducts[];
+  menu: GroupedMenu;
 }
 
 export default function NavbarClient( {menu} : NavProps) {

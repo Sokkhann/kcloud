@@ -4,6 +4,7 @@ import HeroComponent from "@/components/HeroComponent";
 import { vmSnapshotColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
+import SnapshotPricingSection from "@/components/section/pricing/snapshot/SnapshotPricingSection";
 
 interface PackageProps {
   plans: PackageData[]
@@ -43,6 +44,8 @@ export default function VirtualMachineSnapshotPricingPage({ plans }: PackageProp
           </div>
         </div>
       </div>
+
+      <SnapshotPricingSection />
     </div>
   );
 }

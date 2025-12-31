@@ -38,6 +38,7 @@ export interface ProblemSolutionSwitchCardProps {
 export interface NavbarProducts {
   id: string;
   name: string;
+  title: string;
   path: string;
   image: string;
 }
@@ -53,6 +54,17 @@ export interface ProductListProps {
   path: string;
   icon: keyof typeof icons;
   description: string;
+  category: string;
+}
+
+export interface ProductCardProps {
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+    href: string;
+    price: string;
+    unit?: string;
+    showButton?: boolean;
 }
 
 export interface dataPlan {

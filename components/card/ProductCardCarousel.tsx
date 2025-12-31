@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import ProductCard from "./ProductCard";
+import { ChevronLeft, ChevronRight, icons } from "lucide-react";
 import { ProductListProps } from "@/type/dataTypes";
+import Link from "next/link";
 
 interface MenuPorps {
   productMenu: ProductListProps[];
@@ -28,7 +28,7 @@ export default function ProductCardCarousel({ productMenu }: MenuPorps) {
     const gap = 24; // gap-6 = 24px
     // Calculate the width of 3 cards + the gaps between them
     const singleCardSpace = card.offsetWidth + gap;
-    const scrollAmount = singleCardSpace * 3; 
+    const scrollAmount = singleCardSpace * 3;
 
     container.scrollBy({
       left: direction === "left" ? -scrollAmount : scrollAmount,
@@ -53,36 +53,27 @@ export default function ProductCardCarousel({ productMenu }: MenuPorps) {
   return (
     <div className="w-full">
       {/* Card Row */}
-      <div
-        ref={scrollRef}
-        onScroll={updateScrollButtons}
-        className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar py-10 lg:overflow-x-hidden md:overflow-x-hidden lg:px-8 md:px-8 px-4"
-      >
-        {productMenu.map((card, index) => (
-          <ProductCard key={index} description={card.description} icon={card.icon} path={card.path} name={card.name}/>
+      <div className="grid md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+        {productMenu.map((product) => (
+          <ProductCard key={product.name} product={product} />
         ))}
-      </div>
-
-      {/* Navigation Buttons (Kept Original Logic) */}
-      <div className="hidden md:flex justify-center gap-3 mt-6">
-        <button
-          onClick={() => scroll("left")}
-          disabled={!canScrollLeft}
-          className={`p-2 rounded-full border transition-all duration-300 active:scale-95 bg-gcxPrimary ${canScrollLeft ? "hover:bg-gcxPrimary/80" : "opacity-40 cursor-not-allowed"
-            }`}
-        >
-          <ChevronLeft className="text-white" />
-        </button>
-
-        <button
-          onClick={() => scroll("right")}
-          disabled={!canScrollRight}
-          className={`p-2 rounded-full border transition-all duration-300 active:scale-95 bg-gcxPrimary ${canScrollRight ? "hover:bg-gcxPrimary/80" : "opacity-40 cursor-not-allowed"
-            }`}
-        >
-          <ChevronRight className="text-white" />
-        </button>
       </div>
     </div>
   );
 }
+
+// product cards sign icon as background 
+const ProductCard = ({ product }: { product: ProductListProps }) => {
+  const Icon = icons[product.icon];
+  return (
+    <Link href={product.path} className="group relative aspect-square bg-white rounded-2xl p-8 shadow-sm overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60">
+      <div className="relative z-10 flex flex-col h-full">
+        <h3 className="lg:text-2xl md:text-2xl text-lg font-bold text-gray-700 group-hover:text-gcxPrimary mb-4">{product.name}</h3>
+        <p className="text-gray-500 text-sm leading-relaxed mb-auto">
+          {product.description}
+        </p>
+        <Icon className="w-12 h-12 self-end text-gray-200 group-hover:text-gcxprimary transition-all" />
+      </div>
+    </Link>
+  );
+};

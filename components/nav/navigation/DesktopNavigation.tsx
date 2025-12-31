@@ -10,17 +10,19 @@ import {
 } from "@/components/ui/navigation-menu";
 import ProductDropDown from "../ProductMenuDropdown";
 import { NavbarProducts } from "@/type/dataTypes";
+import { GroupedMenu } from "@/lib/navbarMenu";
+import TopNavBar from "../Topper";
 
 interface DesktopNavigationProps {
-  menu: NavbarProducts[];
+  menu: GroupedMenu;
 }
 
 export default function DesktopNavigation({menu}: DesktopNavigationProps) {
   return (
     <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full ">
-      {/* <div className="w-full">
+      <div className="w-full">
         <TopNavBar />
-      </div> */}
+      </div>
       <NavigationMenu className="px-4">
         <section className="w-full flex justify-between max-w-7xl mx-auto ">
           {/* left section */}
@@ -81,13 +83,13 @@ export default function DesktopNavigation({menu}: DesktopNavigationProps) {
           {/* right sectoin */}
           <NavigationMenuList></NavigationMenuList>
           <NavigationMenuList className="mt-5">
-            <button className="bg-white text-gcxprimary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-gcxprimary/10">
+            <a href="https://stack-console.cloudlab.cam/login" className="bg-white text-gcxprimary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-gcxprimary/10">
               Log in
-            </button>
+            </a>
 
-            <button className="text-white bg-gcxprimary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-gcxdarkgreen">
+            <a href="https://stack-console.cloudlab.cam/register" className="text-white bg-gcxprimary font-semibold px-6 py-2 rounded-full transition-all duration-300 hover:bg-gcxdarkgreen">
               Sign up
-            </button>
+            </a>
           </NavigationMenuList>
         </section>
       </NavigationMenu>

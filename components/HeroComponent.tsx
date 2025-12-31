@@ -50,7 +50,7 @@ export default function HeroComponent({
           <div className="flex items-center justify-center md:gap-4  gap-2 mt-4 px-6">
             {showGetStarted && (
               <Link
-                href="/"
+                href="https://stack-console.cloudlab.cam"
                 className="text-white w-2/3 sm:w-auto bg-gcxprimary font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:shadow-[0_0_15px_3px_rgba(255,255,255,0.5)] text-center"
               >
                 Get Started

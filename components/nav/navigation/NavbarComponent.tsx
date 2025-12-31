@@ -1,8 +1,8 @@
-import React from 'react'
 import NavbarClient from './NavbarClient';
-import { getMenu } from '@/lib/navbarMenu';
+import { getMenuCategory } from '@/lib/navbarMenu';
 
 export default async function Navbar() {
-  const fullMenu = await getMenu();
-  return <NavbarClient menu={fullMenu} />;
+  const groupMenu = await getMenuCategory();
+  
+  return <NavbarClient menu={groupMenu} />;
 }

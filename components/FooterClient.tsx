@@ -4,6 +4,7 @@ import { Facebook, Linkedin, Send, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { NavbarProducts } from "@/type/dataTypes";
+import { GroupedMenu } from "@/lib/navbarMenu";
 
 // ----------------------------------------------------------------------
 // 1. Reusable Component for List Sections (Now defaults to Mobile Dropdown)
@@ -73,7 +74,7 @@ const FooterColumn = ({
 interface FooterClientProps {
   productMenu: NavbarProducts[];
 }
- 
+
 // ----------------------------------------------------------------------
 // 2. Main Footer Component
 // ----------------------------------------------------------------------
@@ -109,9 +110,9 @@ export default function FooterClient({ productMenu }: FooterClientProps) {
               <li key={item.id}>
                 <Link
                   href={item.path}
-                  className="hover:underline cursor-pointer md:text-base text-sm"
+                  className="hover:text-gcxPrimary transition-colors md:text-base text-sm text-gray-500"
                 >
-                  {item.name}
+                  {item.title}
                 </Link>
               </li>
             ))}

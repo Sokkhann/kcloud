@@ -38,6 +38,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen`}
       >
+        {/* banner section */}
+
         {/* navbar section */}
         <header className="">
           <Navbar />

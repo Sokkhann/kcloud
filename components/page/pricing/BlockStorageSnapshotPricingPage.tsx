@@ -5,6 +5,7 @@ import React from 'react'
 import { vmSnapshotColumns } from './price-table/VMColumn'
 import { DataTable } from './price-table/VMTable'
 import { PackageData } from '@/type/dataTypes'
+import SnapshotPricingSection from '@/components/section/pricing/snapshot/SnapshotPricingSection'
 
 interface PackageProps {
   plans: PackageData[]
@@ -23,7 +24,7 @@ export default function BlockStorageSnapshotPricingPage({ plans } : PackageProps
         />
 
         <div className="w-screen mt-10">
-          <div className="py-16 lg:py-32 md:py-32">
+          <div className="py-6 lg:py-12 md:py-12">
             <div className="max-w-7xl mx-auto space-y-8">
               <div className="lg:mx-8 md:mx-8 mx-4">
                 <p className="lg:text-4xl md:text-4xl text-2xl mb-4 font-bold text-gray-700">
@@ -44,6 +45,8 @@ export default function BlockStorageSnapshotPricingPage({ plans } : PackageProps
             </div>
           </div>
         </div>
+
+        <SnapshotPricingSection />
       </div>
     </div>
   )

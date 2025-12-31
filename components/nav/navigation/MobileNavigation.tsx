@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Facebook, Linkedin, Send } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,13 +11,14 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
-import { NavbarProducts } from "@/type/dataTypes";
+import { GroupedMenu } from "@/lib/navbarMenu";
+import TopNavBar from "../Topper";
 
 interface MobileNavigationProps {
-  menu: NavbarProducts[];
+  menu: GroupedMenu;
 }
 
-export default function MobileNavigation({menu} : MobileNavigationProps) {
+export default function MobileNavigation({ menu }: MobileNavigationProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openSection, setOpenSection] = useState<string | null>(null);
 
@@ -27,7 +28,7 @@ export default function MobileNavigation({menu} : MobileNavigationProps) {
 
   return (
     <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full lg:hidden">
-      {/* <TopNavBar /> */}
+      <TopNavBar />
 
       <nav className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
         {/* Logo */}
@@ -70,7 +71,7 @@ export default function MobileNavigation({menu} : MobileNavigationProps) {
                   className="border-t border-gray-200 bg-white shadow-md max-h-[calc(100vh-64px)] overflow-y-auto"
                 >
                   <div className="flex flex-col p-4 space-y-2">
-                    
+
                     {/* Dropdown Sections we can add overview or solution and other */}
 
                     {["Products"].map((label) => (
@@ -82,11 +83,10 @@ export default function MobileNavigation({menu} : MobileNavigationProps) {
                           {label}
                           <ChevronDown
                             size={18}
-                            className={`transition-transform duration-300 ${
-                              openSection === label
-                                ? "rotate-180 text-green-700"
-                                : ""
-                            }`}
+                            className={`transition-transform duration-300 ${openSection === label
+                              ? "rotate-180 text-green-700"
+                              : ""
+                              }`}
                           />
                         </button>
 
@@ -112,7 +112,7 @@ export default function MobileNavigation({menu} : MobileNavigationProps) {
                                   onClick={() => setMenuOpen(false)}
                                   className="mb-4"
                                 >
-                                  <ProductDropDown products={menu}/>
+                                  <ProductDropDown products={menu} />
                                 </div>
                               )}
                               {/* {label === "Solutions" && (
@@ -165,26 +165,36 @@ export default function MobileNavigation({menu} : MobileNavigationProps) {
                     </div>
 
                     {/* contact us and about us */}
-                    {/* <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
-                      <button className="w-full bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+                    <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
+                      <div className="flex flex-row items-center justify-center sm:justify-end space-x-6 text-gcxPrimary">
                         <Link
-                          href={"/about-us"}
-                          className="hover:underline"
-                          onClick={() => setMenuOpen(false)}
+                          href="https://facebook.com/yourpage"
+                          target="_blank"
+                          className="cursor-pointer"
+                          aria-label="Facebook"
                         >
-                          About Us
+                          <Facebook size={20} strokeWidth={1.5} />
                         </Link>
-                      </button>
-                      <button className="w-full bg-white text-gray-700 font-semibold px-6 py-2 rounded-full hover:bg-green-800/10 transition-all border-[1.5px] border-gray-700">
+
                         <Link
-                          href={"/contact-sale"}
-                          className="hover:underline"
-                          onClick={() => setMenuOpen(false)}
+                          href="https://linkedin.com/company/yourcompany"
+                          target="_blank"
+                          className="cursor-pointer"
+                          aria-label="LinkedIn"
                         >
-                          Contact Sale
+                          <Linkedin size={20} strokeWidth={1.5} />
                         </Link>
-                      </button>
-                    </div> */}
+
+                        <Link
+                          href="https://t.me/yourusername"
+                          target="_blank"
+                          className="cursor-pointer"
+                          aria-label="Telegram"
+                        >
+                          <Send size={20} strokeWidth={1.5} />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
                 </motion.div>
               )}

@@ -65,7 +65,7 @@ export default function SwitchCarousel() {
               alt={cards[nextIndex].title}
               width={80}
               height={80}
-              className="rounded-xl object-cover border-2 shadow-lg w-[80px] h-[80px]"
+              className="rounded-xl object-cover hover:shadow-md hover:shadow-gcxPrimary w-[80px] h-[80px]"
             />
           </motion.div>
         </div>

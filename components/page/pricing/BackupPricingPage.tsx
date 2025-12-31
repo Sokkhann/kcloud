@@ -4,6 +4,7 @@ import HeroComponent from "@/components/HeroComponent";
 import { vmSnapshotColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
+import BackupPricingSection from "@/components/section/pricing/backup/BackupPricingSection";
 
 interface PackageProps {
   plans: PackageData[]
@@ -43,6 +44,8 @@ export default function BackupPricingPage({plans} : PackageProps) {
           </div>
         </div>
       </div>
+
+      <BackupPricingSection/>
     </div>
   );
 }

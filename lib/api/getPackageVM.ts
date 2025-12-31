@@ -9,7 +9,7 @@ export async function getPackageVM({ service }: FetchArgs): Promise<PackageData[
     const url = `${process.env.STACK_API_BASE_URL}/admin/plans/service/${encodeURIComponent(
       service
     )}?sort=-created_at&page=1&limit=50&planable=default&planable_type=RateCard&include=cloud_provider,cloud_provider_setup,plan_region,plan_category`;
-    
+
     const res = await fetch(url, {
       headers: {
         Authorization: `Bearer ${process.env.STACK_API_TOKEN}`,
@@ -23,53 +23,44 @@ export async function getPackageVM({ service }: FetchArgs): Promise<PackageData[
 
     const json = await res.json();
 
-    const formattedPlans: PackageData[] = (json.data ?? []).map(
-      (plan: dataPlanVM) => ({
+    const formattedPlans: PackageData[] = (json.data ?? [])
+      // 1. Filter out items that don't have a name or essential attributes
+      .filter((plan: dataPlanVM) => !!plan.name && plan.attribute)
+      .map((plan: dataPlanVM) => ({
         name: plan.name,
         slug: plan.name?.toLowerCase().replace(/\s+/g, "-") ?? "plan",
 
-        memory:
-          plan.attribute?.memory !== undefined
-            ? `${(plan.attribute.memory / 1024).toFixed(1)} GB`
-            : undefined,
+        memory: plan.attribute?.memory !== undefined
+          ? `${(plan.attribute.memory / 1024).toFixed(1)} GB`
+          : undefined,
 
-        cpu:
-          plan.attribute?.cpu !== undefined
-            ? `${plan.attribute.cpu} vCPU`
-            : undefined,
+        cpu: plan.attribute?.cpu !== undefined
+          ? `${plan.attribute.cpu}`
+          : undefined,
 
-        storage:
-          plan.attribute?.storage !== undefined
-            ? `${plan.attribute.storage} GB`
-            : "—",
+        storage: plan.attribute?.storage !== undefined
+          ? `${plan.attribute.storage} GB`
+          : "—",
 
-        bandwidth:
-          plan.attribute?.bandwidth_threshold !== undefined
-            ? `${plan.attribute.bandwidth_threshold} GB`
-            : "—",
+        bandwidth: plan.attribute?.bandwidth_threshold !== undefined
+          ? `${plan.attribute.bandwidth_threshold} GB`
+          : "—",
 
-        gpu:
-          plan.attribute?.gpu !== undefined
-            ? `${plan.attribute.gpu} GPU`
-            : "—",
+        gpu: plan.attribute?.gpu !== undefined
+          ? `${plan.attribute.gpu} GPU`
+          : "—",
 
-        priceHour:
-          plan.hourly_price !== undefined
-            ? `$${plan.hourly_price}`
-            : "$0",
+        priceHour: plan.hourly_price !== undefined
+          ? `$${plan.hourly_price}`
+          : "$0",
 
-        priceMonth:
-          plan.monthly_price !== undefined
-            ? `$${plan.monthly_price}`
-            : "$0",
+        priceMonth: plan.monthly_price !== undefined
+          ? `$${plan.monthly_price}`
+          : "$0",
 
         planCategory: plan.plan_category?.name ?? "N/A",
         computeCategory: plan.compute_category?.name ?? "N/A",
-
-        // region: plan.plan_region?.region?.name ?? "Region",
-        // displayName: plan.cloud_provider?.display_name ?? "Display Name",
-      })
-    );
+      }));
 
     return formattedPlans;
   } catch (error) {

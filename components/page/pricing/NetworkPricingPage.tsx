@@ -4,6 +4,7 @@ import HeroComponent from "@/components/HeroComponent";
 import { lbColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
+import NetworkingPricingSection from "@/components/section/pricing/networking/NetworkingPricingSection";
 
 interface PackageProps {
   plans: PackageData[]
@@ -43,6 +44,8 @@ export default function NetworkPricingPage({ plans }: PackageProps) {
           </div>
         </div>
       </div>
+
+      <NetworkingPricingSection/>
     </div>
   );
 }
