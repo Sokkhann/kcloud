@@ -211,14 +211,14 @@ interface EnrichedProduct extends NavbarProducts {
 }
 
 const MOCK_SERVICES = [
-  { id: "1", name: "Virtual Machine" },
-  { id: "2", name: "Kubernetes" },
-  { id: "3", name: "Block Storage" },
-  { id: "4", name: "VPC" },
-  { id: "5", name: "Load Balancer" },
-  { id: "6", name: "IP Address" },
-  { id: "7", name: "Virtual Machine Backup" },
-  { id: "8", name: "Block Storage Snapshot" },
+  { id: "1", title: "Virtual Machine" },
+  { id: "2", title: "Kubernetes" },
+  { id: "3", title: "Block Storage" },
+  { id: "4", title: "VPC" },
+  { id: "5", title: "Load Balancer" },
+  { id: "6", title: "IP Address" },
+  { id: "7", title: "Virtual Machine Backup" },
+  { id: "8", title: "Block Storage Snapshot" },
 ];
 
 // Get raw data from the api
@@ -264,7 +264,7 @@ async function getRawServices(): Promise<any[]> {
     } else {
       console.error("Fetch failed. Using mock data. Error:", error.message);
     }
-    console.error("DETAILED ERROR CAUSE:", error.cause); 
+    console.error("DETAILED ERROR CAUSE:", error.cause);
     console.error("ERROR MESSAGE:", error.message);
     return MOCK_SERVICES;
   }
@@ -272,37 +272,41 @@ async function getRawServices(): Promise<any[]> {
 
 // main method: Fetch -> Filter -> Categorize
 async function getCategorizedData(): Promise<GroupedMenu> {
+  // 1. Get raw data or fallback immediately
   const rawServices = await getRawServices();
+
+  // Use MOCK if raw is empty or API failed
+  const dataToProcess = (rawServices && rawServices.length > 0)
+    ? rawServices
+    : MOCK_SERVICES;
+
   const grouped: GroupedMenu = { Compute: [], Networking: [], Storage: [] };
 
-  // Create a normalized map of ALL local configs for O(1) lookup
-  const localLookup = new Map();
-  [...additionalMenuItems, ...additionalProductLists, ...additionalPackages].forEach(item => {
-    localLookup.set(item.title.toLowerCase(), item);
-  });
+  dataToProcess.forEach((item) => {
+    // 2. Flexible title matching (checks name or title)
+    const incomingTitle = (item.title || item.name || "").toLowerCase().trim();
 
-  rawServices.forEach((item) => {
-    const localConfig = localLookup.get(item.name.toLowerCase());
+    const localConfig = additionalMenuItems.find(
+      (f) => f.title.toLowerCase().trim() === incomingTitle
+    );
 
     if (localConfig) {
       const enriched: NavbarProducts = {
         ...item,
         title: localConfig.title,
         path: localConfig.path,
-        // Fallback for image if it doesn't exist in the current list
-        image: (localConfig as any).image || "/placeholder-cloud.png",
+        // CRITICAL: Ensure image is never undefined
+        image: localConfig.image || "/fallback-placeholder.png",
         description: localConfig.description || "",
       };
 
-      const category = serviceCategories[enriched.title] || serviceCategories[item.name];
+      const category = serviceCategories[enriched.title];
       if (category && grouped[category]) {
-        // Prevent duplicates if the item appears in multiple local lists
-        if (!grouped[category].some(existing => existing.title === enriched.title)) {
-          grouped[category].push(enriched);
-        }
+        grouped[category].push(enriched);
       }
     }
   });
+
   return grouped;
 }
 

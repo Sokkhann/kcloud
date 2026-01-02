@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,10 +8,17 @@ interface FeatureCarouselProps {
   items: NavbarProducts[];
 }
 
-const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({
-  items,
-}) => {
+const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({ items }) => {
   const [current, setCurrent] = useState(0);
+
+  // --- SAFETY GUARD 1: Prevent crash if array is empty ---
+  if (!items || items.length === 0) {
+    return (
+      <div className="relative h-84 flex items-center justify-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+        <p className="text-gray-400 text-sm">No features available</p>
+      </div>
+    );
+  }
 
   const nextSlide = () => {
     setCurrent((prev) => (prev + 1) % items.length);
@@ -28,34 +33,39 @@ const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({
       nextSlide();
     }, 5000);
     return () => clearInterval(interval);
-  });
+    // Added items.length dependency for safety
+  }, [items.length]);
+
+  // --- SAFETY GUARD 2: Access properties safely ---
+  // Using title || name because your mock uses title but your UI uses name
+  const activeItem = items[current];
+  const displayName = activeItem?.title || activeItem?.name || "Cloud Service";
 
   return (
     <div className="relative h-84 overflow-hidden rounded-2xl group">
       {/* Image */}
-      <div className="relative h-68 w-full overflow-hidden rounded-2xl">
-        <Image
-          src={items[current].image}
-          alt={items[current].name}
-          fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
-        />
+      <div className="relative h-68 w-full overflow-hidden rounded-2xl bg-gray-100">
+        {activeItem?.image ? (
+          <Image
+            src={activeItem.image}
+            alt={displayName}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gray-200" />
+        )}
       </div>
 
       {/* Title overlay */}
-      <div
-        className={
-          "absolute bottom-3 left-0 flex justify-center w-full text-center font-semibold transition-colors duration-300 " +
-          "text-gray-700 group-hover:text-gcxPrimary"
-        }
-      >
-        <div className="w-4/5">{items[current].name}</div>
+      <div className="absolute bottom-3 left-0 flex justify-center w-full text-center font-semibold transition-colors duration-300 text-gray-700 group-hover:text-gcxPrimary">
+        <div className="w-4/5 line-clamp-1">{displayName}</div>
       </div>
 
       {/* Left Button */}
       <button
         onClick={prevSlide}
-        className="absolute left-0 bottom-2 p-2 bg-gcxPrimary rounded-full"
+        className="absolute left-0 bottom-2 p-2 bg-gcxPrimary rounded-full hover:bg-opacity-90 transition-all"
       >
         <ChevronLeft className="text-white" size={20} />
       </button>
@@ -63,7 +73,7 @@ const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({
       {/* Right Button */}
       <button
         onClick={nextSlide}
-        className="absolute right-0 bottom-2 p-2 bg-gcxPrimary rounded-full"
+        className="absolute right-0 bottom-2 p-2 bg-gcxPrimary rounded-full hover:bg-opacity-90 transition-all"
       >
         <ChevronRight className="text-white" size={20} />
       </button>
@@ -72,17 +82,13 @@ const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({
       <div className="absolute bottom-20 w-full flex justify-center mt-6 gap-1.5">
         {items.map((_, i) => {
           const isActive = i === current;
-
-          // Auto shrink dots if many items
           const size = items.length > 6 ? 6 : 10;
           const activeSize = items.length > 6 ? 12 : 20;
 
           return (
             <motion.div
               key={i}
-              className={`rounded-full ${
-                isActive ? "bg-white" : "bg-gray-400"
-              }`}
+              className={`rounded-full ${isActive ? "bg-white" : "bg-gray-400"}`}
               initial={false}
               animate={{
                 width: isActive ? activeSize : size,
