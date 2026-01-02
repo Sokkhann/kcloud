@@ -28,7 +28,7 @@ export default function KubernetesDetailLayout() {
       {/* <K8BusinessBenefit /> */}
 
       {/* get started section */}
-      <div className="max-w-7xl mx-auto pb-6 lg:pb-12 md:pb-12">
+      <div className="max-w-7xl mx-auto py-6 lg:py-12 md:py-12">
         <div className="mx-4 lg:mx-8 md:mx-8">
           <GetStartedCard />
         </div>

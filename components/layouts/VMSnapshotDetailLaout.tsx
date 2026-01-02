@@ -13,7 +13,7 @@ export default function VMSnapshotDetailLayout() {
       <VMSnapshotUsageSection />
 
       {/* get started card section */}
-      <div className="max-w-7xl mx-auto pb-16 lg:pb-32 md:pb-32">
+      <div className="max-w-7xl mx-auto py-6 lg:py-12 md:py-12">
         <div className="mx-4 lg:mx-8 md:mx-8">
           <GetStartedCard />
         </div>

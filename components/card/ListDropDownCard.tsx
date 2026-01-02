@@ -70,11 +70,10 @@ export default function ListDropDownCard({ image, items }: DropdownImageCardProp
 
                                 {openIndexes.includes(index) && (
                                     <div>
-                                        <div className="px-10 pb-3 text-gray-600">
+                                        <div className="px-10 pb-3 text-gray-600 text-start">
                                             {item.content}
                                         </div>
                                     </div>
-
                                 )}
                             </div>
                         ))}

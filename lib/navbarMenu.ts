@@ -1,6 +1,11 @@
 import { NavbarProducts, PackageProps, ProductListProps } from "@/type/dataTypes";
 import { icons } from "lucide-react";
 
+interface InternalProduct extends NavbarProducts {
+  image: string;
+  description: string;
+}
+
 // additional data for menu navbar, footer, and data menu of overview page
 const additionalMenuItems = [
   // compute
@@ -205,62 +210,96 @@ interface EnrichedProduct extends NavbarProducts {
   description: string;
 }
 
+const MOCK_SERVICES = [
+  { id: "1", name: "Virtual Machine" },
+  { id: "2", name: "Kubernetes" },
+  { id: "3", name: "Block Storage" },
+  { id: "4", name: "VPC" },
+  { id: "5", name: "Load Balancer" },
+  { id: "6", name: "IP Address" },
+  { id: "7", name: "Virtual Machine Backup" },
+  { id: "8", name: "Block Storage Snapshot" },
+];
+
 // Get raw data from the api
 async function getRawServices(): Promise<any[]> {
+  if (typeof window !== "undefined") return [];
+
   const baseUrl = process.env.STACK_API_BASE_URL;
   const token = process.env.STACK_API_TOKEN;
 
   if (!baseUrl || !token) {
     console.warn("Missing env variables. Using mock menu.");
-    return [
-      { id: "1", name: "Virtual Machine" },
-      { id: "2", name: "Kubernetes" },
-      { id: "3", name: "Block Storage" },
-      { id: "4", name: "VPC" },
-      { id: "5", name: "Load Balancer" },
-    ];
+    return MOCK_SERVICES;
   }
 
   try {
-    const res = await fetch(`${baseUrl}/admin/cloud-provider/nimbo/services`, {
-      headers: { Authorization: `Bearer ${token}` },
+    // Use AbortController to prevent the server from hanging on a slow API
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+
+    const res = await fetch(`${baseUrl.replace(/\/$/, '')}/admin/cloud-provider/nimbo/services`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json'
+      },
       next: { revalidate: 3600 },
+      signal: controller.signal
     });
+
+    clearTimeout(timeoutId);
+
+    if (!res.ok) {
+      console.error(`API error: ${res.status}. Using mock data.`);
+      return MOCK_SERVICES;
+    }
+
     const data = await res.json();
-    return data.data ?? [];
-  } catch (error) {
-    console.error("Fetch failed:", error);
-    return [];
+    return data.data || MOCK_SERVICES;
+
+  } catch (error: any) {
+    // This catches the "Redirect Loop" or "Fetch Failed" and prevents a crash
+    if (error.name === 'AbortError') {
+      console.error("Fetch timed out. Using mock data.");
+    } else {
+      console.error("Fetch failed. Using mock data. Error:", error.message);
+    }
+    console.error("DETAILED ERROR CAUSE:", error.cause); 
+    console.error("ERROR MESSAGE:", error.message);
+    return MOCK_SERVICES;
   }
 }
 
 // main method: Fetch -> Filter -> Categorize
 async function getCategorizedData(): Promise<GroupedMenu> {
   const rawServices = await getRawServices();
-
   const grouped: GroupedMenu = { Compute: [], Networking: [], Storage: [] };
 
-  rawServices.forEach((item) => {
-    // 1. Find the local configuration (merging all lists)
-    const localConfig =
-      additionalMenuItems.find(f => f.title.toLowerCase() === item.name.toLowerCase()) ||
-      additionalPackages.find(f => f.title.toLowerCase() === item.name.toLowerCase()) ||
-      additionalProductLists.find(f => f.title.toLowerCase() === item.name.toLowerCase());
+  // Create a normalized map of ALL local configs for O(1) lookup
+  const localLookup = new Map();
+  [...additionalMenuItems, ...additionalProductLists, ...additionalPackages].forEach(item => {
+    localLookup.set(item.title.toLowerCase(), item);
+  });
 
-    // 2. ONLY include if it exists in our local configs (Filtering)
+  rawServices.forEach((item) => {
+    const localConfig = localLookup.get(item.name.toLowerCase());
+
     if (localConfig) {
       const enriched: NavbarProducts = {
         ...item,
         title: localConfig.title,
         path: localConfig.path,
-        image: (localConfig as any).image ?? "", // Use type casting to avoid TS error
-        description: localConfig.description,
+        // Fallback for image if it doesn't exist in the current list
+        image: (localConfig as any).image || "/placeholder-cloud.png",
+        description: localConfig.description || "",
       };
 
-      // 3. Assign to Category
       const category = serviceCategories[enriched.title] || serviceCategories[item.name];
       if (category && grouped[category]) {
-        grouped[category].push(enriched);
+        // Prevent duplicates if the item appears in multiple local lists
+        if (!grouped[category].some(existing => existing.title === enriched.title)) {
+          grouped[category].push(enriched);
+        }
       }
     }
   });

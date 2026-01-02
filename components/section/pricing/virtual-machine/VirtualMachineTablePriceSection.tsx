@@ -1,5 +1,5 @@
 import ChildPricingCard from '@/components/card/ChildPricingCard'
-import { Disc, Copy, Zap } from 'lucide-react';
+import { Disc, Copy, Zap, Camera } from 'lucide-react';
 
 const products = [
   {
@@ -25,6 +25,22 @@ const products = [
     icon: <Zap size={32} strokeWidth={1.5} />,
     href: "https://stack-console.cloudlab.cam/app/autoscale",
     tag: "Scalability"
+  },
+  {
+    id: "snapshot",
+    title: "VM Snapshot",
+    price: "Free",
+    description: "Capture the exact state of your virtual machine at any moment. Create instant backups before major updates or configuration changes.",
+    details: [
+      "Point-in-time state recovery",
+      "Instant manual snapshots",
+      "Zero-downtime capture",
+      "Easy restoration process"
+    ],
+    icon: <Camera size={32} strokeWidth={1.5} />, // Camera or HardDrive icon works best
+    image: "/images/snapshot-preview.jpg",
+    href: "https://stack-console.cloudlab.cam/app/snapshot",
+    tag: "Data Protection"
   }
 ];
 

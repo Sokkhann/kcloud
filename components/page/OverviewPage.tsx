@@ -42,8 +42,6 @@ export default function OverviewPage() {
           {/* Customer Testimonials Section */}
           <CustomerListSection/>
 
-
-
           {/* Power Section */}
           <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16 bg-white">
             <ScrollReveal>

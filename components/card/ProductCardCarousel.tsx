@@ -66,10 +66,10 @@ export default function ProductCardCarousel({ productMenu }: MenuPorps) {
 const ProductCard = ({ product }: { product: ProductListProps }) => {
   const Icon = icons[product.icon];
   return (
-    <Link href={product.path} className="group relative aspect-square bg-white rounded-2xl p-8 shadow-sm overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60">
+    <Link href={product.path} className="group relative bg-white rounded-2xl shadow-sm overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60 aspect-[4/3] sm:aspect-square p-5 md:p-8">
       <div className="relative z-10 flex flex-col h-full">
         <h3 className="lg:text-2xl md:text-2xl text-lg font-bold text-gray-700 group-hover:text-gcxPrimary mb-4">{product.name}</h3>
-        <p className="text-gray-500 text-sm leading-relaxed mb-auto">
+        <p className="text-gray-500 leading-relaxed mb-auto">
           {product.description}
         </p>
         <Icon className="w-12 h-12 self-end text-gray-200 group-hover:text-gcxprimary transition-all" />

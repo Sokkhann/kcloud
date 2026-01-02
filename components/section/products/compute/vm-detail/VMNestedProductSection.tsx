@@ -40,6 +40,8 @@ import React from 'react'
 
 const nestProducts = [
     {
+        id: "cloud",
+        image: "/featured2.png",
         title: "Custom ISO Management",
         icon: <Disc size={32} strokeWidth={1.5} />, // "Disc" icon represents the ISO/Optical media
         desc: "Experience ultimate OS flexibility by bringing your own software to the GCX Cloud. Whether it's a specialized Linux distro, a custom Windows build, or a proprietary appliance, our ISO management allows you to boot, install, and configure your environment from scratch.",
@@ -52,6 +54,8 @@ const nestProducts = [
         ]
     },
     {
+        id: "security",
+        image: "/featured2.png",
         title: "Custom Templates & Cloning",
         icon: <Layers size={32} strokeWidth={1.5} />,
         desc: "Save hours of setup time by creating 'Gold Images' of your perfectly configured servers. Capture your OS, apps, and security patches into a private template for instant replication.",
@@ -63,6 +67,8 @@ const nestProducts = [
         ]
     },
     {
+        id: "scaling",
+        image: "/featured2.png",
         title: "Intelligent Auto-Scaling",
         icon: <Zap size={32} strokeWidth={1.5} />,
         desc: "Future-proof your applications with real-time responsiveness. Automatically handle massive traffic spikes while slashing costs by powering down unused resources during quiet hours.",
@@ -74,6 +80,8 @@ const nestProducts = [
         ]
     },
     {
+        id: "snapshot",
+        image: "/featured2.png",
         title: "VM Snapshots",
         icon: <Camera size={32} strokeWidth={1.5} />,
         desc: "Capture a complete point-in-time state of your instance's data. Our snapshot technology allows you to freeze your environment before updates, automate recurring backups with custom retention policies, and instantly revert to a healthy state if a failure occurs.",
@@ -88,7 +96,7 @@ const nestProducts = [
 
 export default function VMNestedProductSection() {
     return (
-        <section className="pb-6 lg:py-12 md:py-12 px-4">
+        <section className="lg:py-12 md:py-12 py-6 px-4">
             <div className="max-w-7xl mx-auto">
 
                 {/* Optional Header */}
@@ -96,23 +104,13 @@ export default function VMNestedProductSection() {
                     <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
                         Advanced Management Features
                     </h2>
-                    <p className="mt-4 text-lg text-slate-600">
+                    <p className="mt-4 text-slate-600">
                         Powerful tools to automate, protect, and scale your infrastructure.
                     </p>
                 </div>
 
                 {/* 3 Cards in a Row Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mx-4 lg:mx-8 md:mx-8">
-                    {nestProducts.map((p, i) => (
-                        <NestedProductCard
-                            key={i}
-                            desc={p.desc}
-                            title={p.title}
-                            icon={p.icon}
-                            details={p.details}
-                        />
-                    ))}
-                </div>
+                <NestedProductCard products={nestProducts} />
 
                 {/*  */}
             </div>

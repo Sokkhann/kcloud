@@ -4,7 +4,6 @@ import { Facebook, Linkedin, Send, ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { NavbarProducts } from "@/type/dataTypes";
-import { GroupedMenu } from "@/lib/navbarMenu";
 
 // ----------------------------------------------------------------------
 // 1. Reusable Component for List Sections (Now defaults to Mobile Dropdown)
