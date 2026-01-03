@@ -211,14 +211,14 @@ interface EnrichedProduct extends NavbarProducts {
 }
 
 const MOCK_SERVICES = [
-  { id: "1", title: "Virtual Machine" },
-  { id: "2", title: "Kubernetes" },
-  { id: "3", title: "Block Storage" },
-  { id: "4", title: "VPC" },
-  { id: "5", title: "Load Balancer" },
-  { id: "6", title: "IP Address" },
-  { id: "7", title: "Virtual Machine Backup" },
-  { id: "8", title: "Block Storage Snapshot" },
+  { id: "1", title: "Virtual Machine", image: "/feature-carousel-vm.png", },
+  { id: "2", title: "Kubernetes", image: "/feature-carousel-vm.png", },
+  { id: "3", title: "Block Storage", image: "/feature-carousel-vm.png", },
+  { id: "4", title: "VPC", image: "/feature-carousel-vm.png", },
+  { id: "5", title: "Load Balancer", image: "/feature-carousel-vm.png", },
+  { id: "6", title: "IP Address", image: "/feature-carousel-vm.png", },
+  { id: "7", title: "Virtual Machine Backup", image: "/feature-carousel-vm.png", },
+  { id: "8", title: "Block Storage Snapshot", image: "/feature-carousel-vm.png",},
 ];
 
 // Get raw data from the api
@@ -272,7 +272,6 @@ async function getRawServices(): Promise<any[]> {
 
 // main method: Fetch -> Filter -> Categorize
 async function getCategorizedData(): Promise<GroupedMenu> {
-  // 1. Get raw data or fallback immediately
   const rawServices = await getRawServices();
 
   // Use MOCK if raw is empty or API failed
@@ -283,27 +282,34 @@ async function getCategorizedData(): Promise<GroupedMenu> {
   const grouped: GroupedMenu = { Compute: [], Networking: [], Storage: [] };
 
   dataToProcess.forEach((item) => {
-    // 2. Flexible title matching (checks name or title)
-    const incomingTitle = (item.title || item.name || "").toLowerCase().trim();
+    // 1. Normalize the title for matching
+    const itemTitle = (item.title || item.name || "").trim();
 
-    const localConfig = additionalMenuItems.find(
-      (f) => f.title.toLowerCase().trim() === incomingTitle
-    );
+    // 2. Find the local configuration
+    const localConfig =
+      additionalMenuItems.find(f => f.title.toLowerCase() === itemTitle.toLowerCase()) ||
+      additionalPackages.find(f => f.title.toLowerCase() === itemTitle.toLowerCase()) ||
+      additionalProductLists.find(f => f.title.toLowerCase() === itemTitle.toLowerCase());
 
-    if (localConfig) {
-      const enriched: NavbarProducts = {
-        ...item,
-        title: localConfig.title,
-        path: localConfig.path,
-        // CRITICAL: Ensure image is never undefined
-        image: localConfig.image || "/fallback-placeholder.png",
-        description: localConfig.description || "",
-      };
+    // 3. Create an Enriched Object (Even if localConfig is missing)
+    const enriched: NavbarProducts = {
+      ...item,
+      id: item.id || Math.random().toString(),
+      title: localConfig?.title || itemTitle,
+      path: localConfig?.path || `/products/${itemTitle.toLowerCase().replace(/\s+/g, '-')}`,
+      // GUARANTEE an image exists to prevent the "undefined (reading 'image')" error
+      image: (localConfig as any)?.image || item.image || "/feature-carousel-vm.png",
+      description: localConfig?.description || item.description || "Cloud service offering.",
+    };
 
-      const category = serviceCategories[enriched.title];
-      if (category && grouped[category]) {
-        grouped[category].push(enriched);
-      }
+    // 4. Assign to Category with a Fallback
+    const category = serviceCategories[enriched.title] || serviceCategories[itemTitle];
+
+    if (category && grouped[category]) {
+      grouped[category].push(enriched);
+    } else {
+      // If no category matches, default to Compute so the data isn't lost
+      grouped.Compute.push(enriched);
     }
   });
 
