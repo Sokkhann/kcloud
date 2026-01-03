@@ -4,7 +4,11 @@ import { getMenuCategory } from '@/lib/navbarMenu';
 export default async function Navbar() {
   const groupMenu = await getMenuCategory();
 
-  const safeMenu = groupMenu || { Compute: [], Networking: [], Storage: [] };
-  
+  // FIX: Ensure it is always an object with the required keys
+  const fallback = { Compute: [], Networking: [], Storage: [] };
+
+  // If groupMenu is empty or null, use fallback
+  const safeMenu = (groupMenu && !Array.isArray(groupMenu)) ? groupMenu : fallback;
+
   return <NavbarClient menu={safeMenu} />;
 }
