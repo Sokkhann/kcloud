@@ -1,4 +1,4 @@
-import { NavbarProducts, PackageProps, ProductListProps } from "@/type/dataTypes";
+import { GroupedMenu, NavbarProducts, PackageProps, ProductListProps } from "@/type/dataTypes";
 import { icons } from "lucide-react";
 
 interface InternalProduct extends NavbarProducts {
@@ -184,12 +184,6 @@ const additionalPackages = [
     description: "Full-system image protection package designed to recover entire VM instances from data loss."
   },
 ];
-
-export interface GroupedMenu {
-  Compute: NavbarProducts[];
-  Networking: NavbarProducts[];
-  Storage: NavbarProducts[];
-}
 
 // servcie categories
 const serviceCategories: Record<string, "Compute" | "Networking" | "Storage"> = {

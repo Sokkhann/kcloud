@@ -36,17 +36,25 @@ export interface ProblemSolutionSwitchCardProps {
 }
 
 export interface NavbarProducts {
-  id: string;
-  name: string;
+  id?: string;
   title: string;
   path: string;
   image: string;
+  description: string;
+  category: "Compute" | "Networking" | "Storage"; // Added this
+}
+
+export interface GroupedMenu {
+  Compute: NavbarProducts[];
+  Networking: NavbarProducts[];
+  Storage: NavbarProducts[];
 }
 
 export interface PackageProps {
   name: string;
   path: string;
   description: string;
+  category: string;
 }
 
 export interface ProductListProps {

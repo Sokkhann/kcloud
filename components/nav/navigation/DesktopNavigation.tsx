@@ -9,8 +9,7 @@ import {
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
 import ProductDropDown from "../ProductMenuDropdown";
-import { NavbarProducts } from "@/type/dataTypes";
-import { GroupedMenu } from "@/lib/navbarMenu";
+import { GroupedMenu } from "@/type/dataTypes";
 import TopNavBar from "../Topper";
 
 interface DesktopNavigationProps {

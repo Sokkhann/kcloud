@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { ChevronLeft, ChevronRight, icons } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { icons } from "lucide-react";
 import { ProductListProps } from "@/type/dataTypes";
 import Link from "next/link";
 

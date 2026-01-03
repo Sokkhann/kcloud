@@ -1,6 +1,5 @@
-import { NavbarProducts } from "@/type/dataTypes";
+import { GroupedMenu, NavbarProducts } from "@/type/dataTypes";
 import FeatureCarouselComponent from "../card/FeatureCarouselComponent";
-import { GroupedMenu } from "@/lib/navbarMenu";
 
 interface ProductDropDownProps {
   products: GroupedMenu;
@@ -46,7 +45,7 @@ export default function ProductDropDown({ products }: ProductDropDownProps) {
         {/* Featured Section */}
         <section className="w-full lg:max-w-[400px] lg:block hidden">
           {allProducts.length > 0 && (
-            <FeatureCarouselComponent items={allProducts} />
+            <FeatureCarouselComponent items={allProducts || []} />
           )}
         </section>
       </section>

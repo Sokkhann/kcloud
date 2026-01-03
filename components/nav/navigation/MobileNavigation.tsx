@@ -11,8 +11,8 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
 } from "@radix-ui/react-navigation-menu";
-import { GroupedMenu } from "@/lib/navbarMenu";
 import TopNavBar from "../Topper";
+import { GroupedMenu } from "@/type/dataTypes";
 
 interface MobileNavigationProps {
   menu: GroupedMenu;
