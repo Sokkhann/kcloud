@@ -48,7 +48,6 @@ export default function ProductDropDown({ products }: ProductDropDownProps) {
           {allProducts.length > 0 && (
             <FeatureCarouselComponent items={allProducts} />
           )}
-
         </section>
       </section>
     </section>

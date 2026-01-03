@@ -223,7 +223,7 @@ const MOCK_SERVICES = [
 
 // Get raw data from the api
 async function getRawServices(): Promise<any[]> {
-  if (typeof window !== "undefined") return [];
+  if (typeof window !== "undefined") return MOCK_SERVICES;
 
   const baseUrl = process.env.STACK_API_BASE_URL;
   const token = process.env.STACK_API_TOKEN;

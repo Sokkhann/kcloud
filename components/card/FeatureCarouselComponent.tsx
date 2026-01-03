@@ -10,11 +10,21 @@ interface FeatureCarouselProps {
 
 const FeatureCarouselComponent: React.FC<FeatureCarouselProps> = ({ items }) => {
   const [current, setCurrent] = useState(0);
+  const [mounted, setMounted] = useState(false);
 
-  // --- SAFETY GUARD 1: Prevent crash if array is empty ---
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // If not mounted yet, show a gray box. This PREVENTS the hydration crash.
+  if (!mounted) {
+    return <div className="h-84 w-full bg-gray-100 rounded-2xl animate-pulse" />;
+  }
+
+  // Now we safely check for data
   if (!items || items.length === 0) {
     return (
-      <div className="relative h-84 flex items-center justify-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
+      <div className="h-84 flex items-center justify-center bg-gray-50 rounded-2xl border border-dashed border-gray-200">
         <p className="text-gray-400 text-sm">No features available</p>
       </div>
     );
