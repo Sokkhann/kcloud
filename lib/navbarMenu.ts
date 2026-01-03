@@ -209,81 +209,74 @@ interface EnrichedProduct extends NavbarProducts {
   icon?: keyof typeof icons;
   description: string;
 }
+// 1. These variables live outside the function and persist during the build process
+// 1. Create a global variable to hold the ONE and ONLY request promise
+let globalFetchPromise: Promise<any[]> | null = null;
 
-const MOCK_SERVICES = [
-  { id: "1", title: "Virtual Machine" },
-  { id: "2", title: "Kubernetes" },
-  { id: "3", title: "Block Storage" },
-  { id: "4", title: "VPC" },
-  { id: "5", title: "Load Balancer" },
-  { id: "6", title: "IP Address" },
-  { id: "7", title: "Virtual Machine Backup" },
-  { id: "8", title: "Block Storage Snapshot" },
-];
-
-// Get raw data from the api
 async function getRawServices(): Promise<any[]> {
-  if (typeof window !== "undefined") return MOCK_SERVICES;
+  if (typeof window !== "undefined") return [];
 
-  const baseUrl = process.env.STACK_API_BASE_URL;
-  const token = process.env.STACK_API_TOKEN;
-
-  if (!baseUrl || !token) {
-    console.warn("Missing env variables. Using mock menu.");
-    return MOCK_SERVICES;
+  // 2. If a request is already in progress or finished, return that same promise
+  if (globalFetchPromise) {
+    return globalFetchPromise;
   }
 
-  try {
-    // Use AbortController to prevent the server from hanging on a slow API
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+  // 3. Create the promise once
+  globalFetchPromise = (async () => {
+    const baseUrl = process.env.STACK_API_BASE_URL;
+    const token = process.env.STACK_API_TOKEN;
 
-    const res = await fetch(`${baseUrl.replace(/\/$/, '')}/admin/cloud-provider/nimbo/services`, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Accept': 'application/json'
-      },
-      next: { revalidate: 3600 },
-      signal: controller.signal
-    });
-
-    clearTimeout(timeoutId);
-
-    if (!res.ok) {
-      console.error(`API error: ${res.status}. Using mock data.`);
-      return MOCK_SERVICES;
+    if (!baseUrl || !token) {
+      console.error("[Build Shield] Missing Credentials.");
+      return [];
     }
 
-    const data = await res.json();
-    return data.data || MOCK_SERVICES;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000); // Fast 4s timeout
 
-  } catch (error: any) {
-    // This catches the "Redirect Loop" or "Fetch Failed" and prevents a crash
-    if (error.name === 'AbortError') {
-      console.error("Fetch timed out. Using mock data.");
-    } else {
-      console.error("Fetch failed. Using mock data. Error:", error.message);
+      const cleanUrl = `${baseUrl.replace(/\/$/, '')}/admin/cloud-provider/nimbo/services`;
+
+      const res = await fetch(cleanUrl, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json'
+        },
+        next: { revalidate: 3600 },
+        signal: controller.signal
+      });
+
+      clearTimeout(timeoutId);
+
+      if (!res.ok) {
+        console.error(`[Build Shield] API Error ${res.status}. Falling back to empty.`);
+        return [];
+      }
+
+      const data = await res.json();
+      return data.data || [];
+    } catch (error: any) {
+      // Log exactly ONCE for the whole build
+      console.error("[Build Shield] Request blocked/failed (Redirect/Down). Using empty state.");
+      return [];
     }
-    console.error("DETAILED ERROR CAUSE:", error.cause);
-    console.error("ERROR MESSAGE:", error.message);
-    return MOCK_SERVICES;
-  }
+  })();
+
+  return globalFetchPromise;
 }
 
 // main method: Fetch -> Filter -> Categorize
 async function getCategorizedData(): Promise<GroupedMenu> {
-  // 1. Get raw data or fallback immediately
   const rawServices = await getRawServices();
 
-  // Use MOCK if raw is empty or API failed
-  const dataToProcess = (rawServices && rawServices.length > 0)
-    ? rawServices
-    : MOCK_SERVICES;
-
+  // If the API failed and returned [], this will result in an empty GroupedMenu
   const grouped: GroupedMenu = { Compute: [], Networking: [], Storage: [] };
 
-  dataToProcess.forEach((item) => {
-    // 2. Flexible title matching (checks name or title)
+  if (!rawServices || rawServices.length === 0) {
+    return grouped; // Returns { Compute: [], Networking: [], Storage: [] }
+  }
+
+  rawServices.forEach((item) => {
     const incomingTitle = (item.title || item.name || "").toLowerCase().trim();
 
     const localConfig = additionalMenuItems.find(
@@ -293,9 +286,9 @@ async function getCategorizedData(): Promise<GroupedMenu> {
     if (localConfig) {
       const enriched: NavbarProducts = {
         ...item,
+        id: item.id || Math.random().toString(), // Ensure ID exists
         title: localConfig.title,
         path: localConfig.path,
-        // CRITICAL: Ensure image is never undefined
         image: localConfig.image || "/fallback-placeholder.png",
         description: localConfig.description || "",
       };
