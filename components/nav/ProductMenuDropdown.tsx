@@ -36,11 +36,9 @@ export default function ProductDropDown({ products }: ProductDropDownProps) {
         </section>
 
         {/* Featured Section */}
-        {allProducts.length > 0 && (
-          <section className="w-full lg:max-w-[400px] lg:block hidden">
-            <FeatureCarouselComponent items={allProducts} />
-          </section>
-        )}
+        {/* <section className="w-full lg:max-w-[400px] lg:block hidden">
+          <FeatureCarouselComponent items={Object.values(products).flat()} />
+        </section> */}
       </section>
     </section>
   );

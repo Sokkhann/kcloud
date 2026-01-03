@@ -213,58 +213,54 @@ const MOCK_SERVICES = [
   { id: "5", title: "Load Balancer", image: "/feature-carousel-vm.png", },
   { id: "6", title: "IP Address", image: "/feature-carousel-vm.png", },
   { id: "7", title: "Virtual Machine Backup", image: "/feature-carousel-vm.png", },
-  { id: "8", title: "Block Storage Snapshot", image: "/feature-carousel-vm.png", },
+  { id: "8", title: "Block Storage Snapshot", image: "/feature-carousel-vm.png",},
 ];
 
 // Get raw data from the api
-// 1. Add this to the top of your file to force dynamic fetching if needed
-export const dynamic = 'force-dynamic';
-
 async function getRawServices(): Promise<any[]> {
   if (typeof window !== "undefined") return [];
 
   const baseUrl = process.env.STACK_API_BASE_URL;
   const token = process.env.STACK_API_TOKEN;
 
-  // IF ENV VARS ARE MISSING ON PRODUCTION
   if (!baseUrl || !token) {
-    console.error("❌ PRODUCTION ERROR: Missing API Env Variables.");
+    console.warn("Missing env variables. Using mock menu.");
     return MOCK_SERVICES;
   }
 
   try {
+    // Use AbortController to prevent the server from hanging on a slow API
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000);
+    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
 
     const res = await fetch(`${baseUrl.replace(/\/$/, '')}/admin/cloud-provider/nimbo/services`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Accept': 'application/json'
       },
-      // CHANGE: Ensure we don't cache an error forever
-      next: { revalidate: 60 }, // Re-check every minute instead of 3600
+      next: { revalidate: 3600 },
       signal: controller.signal
     });
 
     clearTimeout(timeoutId);
 
     if (!res.ok) {
-      console.error(`❌ API error: ${res.status}`);
+      console.error(`API error: ${res.status}. Using mock data.`);
       return MOCK_SERVICES;
     }
 
     const data = await res.json();
-
-    // VALIDATE: If data is empty array, return mock immediately
-    if (!data.data || data.data.length === 0) {
-      console.warn("⚠️ API returned empty data. Switching to MOCK.");
-      return MOCK_SERVICES;
-    }
-
-    return data.data;
+    return data.data || MOCK_SERVICES;
 
   } catch (error: any) {
-    console.error("❌ Fetch failed, using MOCK data.");
+    // This catches the "Redirect Loop" or "Fetch Failed" and prevents a crash
+    if (error.name === 'AbortError') {
+      console.error("Fetch timed out. Using mock data.");
+    } else {
+      console.error("Fetch failed. Using mock data. Error:", error.message);
+    }
+    console.error("DETAILED ERROR CAUSE:", error.cause);
+    console.error("ERROR MESSAGE:", error.message);
     return MOCK_SERVICES;
   }
 }
