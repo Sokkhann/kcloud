@@ -8,7 +8,15 @@ interface ProductDropDownProps {
 
 export default function ProductDropDown({ products }: ProductDropDownProps) {
   // Flatten items for the carousel safely
-  const allProducts = Object.values(products || {}).flat();
+  const allProducts = Object.values(products).flat();
+
+  if (allProducts.length === 0) {
+    return (
+      <div className="py-10 text-center text-gray-500">
+        No products available at the moment.
+      </div>
+    );
+  }
 
   return (
     <section className="max-w-7xl mx-auto  top-full left-0 flex flex-col gap-0 px-0 lg:px-4 lg:py-6 py-0">
@@ -25,7 +33,7 @@ export default function ProductDropDown({ products }: ProductDropDownProps) {
                   <a
                     href={product?.path || "#"}
                     className="hover:text-gcxPrimary hover:cursor-pointer w-fit"
-                    key={product?.id || Math.random()}
+                    key={product?.id || product?.title}
                   >
                     {product?.title || product?.name}
                   </a>
@@ -36,9 +44,12 @@ export default function ProductDropDown({ products }: ProductDropDownProps) {
         </section>
 
         {/* Featured Section */}
-        {/* <section className="w-full lg:max-w-[400px] lg:block hidden">
-          <FeatureCarouselComponent items={Object.values(products).flat()} />
-        </section> */}
+        <section className="w-full lg:max-w-[400px] lg:block hidden">
+          {allProducts.length > 0 && (
+            <FeatureCarouselComponent items={allProducts} />
+          )}
+
+        </section>
       </section>
     </section>
   );

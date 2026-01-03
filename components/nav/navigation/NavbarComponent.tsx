@@ -1,14 +1,13 @@
 import NavbarClient from './NavbarClient';
-import { getMenuCategory } from '@/lib/navbarMenu';
-
+import { getMenuCategory, GroupedMenu } from '@/lib/navbarMenu';
 export default async function Navbar() {
   const groupMenu = await getMenuCategory();
 
-  // FIX: Ensure it is always an object with the required keys
-  const fallback = { Compute: [], Networking: [], Storage: [] };
-
-  // If groupMenu is empty or null, use fallback
-  const safeMenu = (groupMenu && !Array.isArray(groupMenu)) ? groupMenu : fallback;
+  const safeMenu: GroupedMenu = {
+    Compute: groupMenu?.Compute ?? [],
+    Networking: groupMenu?.Networking ?? [],
+    Storage: groupMenu?.Storage ?? [],
+  };
 
   return <NavbarClient menu={safeMenu} />;
 }
