@@ -11,7 +11,7 @@ interface PackageCardProps {
 
 export default function HoverArrowCard({ title, description, path }: PackageCardProps) {
     return (
-        <a href={path} className="group relative block overflow-hidden rounded-2xl hover:shadow-lg hover:shadow-gcxPrimary/40 transition-all duration-500">
+        <a href={path} className=" group relative block overflow-hidden rounded-2xl hover:shadow-lg hover:shadow-gcxPrimary/40 transition-all duration-500">
             <div className="relative rounded-2xl transition-all duration-300 bg-gray-100 overflow-hidden">
 
                 {/* Background Dollar Text ($) */}
