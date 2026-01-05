@@ -70,14 +70,70 @@ const FooterColumn = ({
   );
 };
 
-interface FooterClientProps {
-  productMenu: NavbarProducts[];
-}
+
+const additionalMenuItems: NavbarProducts[] = [
+  {
+    title: "Virtual Machine",
+    category: "Compute",
+    path: "/products/virtual-machine",
+    image: "/feature-carousel-vm.png",
+    description: "Deploy scalable, high-performance virtual computing instances in seconds."
+  },
+  {
+    title: "Kubernetes",
+    category: "Compute",
+    path: "/products/kubernetes",
+    image: "/feature-carousel-k8.png",
+    description: "Fully managed container orchestration to simplify deploying and scaling applications."
+  },
+  {
+    title: "IP Address",
+    category: "Networking",
+    path: "/products/ip-address",
+    image: "/feature-carousel-ip.png",
+    description: "Manage reserved public and private IP addresses for your cloud infrastructure."
+  },
+  {
+    title: "Load Balancer",
+    category: "Networking",
+    path: "/products/load-balancer",
+    image: "/feature-carousel-load-balancer.png",
+    description: "Optimize application availability and performance by intelligently distributing incoming traffic."
+  },
+  {
+    title: "VPC",
+    category: "Networking",
+    path: "/products/vpc",
+    image: "/feature-carousel-vm.png",
+    description: "Isolate your cloud resources within a secure, private network environment."
+  },
+  {
+    title: "Block Storage",
+    category: "Storage",
+    path: "/products/block-storage",
+    image: "/feature-carousel-block-storage.png",
+    description: "High-performance, scalable SSD storage for your high-demand applications."
+  },
+  {
+    title: "Block Storage Snapshot",
+    category: "Storage",
+    path: "/products/snapshot",
+    image: "/feature-carousel-block-storage-snapshot.png",
+    description: "Capture point-in-time copies of your block storage volumes for easy data recovery."
+  },
+  {
+    title: "Virtual Machine Backup",
+    category: "Storage",
+    path: "/products/vm-backup",
+    image: "/feature-carousel-vm.png",
+    description: "Full-system backups for your virtual machines to prevent data loss."
+  },
+];
 
 // ----------------------------------------------------------------------
 // 2. Main Footer Component
 // ----------------------------------------------------------------------
-export default function FooterClient({ productMenu }: FooterClientProps) {
+export default function FooterClient() {
   return (
     <footer className="bg-gray-50 border-t border-gray-200">
       <div className="max-w-[1400px] mx-auto px-6 py-12 grid grid-cols-none sm:grid-cols-3 lg:grid-cols-5 gap-4 text-gray-700">
@@ -105,14 +161,9 @@ export default function FooterClient({ productMenu }: FooterClientProps) {
 
         <div className="sm:border-none border-b-1">
           <FooterColumn title="Products">
-            {productMenu.map((item, index) => (
+            {additionalMenuItems.map((item, index) => (
               <li key={index}>
-                <Link
-                  href={item.path}
-                  className="hover:text-gcxPrimary transition-colors md:text-base text-sm text-gray-500"
-                >
-                  {item.title}
-                </Link>
+                <Link href={item.path}>{item.title}</Link>
               </li>
             ))}
           </FooterColumn>
