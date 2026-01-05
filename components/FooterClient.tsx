@@ -105,8 +105,8 @@ export default function FooterClient({ productMenu }: FooterClientProps) {
 
         <div className="sm:border-none border-b-1">
           <FooterColumn title="Products">
-            {productMenu.map((item) => (
-              <li key={item.id}>
+            {productMenu.map((item, index) => (
+              <li key={index}>
                 <Link
                   href={item.path}
                   className="hover:text-gcxPrimary transition-colors md:text-base text-sm text-gray-500"
