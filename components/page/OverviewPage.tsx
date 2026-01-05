@@ -29,12 +29,8 @@ export default function OverviewPage() {
           {/* listing package section */}
           <ListingPackageSection/>
 
-
           {/* products */}
           <ProductListSection/>
-
-          {/* welcome GCX section */}
-          {/* <WelcomeSection/> */}
 
           {/* why cloud gcx section */}
           <WhyGCXCloudSection />
