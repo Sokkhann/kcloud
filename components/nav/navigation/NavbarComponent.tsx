@@ -1,7 +1,6 @@
 import { GroupedMenu, NavbarProducts } from '@/type/dataTypes';
 import NavbarClient from './NavbarClient';
 
-// additional data for menu navbar, footer, and data menu of overview page
 const additionalMenuItems: NavbarProducts[] = [
   // compute
   {
@@ -65,10 +64,6 @@ const additionalMenuItems: NavbarProducts[] = [
 ];
 
 export default async function Navbar() {
-  // const groupMenu = await getMenuCategory();
-
-  // const safeMenu = groupMenu || { Compute: [], Networking: [], Storage: [] };
-
   const groupedMenu: GroupedMenu = {
     Compute: additionalMenuItems.filter(item => item.category === "Compute"),
     Networking: additionalMenuItems.filter(item => item.category === "Networking"),

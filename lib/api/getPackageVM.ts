@@ -68,73 +68,58 @@
 //     return null;
 //   }
 // }
-
-
 import { dataPlanVM, PackageData } from "@/type/dataTypes";
 
 interface FetchArgs {
   service: string;
 }
 
-// 1. GLOBAL SHIELD: A Map to track ongoing/completed promises for each service
-const vmFetchShield = new Map<string, Promise<PackageData[] | null>>();
+const pendingRequests = new Map<string, Promise<PackageData[] | null>>();
 
 export async function getPackageVM({ service }: FetchArgs): Promise<PackageData[] | null> {
-  // Prevent client-side execution
-  if (typeof window !== "undefined") return null;
+  if (pendingRequests.has(service)) return pendingRequests.get(service)!;
 
-  // 2. CHECK THE SHIELD: If we are already fetching this specific service, return that promise
-  if (vmFetchShield.has(service)) {
-    return vmFetchShield.get(service)!;
-  }
-
-  // 3. CREATE THE SHIELD PROMISE
-  const fetchPromise = (async (): Promise<PackageData[] | null> => {
-    const baseUrl = process.env.STACK_API_BASE_URL;
-    const token = process.env.STACK_API_TOKEN;
-
-    if (!baseUrl || !token) {
-      console.error(`[Shield] Missing API config for service: ${service}`);
-      return null;
-    }
-
+  const fetchTask = (async (): Promise<PackageData[] | null> => {
     try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+      // 1. Clean the Base URL (ensure no trailing slash)
+      const baseUrl = process.env.STACK_API_BASE_URL?.replace(/\/$/, "");
+      const token = process.env.STACK_API_TOKEN;
 
-      // Ensure URL doesn't have double slashes
-      const cleanBase = baseUrl.replace(/\/$/, '');
-      const url = `${cleanBase}/admin/plans/service/${encodeURIComponent(service)}?sort=-created_at&page=1&limit=50&planable=default&planable_type=RateCard&include=cloud_provider,cloud_provider_setup,plan_region,plan_category`;
+      if (!baseUrl || !token) {
+        console.error("❌ Missing STACK_API config");
+        return null;
+      }
+
+      // 2. Build the URL strictly
+      const url = `${baseUrl}/admin/plans/service/${encodeURIComponent(service)}?sort=-created_at&page=1&limit=50&planable=default&planable_type=RateCard&include=cloud_provider,cloud_provider_setup,plan_region,plan_category`;
 
       const res = await fetch(url, {
+        method: 'GET',
         headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: 'application/json'
+          'Authorization': `Bearer ${token}`,
+          'Accept': 'application/json',
         },
-        next: { revalidate: 3600 },
-        signal: controller.signal
+        // 'follow' is default, but manual helps debug if redirects persist
+        redirect: 'follow', 
+        next: { revalidate: 60 },
       });
 
-      clearTimeout(timeoutId);
-
       if (!res.ok) {
-        console.error(`[Shield] API Error ${res.status} for service: ${service}`);
+        // If the API returns 401/403, your token is likely the issue
+        console.error(`❌ API Error: ${res.status} for ${service}`);
         return null;
       }
 
       const json = await res.json();
       const data = json.data ?? [];
 
-      // 4. Transform data exactly as you had it
       return data
         .filter((plan: dataPlanVM) => !!plan.name && plan.attribute)
         .map((plan: dataPlanVM) => ({
           name: plan.name,
           slug: plan.name?.toLowerCase().replace(/\s+/g, "-") ?? "plan",
-          memory: plan.attribute?.memory !== undefined
-            ? `${(plan.attribute.memory / 1024).toFixed(1)} GB`
-            : undefined,
-          cpu: plan.attribute?.cpu !== undefined ? `${plan.attribute.cpu}` : undefined,
+          memory: plan.attribute?.memory ? `${(plan.attribute.memory / 1024).toFixed(1)} GB` : undefined,
+          cpu: plan.attribute?.cpu ? `${plan.attribute.cpu}` : undefined,
           storage: plan.attribute?.storage !== undefined ? `${plan.attribute.storage} GB` : "—",
           bandwidth: plan.attribute?.bandwidth_threshold !== undefined ? `${plan.attribute.bandwidth_threshold} GB` : "—",
           gpu: plan.attribute?.gpu !== undefined ? `${plan.attribute.gpu} GPU` : "—",
@@ -145,13 +130,13 @@ export async function getPackageVM({ service }: FetchArgs): Promise<PackageData[
         }));
 
     } catch (error: any) {
-      // LOG ONCE: Catch the redirect loop or timeout here
-      console.error(`[Shield] Request for ${service} failed or timed out. Blocking further attempts.`);
+      console.error(`[getPackageVM] Failed for ${service}:`, error.message);
       return null;
+    } finally {
+      pendingRequests.delete(service);
     }
   })();
 
-  // Store the promise in the shield
-  vmFetchShield.set(service, fetchPromise);
-  return fetchPromise;
+  pendingRequests.set(service, fetchTask);
+  return fetchTask;
 }
