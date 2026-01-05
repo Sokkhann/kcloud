@@ -30,7 +30,7 @@ export default function ChildPricingCard({
                 <div className="flex items-center gap-4 mb-6">
                     {/* Cloud Icon in the small box */}
                     <div className="text-gcxPrimary p-2 bg-gcxPrimary/5 rounded-lg group-hover:bg-gcxPrimary group-hover:text-white transition-all duration-300">
-                        <Cloud className="w-6 h-6" />
+                        {icon}
                     </div>
                     <h3 className="text-lg lg:text-2xl md:text-2xl font-bold text-gray-600 tracking-tight">{title}</h3>
                 </div>
