@@ -1,5 +1,4 @@
 import ListingOverviewPackage from '@/components/card/ListingOverviewPackage'
-import React from 'react'
 
 export default function ListingPackageSection() {
     return (

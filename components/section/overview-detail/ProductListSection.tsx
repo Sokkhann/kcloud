@@ -1,7 +1,7 @@
 import ScrollReveal from '@/components/animations/ScrolReveal'
 import ProductCardCarousel from '@/components/card/ProductCardCarousel'
 
-export default async function ProductListSection() {
+export default function ProductListSection() {
 
   return (
     <section

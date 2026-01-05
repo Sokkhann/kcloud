@@ -1,6 +1,5 @@
 "use client";
 
-import WhyGCXCloudCard from "@/components/card/WhyGCXCloudCard";
 import React from "react";
 
 export default function WhyGCXCloudSection() {

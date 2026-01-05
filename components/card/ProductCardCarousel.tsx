@@ -4,8 +4,6 @@ import { icons } from "lucide-react";
 import { ProductListProps } from "@/type/dataTypes";
 import Link from "next/link";
 
-
-
 export default function ProductCardCarousel() {
   // additional data for product list
   const additionalProductLists: ProductListProps[] = [
@@ -66,8 +64,8 @@ export default function ProductCardCarousel() {
       description: "Quickly restore your virtual machine to a previous state with instant snapshots."
     },
   ];
-  
-  console.log("Data Resposne Here is the product => ", additionalProductLists)
+
+  // console.log("Data Resposne Here is the product => ", additionalProductLists)
 
   return (
     <div className="w-full">
@@ -83,7 +81,7 @@ export default function ProductCardCarousel() {
 
 // product cards sign icon as background 
 const ProductCard = ({ product }: { product: ProductListProps }) => {
-  const Icon = icons[product.icon];
+  const LucideIcon = (icons as any)[product.icon] || icons.Cloud;
   return (
     <Link href={product.path} className="group relative bg-white rounded-2xl shadow-sm overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60 aspect-[4/3] sm:aspect-square p-5 md:p-8">
       <div className="relative z-10 flex flex-col h-full">
@@ -91,7 +89,7 @@ const ProductCard = ({ product }: { product: ProductListProps }) => {
         <p className="text-gray-500 leading-relaxed mb-auto">
           {product.description}
         </p>
-        <Icon className="w-12 h-12 self-end text-gray-200 group-hover:text-gcxprimary transition-all" />
+        <LucideIcon className="w-12 h-12 self-end text-gray-200 group-hover:text-gcxprimary transition-all" />
       </div>
     </Link>
   );
