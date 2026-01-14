@@ -40,9 +40,9 @@ const packages = [
 
 export default function ListingOverviewPackage() {
     return (
-        <div className="flex gap-8 overflow-x-auto py-12 px-6 no-scrollbar snap-x">
+        <div className="flex gap-8 overflow-x-auto py-12 no-scrollbar snap-x">
             {packages.map((pkg, i) => (
-                <div key={i} className="min-w-[290px] snap-center group relative">
+                <div key={i} className="min-w-[290px] lg:min-w-0 snap-center group relative">
                     <div className="bg-white h-[400px] rounded-2xl border border-gray-100 flex flex-col p-8 relative overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gcxprimary/60 hover:-translate-y-4">
 
                         {/* Massive Background Dollar Sign */}

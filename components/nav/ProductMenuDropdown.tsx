@@ -18,7 +18,7 @@ export default function ProductDropDown({ products }: ProductDropDownProps) {
   }
 
   return (
-    <section className="max-w-7xl mx-auto  top-full left-0 flex flex-col gap-0 px-0 lg:px-4 lg:py-6 py-0">
+    <section className="max-w-7xl mx-auto  top-full left-0 flex flex-col gap-0 px-0 lg:px-4 py-0">
       <section className="flex flex-col lg:flex-row lg:gap-8 gap-6">
         {/* Product Categories */}
         <section className="lg:h-84 h-fit w-full overflow-y-auto">
