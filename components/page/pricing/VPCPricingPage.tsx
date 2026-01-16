@@ -4,7 +4,6 @@ import HeroComponent from "@/components/HeroComponent";
 import { vmSnapshotColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
-import VPCTablePriceSection from "@/components/section/pricing/vpc/VPCTablePriceSection";
 
 interface PackageProps {
   plans: PackageData[]
@@ -41,8 +40,6 @@ export default function VPCPricingPage({ plans }: PackageProps) {
             <div className="px-4 lg:px-8 md:px-8">
               <DataTable columns={vmSnapshotColumns("VM Snapshot")} data={plans} />
             </div>
-
-            <VPCTablePriceSection/>
           </div>
         </div>
       </div>

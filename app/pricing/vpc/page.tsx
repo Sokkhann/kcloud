@@ -1,10 +1,10 @@
 import VPCPricingPage from '@/components/page/pricing/VPCPricingPage'
-import { getPackageVM } from '@/lib/api/getPackageVM'
+import { getPackageVirtualRouter, getPackageVM } from '@/lib/api/getPackage'
 import React from 'react'
 
 export default async function page() {
 
-    const packages = await getPackageVM({ service: "VPC" })
+    const packages = await getPackageVirtualRouter({ service: "Virtual Router" })
 
     return (
         <div>

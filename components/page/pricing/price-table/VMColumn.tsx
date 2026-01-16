@@ -22,6 +22,8 @@ export type PricingPlan = {
   priceMonth: string | number;
 };
 
+const baseUrl = process.env.NEXT_PUBLIC_STACKCONSOLE_URL
+
 export const columns: ColumnDef<PricingPlan>[] = [
   {
     accessorKey: "memory",
@@ -77,25 +79,13 @@ export const vmColumns = (serviceName: string): ColumnDef<PackageData>[] => {
       header: "Name",
     },
     {
+      accessorKey: "cpu",
+      header: "vCPU",
+    },
+    {
       accessorKey: "memory",
       header: "Memory",
     },
-    {
-      accessorKey: "cpu",
-      header: "CPU",
-    },
-    // {
-    //   accessorKey: "gpu",
-    //   header: "GPU",
-    // },
-    {
-      accessorKey: "storage",
-      header: "Storagee",
-    },
-    // {
-    //   accessorKey: "bandwidth",
-    //   header: "Bandwidth",
-    // },
     {
       accessorKey: "priceHour",
       header: "$/hr",
@@ -119,10 +109,62 @@ export const vmColumns = (serviceName: string): ColumnDef<PackageData>[] => {
         const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
-          // redirect to the products and then goes to packages
-          // const dashboardUrl = `https://stack-console.cloudlab.cam/app/${encodeURIComponent(plan.slug)}`;
-          // redirect to the products
-          const dashboardUrl = `https://stack-console.cloudlab.cam/app/projects/${serviceName}/create`;
+          const dashboardUrl = `${baseUrl}/projects/${serviceName}/create`;
+          window.location.href = dashboardUrl;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+export const backpuColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "cpu",
+      header: "vCPU",
+    },
+    {
+      accessorKey: "memory",
+      header: "Memory",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
           window.location.href = dashboardUrl;
         };
 
@@ -217,16 +259,12 @@ export const lbColumns = (serviceName: string): ColumnDef<PackageData>[] => {
       header: "Name",
     },
     {
-      accessorKey: "bandwidth",
-      header: "Bandwidth",
-    },
-    {
       accessorKey: "region",
       header: "Region",
     },
     {
       accessorKey: "cloudProvider",
-      header: "Cloud Platform",
+      header: "Cloud Provider",
     },
     {
       accessorKey: "priceHour",
@@ -251,9 +289,8 @@ export const lbColumns = (serviceName: string): ColumnDef<PackageData>[] => {
         const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
-          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
-            serviceName
-          )}/${encodeURIComponent(plan.slug)}`;
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
         };
 
         return (
@@ -278,24 +315,8 @@ export const k8Columns = (serviceName: string): ColumnDef<PackageData>[] => {
       header: "Name",
     },
     {
-      accessorKey: "memory",
-      header: "Memory",
-    },
-    {
       accessorKey: "cpu",
       header: "CPU",
-    },
-    {
-      accessorKey: "bandwidth",
-      header: "Bandwidth",
-    },
-    {
-      accessorKey: "region",
-      header: "Region",
-    },
-    {
-      accessorKey: "cloudProvider",
-      header: "Cloud Platform",
     },
     {
       accessorKey: "priceHour",
@@ -320,9 +341,8 @@ export const k8Columns = (serviceName: string): ColumnDef<PackageData>[] => {
         const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
-          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
-            serviceName
-          )}/${encodeURIComponent(plan.slug)}`;
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
         };
 
         return (
@@ -404,28 +424,12 @@ export const blockStorageColumns = (serviceName: string): ColumnDef<PackageData>
       header: "Name",
     },
     {
-      accessorKey: "capacity",
-      header: "Capacity",
+      accessorKey: "storageType",
+      header: "Storage Type",
     },
     {
-      accessorKey: "cpu",
-      header: "CPU",
-    },
-    {
-      accessorKey: "ram",
-      header: "RAM",
-    },
-    {
-      accessorKey: "storage",
-      header: "Storage",
-    },
-    {
-      accessorKey: "displayName",
-      header: "Cloud Provider",
-    },
-    {
-      accessorKey: "region",
-      header: "Region",
+      accessorKey: "size",
+      header: "Size",
     },
     {
       accessorKey: "priceHour",
@@ -450,9 +454,8 @@ export const blockStorageColumns = (serviceName: string): ColumnDef<PackageData>
         const plan = row.original; // This is your PackageData object
 
         const handleClick = () => {
-          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
-            serviceName
-          )}/${encodeURIComponent(plan.slug)}`;
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
         };
 
         return (

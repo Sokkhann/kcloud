@@ -1,11 +1,9 @@
 import KubernetesPricingPage from "@/components/page/pricing/KubernetesPricingPage";
-import { getPackageVM } from "@/lib/api/getPackageVM";
+import { getPackageK8s, getPackageVM } from "@/lib/api/getPackage";
 
 export default async function page() {
 
-  const packages = await getPackageVM({service: "Kubernetes"})
-
-  console.log("Responsed: ", packages)
+  const packages = await getPackageK8s({service: "Kubernetes"})
 
   return (
     <div>

@@ -3,15 +3,17 @@
 import React, { useState } from "react";
 import HeroComponent from "@/components/HeroComponent";
 import { PackageData } from "@/type/dataTypes";
-import { columns, vmColumns } from "./price-table/VMColumn";
+import { vmColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import VirtualMachineTablePriceSection from "@/components/section/pricing/virtual-machine/VirtualMachineTablePriceSection";
 
 interface PackageProps {
-  plans: PackageData[]
+  planProxmox: PackageData[],
+  planCloudstackGeneralCompute: PackageData[],
+  planCloudstackComputeOptimized: PackageData[],
 }
 
-export default function VirtualMachinePricingPage({ plans }: PackageProps) {
+export default function VirtualMachinePricingPage({ planProxmox, planCloudstackGeneralCompute, planCloudstackComputeOptimized }: PackageProps) {
 
   const tabs = ["General", "Optimized"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
@@ -30,33 +32,45 @@ export default function VirtualMachinePricingPage({ plans }: PackageProps) {
       <div className="w-screen mt-10">
         <div className="py-6 lg:py-12 md:py-12">
           <div className="max-w-7xl mx-auto space-y-8">
-            <div className=" lg:mx-4 md:mx-8 mx-4">
+
+            <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
               <p className="lg:text-4xl md:text-4xl text-2xl mb-4 font-bold text-gray-700">
-                Virtual Machine Price
+                Virtual Machine Pricing
               </p>
-              <p className="text-base text-gray-600">
-                Always know what you&apos;ll pay with monthly caps and flat
-                pricing across all data centers.
+              <p className="text-base text-gray-600 max-w-5xl">
+                Deploy with confidence on your choice of Proxmox or CloudStack infrastructure. We provide a simplified billing experience with monthly price caps and consistent rates across all regions, ensuring your infrastructure costs remain stable even as your traffic grows.
               </p>
             </div>
 
-            {/* Basic VM */}
-            {/* <div className="px-6">
-              <p className="xl:text-2xl text-xl text-gray-700 font-semibold mb-2">
-                Basic Virtual Machine
+            {/* Proxmox */}
+            <div className="px-4 lg:px-8 md:px-8">
+              <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
+                Proxmox Cloud Compute
               </p>
-              <p className="text-gray-600">
-                Experience the power, flexibility, and reliability of our
-                cutting-edge Virtual Machines (VMs). Designed for developers,
-                startups, and enterprises, our VMs allow you to run applications,
-                host websites, perform testing, or manage workloads in a secure
-                and scalable cloud environment.
+              <p className="text-gray-600 max-w-5xl">
+                Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
               </p>
-            </div> */}
+            </div>
 
-            {/* <div className="px-6 space-y-6">
+            <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
+              <DataTable
+                columns={vmColumns("virtual-machines")}
+                data={planProxmox}
+              />
+            </div>
+
+            {/* Cloudstack */}
+            <div className="px-4 lg:px-8 md:px-8">
+              <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
+                CloudStack Compute Instances
+              </p>
+              <p className="text-gray-600 max-w-5xl">
+                Experience low-latency performance and high-density computing. Built on the Apache CloudStack framework, our compute instances offer the flexibility to deploy and manage virtualized resources instantly, backed by a resilient architecture that grows with your business needs.              </p>
+            </div>
+
+            <div className="px-4 lg:px-8 md:px-8 space-y-6">
               <div className="mt-6 flex gap-4 items-center ">
-                <p className="font-bold text-gcxPrimary">General Compute</p>
+                <p className="font-bold text-gcxPrimary">Compute Offer</p>
                 {tabs.map((tab) => (
                   <button
                     key={tab}
@@ -73,29 +87,22 @@ export default function VirtualMachinePricingPage({ plans }: PackageProps) {
               </div>
               <div>
                 {activeTab === "General" && (
-                  <div className="px-4 lg:px-8 md:px-8">
+                  <div className="">
                     <DataTable
                       columns={vmColumns("virtual-machines")}
-                      data={plans}
+                      data={planCloudstackGeneralCompute}
                     />
                   </div>
                 )}
                 {activeTab === "Optimized" && (
-                  <div className="px-4 lg:px-8 md:px-8">
+                  <div className="">
                     <DataTable
                       columns={vmColumns("virtual-machines")}
-                      data={plans}
+                      data={planCloudstackComputeOptimized}
                     />
                   </div>
                 )}
               </div>
-            </div> */}
-
-            <div className="px-4 lg:px-8 md:px-8">
-              <DataTable
-                columns={vmColumns("virtual-machines")}
-                data={plans}
-              />
             </div>
 
             <VirtualMachineTablePriceSection />

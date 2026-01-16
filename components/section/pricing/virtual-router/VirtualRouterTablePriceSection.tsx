@@ -1,6 +1,8 @@
 import ChildPricingCard from '@/components/card/ChildPricingCard'
-import { Network } from 'lucide-react'
+import { Globe, Network } from 'lucide-react'
 import React from 'react'
+
+const url = process.env.NEXT_PUBLIC_STACKCONSOLE_URL?.replace(/\/$/, "");
 
 const products = [
     {
@@ -16,12 +18,30 @@ const products = [
         ],
         icon: <Network size={32} strokeWidth={1.5} />,
         image: "/images/router-preview.jpg",
-        href: "https://stack-console.cloudlab.cam/app/router",
-        tag: "Networking"
+        href: `${url}/virtual-router`,
+        tag: "Networking",
+        hasButton: false
+    },
+    {
+        id: "ip-address",
+        title: "Public IP Address",
+        price: "Fixed Rate",
+        description: "Establish a permanent presence for your services. Our Reserved IPs provide static, high-availability IPv4 addresses that ensure your users can always find your servers, load balancers, and VPNs.",
+        details: [
+            "Static Reserved IPv4",
+            "Instant assignment & remapping",
+            "DDOS-ready infrastructure",
+            "Reverse DNS (rDNS) support"
+        ],
+        icon: <Globe size={32} strokeWidth={1.5} />, // Or use <MapPin />
+        image: "/images/ip-preview.jpg",
+        href: `${url}/networks/provider-2`,
+        tag: "Connectivity",
+        hasButton: true
     }
 ]
 
-export default function VPCTablePriceSection() {
+export default function VirtualRouterTablePriceSection() {
     return (
         <section>
             <div className="py-12 max-w-7xl mx-auto text-center">
@@ -42,7 +62,7 @@ export default function VPCTablePriceSection() {
                         description={product.description}
                         icon={product.icon}
                         href={product.href}
-                        showButton={true}
+                        showButton={product.hasButton}
                     />
                 ))}
             </div>

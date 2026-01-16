@@ -1,12 +1,10 @@
 
 import LoadBalancerPricingPage from '@/components/page/pricing/LoadBalancerPricingPage'
-import { getPackageVM } from '@/lib/api/getPackageVM'
+import { getPackageLoadBalancer } from '@/lib/api/getPackage'
 
 export default async function page() {
 
-  const packages = await getPackageVM({service: "Load Balancer"})
-
-  console.log("Responsed: ", packages)
+  const packages = await getPackageLoadBalancer({service: "Load Balancer"})
 
   return (
     <div>

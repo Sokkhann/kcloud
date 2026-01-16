@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+// animation number couting up
 export function useCountUp(
   target: number,
   start: boolean,

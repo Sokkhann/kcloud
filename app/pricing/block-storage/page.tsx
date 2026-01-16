@@ -1,13 +1,15 @@
 import BlockStoragePricingPage from "@/components/page/pricing/BlockStoragePricingPage";
-import { getPackageVM } from "@/lib/api/getPackageVM";
+import { getPackageBlockStorage, getPackageVM } from "@/lib/api/getPackage";
 import React from "react";
 
 export default async function page() {
 
-  const packages = await getPackageVM({service: "Block Storage"})
+  const packageProxmox = await getPackageBlockStorage({service: "Block Storage", provider: "proxmox"})
+  const packageCloudStack = await getPackageBlockStorage({service: "Block Storage", provider: "nimbo"})
+
   return (
     <div>
-      <BlockStoragePricingPage plans={packages ?? []}/>
+      <BlockStoragePricingPage packageCloudStack={packageCloudStack ?? []} packageProxmox={packageProxmox ?? []}/>
     </div>
   );
 }

@@ -1,62 +1,35 @@
 import ChildPricingCard from '@/components/card/ChildPricingCard'
 import { Camera, Layers, ShieldCheck, History } from 'lucide-react';
+import { env } from 'process';
+
+const url = process.env.NEXT_PUBLIC_STACKCONSOLE_URL?.replace(/\/$/, "");
 
 const products = [
-    {
-        title: "Virtual Machine Snapshot",
-        price: "Free", // Often free or based on small storage fees
-        unit: "",
-        description: "Capture the entire state of your instance instantly. Perfect for 'undo' points before performing system updates or configuration changes.",
-        icon: <Camera size={32} strokeWidth={1.5} />,
-        href: "https://stack-console.cloudlab.cam/app/vm-snapshots",
-        tag: "Instant Rollback",
-        showButton: false
-    },
     {
         title: "Block Storage Snapshot",
         price: "0.02",
         unit: "GB",
         description: "Point-in-time copies of your data volumes. Create incremental snapshots of your block storage to ensure data consistency without downtime.",
         icon: <Layers size={32} strokeWidth={1.5} />,
-        href: "https://stack-console.cloudlab.cam/app/block-snapshots",
+        href: `${url}/snapshots`,
         tag: "Data Recovery",
-        showButton: false
-    },
-    {
-        title: "Virtual Machine Backup",
-        price: "20", // Representing the 20% mark
-        unit: "%",
-        description: "Automated, full-instance protection. Schedules full copies of your VM, OS, and settings to a secondary secure storage location.",
-        icon: <History size={32} strokeWidth={1.5} />,
-        href: "https://stack-console.cloudlab.cam/app/vm-backups",
-        tag: "Disaster Recovery",
-        showButton: false
-    },
-    {
-        title: "Managed Backups",
-        price: "0.05",
-        unit: "GB",
-        description: "Durable, off-site storage for your mission-critical data. High-availability backups designed for long-term retention and compliance requirements.",
-        icon: <ShieldCheck size={32} strokeWidth={1.5} />,
-        href: "https://stack-console.cloudlab.cam/app/backups",
-        tag: "Total Security",
-        showButton: false
+        showButton: true
     }
 ];
 
 export default function BlockStoragePricingSection() {
     return (
         <section>
-            {/* <div className="py-12 max-w-7xl mx-auto text-center">
+            <div className="pb-6 md:pb-12 lg:pb-12 max-w-7xl mx-auto text-center">
                 <p className="lg:text-4xl md:text-4xl text-2xl font-semibold mb-2 text-center text-gray-700">
                     High-Performance Deployment Tools
                 </p>
                 <p className="text-center max-w-5xl mx-auto text-gray-600">
                     Enhance your compute environment with specialized boot media, standardized gold images, and intelligent scaling. These tools are designed to streamline your workflow and ensure your infrastructure grows with your traffic.
                 </p>
-            </div> */}
+            </div>
 
-            {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto px-4 pb-6 lg:pb-12 md:pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto px-4 pb-6 lg:pb-12 md:pb-12">
                 {products.map((product) => (
                     <ChildPricingCard
                         price={product.price}
@@ -69,7 +42,7 @@ export default function BlockStoragePricingSection() {
                         showButton={product.showButton}
                     />
                 ))}
-            </div> */}
+            </div>
         </section>
     )
 }

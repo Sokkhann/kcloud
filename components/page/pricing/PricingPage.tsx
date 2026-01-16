@@ -22,30 +22,12 @@ const additionalPackages: PackageProps[] = [
   },
   // networking
   {
-    name: "IP Address",
-    category: "Networking",
-    path: "/pricing/ip-address",
-    description: "Networking package for provisioning and managing dedicated public and private IP resources."
-  },
-  {
     name: "Load Balancer",
     category: "Networking",
     path: "/pricing/load-balancer",
     description: "High-availability traffic management to balance workloads and scale your applications seamlessly."
   },
-  {
-    name: "VPC",
-    category: "Networking",
-    path: "/pricing/vpc",
-    description: "Isolated cloud environment package for building secure, private virtual networks."
-  },
   // storage
-  {
-    name: "Block Storage Snapshot",
-    category: "Storage",
-    path: "/pricing/block-storage-snapshot",
-    description: "Point-in-time data protection package to ensure rapid recovery of your block storage volumes."
-  },
   {
     name: "Block Storage",
     category: "Storage",
@@ -53,9 +35,9 @@ const additionalPackages: PackageProps[] = [
     description: "High-performance SSD storage tier designed for low-latency and IOPS-intensive applications."
   },
   {
-    name: "Virtual Machine Backup",
+    name: "Backup",
     category: "Storage",
-    path: "/pricing/virtual-machine-backup",
+    path: "/pricing/backup",
     description: "Full-system image protection package designed to recover entire VM instances from data loss."
   },
 ];

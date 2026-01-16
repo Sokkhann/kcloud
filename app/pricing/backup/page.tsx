@@ -1,14 +1,18 @@
 import BackupPricingPage from '@/components/page/pricing/BackupPricingPage'
-import { getPackageVM } from '@/lib/api/getPackageVM'
+import { getPackageBlockStorage, getPackageVM } from '@/lib/api/getPackage'
 import React from 'react'
 
 export default async function page() {
 
-  const packages = await getPackageVM({service:"Backups"})
+  const packageBlockStorageBackup = await getPackageBlockStorage({ service: "Block Storage Backup" })
+  const packageVMBackup = await getPackageBlockStorage({ service: "Virtual Machine Backup" })
 
   return (
     <div>
-      <BackupPricingPage plans={packages ?? []}/>
+      <BackupPricingPage
+        packageBlockStorageBackup={packageBlockStorageBackup ?? []}
+        packageVMBackup={packageVMBackup ?? []}
+      />
     </div>
   )
 }

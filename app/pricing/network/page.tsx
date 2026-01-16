@@ -1,5 +1,5 @@
 import NetworkPricingPage from '@/components/page/pricing/NetworkPricingPage'
-import { getPackageVM } from '@/lib/api/getPackageVM'
+import { getPackageVM } from '@/lib/api/getPackage'
 import React from 'react'
 
 export default async function page() {

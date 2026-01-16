@@ -1,13 +1,15 @@
 import ChildPricingCard from '@/components/card/ChildPricingCard';
 import { ShieldCheck, CloudUpload } from 'lucide-react';
 
+const url = process.env.NEXT_PUBLIC_STACKCONSOLE_URL?.replace(/\/$/, "");
+
 const products = [
     {
         title: "Virtual Machine Backup",
         price: "20%", // Usually a percentage of instance cost
         description: "Full-stack protection for your instances. Automatically backs up the operating system, configurations, and all attached volumes for total disaster recovery.",
         icon: <ShieldCheck size={32} strokeWidth={1.5} />,
-        href: "https://stack-console.cloudlab.cam/app/backups",
+        href: `${url}/backup`,
         tag: "Full Protection"
     },
     {
@@ -15,7 +17,7 @@ const products = [
         price: "0.05", // Price per GB
         description: "Secure your critical data volumes independently. High-durability backups for your block storage, allowing for easy data restoration without affecting your VM.",
         icon: <CloudUpload size={32} strokeWidth={1.5} />,
-        href: "https://stack-console.cloudlab.cam/app/storage-backup",
+        href: `${url}/backup`,
         tag: "Data Security"
     }
 ];
