@@ -19,7 +19,7 @@ const products = [
 
 export default function BlockStoragePricingSection() {
     return (
-        <section>
+        <section className=' pb-6 lg:pb-12 md:pb-12'>
             <div className="pb-6 md:pb-12 lg:pb-12 max-w-7xl mx-auto text-center">
                 <p className="lg:text-4xl md:text-4xl text-2xl font-semibold mb-2 text-center text-gray-700">
                     High-Performance Deployment Tools
@@ -29,7 +29,7 @@ export default function BlockStoragePricingSection() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto px-4 pb-6 lg:pb-12 md:pb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto px-4">
                 {products.map((product) => (
                     <ChildPricingCard
                         price={product.price}

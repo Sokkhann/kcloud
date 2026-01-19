@@ -53,7 +53,7 @@ export default function VirtualRouterTablePriceSection() {
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-7xl mx-auto px-4 pb-6 lg:pb-12 md:pb-12">
                 {products.map((product) => (
                     <ChildPricingCard
                         price={product.price}

@@ -54,9 +54,9 @@ const products = [
 
 export default function VirtualMachineTablePriceSection() {
   return (
-    <section className='px-4 lg:px-8 md:px-8'>
+    <section className='px-4 lg:px-8 md:px-8 pb-6 md:pb-12'>
       <div className="py-12 max-w-7xl mx-auto text-center">
-        <p className="lg:text-4xl md:text-4xl text-2xl font-semibold mb-2 text-center text-gray-700">
+        <p className="lg:text-4xl md:text-4xl text-2xl font-semibold mb-4 text-center text-gray-700">
           High-Performance Deployment Tools
         </p>
         <p className="text-center max-w-5xl mx-auto text-gray-600">

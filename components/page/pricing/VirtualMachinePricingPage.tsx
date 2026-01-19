@@ -6,12 +6,38 @@ import { PackageData } from "@/type/dataTypes";
 import { vmColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import VirtualMachineTablePriceSection from "@/components/section/pricing/virtual-machine/VirtualMachineTablePriceSection";
+import QuestionCard from "@/components/card/QuestionCard";
 
 interface PackageProps {
   planProxmox: PackageData[],
   planCloudstackGeneralCompute: PackageData[],
   planCloudstackComputeOptimized: PackageData[],
 }
+
+const faqData= [
+  {
+    question: "Why choose a local cloud like GCX?",
+    answer: "By hosting locally in Cambodia, you get faster speeds (low latency) and ensure your data stays secure within national borders."
+  },
+  {
+    question: "How fast can I deploy a server?",
+    answer: "With our optimized infrastructure, you can launch a new instance in under 60 seconds, making your deployment easier and more efficient."
+  },
+  {
+    question: "Is my data secure with GCX?",
+    answer: "Yes. We use enterprise-grade encryption and local Tier-3 data centers to ensure your business remains secure and online 24/7."
+  },
+  {
+    question: "Can I scale my resources easily?",
+    answer: "Absolutely. GCX allows you to upgrade your CPU, RAM, or Storage with a single click—an easier way to grow without downtime."
+  },
+  {
+    question: "Do you provide local technical support?",
+    answer: "Yes! Our team is right here in Cambodia. Being local means we offer faster resolution times in your own timezone."
+  }
+];
+
+
 
 export default function VirtualMachinePricingPage({ planProxmox, planCloudstackGeneralCompute, planCloudstackComputeOptimized }: PackageProps) {
 
@@ -106,6 +132,8 @@ export default function VirtualMachinePricingPage({ planProxmox, planCloudstackG
             </div>
 
             <VirtualMachineTablePriceSection />
+
+            <QuestionCard faqData={faqData} />
           </div>
         </div>
       </div>

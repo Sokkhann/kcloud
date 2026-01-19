@@ -5,11 +5,39 @@ import { blockStorageColumns, vmColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
 import BlockStoragePricingSection from "@/components/section/pricing/block-storage/BlockStoragePricingSection";
+import QuestionCard from "@/components/card/QuestionCard";
 
 interface PackageProps {
   packageProxmox: PackageData[]
   packageCloudStack: PackageData[]
 }
+
+const blockStorageFaqs = [
+  {
+    question: "What is GCX Block Storage?",
+    answer: "Block Storage acts like a high-speed external hard drive for your Virtual Machines. It allows you to store data independently of your VM, making your data more secure and persistent."
+  },
+  {
+    question: "Is local storage faster than cloud storage located abroad?",
+    answer: "Yes. Because our storage clusters are located locally in Cambodia, the physical distance between your VM and the data is minimal. This results in faster disk read/write speeds (IOPS) for your applications."
+  },
+  {
+    question: "Can I move a Block Storage volume between different VMs?",
+    answer: "Absolutely. You can detach a volume from one VM and attach it to another in seconds. This makes it easier to migrate data or upgrade your infrastructure without losing information."
+  },
+  {
+    question: "Does deleting my VM delete my Block Storage?",
+    answer: "No. Block Storage is independent. You can delete your VM while keeping your data volumes safe. This provides an extra layer of security for your important databases and files."
+  },
+  {
+    question: "What performance tiers do you offer?",
+    answer: "We offer different tiers based on your needs, from standard HDD for backups to high-performance SSD for heavy-duty databases. You only pay for the performance and capacity you need."
+  },
+  {
+    question: "How do I back up my Block Storage?",
+    answer: "GCX makes it easier to protect your data through automated Snapshots. You can capture the state of your disk at any moment and restore it instantly if needed."
+  }
+];
 
 export default function BlockStoragePricingPage({ packageCloudStack, packageProxmox }: PackageProps) {
 
@@ -78,6 +106,9 @@ export default function BlockStoragePricingPage({ packageCloudStack, packageProx
       </div>
 
       <BlockStoragePricingSection />
+
+      <QuestionCard faqData={blockStorageFaqs} />
+
     </div>
   );
 }
