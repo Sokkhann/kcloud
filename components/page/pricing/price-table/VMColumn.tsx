@@ -319,6 +319,14 @@ export const k8Columns = (serviceName: string): ColumnDef<PackageData>[] => {
       header: "CPU",
     },
     {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "memory",
+      header: "Memory",
+    },
+    {
       accessorKey: "priceHour",
       header: "$/hr",
       cell: ({ row }) => {

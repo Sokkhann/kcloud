@@ -7,6 +7,110 @@ interface FetchArgs {
 
 const pendingRequests = new Map<string, Promise<PackageData[] | null>>();
 
+export async function getOverviewPackages() {
+  try {
+    // Fetching exactly what you requested in parallel for performance
+    const [
+      vmCloudStack,
+      vmProxmox,
+      k8s,
+      lb,
+      storageCloudStack,
+      storageProxmox
+    ] = await Promise.all([
+      getPackageVM({ service: "Virtual Machine", provider: "cloudstack-01", category: "General Compute" }),
+      getPackageVM({ service: "Virtual Machine", provider: "proxmox", category: "General Compute" }),
+      getPackageK8s({ service: "Kubernetes", provider: "nimbo" }), // Nimbo based on your K8s fetcher
+      getPackageLoadBalancer({ service: "Load Balancer", provider: "cloudstack-01" }),
+      getPackageBlockStorage({ service: "Block Storage", provider: "nimbo" }),
+      getPackageBlockStorage({ service: "Block Storage", provider: "proxmox" }),
+    ]);
+
+    const items = [
+      {
+        data: vmProxmox?.[0],
+        name: "Standard Virtual Machine",
+        path: "/pricing/virtual-machine",
+        type: "vm",
+        sectionId: "proxmox",
+        provider: "Proxmox",
+        desc: "High-performance virtualization optimized for general purpose workloads."
+      },
+      {
+        data: vmCloudStack?.[0],
+        name: "Enterprise Cloud VM",
+        path: "/pricing/virtual-machine",
+        sectionId: "cloudstack",
+        type: "vm",
+        provider: "CloudStack",
+        desc: "Flexible enterprise cloud instances for scalable business applications."
+      },
+      {
+        data: k8s?.[0],
+        name: "Managed Kubernetes",
+        path: "/pricing/kubernetes",
+        type: "k8s",
+        sectionId: "kubernetes", // Added for consistency
+        provider: "Nimbo",
+        desc: "Fully managed container orchestration for modern cloud-native apps."
+      },
+      {
+        data: lb?.[0],
+        name: "Global Load Balancer",
+        path: "/pricing/networking",
+        type: "lb",
+        sectionId: "networking", // Added for consistency
+        provider: "CloudStack",
+        desc: "Managed traffic distribution ensuring high availability and uptime."
+      },
+      {
+        data: storageCloudStack?.[0],
+        name: "Enterprise Block Storage",
+        path: "/pricing/storage",
+        type: "storage",
+        sectionId: "cloudstack-storage",
+        provider: "CloudStack",
+        desc: "Scalable, secure block storage designed for enterprise data integrity."
+      },
+      {
+        data: storageProxmox?.[0],
+        name: "High-Speed NVMe Storage",
+        path: "/pricing/storage",
+        type: "storage",
+        sectionId: "proxmox-storage",
+        provider: "Proxmox",
+        desc: "Ultra-fast NVMe/SSD storage volumes for intensive I/O operations."
+      },
+    ];
+
+    // Map and format for the UI
+    // Map and format for the UI
+    return items
+      .filter(item => item.data)
+      .map(item => {
+        // 1. Remove $ and any commas
+        const rawPrice = item.data.priceMonth ? item.data.priceMonth.replace(/[$,]/g, '') : "0";
+
+        // 2. Convert to number and force 1 decimal place
+        const formattedPrice = parseFloat(rawPrice).toFixed(1);
+
+        return {
+          name: item.name,
+          price: formattedPrice, // Returns "49.0", "99.5", etc.
+          path: item.path,
+          description: item.data.description || item.data.categoryDescription || item.desc,
+          type: item.type,
+          provider: item.provider,
+          sectionId: item.sectionId,
+        };
+      });
+
+  } catch (error) {
+    console.error("Error in getOverviewPackages:", error);
+    return [];
+  }
+}
+
 export async function getPackageVM({
   service = "Virtual Machine",
   provider = "proxmox",
@@ -194,6 +298,8 @@ export async function getPackageK8s({
         cpu: plan.attribute?.cpu ? `${plan.attribute.cpu} vCPU` : "—",
         memory: plan.attribute?.memory ? `${(plan.attribute.memory / 1024).toFixed(0)} GB` : "—",
         storage: plan.attribute?.storage ? `${plan.attribute.storage} GB` : "—",
+        // description
+        categoryDescription: plan.compute_category?.description || "Shared resources for general workloads.",
         // Pricing
         priceMonth: plan.monthly_price !== undefined ? `$${plan.monthly_price}` : "$0",
         priceHour: plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",

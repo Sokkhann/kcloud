@@ -3,6 +3,7 @@
 import ScrollReveal from '@/components/animations/ScrolReveal';
 import CustomerCardV2 from '@/components/card/CusomterCardV2';
 import { customerOverview } from '@/type/customerOverview';
+import { ArrowRight } from 'lucide-react';
 import React, { useState } from 'react'
 
 export default function CustomerListSection() {
@@ -17,7 +18,6 @@ export default function CustomerListSection() {
         setScrollPercent(scrolled);
     };
     return (
-
         <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16">
             <ScrollReveal>
                 <div className="max-w-7xl mx-auto lg:mb-12">
@@ -26,9 +26,18 @@ export default function CustomerListSection() {
                         <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
                             Customer Testimonials
                         </p>
-                        <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
-                            Real stories. Real results...
+                        <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto pb-4">
+                            We grow when you grow. Hear from the developers and IT managers who have simplified their workflow and eliminated hidden costs by switching to our managed cloud ecosystem.
                         </p>
+                        <a href="/partner" className="relative text-gray-600 hover:text-gcxPrimary font-semibold group inline-flex items-center gap-2">
+                            {/* Text with its own relative container so the underline matches the text width only */}
+                            <span className="relative">
+                                Explore Success Stories
+                            </span>
+
+                            {/* Arrow remains outside the underline span but inside the flex container */}
+                            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
+                        </a>
                     </div>
 
                     <div className="flex flex-col gap-10">
@@ -49,7 +58,7 @@ export default function CustomerListSection() {
                         </div>
 
                         {/* 3. The Dynamic Scroll Track */}
-                        <div className="flex items-center justify-center w-full max-w-xs mx-auto">
+                        {/* <div className="flex items-center justify-center w-full max-w-xs mx-auto">
                             <div className="h-1.5 w-full bg-gray-200 rounded-full overflow-hidden relative">
                                 <div
                                     className="absolute h-full bg-gcxPrimary rounded-full transition-all duration-150 ease-out"
@@ -59,7 +68,7 @@ export default function CustomerListSection() {
                                     }}
                                 />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </ScrollReveal>

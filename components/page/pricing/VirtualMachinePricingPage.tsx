@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import HeroComponent from "@/components/HeroComponent";
 import { PackageData } from "@/type/dataTypes";
 import { vmColumns } from "./price-table/VMColumn";
@@ -14,7 +14,7 @@ interface PackageProps {
   planCloudstackComputeOptimized: PackageData[],
 }
 
-const faqData= [
+const faqData = [
   {
     question: "Why choose a local cloud like GCX?",
     answer: "By hosting locally in Cambodia, you get faster speeds (low latency) and ensure your data stays secure within national borders."
@@ -37,22 +37,46 @@ const faqData= [
   }
 ];
 
-
-
 export default function VirtualMachinePricingPage({ planProxmox, planCloudstackGeneralCompute, planCloudstackComputeOptimized }: PackageProps) {
-
   const tabs = ["General", "Optimized"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  // 1. State for page entry animation
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger entry animation
+    setIsLoaded(true);
+
+    // 2. Handle scrolling to section based on URL Hash (#proxmox or #cloudstack)
+    const hash = window.location.hash;
+    if (hash) {
+      // Small timeout ensures the DOM has rendered before we try to scroll
+      const timer = setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 500); // Adjust timing based on your animation speed
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   return (
-    <div className="w-screen">
-      {/* Hero section */}
+    // 3. Apply animation classes to the main wrapper
+    <div className={`w-screen transition-all duration-1000 transform ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+      }`}>
+
       <HeroComponent
         showGetStarted
         showContactSales
         height="h-[600px]"
         image="/hero-bg.png"
         title="Power Up with the Right Plan"
-        description="No hidden fees. No confusion. Just clear pricing that helps you move faster, achieve more, and focus on what truly matters — your success."
+        description="No hidden fees. No confusion. Just clear pricing..."
       />
 
       <div className="w-screen mt-10">
@@ -69,70 +93,73 @@ export default function VirtualMachinePricingPage({ planProxmox, planCloudstackG
             </div>
 
             {/* Proxmox */}
-            <div className="px-4 lg:px-8 md:px-8">
-              <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
-                Proxmox Cloud Compute
-              </p>
-              <p className="text-gray-600 max-w-5xl">
-                Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
-              </p>
-            </div>
+            <section id="proxmox" className="scroll-mt-40">
+              <div className="px-4 lg:px-8 md:px-8 pb-4">
+                <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
+                  Proxmox Cloud Compute
+                </p>
+                <p className="text-gray-600 max-w-5xl">
+                  Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
+                </p>
+              </div>
 
-            <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
-              <DataTable
-                columns={vmColumns("virtual-machines")}
-                data={planProxmox}
-              />
-            </div>
+              <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
+                <DataTable
+                  columns={vmColumns("virtual-machines")}
+                  data={planProxmox}
+                />
+              </div>
+            </section>
 
             {/* Cloudstack */}
-            <div className="px-4 lg:px-8 md:px-8">
-              <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
-                CloudStack Compute Instances
-              </p>
-              <p className="text-gray-600 max-w-5xl">
-                Experience low-latency performance and high-density computing. Built on the Apache CloudStack framework, our compute instances offer the flexibility to deploy and manage virtualized resources instantly, backed by a resilient architecture that grows with your business needs.              </p>
-            </div>
+            <section id="cloudstack" className="scroll-mt-40">
+              <div className="px-4 lg:px-8 md:px-8">
+                <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
+                  CloudStack Compute Instances
+                </p>
+                <p className="text-gray-600 max-w-5xl">
+                  Experience low-latency performance and high-density computing. Built on the Apache CloudStack framework, our compute instances offer the flexibility to deploy and manage virtualized resources instantly, backed by a resilient architecture that grows with your business needs.              </p>
+              </div>
 
-            <div className="px-4 lg:px-8 md:px-8 space-y-6">
-              <div className="mt-6 flex gap-4 items-center ">
-                <p className="font-bold text-gcxPrimary">Compute Offer</p>
-                {tabs.map((tab) => (
-                  <button
-                    key={tab}
-                    className={`px-4 py-2 rounded-full font-semibold transition
+              <div className="px-4 lg:px-8 md:px-8 space-y-6">
+                <div className="mt-6 flex gap-4 items-center ">
+                  <p className="font-bold text-gcxPrimary">Compute Offer</p>
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab}
+                      className={`px-4 py-2 rounded-full font-semibold transition
               ${activeTab === tab
-                        ? "bg-gcxPrimary text-white"
-                        : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-                      }`}
-                    onClick={() => setActiveTab(tab)}
-                  >
-                    {tab}
-                  </button>
-                ))}
+                          ? "bg-gcxPrimary text-white"
+                          : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                        }`}
+                      onClick={() => setActiveTab(tab)}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+                <div>
+                  {activeTab === "General" && (
+                    <div className="">
+                      <DataTable
+                        columns={vmColumns("virtual-machines")}
+                        data={planCloudstackGeneralCompute}
+                      />
+                    </div>
+                  )}
+                  {activeTab === "Optimized" && (
+                    <div className="">
+                      <DataTable
+                        columns={vmColumns("virtual-machines")}
+                        data={planCloudstackComputeOptimized}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
-              <div>
-                {activeTab === "General" && (
-                  <div className="">
-                    <DataTable
-                      columns={vmColumns("virtual-machines")}
-                      data={planCloudstackGeneralCompute}
-                    />
-                  </div>
-                )}
-                {activeTab === "Optimized" && (
-                  <div className="">
-                    <DataTable
-                      columns={vmColumns("virtual-machines")}
-                      data={planCloudstackComputeOptimized}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
+            </section>
 
             <VirtualMachineTablePriceSection />
-
             <QuestionCard faqData={faqData} />
           </div>
         </div>

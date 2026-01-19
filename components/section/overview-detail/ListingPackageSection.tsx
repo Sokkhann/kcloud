@@ -2,7 +2,7 @@ import ListingOverviewPackage from '@/components/card/ListingOverviewPackage'
 
 export default function ListingPackageSection() {
     return (
-        <div className="max-w-7xl mx-auto py-24 lg:px-8 px-4">
+        <div className="max-w-7xl mx-auto py-24 lg:px-6 px-4">
             {/* title and description */}
             <div className="text-center mx-4 mb-4">
                 <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700 lg:mx-0 mx-12">
