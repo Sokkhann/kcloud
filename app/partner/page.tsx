@@ -1,10 +1,9 @@
-import PartnerCard from '@/components/card/PartnerCard'
-import React from 'react'
+import PartnerPage from '@/components/page/PartnerPage'
 
 export default function page() {
   return (
-    <div className='mt-10 bg-gray-100 w-full'>
-      <PartnerCard/>
+    <div className='mt-10'>
+      <PartnerPage/>
     </div>
   )
 }

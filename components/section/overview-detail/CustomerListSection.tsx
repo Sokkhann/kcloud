@@ -29,15 +29,13 @@ export default function CustomerListSection() {
                         <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto pb-4">
                             We grow when you grow. Hear from the developers and IT managers who have simplified their workflow and eliminated hidden costs by switching to our managed cloud ecosystem.
                         </p>
-                        <a href="/partner" className="relative text-gray-600 hover:text-gcxPrimary font-semibold group inline-flex items-center gap-2">
-                            {/* Text with its own relative container so the underline matches the text width only */}
+                        {/* <a href="/partner" className="relative text-gray-600 hover:text-gcxPrimary font-semibold group inline-flex items-center gap-2">
                             <span className="relative">
                                 Explore Success Stories
                             </span>
 
-                            {/* Arrow remains outside the underline span but inside the flex container */}
                             <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-2" />
-                        </a>
+                        </a> */}
                     </div>
 
                     <div className="flex flex-col gap-10">
