@@ -6,7 +6,7 @@ export default function ProductListSection() {
   return (
     <section
       id="products"
-      className="text-center lg:pb-24"
+      className="text-center lg:py-12 md:py-12 py-6"
     >
       <ScrollReveal>
         <div className="max-w-7xl mx-auto">

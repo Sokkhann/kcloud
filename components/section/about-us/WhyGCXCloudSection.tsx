@@ -35,7 +35,7 @@ export default function WhyGCXCloudSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="lg:py-12 md:py-12 py-6 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         {/* Minimalist Header */}
         <div className="text-center">

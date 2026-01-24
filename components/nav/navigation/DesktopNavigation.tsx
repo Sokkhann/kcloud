@@ -67,11 +67,6 @@ export default function DesktopNavigation({menu}: DesktopNavigationProps) {
                 <Link href="/pricing">Pricing</Link>
               </NavigationMenuItem>
 
-              {/* parnter tab */}
-              <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">
-                <Link href="/partner">Partner</Link>
-              </NavigationMenuItem>
-
               {/* about us tab */}
               <NavigationMenuItem className="group lg:inline-flex h-9 w-max items-center justify-center bg-background px-4 py-2 text-gray-700 text-base tracking-wide rounded-full hover:bg-gcxprimary/10 font-semibold hidden">
                 <Link href="/about-us">About Us</Link>

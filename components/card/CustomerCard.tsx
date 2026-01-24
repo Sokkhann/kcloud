@@ -32,14 +32,14 @@ export default function CustomerCard({ title, description, logo }: CardProps) {
             {description}
           </p>
 
-          {description.length > 150 && ( // only show button if text is long
+          {/* {description.length > 150 && ( // only show button if text is long
             <button
               onClick={toggleExpand}
               className="mt-2 text-gray-600 text-base font-semibold hover:underline focus:outline-none"
             >
               {expanded ? "See less" : "See more"}
             </button>
-          )}
+          )} */}
         </div>
       </div>
     </div>

@@ -42,9 +42,9 @@ export default async function ListingOverviewPackage() {
     const packages = await getOverviewPackages()
 
     return (
-        <div className="flex flex-nowrap gap-6 overflow-x-auto py-12 no-scrollbar snap-x">
+        <div className="flex flex-nowrap gap-6 overflow-x-auto lg:pb-12 md:pb-12 pb-6 no-scrollbar snap-x">
             {packages.map((pkg, i) => (
-                <div key={i} className="min-w-[290px] flex-none lg:w-[calc(25%-18px)] snap-center group relative">
+                <div key={i} className="min-w-[290px] flex-none lg:w-[calc(25%-18px)] md:w-[calc(35%-16px)] w-[calc(45%-16px)] snap-center group relative">
                     <div className="bg-white h-[400px] rounded-2xl border border-gray-100 flex flex-col p-8 relative overflow-hidden transition-all duration-500 hover:shadow-lg hover:shadow-gcxprimary/60">
 
                         {/* Massive Background Dollar Sign */}

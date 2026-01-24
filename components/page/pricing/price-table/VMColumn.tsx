@@ -106,7 +106,7 @@ export const vmColumns = (serviceName: string): ColumnDef<PackageData>[] => {
       id: "actions",
       header: () => <div className="text-right"></div>,
       cell: ({ row }) => {
-        const plan = row.original; // This is your PackageData object
+        const plan = row.original;
 
         const handleClick = () => {
           const dashboardUrl = `${baseUrl}/projects/${serviceName}/create`;

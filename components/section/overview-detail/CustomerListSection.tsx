@@ -18,9 +18,9 @@ export default function CustomerListSection() {
         setScrollPercent(scrolled);
     };
     return (
-        <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16">
+        <section id="why-choose-gcx" className="lg:py-12 md:py-12 py-6">
             <ScrollReveal>
-                <div className="max-w-7xl mx-auto lg:mb-12">
+                <div className="max-w-7xl mx-auto">
                     {/* title and description */}
                     <div className="text-center justify-center lg:mx-0 mx-4 lg:mb-6 md:mb-6">
                         <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">

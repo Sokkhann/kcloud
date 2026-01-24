@@ -5,7 +5,7 @@ export default function PartnerCard({ logo, description, link }: CardProps) {
 
     return (
         <a href={link} className=" group relative block overflow-hidden rounded-2xl hover:shadow-lg hover:shadow-gcxPrimary/40 transition-all duration-500">
-            <div className="rounded-2xl transition-all duration-300 bg-white overflow-hidden">
+            <div className="rounded-2xl transition-all duration-300 bg-gray-100 overflow-hidden">
                 <div className="p-6 flex flex-col justify-between h-95 relative z-10">
                     {/* Top Section */}
                     <div className='grid gap-4'>

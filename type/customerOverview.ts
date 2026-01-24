@@ -1,9 +1,14 @@
 export interface CardProps {
+  slug?: string;
   title: string;
-  description: string;
+  description?: string;
+  subTitle?: string;
+  contents?: string;
   logo: string;
   link?: string;
 }
+
+
 
 export const customerOverview: CardProps[] = [
   {

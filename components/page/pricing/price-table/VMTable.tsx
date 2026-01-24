@@ -15,15 +15,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import Link from "next/link";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  serviceName?: string;
 }
+
+const baseUrl = process.env.NEXT_PUBLIC_STACKCONSOLE_URL
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  serviceName
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -50,9 +55,9 @@ export function DataTable<TData, TValue>({
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   );
                 })}
@@ -67,7 +72,7 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="h-12">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -89,6 +94,15 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
+
+      {/* NEW: Link below the table, only shows if there is data */}
+      {/* {table.getRowModel().rows?.length > 0 && (
+        <div className="border-t border-gray-200 p-3 bg-gray-50 text-center">
+          <Link href={`${baseUrl}/${serviceName}/create`} className="text-sm font-medium text-blue-600 hover:text-blue-800">
+            See more data →
+          </Link>
+        </div>
+      )} */}
     </div>
   );
 }

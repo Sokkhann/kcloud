@@ -83,7 +83,7 @@ export default function ProductCardCarousel() {
 const ProductCard = ({ product }: { product: ProductListProps }) => {
   const LucideIcon = (icons as any)[product.icon] || icons.Cloud;
   return (
-    <Link href={product.path} className="group relative bg-white rounded-2xl shadow-sm overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60 aspect-[4/3] sm:aspect-square p-5 md:p-8">
+    <Link href={product.path} className="group relative bg-white rounded-2xl overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60 aspect-[4/3] sm:aspect-square p-5 md:p-8">
       <div className="relative z-10 flex flex-col h-full">
         <h3 className="lg:text-2xl md:text-2xl text-lg font-bold text-gray-700 group-hover:text-gcxPrimary mb-4">{product.name}</h3>
         <p className="text-gray-500 leading-relaxed mb-auto">

@@ -57,7 +57,7 @@ export async function getOverviewPackages() {
       {
         data: lb?.[0],
         name: "Global Load Balancer",
-        path: "/pricing/networking",
+        path: "/pricing/load-balancer",
         type: "lb",
         sectionId: "networking", // Added for consistency
         provider: "CloudStack",
@@ -66,18 +66,18 @@ export async function getOverviewPackages() {
       {
         data: storageCloudStack?.[0],
         name: "Enterprise Block Storage",
-        path: "/pricing/storage",
+        path: "/pricing/block-storage",
         type: "storage",
-        sectionId: "cloudstack-storage",
+        sectionId: "cloudstack",
         provider: "CloudStack",
         desc: "Scalable, secure block storage designed for enterprise data integrity."
       },
       {
         data: storageProxmox?.[0],
         name: "High-Speed NVMe Storage",
-        path: "/pricing/storage",
+        path: "/pricing/block-storage",
         type: "storage",
-        sectionId: "proxmox-storage",
+        sectionId: "proxmox",
         provider: "Proxmox",
         desc: "Ultra-fast NVMe/SSD storage volumes for intensive I/O operations."
       },

@@ -1,7 +1,7 @@
 "use client";
 
 import HeroComponent from "@/components/HeroComponent";
-import { blockStorageColumns, vmColumns } from "./price-table/VMColumn";
+import { blockStorageColumns } from "./price-table/VMColumn";
 import { DataTable } from "./price-table/VMTable";
 import { PackageData } from "@/type/dataTypes";
 import BlockStoragePricingSection from "@/components/section/pricing/block-storage/BlockStoragePricingSection";
@@ -69,38 +69,42 @@ export default function BlockStoragePricingPage({ packageCloudStack, packageProx
             </div>
 
             {/* Proxmox */}
-            <div className="px-4 lg:px-8 md:px-8 ">
-              <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
-                Proxmox Cloud Compute
-              </p>
-              <p className="text-gray-600 max-w-5xl">
-                Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
-              </p>
-            </div>
+            <section id="proxmox" className="scroll-mt-40">
+              <div className="px-4 lg:px-8 md:px-8" >
+                <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
+                  Proxmox Cloud Compute
+                </p>
+                <p className="text-gray-600 max-w-5xl">
+                  Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
+                </p>
+              </div>
 
-            <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
-              <DataTable
-                columns={blockStorageColumns("block-storage")}
-                data={packageProxmox}
-              />
-            </div>
+              <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
+                <DataTable
+                  columns={blockStorageColumns("block-storage")}
+                  data={packageProxmox}
+                />
+              </div>
+            </section>
 
             {/* CloudStack */}
-            <div className="px-4 lg:px-8 md:px-8 ">
-              <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
-                CloudStack Compute
-              </p>
-              <p className="text-gray-600 max-w-5xl">
-                Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
-              </p>
-            </div>
+            <section id="cloudstack" className="scroll-mt-40">
+              <div className="px-4 lg:px-8 md:px-8 ">
+                <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
+                  CloudStack Compute
+                </p>
+                <p className="text-gray-600 max-w-5xl">
+                  Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
+                </p>
+              </div>
 
-            <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
-              <DataTable
-                columns={blockStorageColumns("block-storage")}
-                data={packageCloudStack}
-              />
-            </div>
+              <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
+                <DataTable
+                  columns={blockStorageColumns("block-storage")}
+                  data={packageCloudStack}
+                />
+              </div>
+            </section>
           </div>
         </div>
       </div>

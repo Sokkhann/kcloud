@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function FeaturedTestimonial({ description, logo, title }: CardProps) {
     return (
-        <div className="group relative flex flex-col justify-between rounded-2xl p-8 bg-white border border-gray-100 lg:w-[400px] w-[350px] lg:h-[340px] h-[300px] hover:-translate-y-2 transition-all duration-500 shadow-sm hover:shadow-lg hover:shadow-gcxPrimary/60">
+        <div className="group relative flex flex-col justify-between rounded-2xl p-8 bg-white lg:w-[400px] w-[350px] lg:h-[340px] h-[300px] hover:-translate-y-2 transition-all duration-500 hover:shadow-lg hover:shadow-gcxPrimary/60">
             {/* Accent Bar */}
             <div className="absolute left-0 top-12 bottom-12 w-1 bg-gcxPrimary/40 group-hover:bg-gcxPrimary rounded-r-full" />
 

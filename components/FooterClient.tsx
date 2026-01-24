@@ -88,14 +88,6 @@ export default function FooterClient() {
             </li>
             <li>
               <Link
-                href="/partner"
-                className="hover:underline cursor-pointer md:text-base text-sm"
-              >
-                Partners
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/policy"
                 className="hover:underline cursor-pointer md:text-base text-sm"
               >

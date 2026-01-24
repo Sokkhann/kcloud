@@ -25,13 +25,13 @@ export default function PartnerSection() {
     };
 
     return (
-        <section className="container mx-auto p-8">
+        <section className="container mx-auto lg:px-6 md:px-6 px-4">
             {/* The Grid */}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {currentItems.map((customer, index) => (
                     <PartnerCard
                         key={index} // Better to use title than index for keys
-                        description={customer.description}
+                        description={customer.desc}
                         logo={customer.logo}
                         title={customer.title}
                         link={customer.link}
