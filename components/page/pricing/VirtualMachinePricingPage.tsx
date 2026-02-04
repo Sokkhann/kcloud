@@ -9,9 +9,11 @@ import VirtualMachineTablePriceSection from "@/components/section/pricing/virtua
 import QuestionCard from "@/components/card/QuestionCard";
 
 interface PackageProps {
-  planProxmox: PackageData[],
-  planCloudstackGeneralCompute: PackageData[],
-  planCloudstackComputeOptimized: PackageData[],
+  planProxmoxGeneralCompute: PackageData[]
+  planCloudstackBasic: PackageData[],
+  planCloudstackCPUOptimized: PackageData[],
+  planCloudstackMemoryOptimized: PackageData[],
+  planCloudstackGeneralPurpose: PackageData[]
 }
 
 const faqData = [
@@ -37,9 +39,13 @@ const faqData = [
   }
 ];
 
-export default function VirtualMachinePricingPage({ planProxmox, planCloudstackGeneralCompute, planCloudstackComputeOptimized }: PackageProps) {
-  const tabs = ["General", "Optimized"];
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, planCloudstackBasic, planCloudstackCPUOptimized, planCloudstackMemoryOptimized, planCloudstackGeneralPurpose }: PackageProps) {
+  const tabShared1 = ["General Compute"];
+  const tabShared = ["Basic"];
+  const tabDedicated = ["CPU Optimized", "Memory Optimized", "General Purpose"];
+  const [activeTabShared1, setActiveTabShared1] = useState(tabShared1[0]);
+  const [activeTabShared, setActiveTabShared] = useState(tabShared[0]);
+  const [activeTabDedicated, setActiveTabDedicated] = useState(tabDedicated[0]);
 
   // 1. State for page entry animation
   const [isLoaded, setIsLoaded] = useState(false);
@@ -94,20 +100,42 @@ export default function VirtualMachinePricingPage({ planProxmox, planCloudstackG
 
             {/* Proxmox */}
             <section id="proxmox" className="scroll-mt-40">
-              <div className="px-4 lg:px-8 md:px-8 pb-4">
+              <div className="px-4 lg:px-8 md:px-8">
                 <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
-                  Proxmox Cloud Compute
+                  Proxmox Compute Instances
                 </p>
                 <p className="text-gray-600 max-w-5xl">
-                  Take full control of your infrastructure with Proxmox. Whether you need full hardware virtualization with KVM or lightweight isolated containers, our Proxmox nodes offer high-speed I/O and low-latency networking to keep your development pipeline moving fast.
-                </p>
+                  Experience low-latency performance and high-density computing. Built on the Apache CloudStack framework, our compute instances offer the flexibility to deploy and manage virtualized resources instantly, backed by a resilient architecture that grows with your business needs.              </p>
               </div>
 
-              <div className="px-4 lg:px-8 md:px-8 pb-6 lg:pb-12 md:pb-12">
-                <DataTable
-                  columns={vmColumns("virtual-machines")}
-                  data={planProxmox}
-                />
+              {/* shared cpu (pve1)  */}
+              <div className="px-4 lg:px-8 md:px-8 space-y-6 lg:pb-12 md:pb-12 pb-6">
+                <div className="mt-6 flex gap-4 items-center ">
+                  <p className="font-bold text-gcxPrimary">Shared CPU (pve1)</p>
+                  {tabShared1.map((tab) => (
+                    <button
+                      key={tab}
+                      className={`px-4 py-2 rounded-full font-semibold transition
+              ${activeTabShared1 === tab
+                          ? "bg-gcxPrimary text-white"
+                          : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                        }`}
+                      onClick={() => setActiveTabShared(tab)}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+                <div>
+                  {activeTabShared1 === "General Compute" && (
+                    <div className="">
+                      <DataTable
+                        columns={vmColumns("virtual-machines")}
+                        data={planProxmoxGeneralCompute}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
             </section>
 
@@ -121,37 +149,77 @@ export default function VirtualMachinePricingPage({ planProxmox, planCloudstackG
                   Experience low-latency performance and high-density computing. Built on the Apache CloudStack framework, our compute instances offer the flexibility to deploy and manage virtualized resources instantly, backed by a resilient architecture that grows with your business needs.              </p>
               </div>
 
-              <div className="px-4 lg:px-8 md:px-8 space-y-6">
+              {/* shared cpu  */}
+              <div className="px-4 lg:px-8 md:px-8 space-y-6 lg:pb-12 md:pb-12 pb-6">
                 <div className="mt-6 flex gap-4 items-center ">
-                  <p className="font-bold text-gcxPrimary">Compute Offer</p>
-                  {tabs.map((tab) => (
+                  <p className="font-bold text-gcxPrimary">Shared CPU</p>
+                  {tabShared.map((tab) => (
                     <button
                       key={tab}
                       className={`px-4 py-2 rounded-full font-semibold transition
-              ${activeTab === tab
+              ${activeTabShared === tab
                           ? "bg-gcxPrimary text-white"
                           : "bg-gray-100 text-gray-800 hover:bg-gray-200"
                         }`}
-                      onClick={() => setActiveTab(tab)}
+                      onClick={() => setActiveTabShared(tab)}
                     >
                       {tab}
                     </button>
                   ))}
                 </div>
                 <div>
-                  {activeTab === "General" && (
+                  {activeTabShared === "Basic" && (
                     <div className="">
                       <DataTable
                         columns={vmColumns("virtual-machines")}
-                        data={planCloudstackGeneralCompute}
+                        data={planCloudstackBasic}
                       />
                     </div>
                   )}
-                  {activeTab === "Optimized" && (
+                </div>
+              </div>
+
+              {/* dedicated cpu */}
+              <div className="px-4 lg:px-8 md:px-8 space-y-6">
+                <div className="mt-6 flex gap-4 items-center ">
+                  <p className="font-bold text-gcxPrimary">Dedicated CPU</p>
+                  {tabDedicated.map((tab) => (
+                    <button
+                      key={tab}
+                      className={`px-4 py-2 rounded-full font-semibold transition
+              ${activeTabDedicated === tab
+                          ? "bg-gcxPrimary text-white"
+                          : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                        }`}
+                      onClick={() => setActiveTabDedicated(tab)}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+                <div>
+
+                  {activeTabDedicated === "CPU Optimized" && (
                     <div className="">
                       <DataTable
                         columns={vmColumns("virtual-machines")}
-                        data={planCloudstackComputeOptimized}
+                        data={planCloudstackCPUOptimized}
+                      />
+                    </div>
+                  )}
+                  {activeTabDedicated === "Memory Optimized" && (
+                    <div className="">
+                      <DataTable
+                        columns={vmColumns("virtual-machines")}
+                        data={planCloudstackMemoryOptimized}
+                      />
+                    </div>
+                  )}
+                  {activeTabDedicated === "General Purpose" && (
+                    <div className="">
+                      <DataTable
+                        columns={vmColumns("virtual-machines")}
+                        data={planCloudstackGeneralPurpose}
                       />
                     </div>
                   )}

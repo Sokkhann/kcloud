@@ -16,18 +16,33 @@ const suwannaphum = Suwannaphum({
 });
 
 export const metadata: Metadata = {
-  title: "Global Cloud Exchange",
-  description: "GCX Global Cloud Exchange in Cambodia number",
-  icons: {
-    icon: [
+  title: {
+    default: "K Cloud",
+    template: "%s | K Cloud",
+  },
+  description: "Secure and scalable cloud connectivity solutions.",
+  keywords: ["cloud", "connectivity", "KCloud", "enterprise network"],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "K Cloud",
+    description: "Secure and scalable cloud connectivity solutions.",
+    url: "https://gcx.cloud",
+    siteName: "K Cloud",
+    images: [
       {
-        url: "/gcx-logo.png",
-        type: "image/png",
-        sizes: ""
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
       },
     ],
+    type: "website",
   },
 };
+
+
 export default function RootLayout({
   children,
 }: Readonly<{

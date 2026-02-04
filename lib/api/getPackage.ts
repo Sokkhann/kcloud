@@ -19,8 +19,8 @@ export async function getOverviewPackages() {
       storageCloudStack,
       storageProxmox
     ] = await Promise.all([
-      getPackageVM({ service: "Virtual Machine", provider: "cloudstack-01", category: "General Compute" }),
-      getPackageVM({ service: "Virtual Machine", provider: "proxmox", category: "General Compute" }),
+      getPackageVM({ service: "Virtual Machine", provider: "CloudStack-01" }),
+      getPackageVM({ service: "Virtual Machine", provider: "Proxmox" }),
       getPackageK8s({ service: "Kubernetes", provider: "nimbo" }), // Nimbo based on your K8s fetcher
       getPackageLoadBalancer({ service: "Load Balancer", provider: "cloudstack-01" }),
       getPackageBlockStorage({ service: "Block Storage", provider: "nimbo" }),
@@ -29,6 +29,15 @@ export async function getOverviewPackages() {
 
     const items = [
       {
+        data: vmCloudStack?.[0],
+        name: "Enterprise Cloud VM",
+        path: "/pricing/virtual-machine",
+        sectionId: "cloudstack",
+        type: "vm",
+        provider: "Cloudstak",
+        desc: "Flexible enterprise cloud instances for scalable business applications."
+      },
+      {
         data: vmProxmox?.[0],
         name: "Standard Virtual Machine",
         path: "/pricing/virtual-machine",
@@ -36,15 +45,6 @@ export async function getOverviewPackages() {
         sectionId: "proxmox",
         provider: "Proxmox",
         desc: "High-performance virtualization optimized for general purpose workloads."
-      },
-      {
-        data: vmCloudStack?.[0],
-        name: "Enterprise Cloud VM",
-        path: "/pricing/virtual-machine",
-        sectionId: "cloudstack",
-        type: "vm",
-        provider: "CloudStack",
-        desc: "Flexible enterprise cloud instances for scalable business applications."
       },
       {
         data: k8s?.[0],
@@ -114,14 +114,14 @@ export async function getOverviewPackages() {
 
 export async function getPackageVM({
   service = "Virtual Machine",
-  provider = "proxmox",
-  category = "General Compute"
+  provider,
+  category
 }: FetchArgs & {
-  provider?: "proxmox" | "cloudstack-01",
-  category?: "General Compute" | "Compute Optimized"
+  provider?: "Proxmox" | "CloudStack-01",
+  category?: "General Purpose" | "Memory-Optimized" | "Basic" | "CPU-Optimized" | "General Compute"
 }): Promise<any[] | null> {
 
-  const requestKey = `${service}-${provider}-${category}`;
+  const requestKey = `${service}-${provider || "any"}-${category || "any"}`;
   if (pendingRequests.has(requestKey)) return pendingRequests.get(requestKey)!;
 
   const fetchTask = (async (): Promise<any[] | null> => {
@@ -142,41 +142,46 @@ export async function getPackageVM({
         next: { revalidate: 60 },
       });
 
-      if (!res.ok) return null;
+      if (!res.ok) {
+        console.error("[getPackageVM] API Error:", res.status, await res.text());
+        return null;
+      }
 
       const json = await res.json();
       const data = json.data ?? [];
 
-      return data
-        .filter((plan: any) => {
-          const setupSlug = plan.cloud_provider_setup?.slug?.toLowerCase() || "";
-          const planCategoryName = plan.plan_category?.name?.toLowerCase() || "";
+      // FILTER: only filter if provider or category is passed
+      const filtered = data.filter((plan: any) => {
+        const setupSlug = plan.cloud_provider_setup?.slug?.toLowerCase() || "";
+        const planCategoryName = plan.plan_category?.name?.toLowerCase() || "";
 
-          return (
-            setupSlug.includes(provider.toLowerCase()) &&
-            planCategoryName.includes(category.toLowerCase()) &&
-            !!plan.name &&
-            plan.attribute
-          );
-        })
-        // --- ADDED SORT LOGIC HERE ---
-        .sort((a: any, b: any) => {
-          const priceA = parseFloat(a.monthly_price) || 0;
-          const priceB = parseFloat(b.monthly_price) || 0;
-          return priceA - priceB; // Ascending: Lower to Higher
-        })
-        // -----------------------------
-        .map((plan: any) => ({
-          id: plan.id,
-          name: plan.name,
-          cpu: plan.attribute?.cpu ? `${plan.attribute.cpu} vCPU` : "—",
-          memory: plan.attribute?.memory ? `${(plan.attribute.memory / 1024).toFixed(0)} GB` : "—",
-          priceMonth: plan.monthly_price !== undefined ? `$${plan.monthly_price}` : "$0",
-          priceHour: plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",
-          slug: plan.slug || plan.name?.toLowerCase().replace(/\s+/g, "-") || "vm-plan",
-          categoryName: plan.plan_category?.name,
-          cpuType: plan.compute_category?.name
-        }));
+        const providerMatch = provider ? setupSlug.includes(provider.toLowerCase()) : true;
+        const categoryMatch = category ? planCategoryName.includes(category.toLowerCase()) : true;
+
+        return providerMatch && categoryMatch && !!plan.name && plan.attribute;
+      });
+
+      // SORT by monthly price ascending
+      const sorted = filtered.sort((a: any, b: any) => {
+        const priceA = parseFloat(a.monthly_price) || 0;
+        const priceB = parseFloat(b.monthly_price) || 0;
+        return priceA - priceB;
+      });
+
+      // MAP to desired format
+      const mapped = sorted.map((plan: any) => ({
+        id: plan.id,
+        name: plan.name,
+        cpu: plan.attribute?.cpu ? `${plan.attribute.cpu} vCPU` : "—",
+        memory: plan.attribute?.memory ? `${(plan.attribute.memory / 1024).toFixed(0)} GB` : "—",
+        priceMonth: plan.monthly_price !== undefined ? `$${plan.monthly_price}` : "$0",
+        priceHour: plan.hourly_price !== undefined ? `$${plan.hourly_price}` : "$0",
+        slug: plan.slug || plan.name?.toLowerCase().replace(/\s+/g, "-") || "vm-plan",
+        categoryName: plan.plan_category?.name,
+        cpuType: plan.compute_category?.name
+      }));
+
+      return mapped;
 
     } catch (error: any) {
       console.error(`[getPackageVM] Error:`, error.message);
@@ -189,6 +194,7 @@ export async function getPackageVM({
   pendingRequests.set(requestKey, fetchTask);
   return fetchTask;
 }
+
 
 export async function getPackageBlockStorage({
   service = "Block Storage",
