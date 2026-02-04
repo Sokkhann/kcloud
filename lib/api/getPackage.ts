@@ -7,6 +7,7 @@ interface FetchArgs {
 
 const pendingRequests = new Map<string, Promise<PackageData[] | null>>();
 
+// showing the starting with price in overview page
 export async function getOverviewPackages() {
   try {
     // Fetching exactly what you requested in parallel for performance
