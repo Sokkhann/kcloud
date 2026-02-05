@@ -1,62 +1,36 @@
 import AboutPage from '@/components/page/AboutPage'
 import { Metadata } from "next";
 
-const aboutMetadata = {
-  title: "Kcloud Cambodia | Leading Cloud Solutions in Cambodia",
-  description: "Kcloud is Cambodia's trusted provider for reliable cloud services. Discover our vision, mission, and journey to transform Cambodia's digital landscape.",
-  keywords: [
-    "Kcloud",
-    "Kcloud Cambodia",
-    "Cambodia Cloud Provider",
-    "Cloud Solutions Cambodia",
-    "Digital Transformation Cambodia",
-    "Reliable Cloud Products",
-    "Kcloud Vision",
-    "Kcloud Mission",
-    "Cambodia's Leading cloud product",
-    "Cloud Product Phnom Penh",
-    "Prioritize Your Security and Privacy",
-    "Cloud Infrastructure",
-    "24/7 Support Cloud Support in Khmer and English"
-  ],
-  image: "https://gcx6.sovichetra.com/wp-content/uploads/2025/07/about_us.jpg",
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
+
+export const metadata: Metadata = {
+  title: "About Us | GCX K-Cloud",
+  description: "Learn about GCX K-Cloud, Cambodia's trusted cloud service provider. Discover our vision, mission, and journey to deliver reliable cloud and internet solutions.",
+  keywords: ["GCX K-Cloud", "About Us", "Cloud Services Cambodia", "Cloud Solutions", "Digital Transformation"],
+
+  openGraph: {
+    title: "About Us | GCX K-Cloud",
+    description: "Learn about GCX K-Cloud, Cambodia's trusted cloud service provider. Discover our vision, mission, and journey to deliver reliable cloud and internet solutions.",
+    url: `${domain}/about-us`,
+    siteName: "GCX K-Cloud",
+    images: [
+      {
+        url: `${domain}/about-us.png`,
+        width: 1200,
+        height: 630,
+        alt: "GCX K-Cloud About Us",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | GCX K-Cloud",
+    description: "Learn about GCX K-Cloud, Cambodia's trusted cloud service provider. Discover our vision, mission, and journey to deliver reliable cloud and internet solutions.",
+    images: [`${domain}/about-us.png`],
+  },
 };
-
-export async function generateMetadata(): Promise<Metadata> {
-  const { title, description, keywords, image } = aboutMetadata;
-
-  return {
-    title,
-    description,
-    keywords,
-    openGraph: {
-      title,
-      description,
-      url: `${process.env.NEXT_PUBLIC_DOMAIN}/about-us`,
-      siteName: "Kcloud",
-      type: "website",
-      images: [
-        {
-          url: image,
-          width: 1200,
-          height: 630,
-          alt: title,
-        },
-      ],
-      locale: "en_US",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [image],
-    },
-    alternates: {
-      canonical: `${process.env.NEXT_PUBLIC_DOMAIN}/about-us`,
-    },
-  };
-}
-
 export default function page() {
   return (
     <div>

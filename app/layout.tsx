@@ -15,34 +15,6 @@ const suwannaphum = Suwannaphum({
   variable: "--font-kh",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "K Cloud",
-    template: "%s | K Cloud",
-  },
-  description: "Secure and scalable cloud connectivity solutions.",
-  keywords: ["cloud", "connectivity", "KCloud", "enterprise network"],
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: "K Cloud",
-    description: "Secure and scalable cloud connectivity solutions.",
-    url: "https://gcx.cloud",
-    siteName: "K Cloud",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    type: "website",
-  },
-};
-
-
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -2,6 +2,52 @@
 import VirtualMachinePricingPage from '@/components/page/pricing/VirtualMachinePricingPage';
 import { getPackageISO, getPackageMyTemplate, getPackageVM } from '@/lib/api/getPackage';
 
+import type { Metadata } from "next";
+
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
+
+export const metadata: Metadata = {
+  title: "Virtual Machine Pricing | GCX K-Cloud",
+  description:
+    "Compare shared and dedicated virtual machine pricing on GCX K-Cloud. Flexible CPU, memory, and storage options for scalable cloud compute.",
+
+  keywords: [
+    "Virtual Machine Pricing",
+    "GCX K-Cloud VM",
+    "Cloud VM Cambodia",
+    "Shared CPU VM",
+    "Dedicated CPU VM",
+    "Cloud Compute Cambodia",
+    "Scalable Cloud VM",
+    "Enterprise Virtual Machine",
+  ],
+
+  openGraph: {
+    title: "Virtual Machine Pricing | GCX K-Cloud",
+    description:
+      "Flexible and transparent virtual machine pricing on GCX K-Cloud. Choose the right CPU, memory, and storage for your workloads.",
+    url: `${domain}/pricing/virtual-machine`,
+    siteName: "GCX K-Cloud",
+    images: [
+      {
+        url: `${domain}/about-us.png`,
+        width: 1200,
+        height: 630,
+        alt: "GCX K-Cloud Virtual Machine Pricing",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Virtual Machine Pricing | GCX K-Cloud",
+    description:
+      "Flexible and transparent virtual machine pricing on GCX K-Cloud. Choose the right CPU, memory, and storage for your workloads.",
+    images: [`${domain}/about-us.png`],
+  },
+};
+
 // for this param can pass based on the cloud provider
 // we have two cloud providers cloudstack-01 and proxmox
 // we only have proxmox at first
