@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "GCX K-Cloud",
     images: [
       {
-        url: `${domain}/about-us.png`,
+        url: "/price-bg.png",
         width: 1200,
         height: 630,
         alt: "GCX K-Cloud Virtual Machine Pricing",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Virtual Machine Pricing | GCX K-Cloud",
     description:
       "Flexible and transparent virtual machine pricing on GCX K-Cloud. Choose the right CPU, memory, and storage for your workloads.",
-    images: [`${domain}/about-us.png`],
+    images: ["/price-bg.png"],
   },
 };
 

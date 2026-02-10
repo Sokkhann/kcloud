@@ -15,6 +15,33 @@ const suwannaphum = Suwannaphum({
   variable: "--font-kh",
 });
 
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
+
+export const metadata: Metadata = {
+  title: {
+    default: "GCX K-Cloud",
+    template: "%s | GCX K-Cloud",
+  },
+  description:
+    "Enterprise-grade cloud and connectivity solutions in Cambodia.",
+
+  openGraph: {
+    images: [
+      {
+        url: "/hero-bg.png",
+        width: 1200,
+        height: 630,
+        alt: "GCX K-Cloud Cloud Connectivity",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/hero-bg.png"],
+  },
+
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

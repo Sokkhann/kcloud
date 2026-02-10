@@ -41,7 +41,7 @@ import React from 'react'
 const nestProducts = [
     {
         id: "cloud",
-        image: "/featured2.png",
+        image: "/iso-img.png",
         title: "Custom ISO Management",
         icon: <Disc size={32} strokeWidth={1.5} />, // "Disc" icon represents the ISO/Optical media
         desc: "Experience ultimate OS flexibility by bringing your own software to the GCX Cloud. Whether it's a specialized Linux distro, a custom Windows build, or a proprietary appliance, our ISO management allows you to boot, install, and configure your environment from scratch.",
@@ -55,7 +55,7 @@ const nestProducts = [
     },
     {
         id: "security",
-        image: "/featured2.png",
+        image: "/template-img.png",
         title: "Custom Templates & Cloning",
         icon: <Layers size={32} strokeWidth={1.5} />,
         desc: "Save hours of setup time by creating 'Gold Images' of your perfectly configured servers. Capture your OS, apps, and security patches into a private template for instant replication.",
@@ -68,7 +68,7 @@ const nestProducts = [
     },
     {
         id: "scaling",
-        image: "/featured2.png",
+        image: "/auto-scale-img.png",
         title: "Intelligent Auto-Scaling",
         icon: <Zap size={32} strokeWidth={1.5} />,
         desc: "Future-proof your applications with real-time responsiveness. Automatically handle massive traffic spikes while slashing costs by powering down unused resources during quiet hours.",
@@ -81,7 +81,7 @@ const nestProducts = [
     },
     {
         id: "snapshot",
-        image: "/featured2.png",
+        image: "/vm-snapshot-img.png",
         title: "VM Snapshots",
         icon: <Camera size={32} strokeWidth={1.5} />,
         desc: "Capture a complete point-in-time state of your instance's data. Our snapshot technology allows you to freeze your environment before updates, automate recurring backups with custom retention policies, and instantly revert to a healthy state if a failure occurs.",

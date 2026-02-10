@@ -46,7 +46,7 @@ export default function BlockStoragePricingPage({ packageCloudStack, packageProx
       {/* Hero section */}
       <HeroComponent
         height="h-[600px]"
-        image="/hero-bg.png"
+        image="/price-bg.png"
         title="Block Storage"
         description="GCX Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
       />

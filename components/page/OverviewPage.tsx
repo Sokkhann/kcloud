@@ -3,7 +3,6 @@ import GetStartedCard from "../card/GetStartedCard";
 import ScrollReveal from "../animations/ScrolReveal";
 import WhyGCXCloudSection from "../section/about-us/WhyGCXCloudSection";
 import CustomerListSection from "../section/overview-detail/CustomerListSection";
-import PowerSection from "../section/overview-detail/PowerSection";
 import ProductListSection from "../section/overview-detail/ProductListSection";
 import ListingPackageSection from "../section/overview-detail/ListingPackageSection";
 import PartnerDisplaySection from "../section/overview-detail/PartnerDisplaySection";

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import ScrollReveal from "./animations/ScrolReveal";
 
 interface HeroProps {
   height?: string;
@@ -43,7 +42,7 @@ export default function HeroComponent({
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/35" />
         </>
       )}
 

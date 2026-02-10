@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "GCX K-Cloud",
     images: [
       {
-        url: `${domain}/about-us.png`,
+        url: "/price-bg.png",
         width: 1200,
         height: 630,
         alt: "GCX K-Cloud Block Storage Backup Pricing",
@@ -42,20 +42,18 @@ export const metadata: Metadata = {
     title: "Block Storage Backup Pricing | GCX K-Cloud",
     description:
       "Secure and scalable block storage backup pricing on GCX K-Cloud. Reliable backup solutions for enterprise cloud workloads.",
-    images: [
-      `${domain}/about-us.png`,
-    ],
+    images: ["/price-bg.png"]
   },
 };
 
 export default async function page() {
 
-  const packageProxmox = await getPackageBlockStorage({service: "Block Storage", provider: "proxmox"})
-  const packageCloudStack = await getPackageBlockStorage({service: "Block Storage", provider: "nimbo"})
+  const packageProxmox = await getPackageBlockStorage({ service: "Block Storage", provider: "proxmox" })
+  const packageCloudStack = await getPackageBlockStorage({ service: "Block Storage", provider: "nimbo" })
 
   return (
     <div>
-      <BlockStoragePricingPage packageCloudStack={packageCloudStack ?? []} packageProxmox={packageProxmox ?? []}/>
+      <BlockStoragePricingPage packageCloudStack={packageCloudStack ?? []} packageProxmox={packageProxmox ?? []} />
     </div>
   );
 }

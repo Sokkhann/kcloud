@@ -45,7 +45,7 @@ export default function BackupPricingPage({ packageBlockStorageBackup, packageVM
       {/* Hero section */}
       <HeroComponent
         height="h-[600px]"
-        image="/hero-bg.png"
+        image="/price-bg.png"
         title="Backups"
         description="GCX Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
       />

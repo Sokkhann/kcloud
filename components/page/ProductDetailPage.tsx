@@ -48,13 +48,23 @@ export default function ProductDetailPage({ slug }: ProductDetailProps) {
   return (
     <div className="bg-gray-200 w-screen">
       <div>
+        {/* Hero section */}
+
         <HeroComponent
-          image={"/hero-bg.png"}
+        height="h-[600px]"
+          image={product.image}
           title={product.title}
           description={product.desc}
           showContactSales={true}
           showGetStarted={true}
         />
+        {/* <HeroComponent
+          height="h-[600px]"
+          image={null}
+          topImage={null}
+          title={product.title}
+          description={product.desc}
+        /> */}
       </div>
 
       <div className="">

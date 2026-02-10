@@ -51,7 +51,7 @@ export default async function PricingPage() {
         showGetStarted
         showContactSales
         height="h-[600px]"
-        image="/hero-bg.png"
+        image="/price-bg.png"
         title="Power Up with the Right Plan"
         description="No hidden fees. No confusion. Just clear pricing that helps you move faster, achieve more, and focus on what truly matters — your success."
       />

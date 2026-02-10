@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "Cloud Pricing | GCX K-Cloud",
     description:
       "Transparent and scalable pricing for GCX K-Cloud services. Compare Virtual Machines, Kubernetes, Block Storage, Backup, and Load Balancer pricing.",
-    images: [`${domain}/about-us.png`],
+    images: "/price-bg.png",
   },
 };
 

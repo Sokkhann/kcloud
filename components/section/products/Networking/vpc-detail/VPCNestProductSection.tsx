@@ -6,7 +6,7 @@ const nestProducts = [
     {
         id:"",
         title: "Enterprise Virtual Router",
-        image: "/featured2.png",
+        image: "/virtual-router-img.png",
         icon: <Router size={32} strokeWidth={1.5} />, // "Router" icon from Lucide
         desc: "The intelligent core of your VPC networking. Our Virtual Router (VR) acts as a dedicated, high-performance gateway that manages all traffic, security, and connectivity for your isolated cloud environment.",
         details: [

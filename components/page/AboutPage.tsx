@@ -20,10 +20,10 @@ export default function AboutPage() {
     <div className="w-screen bg-white">
       {/* Hero Section About page */}
       <HeroComponent
-        height="h-[300px]"
-        image="/hero-bg.png"
+        height="h-[600px]"
+        image="/about-us-bg.png"
         description="Cambodia s #1 Data Center"
-        title="About Us"
+        title="About Kcloud"
       />
 
       <div className="">

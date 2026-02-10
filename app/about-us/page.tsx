@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "GCX K-Cloud",
     images: [
       {
-        url: `${domain}/about-us.png`,
+        url: "/about-us-bg.png",
         width: 1200,
         height: 630,
         alt: "GCX K-Cloud About Us",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About Us | GCX K-Cloud",
     description: "Learn about GCX K-Cloud, Cambodia's trusted cloud service provider. Discover our vision, mission, and journey to deliver reliable cloud and internet solutions.",
-    images: [`${domain}/about-us.png`],
+    images: ["/about-us.png"],
   },
 };
 export default function page() {

@@ -3,7 +3,7 @@ import ListDropDownCard from '@/components/card/ListDropDownCard';
 
 const cards = [
   {
-    image: "/data-center-img.png",
+    image: "/data-center-img.jpg",
     items: [
       { title: "Cooling System", content: "Climate control maintains temperature at 21°C ± 2°C and humidity at 55% ± 5%. The system uses N+1 air-cooled CRAC units with cold containment for efficient cooling." },
       { title: "Existing Carrier Partners", content: "We partner with 20+ international, local, and OTT carriers in a carrier-neutral facility. Dual fiber connections, ODF/MDF areas, and Cat 6, burial." },

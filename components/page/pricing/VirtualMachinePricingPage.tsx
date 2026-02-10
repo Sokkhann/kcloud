@@ -80,7 +80,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
         showGetStarted
         showContactSales
         height="h-[600px]"
-        image="/hero-bg.png"
+        image="/price-bg.png"
         title="Power Up with the Right Plan"
         description="No hidden fees. No confusion. Just clear pricing..."
       />

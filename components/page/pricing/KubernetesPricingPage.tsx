@@ -43,7 +43,7 @@ export default function KubernetesPricingPage({ plans }: PackageProps) {
       {/* Hero section */}
       <HeroComponent
         height="h-[600px]"
-        image="/hero-bg.png"
+        image="/price-bg.png"
         title="Kubernetes Cluster"
         description="GCX block storage delivers high-performance, low-latency persistent block storage designed to be the foundational engine for your most demanding workloads. This capability is essential for:"
       />

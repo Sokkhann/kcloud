@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "GCX K-Cloud",
     images: [
       {
-        url: `${domain}/about-us.png`,
+        url: "/price-bg.png",
         width: 1200,
         height: 630,
         alt: "GCX K-Cloud Kubernetes Pricing",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Scalable and transparent Kubernetes pricing on GCX K-Cloud. Manage container workloads efficiently with our managed K8s services.",
     images: [
-      `${domain}/about-us.png`,
+      "/price-bg.png",
     ],
   },
 };

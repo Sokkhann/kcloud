@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: "Kcloud",
     images: [
       {
-        url: `${domain}/about-us.png`,
+        url: "/price-bg.png",
         width: 1200,
         height: 630,
         alt: "Kcloud Backup Pricing",
@@ -42,9 +42,7 @@ export const metadata: Metadata = {
     title: "Backup Pricing | Kcloud",
     description:
       "Reliable and secure backup pricing for block storage and virtual machines. Protect your data with Kcloud backup solutions.",
-    images: [
-      `${domain}/about-us.png`,
-    ],
+    images:["/price-bg.png"],
   },
 };
 
