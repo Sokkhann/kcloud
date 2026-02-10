@@ -23,7 +23,7 @@ export default function AppUseCaseSection() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 lg:gap-8 md:gap-8 mx-4 lg:mx-8 md:mx-8">
           {cards.map((card, index) => (
             <div key={index} className="relative">
-              <SimpleCard title={card.title} desc={card.desc} />
+              <SimpleCard title={card.title} desc={card.desc} icon={card.title}/>
             </div>
           ))}
         </div>

@@ -36,10 +36,10 @@ export default function RootLayout({
           <Navbar />
         </header>
 
-        <section className="flex-grow flex justify-center items-center bg-gray-50 mt-20">{children}</section>
+        <section className="flex-grow bg-gray-50 mt-20">{children}</section>
 
         {/* footer section */}
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

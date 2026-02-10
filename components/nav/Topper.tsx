@@ -1,5 +1,6 @@
 "use client";
 
+import { Facebook, Linkedin, Send } from "lucide-react";
 import Link from "next/link";
 
 export default function TopNavBar() {
@@ -11,13 +12,33 @@ export default function TopNavBar() {
           Sales Hotline: (+855) 93 222 736
         </div>
 
-        {/* Right side - Navigation links */}
-        <div className="hidden lg:flex md:flex flex-col sm:flex-row sm:items-center sm:space-x-8 text-white gap-1 sm:gap-0 text-center sm:text-left">
-          <Link href={"/about-us"} className="hover:underline">
-            About Us
+        {/* Right side - Social Media Icons */}
+        <div className="lg:flex md:flex flex-row items-center justify-center sm:justify-end space-x-6 text-white hidden">
+          <Link
+            href="https://facebook.com/yourpage"
+            target="_blank"
+            className="cursor-pointer"
+            aria-label="Facebook"
+          >
+            <Facebook size={20} strokeWidth={1.5} />
           </Link>
-          <Link href={"/contact-us"} className="hover:underline">
-            Contact Us
+
+          <Link
+            href="https://linkedin.com/company/yourcompany"
+            target="_blank"
+            className="cursor-pointer"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={20} strokeWidth={1.5} />
+          </Link>
+
+          <Link
+            href="https://t.me/yourusername"
+            target="_blank"
+            className="cursor-pointer"
+            aria-label="Telegram"
+          >
+            <Send size={20} strokeWidth={1.5} />
           </Link>
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function AboutUsCard() {
       {/* Left content */}
       <div className="lg:flex-1 flex flex-col justify-center ">
         <h2 className="lg:text-2xl md:text-2xl text-lg font-bold text-gray-700 mb-4 lg:text-start text-center">
-          Your Solution for Co-Location
+          Our Story & Team
         </h2>
         <span className="text-justify lg:text-start">
           <p className="text-gray-600 leading-relaxed mb-2">

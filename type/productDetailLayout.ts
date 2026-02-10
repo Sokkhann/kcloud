@@ -1,16 +1,11 @@
-import AppDetailLayout from "@/components/layouts/AppDetailLayout";
-import BackupLayout from "@/components/layouts/BackupLayout";
 import BlockStorageLayout from "@/components/layouts/BlockStorageLayout";
 import KubernetesDetailLayout from "@/components/layouts/KubernetesDetailLayout";
-import SnapshotLayout from "@/components/layouts/SnapshotLayout";
-import TemplateLayout from "@/components/layouts/TemplateLayout";
+import SnapshotLayout from "@/components/layouts/BlockStorageSnapshotLayout";
 import VirtualMachineDetailLayout from "@/components/layouts/VirtualMachineDetailLayout";
-import VNFDetailLayout from "@/components/layouts/VNFDetailLayout";
-import ISODetailLayout from "@/components/layouts/ISODetailLayout";
-import NetworkDetailLayout from "@/components/layouts/NetworkDetailLayout";
 import LoadBalancerDetailLayout from "@/components/layouts/LoadBalancerDetailLayout";
-import DNSDetailLayout from "@/components/layouts/DNSDetailLayout";
-import AffinityGroupLayout from "@/components/layouts/AffinityGroupLayout";
+import IPAddressLayout from "@/components/layouts/IPAddressLayout";
+import VirtualMachineBackupDetailLayout from "@/components/layouts/VirtualMachineBackupDetailLayout";
+import VPCDetailLayout from "@/components/layouts/VPCDetailLayout";
 
 export interface Products {
   slug: string;
@@ -19,89 +14,73 @@ export interface Products {
   layout: React.FC<{ product: Products }>;
 }
 export interface productDetailLayout {
-    slug: string;
-    title: string;
-    desc: string;
-    layout: React.FC<{ product: productDetailLayout }>;
+  slug: string;
+  image: string;
+  title: string;
+  desc: string;
+  layout: React.FC<{ product: productDetailLayout }>;
 }
 
 export const productDetailLayout: productDetailLayout[] = [
-  {
-    slug: "virtual-machine",
-    title: "Virtual Machine",
-    desc: "Choosing your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: VirtualMachineDetailLayout,
-  },
+  // compute
   {
     slug: "kubernetes",
-    title: "Kubernetes",
-    desc: "Kubernetes (K8s) is your orchestration engine — it automates the deployment, scaling, and management of containerized applications.",
+    image: "/k8-bg.png",
+    title: "Managed Kubernetes Service (CKS)",
+    desc: "Deploy, scale, and manage production-grade containerized applications with our native CloudStack Kubernetes Service. Experience seamless orchestration with built-in high availability, automated load balancing, and integrated persistent block storage tailored for mission-critical workloads.",
     layout: KubernetesDetailLayout,
   },
   {
-    slug: "vnf-appliance",
-    title: "VNF Appliance",
-    desc: "A Virtual Network Function (VNF) Appliance allows you to deploy network services such as firewalls, load balancers, and VPNs in virtualized environments — without dedicated hardware.",
-    layout: VNFDetailLayout,
+    slug: "virtual-machine",
+    image: "/vm-bg.png",
+    title: "Versatile Virtual Computing",
+    desc: "Launch customized instances across multiple architectures, including x86 and ARM64. Whether you need GPU-accelerated nodes for AI or cost-effective Linux and Windows environments, our platform provides complete lifecycle management with integrated backup, persistent block storage, and advanced networking.",
+    layout: VirtualMachineDetailLayout,
+  },
+
+  // networking
+  {
+    slug: "ip-address",
+    image: "/ip-address-bg.png",
+    title: "Elastic IP & Network Management",
+    desc: "Gain total control over your cloud connectivity with flexible IP address management. Provision static Public IPs, manage private subnets, and utilize Source NAT or Static NAT to securely bridge your internal cloud resources with the public internet.",
+    layout: IPAddressLayout
   },
   {
-    slug: "app",
-    title: "App",
-    desc: "The Apps section provides pre-built or customizable applications you can deploy instantly — from monitoring tools to productivity or analytics software.",
-    layout: AppDetailLayout,
+    slug: "load-balancer",
+    image: "/load-balancer-bg.png",
+    title: "Advanced Network Load Balancing",
+    desc: "Secure and optimize your cloud applications with fully managed load balancing. Support for SSL termination, customizable health checks, and multiple balancing algorithms ensures your users experience low-latency connections while your backend remains protected and efficient.",
+    layout: LoadBalancerDetailLayout,
   },
- {
+  {
+    slug: "vpc",
+    image: "/vpc-bg.jpg",
+    title: "Secure & Private Cloud Environments",
+    desc: "Take full control of your cloud security with Virtual Private Clouds. Define your own IP address ranges, manage sophisticated routing tables, and enforce strict traffic policies with Network ACLs. Our VPCs provide a logically isolated section of the cloud to host your most sensitive production workloads.",
+    layout: VPCDetailLayout,
+  },
+
+  // storage
+  {
     slug: "block-storage",
-    title: "Block Storage",
-    desc: "Attach volumes to your VMs or containers instantly. Enjoy fast IOPS, low latency, and persistent data. Easily scale storage up or down as your needs grow. Reliable, flexible, and secure — built for cloud workloads.",
+    image: "/block-storage-bg.png",
+    title: "High-Performance Block Storage",
+    desc: "Power your mission-critical applications with low-latency, persistent block storage. Our infrastructure provides elastic disk volumes that can be dynamically attached, detached, and scaled, ensuring your databases and high-I/O workloads have the dedicated throughput they demand.",
     layout: BlockStorageLayout,
   },
   {
     slug: "snapshot",
-    title: "Snapshots",
-    desc: "Snapshots provide a reliable way to back up your virtual machines, ensuring data consistency and enabling quick recovery in case of failures or accidental changes",
+    image: "/snapshot-bg.png",
+    title: "Block Storage Snapshots & Recovery",
+    desc: "Protect your critical data with high-frequency, point-in-time volume snapshots. Our platform enables you to capture the exact state of your disk volumes—either manually or through automated policies—ensuring you can recover from data corruption or accidental deletion in seconds.",
     layout: SnapshotLayout,
   },
   {
-    slug: "backup",
-    title: "Backups",
-    desc: "Choose your OS, configure resources, and launch in minutes. Enjoy high performance, secure cloud infrastructure, and full control. Scale effortlessly with flexible plans and global availability. Start building today with GCX — your VM, your way.",
-    layout: BackupLayout,
-  },
-  {
-    slug: "template",
-    title: "Templates",
-    desc: "Choose from optimized OS, app, and infrastructure templates. Save time with consistent, repeatable deployments. Customize and save your own templates for future use. Streamline provisioning — deploy smarter with GCX Templates.",
-    layout: TemplateLayout,
-  },
-  {
-    slug: "iso",
-    title: "ISOs",
-    desc: "ISO Images let you package an entire operating system or custom toolset into a single file. GCX's ISO support helps you spin up VMs with your own OS, install new systems, or perform disaster recovery without rebuilding from scratch.",
-    layout: ISODetailLayout,
-  },
-  {
-    slug: "network",
-    title: "Network",
-    desc: "Build resilient, secure and scalable cloud networks with public networks, virtual networks, virtual routers, security groups, IP management and VPN connectivity. From simple setups to complex multi-subnet architectures.",
-    layout: NetworkDetailLayout,
-  },
-  {
-    slug: "load-balancer",
-    title: "Load Balancer",
-    desc: "Keep cloud applications fast and resilient with enterprise-grade traffic distribution. High availability, flexible billing, sticky sessions and smart algorithms. From simple web apps to multi-tier microservices.",
-    layout: LoadBalancerDetailLayout,
-  },
-  {
-    slug: "dns",
-    title: "DNS",
-    desc: "The hassle-free way to manage your domains in the cloud. Easy domain creation, support for all record types, and built-in examples. Manage multiple projects with robust infrastructure and clear documentation.",
-    layout: DNSDetailLayout,
-  },
-  {
-    slug: "affinity-group",
-    title: "Affinity Group ",
-    desc: "Affinity Groups give you the power to define exactly where your Virtual Machines (VMs) are placed on our hypervisor hosts, transforming uncertainty into guaranteed performance and resilience.",
-    layout: AffinityGroupLayout,
+    slug: "vm-backup",
+    image: "/vm-backup-bg.png",
+    title: "Automated VM Data Protection",
+    desc: "Meet strict regulatory requirements with automated, policy-driven VM backups. Schedule recurring backups with custom retention periods and leverage application-consistent technology to ensure your most critical database and enterprise workloads are always recoverable and secure.",
+    layout: VirtualMachineBackupDetailLayout,
   },
 ];
