@@ -1,15 +1,20 @@
 export interface CardProps {
+  slug?: string;
   title: string;
-  description: string;
+  description?: string;
+  subTitle?: string;
+  contents?: string;
   logo: string;
   link?: string;
 }
+
+
 
 export const customerOverview: CardProps[] = [
   {
     title: "NeocomISP Co Limited",
     description:
-      "The team provided outstanding support and guidance throughout our project. The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project The team provided outstanding support and guidance throughout our project",
+      "The team provided outstanding support and guidance throughout our project. The team provided",
     logo: "/neocom-logo.png",
   },
   {

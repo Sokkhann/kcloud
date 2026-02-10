@@ -1,181 +1,62 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import ProductCard from "../card/ProductCard";
-import data from "@/data/products.json";
-import { IconCardProps } from "@/type/dataTypes";
-import { getReactIcon } from "@/type/getReactIcon";
+"use client";
 
-// --- Compute tab products ---
-const computeProducts = data.computeProducts;
-const computeProductCards: IconCardProps[] = computeProducts.map((card) => ({
-  ...card,
-  icon: getReactIcon(card.icon),
-}));
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ProductListProps } from '@/type/dataTypes';
+import ProductCard from '../card/ProductCard';
 
-// --- storage tab products ---
-const storageProducts = data.storageProducts;
-const storageProductCards: IconCardProps[] = storageProducts.map((card) => ({
-  ...card,
-  icon: getReactIcon(card.icon),
-}));
+export default function ProductTab({ products }: { products: ProductListProps[] }) {
+    const categories = ["All", ...new Set(products.map((p) => p.category))];
+    const [activeTab, setActiveTab] = useState("All");
 
+    const filteredItems = activeTab === "All" 
+        ? products 
+        : products.filter((p) => p.category === activeTab);
 
-// --- networking tab products ---
-const networkProducts = data.networkingProducts;
-const networkingProductCards: IconCardProps[] = networkProducts.map((card) => ({
-  ...card,
-  icon: getReactIcon(card.icon),
-}));
-
-// --- product tab products ---
-const policyProducts = data.policyProducts;
-const policyProductCards: IconCardProps[] = policyProducts.map((card) => ({
-  ...card,
-  icon: getReactIcon(card.icon),
-}));
-
-export function ProductTab() {
-  return (
-    <div className="">
-      <Tabs defaultValue="compute" className="bg-none">
-        {/* Tabs List */}
-        <TabsList
-          className="
-          w-screen
-          lg:w-full
-          md:w-full
-          lg:px-0
-          md:px-8
-          px-4
-          h-24
-          py-auto
-          border-b-2 
-          rounded-none 
-          flex
-          justify-start
-          lg:justify-center
-          md:justify-center
-          scroll-px-4
-          overflow-x-auto 
-          whitespace-nowrap
-          lg:overflow-visible 
-          scrollbar-hide 
-          snap-x 
-          snap-mandatory
-          bg-gray-100
-      "
-        >
-          <TabsTrigger
-            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
-            value="compute"
-          >
-            Compute
-          </TabsTrigger>
-          <TabsTrigger
-            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
-            value="storage"
-          >
-            Storage & Data Protection
-          </TabsTrigger>
-          <TabsTrigger
-            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
-            value="networking"
-          >
-            Networking
-          </TabsTrigger>
-          <TabsTrigger
-            className="text-gray-700 whitespace-nowrap px-4 flex-shrink-0 snap-start"
-            value="policy"
-          >
-            Policy & Placement
-          </TabsTrigger>
-        </TabsList>
-
-        {/* Compute Tab */}
-        <TabsContent value="compute">
-          <TabsContent value="compute">
-            <div
-              className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
-               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
-            >
-              {computeProductCards.map((card, index) => {
-                const Icon = card.icon;
-                return (
-                  <ProductCard
-                    key={index}
-                    icon={Icon}
-                    title={card.title}
-                    desc={card.desc}
-                  />
-                );
-              })}
+    return (
+        <div className="w-full space-y-12">
+            {/* Tab Buttons with Animated Pill */}
+            <div className="flex flex-wrap justify-center gap-4">
+                {categories.map((tab) => (
+                    <button
+                        key={tab}
+                        onClick={() => setActiveTab(tab)}
+                        className={`relative px-8 py-2.5 rounded-full text-sm font-bold transition-colors duration-300 ${
+                            activeTab === tab ? "text-white" : "text-gray-500 hover:text-gray-700 bg-gray-50"
+                        }`}
+                    >
+                        {activeTab === tab && (
+                            <motion.div
+                                layoutId="activeTabPill"
+                                className="absolute inset-0 bg-blue-600 rounded-full"
+                                transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                            />
+                        )}
+                        <span className="relative z-10">{tab}</span>
+                    </button>
+                ))}
             </div>
-          </TabsContent>
-        </TabsContent>
 
-        {/* Storage Tab */}
-        <TabsContent value="storage">
-          <div
-            className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
-               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
-          >
-            {storageProductCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <ProductCard
-                  key={index}
-                  icon={Icon}
-                  title={card.title}
-                  desc={card.desc}
-                />
-              );
-            })}
-          </div>
-        </TabsContent>
-
-        {/* Networking Tab */}
-        <TabsContent value="networking">
-          <div
-            className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
-               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
-          >
-            {networkingProductCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <ProductCard
-                  key={index}
-                  icon={Icon}
-                  title={card.title}
-                  desc={card.desc}
-                />
-              );
-            })}
-          </div>
-        </TabsContent>
-
-        {/* Policy Tab */}
-        <TabsContent value="policy">
-          <div
-            className="grid justify-center justify-items-center 
-               lg:gap-8 md:gap-8 gap-4 lg:mt-10 md:mt-8 mt-4 mx-4 md:mx-8 lg:md-0
-               grid-cols-[repeat(auto-fit,minmax(320px,1fr))]"
-          >
-            {policyProductCards.map((card, index) => {
-              const Icon = card.icon;
-              return (
-                <ProductCard
-                  key={index}
-                  icon={Icon}
-                  title={card.title}
-                  desc={card.desc}
-                />
-              );
-            })}
-          </div>
-        </TabsContent>
-      </Tabs>
-    </div>
-  );
+            {/* Grid for Cards */}
+            <motion.div 
+                layout
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4"
+            >
+                <AnimatePresence mode="popLayout">
+                    {filteredItems.map((item) => (
+                        <motion.div
+                            key={item.name}
+                            layout
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <ProductCard products={item} />
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </motion.div>
+        </div>
+    );
 }

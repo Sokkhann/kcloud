@@ -1,18 +1,28 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { PackageData } from "@/type/dataTypes";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowRight } from "lucide-react";
 
 export type PricingPlan = {
   slug: string;
-  memory: string;
-  vcpu: string;
-  transfer: string;
-  ssd: string;
+  name?: string;
+
+  memory?: string;
+  vcpu?: string;
+  gpu?: string;
+  bandwidth?: string;
+  storage?: string;
+  transfer?: string;
+  ssd?: string;
+
+  timezone?: string;
   priceHour: string | number;
   priceMonth: string | number;
 };
+
+const baseUrl = process.env.NEXT_PUBLIC_STACKCONSOLE_URL
 
 export const columns: ColumnDef<PricingPlan>[] = [
   {
@@ -61,3 +71,612 @@ export const columns: ColumnDef<PricingPlan>[] = [
     },
   },
 ];
+
+export const vmColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "cpu",
+      header: "vCPU",
+    },
+    {
+      accessorKey: "memory",
+      header: "Memory",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original;
+
+        const handleClick = () => {
+          const dashboardUrl = `${baseUrl}/projects/${serviceName}/create`;
+          window.location.href = dashboardUrl;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+export const backpuColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "cpu",
+      header: "vCPU",
+    },
+    {
+      accessorKey: "memory",
+      header: "Memory",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const vmRouterColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "bandwidth",
+      header: "Bandwidth",
+    },
+    {
+      accessorKey: "networkRate",
+      header: "Network Rate",
+    },
+    {
+      accessorKey: "cpu",
+      header: "CPU",
+    },
+    {
+      accessorKey: "memory",
+      header: "Memory",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const lbColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "cloudProvider",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const k8Columns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "cpu",
+      header: "CPU",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "memory",
+      header: "Memory",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+}
+
+export const ipColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "displayName",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const blockStorageColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "storageType",
+      header: "Storage Type",
+    },
+    {
+      accessorKey: "size",
+      header: "Size",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+          window.location.href = dashboardUrl;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const objectStorageComlumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "capacity",
+      header: "Capacity",
+    },
+    {
+      accessorKey: "cpu",
+      header: "CPU",
+    },
+    {
+      accessorKey: "ram",
+      header: "RAM",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "displayName",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const vmSnapshotColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "displayName",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PackageData object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+export const templateColumns = (serviceName: string): ColumnDef<PackageData>[] => {
+  return [
+    {
+      accessorKey: "name",
+      header: "Name",
+    },
+    {
+      accessorKey: "storage",
+      header: "Storage",
+    },
+    {
+      accessorKey: "displayName",
+      header: "Cloud Provider",
+    },
+    {
+      accessorKey: "region",
+      header: "Region",
+    },
+    {
+      accessorKey: "priceHour",
+      header: "$/hr",
+      cell: ({ row }) => {
+        const value = row.original.priceHour;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      accessorKey: "priceMonth",
+      header: "$/mo",
+      cell: ({ row }) => {
+        const value = row.original.priceMonth;
+        return <span className="text-gcxPrimary font-semibold">{value}</span>;
+      },
+    },
+    {
+      id: "actions",
+      header: () => <div className="text-right"></div>,
+      cell: ({ row }) => {
+        const plan = row.original; // This is your PricingPlan object
+
+        const handleClick = () => {
+          window.location.href = `https://stack-console-lab/service/${encodeURIComponent(
+            serviceName
+          )}/${encodeURIComponent(plan.slug)}`;
+        };
+
+        return (
+          <div className="flex justify-end">
+            <Button
+              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+              onClick={handleClick}
+            >
+              <ArrowRight className="w-4 h-4" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+};
+
+
+
+
+

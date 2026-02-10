@@ -15,19 +15,33 @@ const suwannaphum = Suwannaphum({
   variable: "--font-kh",
 });
 
+const domain = process.env.NEXT_PUBLIC_DOMAIN;
+
 export const metadata: Metadata = {
-  title: "Global Cloud Exchange",
-  description: "GCX Global Cloud Exchange in Cambodia number",
-  icons: {
-    icon: [
+  title: {
+    default: "GCX K-Cloud",
+    template: "%s | GCX K-Cloud",
+  },
+  description:
+    "Enterprise-grade cloud and connectivity solutions in Cambodia.",
+
+  openGraph: {
+    images: [
       {
-        url: "/gcx-logo.png",
-        type: "image/png",
-        sizes: ""
+        url: "/hero-bg.png",
+        width: 1200,
+        height: 630,
+        alt: "GCX K-Cloud Cloud Connectivity",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/hero-bg.png"],
+  },
+
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,12 +52,14 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen`}
       >
+        {/* banner section */}
+
         {/* navbar section */}
         <header className="">
           <Navbar />
         </header>
 
-        <section className="flex-grow flex justify-center items-center bg-gray-50 mt-20">
+        <section className="flex-grow bg-gray-50 mt-20">
           {children}
         </section>
 

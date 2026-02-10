@@ -1,55 +1,22 @@
-"use client";
 
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { ArrowRight } from "lucide-react";
-import { IconCardProps } from "@/type/dataTypes";
-import { useMediaQuery } from "react-responsive";
+import { ProductListProps } from '@/type/dataTypes'
+import { icons, Link } from 'lucide-react';
 
-export default function ProductCard({
-  icon: Icon,
-  title,
-  desc,
-  link,
-}: IconCardProps) {
-  const [mounted, setMounted] = useState(false);
-  const isMd = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const isLg = useMediaQuery({ minWidth: 1024 });
-  const router = useRouter();
+interface productMenu {
+  products: ProductListProps;
+}
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Default size for server (to avoid mismatch)
-  let iconSize = 32 ;
-  if (mounted) {
-    if (isMd) iconSize = 32;
-    if (isLg) iconSize = 32;
-  }
+export default function ProductCard({ products }: productMenu) {
+ const Icon = icons[products.icon];
   return (
-    <div className="relative  transition-all duration-300 text-center flex flex-col items-center w-full p-6 flex-wrap h-full bg-white rounded-lg shadow-sm border border-gray-200">
-      <div className="p-4 rounded-full bg-green-100 flex items-center justify-center">
-        <Icon className="text-gcxprimary" size={iconSize} />
+    <Link href={products.path} className="group relative aspect-square bg-white rounded-2xl p-8 shadow-sm overflow-hidden transition-all hover:shadow-lg hover:shadow-gcxPrimary/60">
+      <div className="relative z-10 flex flex-col h-full">
+        <h3 className="lg:text-2xl md:text-2xl text-lg font-bold text-gray-700 group-hover:text-gcxPrimary mb-4">{products.name}</h3>
+        <p className="text-gray-500 text-sm leading-relaxed mb-auto">
+          {products.description}
+        </p>
+        <Icon className="w-12 h-12 self-end text-gray-200 group-hover:text-gcxprimary transition-all" />
       </div>
-      {/* Title */}
-      <p className="text-lg font-semibold text-gray-800 mt-4">{title}</p>
-
-      {/* Description */}
-      <p className="text-gray-600 mt-2 mb-6 px-2 sm:px-4">{desc}</p>
-
-      {/* Button */}
-      <button
-        onClick={() =>
-          router.push(
-            link || `/products/${title.toLowerCase().replace(/\s+/g, "-")}`
-          )
-        }
-        className="mt-auto flex items-center justify-center gap-2 px-4 py-2 border border-gcxprimary text-gcxprimary rounded-full hover:bg-gcxprimary hover:text-white transition-all text-sm sm:text-base w-full sm:w-auto"
-      >
-        View Detail
-        <ArrowRight size={16} />
-      </button>
-    </div>
+    </Link>
   );
 }
