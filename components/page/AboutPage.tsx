@@ -22,7 +22,7 @@ export default function AboutPage() {
       <HeroComponent
         height="h-[600px]"
         image="/about-us-bg.png"
-        description="Cambodia s #1 Data Center"
+        description="Cambodia's #1 Data Center"
         title="About Kcloud"
       />
 
