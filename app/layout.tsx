@@ -15,17 +15,22 @@ const suwannaphum = Suwannaphum({
   variable: "--font-kh",
 });
 
-const domain = process.env.NEXT_PUBLIC_DOMAIN;
+const domain = process.env.NEXT_PUBLIC_DOMAIN!;
 
 export const metadata: Metadata = {
+  metadataBase: new URL(domain),
+
   title: {
     default: "GCX K-Cloud",
     template: "%s | GCX K-Cloud",
   },
+
   description:
     "Enterprise-grade cloud and connectivity solutions in Cambodia.",
 
   openGraph: {
+    type: "website",
+    url: "/", // optional but good practice
     images: [
       {
         url: "/hero-bg.png",
@@ -35,11 +40,11 @@ export const metadata: Metadata = {
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
     images: ["/hero-bg.png"],
   },
-
 };
 
 export default function RootLayout({

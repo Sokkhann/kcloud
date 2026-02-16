@@ -40,7 +40,7 @@ export default function WhyGCXCloudSection() {
         {/* Minimalist Header */}
         <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Why Choose <span className="text-gcxPrimary">GCX Cloud?</span>
+            Why Choose GCX <span className="text-gcxPrimary">KCloud?</span>
           </h2>
           <p className="text-gray-600 mb-16 max-w-3xl mx-auto">
             Experience the standard of world-class infrastructure. We provide the

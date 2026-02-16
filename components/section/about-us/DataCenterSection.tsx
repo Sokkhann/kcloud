@@ -24,7 +24,7 @@ export default function DataCenterSection() {
               {/* title and description */}
               <div className="text-center justify-center lg:mx-0 mx-4 mb-12">
                 <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
-                  <span className="text-gcxprimary">GCX</span> Data Centers
+                  GCX <span className="text-gcxprimary">Kcloud</span> Data Centers
                 </p>
                 <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
                   Located in the heart of Phnom Penh, our data center pushes the pinnacle of connectivity to the next level and unlock your potential with us

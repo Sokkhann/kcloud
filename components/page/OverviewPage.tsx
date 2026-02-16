@@ -14,8 +14,8 @@ export default function OverviewPage() {
       <HeroComponent
         height="h-[600px]"
         image="/hero-bg.png"
-        title="Smartest and Secure Choice for Connectivity"
-        description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
+        title="The Region’s First Multi-Site Data Center with Sub-1ms Connectivity"
+        description="Engineered for speed and resilience, our multi-site data center provides under 1ms regional connectivity with strong physical infrastructure and diversified network pathways, ensuring secure and uninterrupted operations."
       />
 
       <div className="">
@@ -26,7 +26,7 @@ export default function OverviewPage() {
           <ListingPackageSection/>
 
           {/* partners display section */}
-          <PartnerDisplaySection/>
+          {/* <PartnerDisplaySection/> */}
 
           {/* products */}
           <ProductListSection/>
@@ -35,7 +35,7 @@ export default function OverviewPage() {
           <WhyGCXCloudSection />
 
           {/* Customer Testimonials Section */}
-          <CustomerListSection/>
+          {/* <CustomerListSection/> */}
 
           {/* Power Section */}
           {/* <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16 bg-white">

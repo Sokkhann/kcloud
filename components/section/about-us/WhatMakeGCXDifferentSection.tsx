@@ -16,7 +16,7 @@ export default function WhatMakeGCXDifferentSection() {
                         {/* title and description */}
                         <div className="text-center mx-4 mb-12">
                             <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700 lg:mx-0 mx-12">
-                                What makes <span className="text-gcxprimary">GCX</span> different?
+                                What makes GCX <span className="text-gcxprimary">KCloud</span> different?
                             </p>
                             <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
                                 Enabling smarter operations across all functions of an
