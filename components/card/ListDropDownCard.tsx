@@ -43,7 +43,7 @@ export default function ListDropDownCard({ image, items }: DropdownImageCardProp
             {/* Right section */}
             <div className="lg:h-[530px] h-fit flex flex-col justify-between">
                 <div className="lg:mb-0 mb-8">
-                    <h3 className="lg:text-2xl text-lg font-bold text-gray-700"><span className="text-gcxprimary">GCX</span> Asia Phnom Penh</h3>
+                    <h3 className="lg:text-2xl text-lg font-bold text-gray-700">GCX <span className="text-gcxprimary">KCloud</span> Asia Phnom Penh</h3>
                     <p className="text-gray-600">Comprehensive Specifications </p>
                 </div>
                 <div className="flex-1 overflow-auto min-h-0 grid lg:items-center items-start">

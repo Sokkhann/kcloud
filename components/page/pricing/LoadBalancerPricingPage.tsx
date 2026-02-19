@@ -47,7 +47,7 @@ export default function LoadBalancerPricingPage({ plans }: PackageProps) {
         height="h-[600px]"
         image="/price-bg.png"
         title="Load Balancer"
-        description="GCX Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
+        description="GCX KCloud Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
       />
 
       <div className="w-screen mt-10">
@@ -67,7 +67,7 @@ export default function LoadBalancerPricingPage({ plans }: PackageProps) {
             </div>
 
             <div className="px-4 lg:px-8 md:px-8">
-              <DataTable columns={lbColumns("load-balancer")} data={plans} />
+              <DataTable columns={lbColumns("load-balancer")} data={plans} serviceName="/load-balancer" />
             </div>
 
             <VirtualRouterTablePriceSection />

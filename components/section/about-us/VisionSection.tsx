@@ -16,7 +16,7 @@ export default function VisionSection() {
     <section className="pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold text-gray-700 mb-4"><span className="text-gcxPrimary">GCX</span> Vision</h2>
+          <h2 className="text-4xl font-bold text-gray-700 mb-4">GCX <span className="text-gcxPrimary">KCloud</span> Vision</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

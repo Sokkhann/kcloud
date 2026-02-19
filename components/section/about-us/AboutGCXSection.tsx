@@ -16,11 +16,10 @@ export default function AboutGCXSection() {
                 {/* Centered Title Section */}
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-700 mb-4">
-                        Who's <span className="text-gcxPrimary">GCX?</span>
+                        Who's GCX <span className="text-gcxPrimary">KCloud</span>?
                     </h2>
                 </div>
 
-                {/* Content Split Section */}
                 {/* Content Split Section */}
                 <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 text-start">
                     {/* Text Side: Full width on mobile, 1/2 on tablet and desktop */}
@@ -29,7 +28,7 @@ export default function AboutGCXSection() {
                             National Fiber Backbone
                         </h3>
                         <p className="text-gray-600 leading-relaxed">
-                            GCX harnesses local resources in Cambodia with over <strong>50 points of presence</strong> nationwide, covering 90% of major cities.
+                            GCX KCloud harnesses local resources in Cambodia with over <strong>50 points of presence</strong> nationwide, covering 90% of major cities.
                         </p>
                         <p className="text-gray-600 leading-relaxed">
                             Our network operates through an extensive domestic metro network with over <strong>95% burial fiber</strong>, supported by multiple high-capacity DWDM rings for maximum reliability.
