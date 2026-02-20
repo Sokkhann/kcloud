@@ -26,11 +26,11 @@ export default function VisionSection() {
               className="group relative p-10 md:p-12 rounded-2xl bg-gray-50 border border-transparent transition-all duration-500 hover:bg-white hover:shadow-md hover:border-gcxprimary"
             >
               {/* Large Number Inside Card */}
-              <div className="mb-8">
+              {/* <div className="mb-8">
                 <span className="text-7xl font-black bg-clip-text text-transparent bg-gradient-to-br from-gcxPrimary to-gcxPrimary opacity-20 group-hover:opacity-100 transition-opacity duration-500">
                   0{index + 1}
                 </span>
-              </div>
+              </div> */}
 
               <div className="relative z-10">
                 <h4 className="text-[#0d793e] font-bold lg:text-2xl md:t2xl text-lg mb-5">

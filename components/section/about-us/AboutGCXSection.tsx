@@ -24,22 +24,17 @@ export default function AboutGCXSection() {
                 <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 text-start">
                     {/* Text Side: Full width on mobile, 1/2 on tablet and desktop */}
                     <div className="w-full md:w-1/2 space-y-6">
+
                         <h3 className="text-lg md:text-2xl font-bold text-gray-700 tracking-wide">
-                            National Fiber Backbone
+                            Empowering Cambodia’s Digital Future
                         </h3>
                         <p className="text-gray-600 leading-relaxed">
-                            GCX KCloud harnesses local resources in Cambodia with over <strong>50 points of presence</strong> nationwide, covering 90% of major cities.
+                            GCX KCloud is a Cambodian cloud service provider focused on delivering reliable and flexible digital infrastructure.
+                            We help businesses modernize their operations through virtual servers, storage, and cloud-based platforms.
+                            Our team combines local market understanding with international standards to ensure dependable service.
+                            By simplifying cloud adoption, we support organizations in improving efficiency and reducing IT complexity.
+                            KCloud exists to accelerate digital transformation across Cambodia and the Mekong region.
                         </p>
-                        <p className="text-gray-600 leading-relaxed">
-                            Our network operates through an extensive domestic metro network with over <strong>95% burial fiber</strong>, supported by multiple high-capacity DWDM rings for maximum reliability.
-                        </p>
-                        <ul className="space-y-3">
-                            {['Wholesale Markets', 'Enterprise Solutions', 'Consumer ICT'].map((item) => (
-                                <li key={item} className="flex items-center gap-3 text-gray-700 font-medium">
-                                    <div className="w-2 h-2 rounded-full bg-gcxprimary" /> {item}
-                                </li>
-                            ))}
-                        </ul>
                     </div>
 
                     {/* Image Side: Full width on mobile, 1/2 on tablet and desktop */}

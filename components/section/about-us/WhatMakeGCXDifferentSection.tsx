@@ -19,10 +19,7 @@ export default function WhatMakeGCXDifferentSection() {
                                 What makes GCX <span className="text-gcxprimary">KCloud</span> different?
                             </p>
                             <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
-                                Enabling smarter operations across all functions of an
-                                integrated agribusiness — from production and processing to
-                                distribution and analytics — driving efficiency and growth
-                                at every stage.
+                                Enterprise-grade cloud infrastructure powered by Tier 3 reliability, carrier-neutral connectivity, and scalable solutions designed for business growth.
                             </p>
                         </div>
 
@@ -54,9 +51,9 @@ export default function WhatMakeGCXDifferentSection() {
 
                                                 {/* TEXT SIDE: Centered on mobile, Left/Right on md/lg */}
                                                 <div className="w-full md:w-1/2 text-center md:text-left">
-                                                    <span className="text-gcxPrimary font-black text-5xl opacity-20 block mb-4">
+                                                    {/* <span className="text-gcxPrimary font-black text-5xl opacity-20 block mb-4">
                                                         0{i + 1}
-                                                    </span>
+                                                    </span> */}
                                                     <h3 className="text-lg lg:text-2xl md:text-2xl font-bold text-gray-700 mb-6">
                                                         {item.title}
                                                     </h3>
