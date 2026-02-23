@@ -47,7 +47,7 @@ export default function BackupPricingPage({ packageBlockStorageBackup, packageVM
         height="h-[600px]"
         image="/price-bg.png"
         title="Backups"
-        description="GCX Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
+        description="GCX KCloud Private Network allows your virtual machines and resources to communicate securely and efficiently within an isolated environment, without exposing traffic to the public internet. Perfect for multi-tier applications, internal services, and sensitive workloads."
       />
 
       <div className="w-screen mt-10">
@@ -81,6 +81,7 @@ export default function BackupPricingPage({ packageBlockStorageBackup, packageVM
               <DataTable
                 columns={backpuColumns("backups")}
                 data={packageBlockStorageBackup}
+                serviceName="/backup"
               />
             </div>
 
@@ -99,6 +100,7 @@ export default function BackupPricingPage({ packageBlockStorageBackup, packageVM
               <DataTable
                 columns={backpuColumns("backups")}
                 data={packageVMBackup}
+                serviceName="/backups"
               />
             </div>
           </div>

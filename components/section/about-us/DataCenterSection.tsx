@@ -3,11 +3,11 @@ import ListDropDownCard from '@/components/card/ListDropDownCard';
 
 const cards = [
   {
-    image: "/data-center-img.jpg",
+    image: "/about-us/data-center.png",
     items: [
-      { title: "Cooling System", content: "Climate control maintains temperature at 21°C ± 2°C and humidity at 55% ± 5%. The system uses N+1 air-cooled CRAC units with cold containment for efficient cooling." },
-      { title: "Existing Carrier Partners", content: "We partner with 20+ international, local, and OTT carriers in a carrier-neutral facility. Dual fiber connections, ODF/MDF areas, and Cat 6, burial." },
-      { title: "Data Center Standards & Security", content: "STier 3 ANSI-TIA 942 compliant with 99.982% SLA and concurrent maintenance capability. 24/7/365 security and NOC, including biometric entry and all-round CCTV monitoring." },
+      { title: "Enterprise-Grade Infrastructure", content: "KCloud is powered by GCX, Cambodia’s first Carrier Neutral Tier 3 Data Center, certified under ANSI TIA-942-A standards. Built for high availability and redundancy, it ensures secure and reliable cloud operations for mission-critical workloads." },
+      { title: "Built by Industry Experts", content: "Founded by experienced telecom and IT professionals, GCX understands the demands of modern enterprises. It delivers trusted data center services to local and international businesses, content providers, and telecom carriers." },
+      { title: "A Growing Digital Ecosystem", content: "GCX is committed to continuous expansion to support Cambodia’s digital growth. With future infrastructure development plans, it provides a strong and scalable foundation for KCloud’s cloud solutions. " },
     ],
   }
 ];
@@ -24,7 +24,7 @@ export default function DataCenterSection() {
               {/* title and description */}
               <div className="text-center justify-center lg:mx-0 mx-4 mb-12">
                 <p className="lg:text-4xl md:text-4xl text-2xl font-bold text-gray-700">
-                  <span className="text-gcxprimary">GCX</span> Data Centers
+                  GCX <span className="text-gcxprimary">Kcloud</span> Data Centers
                 </p>
                 <p className="text-base text-gray-600 mt-4 max-w-3xl mx-auto">
                   Located in the heart of Phnom Penh, our data center pushes the pinnacle of connectivity to the next level and unlock your potential with us

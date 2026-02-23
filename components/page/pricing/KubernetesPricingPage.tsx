@@ -62,7 +62,7 @@ export default function KubernetesPricingPage({ plans }: PackageProps) {
             </div>
 
             <div className="px-4 lg:px-8 md:px-8 pb-6 md:pb-12 lg:pb-12">
-              <DataTable columns={k8Columns("kubernetes")} data={plans} />
+              <DataTable columns={k8Columns("kubernetes")} data={plans} serviceName="kubernetes" />
             </div>
           </div>
         </div>

@@ -16,6 +16,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import Link from "next/link";
+import { ArrowRightIcon } from "lucide-react";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -96,13 +97,16 @@ export function DataTable<TData, TValue>({
       </div>
 
       {/* NEW: Link below the table, only shows if there is data */}
-      {/* {table.getRowModel().rows?.length > 0 && (
-        <div className="border-t border-gray-200 p-3 bg-gray-50 text-center">
-          <Link href={`${baseUrl}/${serviceName}/create`} className="text-sm font-medium text-blue-600 hover:text-blue-800">
-            See more data →
-          </Link>
+      {table.getRowModel().rows?.length > 0 && (
+        <div className="border-t border-gray-200 p-3 bg-gray-50 text-right">
+          <span className="flex gap-4 justify-end text-gray-700 hover:text-gcxPrimary">
+            <Link href={`${baseUrl}/${serviceName}/create`} className="text-sm font-bold ">
+              See more data
+            </Link>
+            <ArrowRightIcon className="mr-6" size={20}/>
+          </span>
         </div>
-      )} */}
+      )}
     </div>
   );
 }

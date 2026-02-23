@@ -121,7 +121,7 @@ export default function ContactUsCard() {
           {/* first and last name */}
           <div className="flex gap-4">
             {/* First Name */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 w-full">
               <div className="flex-1 p-4 bg-white border border-gray-200 rounded-lg">
                 <input
                   name="firstName"
@@ -138,7 +138,7 @@ export default function ContactUsCard() {
             </div>
 
             {/* Last Name */}
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 w-full">
               <div className="flex-1 p-4 bg-white border border-gray-200 rounded-lg">
                 <input
                   name="lastName"

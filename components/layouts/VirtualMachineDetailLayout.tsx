@@ -19,6 +19,7 @@ export default function VirtualMachineDetailLayout() {
           <GetStartedCard/>
         </div>
       </div>
+
     </div>
   );
 }

@@ -15,31 +15,79 @@ const suwannaphum = Suwannaphum({
   variable: "--font-kh",
 });
 
-const domain = process.env.NEXT_PUBLIC_DOMAIN;
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0d793e", // ✅ put it here instead
+};
+
+const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://portal.gcxcloud.cc";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(domain),
+
   title: {
-    default: "GCX K-Cloud",
-    template: "%s | GCX K-Cloud",
+    default: "GCX KCloud",
+    template: "%s | GCX KCloud",
   },
+
   description:
-    "Enterprise-grade cloud and connectivity solutions in Cambodia.",
+    "GCX KCloud delivers enterprise-grade cloud and connectivity solutions in Cambodia. Explore secure, scalable, and high-performance cloud infrastructure for modern businesses.",
+
+  keywords: [
+    "GCX KCloud",
+    "Cloud Services Cambodia",
+    "Cloud Solutions",
+    "Enterprise Cloud Infrastructure",
+    "Tier 3 Data Center Cambodia",
+    "Carrier Neutral Cloud",
+    "Scalable Cloud Solutions",
+  ],
+
+  alternates: {
+    canonical: domain,
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 
   openGraph: {
+    type: "website",
+    url: domain,
+    siteName: "GCX KCloud",
+    locale: "en_US",
     images: [
       {
         url: "/hero-bg.png",
         width: 1200,
         height: 630,
-        alt: "GCX K-Cloud Cloud Connectivity",
+        alt: "GCX KCloud Cloud Connectivity",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
+    title: "GCX KCloud",
+    description:
+      "Secure, scalable, and enterprise-grade cloud solutions in Cambodia. Powered by GCX Tier 3 carrier-neutral data center.",
     images: ["/hero-bg.png"],
   },
 
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -50,20 +98,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen`}
+        className={`${inter.variable} ${suwannaphum.variable} antialiased flex flex-col min-h-screen bg-gray-50`}
       >
-        {/* banner section */}
-
-        {/* navbar section */}
-        <header className="">
+        {/* Navbar */}
+        <header>
           <Navbar />
         </header>
 
-        <section className="flex-grow bg-gray-50 mt-20">
+        {/* Main content */}
+        <main className="flex-grow mt-20">
           {children}
-        </section>
+        </main>
 
-        {/* footer section */}
+        {/* Footer */}
         <Footer />
       </body>
     </html>

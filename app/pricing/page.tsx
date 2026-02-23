@@ -1,49 +1,73 @@
 import PricingPage from '@/components/page/pricing/PricingPage'
-import { Metadata } from 'next';
+import type { Metadata } from "next";
 
-const domain = process.env.NEXT_PUBLIC_DOMAIN;
+const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://portal.gcxcloud.cc";
 
 export const metadata: Metadata = {
-  title: "Cloud Pricing | GCX K-Cloud",
+  metadataBase: new URL(domain),
+
+  title: "Cloud Pricing | GCX KCloud – Transparent & Scalable Cloud Solutions",
   description:
-    "Explore transparent and scalable pricing for GCX K-Cloud services. Compare Virtual Machines, Kubernetes, Block Storage, Backup, and Load Balancer pricing for your cloud infrastructure needs.",
+    "Explore transparent and flexible pricing for GCX KCloud services. Compare costs for Virtual Machines, Kubernetes, Block Storage, Backup, Load Balancer, and other cloud resources. Choose scalable plans that fit your business needs.",
 
   keywords: [
-    "GCX K-Cloud Pricing",
+    "GCX KCloud Pricing",
     "Cloud Pricing Cambodia",
     "Virtual Machine Pricing",
     "Kubernetes Pricing",
     "Block Storage Pricing",
     "Backup Pricing",
     "Load Balancer Pricing",
-    "Enterprise Cloud Services",
-    "Scalable Cloud Solutions",
+    "Cloud Resource Pricing",
+    "Enterprise Cloud Solutions",
+    "Scalable Cloud Plans",
+    "Flexible Cloud Pricing",
+    "Cambodia Cloud Services",
   ],
 
+  alternates: {
+    canonical: `${domain}/pricing`,
+  },
+
   openGraph: {
-    title: "Cloud Pricing | GCX K-Cloud",
+    title: "GCX KCloud Cloud Pricing | Transparent & Scalable Plans",
     description:
-      "Transparent and scalable pricing for GCX K-Cloud services. Compare Virtual Machines, Kubernetes, Block Storage, Backup, and Load Balancer pricing for your cloud needs.",
+      "Compare pricing for GCX KCloud services, including Virtual Machines, Kubernetes, Block Storage, Backup, and Load Balancer. Transparent and flexible plans designed to scale with your business.",
     url: `${domain}/pricing`,
-    siteName: "GCX K-Cloud",
+    siteName: "GCX KCloud",
+    locale: "en_US",
+    type: "website",
     images: [
       {
-        url: `${domain}/about-us.png`, // public image for main pricing page
+        url: "/pricing-bg.png", // main pricing page image
         width: 1200,
         height: 630,
-        alt: "GCX K-Cloud Pricing Overview",
+        alt: "GCX KCloud Pricing Overview",
       },
     ],
-    type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Cloud Pricing | GCX K-Cloud",
+    title: "GCX KCloud Cloud Pricing",
     description:
-      "Transparent and scalable pricing for GCX K-Cloud services. Compare Virtual Machines, Kubernetes, Block Storage, Backup, and Load Balancer pricing.",
-    images: "/price-bg.png",
+      "Explore transparent and scalable cloud pricing for Virtual Machines, Kubernetes, Block Storage, Backup, and Load Balancer. Choose plans that grow with your business.",
+    images: ["/pricing-bg.png"],
   },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
+  category: "technology",
 };
 
 export default function page() {
