@@ -102,29 +102,29 @@ export const vmColumns = (serviceName: string): ColumnDef<PackageData>[] => {
         return <span className="text-gcxPrimary font-semibold">{value}</span>;
       },
     },
-    {
-      id: "actions",
-      header: () => <div className="text-right"></div>,
-      cell: ({ row }) => {
-        const plan = row.original;
+    // {
+    //   id: "actions",
+    //   header: () => <div className="text-right"></div>,
+    //   cell: ({ row }) => {
+    //     const plan = row.original;
 
-        const handleClick = () => {
-          const dashboardUrl = `${baseUrl}/projects/${serviceName}/create`;
-          window.location.href = dashboardUrl;
-        };
+    //     const handleClick = () => {
+    //       const dashboardUrl = `${baseUrl}/projects/${serviceName}/create`;
+    //       window.location.href = dashboardUrl;
+    //     };
 
-        return (
-          <div className="flex justify-end">
-            <Button
-              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
-              onClick={handleClick}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        );
-      },
-    },
+    //     return (
+    //       <div className="flex justify-end">
+    //         <Button
+    //           className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+    //           onClick={handleClick}
+    //         >
+    //           <ArrowRight className="w-4 h-4" />
+    //         </Button>
+    //       </div>
+    //     );
+    //   },
+    // },
   ];
 };
 export const backpuColumns = (serviceName: string): ColumnDef<PackageData>[] => {
@@ -282,29 +282,29 @@ export const lbColumns = (serviceName: string): ColumnDef<PackageData>[] => {
         return <span className="text-gcxPrimary font-semibold">{value}</span>;
       },
     },
-    {
-      id: "actions",
-      header: () => <div className="text-right"></div>,
-      cell: ({ row }) => {
-        const plan = row.original; // This is your PackageData object
+    // {
+    //   id: "actions",
+    //   header: () => <div className="text-right"></div>,
+    //   cell: ({ row }) => {
+    //     const plan = row.original; // This is your PackageData object
 
-        const handleClick = () => {
-          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
-          window.location.href = dashboardUrl;
-        };
+    //     const handleClick = () => {
+    //       const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+    //       window.location.href = dashboardUrl;
+    //     };
 
-        return (
-          <div className="flex justify-end">
-            <Button
-              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
-              onClick={handleClick}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        );
-      },
-    },
+    //     return (
+    //       <div className="flex justify-end">
+    //         <Button
+    //           className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+    //           onClick={handleClick}
+    //         >
+    //           <ArrowRight className="w-4 h-4" />
+    //         </Button>
+    //       </div>
+    //     );
+    //   },
+    // },
   ];
 };
 
@@ -342,29 +342,29 @@ export const k8Columns = (serviceName: string): ColumnDef<PackageData>[] => {
         return <span className="text-gcxPrimary font-semibold">{value}</span>;
       },
     },
-    {
-      id: "actions",
-      header: () => <div className="text-right"></div>,
-      cell: ({ row }) => {
-        const plan = row.original; // This is your PackageData object
+    // {
+    //   id: "actions",
+    //   header: () => <div className="text-right"></div>,
+    //   cell: ({ row }) => {
+    //     const plan = row.original; // This is your PackageData object
 
-        const handleClick = () => {
-          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
-          window.location.href = dashboardUrl;
-        };
+    //     const handleClick = () => {
+    //       const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+    //       window.location.href = dashboardUrl;
+    //     };
 
-        return (
-          <div className="flex justify-end">
-            <Button
-              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
-              onClick={handleClick}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        );
-      },
-    },
+    //     return (
+    //       <div className="flex justify-end">
+    //         <Button
+    //           className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+    //           onClick={handleClick}
+    //         >
+    //           <ArrowRight className="w-4 h-4" />
+    //         </Button>
+    //       </div>
+    //     );
+    //   },
+    // },
   ];
 }
 
@@ -455,29 +455,29 @@ export const blockStorageColumns = (serviceName: string): ColumnDef<PackageData>
         return <span className="text-gcxPrimary font-semibold">{value}</span>;
       },
     },
-    {
-      id: "actions",
-      header: () => <div className="text-right"></div>,
-      cell: ({ row }) => {
-        const plan = row.original; // This is your PackageData object
+    // {
+    //   id: "actions",
+    //   header: () => <div className="text-right"></div>,
+    //   cell: ({ row }) => {
+    //     const plan = row.original; // This is your PackageData object
 
-        const handleClick = () => {
-          const dashboardUrl = `${baseUrl}/${serviceName}/create`;
-          window.location.href = dashboardUrl;
-        };
+    //     const handleClick = () => {
+    //       const dashboardUrl = `${baseUrl}/${serviceName}/create`;
+    //       window.location.href = dashboardUrl;
+    //     };
 
-        return (
-          <div className="flex justify-end">
-            <Button
-              className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
-              onClick={handleClick}
-            >
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-          </div>
-        );
-      },
-    },
+    //     return (
+    //       <div className="flex justify-end">
+    //         <Button
+    //           className="flex items-center gap-2 rounded-full w-8 h-8 bg-gcxPrimary p-0 hover:bg-gcxPrimary/90"
+    //           onClick={handleClick}
+    //         >
+    //           <ArrowRight className="w-4 h-4" />
+    //         </Button>
+    //       </div>
+    //     );
+    //   },
+    // },
   ];
 };
 

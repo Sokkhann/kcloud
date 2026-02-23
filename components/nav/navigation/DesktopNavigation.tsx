@@ -30,10 +30,10 @@ export default function DesktopNavigation({menu}: DesktopNavigationProps) {
             <NavigationMenuItem className="">
               <Link href="/">
                 <Image
-                  src="/gcx-logo.png"
+                  src="/KCloud.png"
                   alt="neo logo"
-                  width={80}
-                  height={80}
+                  width={130}
+                  height={130}
                 />
               </Link>
             </NavigationMenuItem>

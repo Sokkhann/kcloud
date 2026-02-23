@@ -2,10 +2,8 @@ import HeroComponent from "../HeroComponent";
 import GetStartedCard from "../card/GetStartedCard";
 import ScrollReveal from "../animations/ScrolReveal";
 import WhyGCXCloudSection from "../section/about-us/WhyGCXCloudSection";
-import CustomerListSection from "../section/overview-detail/CustomerListSection";
 import ProductListSection from "../section/overview-detail/ProductListSection";
 import ListingPackageSection from "../section/overview-detail/ListingPackageSection";
-import PartnerDisplaySection from "../section/overview-detail/PartnerDisplaySection";
 
 export default function OverviewPage() {
   return (
@@ -14,8 +12,8 @@ export default function OverviewPage() {
       <HeroComponent
         height="h-[600px]"
         image="/hero-bg.png"
-        title="Smartest and Secure Choice for Connectivity"
-        description="Global Cloud Exchange Company Limited (GCX), a Cambodia-registered company, is one of the country’s first “Carrier Neutral” Tier 3 Data Center built to meet the ever-growing needs of institutional and high-level clients in Cambodia’s emerging economy."
+        title="Cambodia’s First Multi-Site Tier 3 Data Center with Furious Connectivity"
+        description="Engineered for speed and resilience, our multi-site data center provides under 1ms regional connectivity with strong physical infrastructure and diversified network pathways, ensuring secure and uninterrupted operations."
       />
 
       <div className="">
@@ -26,7 +24,7 @@ export default function OverviewPage() {
           <ListingPackageSection/>
 
           {/* partners display section */}
-          <PartnerDisplaySection/>
+          {/* <PartnerDisplaySection/> */}
 
           {/* products */}
           <ProductListSection/>
@@ -35,7 +33,7 @@ export default function OverviewPage() {
           <WhyGCXCloudSection />
 
           {/* Customer Testimonials Section */}
-          <CustomerListSection/>
+          {/* <CustomerListSection/> */}
 
           {/* Power Section */}
           {/* <section id="why-choose-gcx" className="lg:py-16 md:py-16 py-16 bg-white">

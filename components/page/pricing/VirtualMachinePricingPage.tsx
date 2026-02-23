@@ -99,7 +99,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
             </div>
 
             {/* Proxmox */}
-            <section id="proxmox" className="scroll-mt-40">
+            {/* <section id="proxmox" className="scroll-mt-40">
               <div className="px-4 lg:px-8 md:px-8">
                 <p className="xl:text-2xl text-xl text-gray-700 font-bold mb-2">
                   Proxmox Compute Instances
@@ -108,7 +108,6 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
                   Experience low-latency performance and high-density computing. Built on the Apache CloudStack framework, our compute instances offer the flexibility to deploy and manage virtualized resources instantly, backed by a resilient architecture that grows with your business needs.              </p>
               </div>
 
-              {/* shared cpu (pve1)  */}
               <div className="px-4 lg:px-8 md:px-8 space-y-6 lg:pb-12 md:pb-12 pb-6">
                 <div className="mt-6 flex gap-4 items-center ">
                   <p className="font-bold text-gcxPrimary">Shared CPU (pve1)</p>
@@ -137,7 +136,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
                   )}
                 </div>
               </div>
-            </section>
+            </section> */}
 
             {/* Cloudstack */}
             <section id="cloudstack" className="scroll-mt-40">
@@ -151,7 +150,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
 
               {/* shared cpu  */}
               <div className="px-4 lg:px-8 md:px-8 space-y-6 lg:pb-12 md:pb-12 pb-6">
-                <div className="mt-6 flex gap-4 items-center ">
+                <div className="mt-6 flex gap-4 items-center">
                   <p className="font-bold text-gcxPrimary">Shared CPU</p>
                   {tabShared.map((tab) => (
                     <button
@@ -173,6 +172,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
                       <DataTable
                         columns={vmColumns("virtual-machines")}
                         data={planCloudstackBasic}
+                        serviceName="projects/virtual-machine"
                       />
                     </div>
                   )}
@@ -204,6 +204,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
                       <DataTable
                         columns={vmColumns("virtual-machines")}
                         data={planCloudstackCPUOptimized}
+                        serviceName="projects/virtual-machine"
                       />
                     </div>
                   )}
@@ -212,6 +213,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
                       <DataTable
                         columns={vmColumns("virtual-machines")}
                         data={planCloudstackMemoryOptimized}
+                        serviceName="projects/virtual-machine"
                       />
                     </div>
                   )}
@@ -220,6 +222,7 @@ export default function VirtualMachinePricingPage({planProxmoxGeneralCompute, pl
                       <DataTable
                         columns={vmColumns("virtual-machines")}
                         data={planCloudstackGeneralPurpose}
+                        serviceName="projects/virtual-machine"
                       />
                     </div>
                   )}

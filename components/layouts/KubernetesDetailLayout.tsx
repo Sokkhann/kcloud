@@ -33,7 +33,6 @@ export default function KubernetesDetailLayout() {
           <GetStartedCard />
         </div>
       </div>
-
     </div>
   );
 }

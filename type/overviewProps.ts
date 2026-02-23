@@ -8,20 +8,26 @@ export interface CarouselProps {
 export const carouselCard : CarouselProps [] = [
   {
     id: 1,
-    title: "Prioritize Your Security and Privacy",
-    desc: "Data Protection & Encryption, Networking Security, Identity Access Managament, Mornitoring & Detectoin, Firewall protection, and Web Application Firewall (WAFF)",
+    title: "Tailor-Made Cloud Solutions",
+    desc: "KCloud delivers flexible and customized cloud environments designed to match your business requirements. From scalable compute resources to secure storage, solutions are built to grow with your organization.",
     image: "/gcx-security-img.png",
   },
   {
     id: 2,
-    title: "Cloud Infrastructure",
-    desc: "A reliable cloud platform ensures up-time with redundancy, performance, and scalability to handle any workload. With strong security and continuous monitoring, it protects data and maintains system integrity.",
+    title: "Tier 3 Certified Infrastructure",
+    desc: "Built on GCX’s Tier 3 designed data center, KCloud ensures high availability and operational reliability. Redundant systems and fault tolerance guarantee continuous performance for critical workloads.",
     image: "/cloud-img.png",
   },
   {
     id: 3,
-    title: "24/7 Support Cloud Support in Khmer &English",
-    desc: "24/7 availibility, Group chat, support step by step, and Guidance step by step guidance.",
+    title: "Carrier Neutral Connectivity",
+    desc: "As a carrier-neutral facility, KCloud provides direct access to multiple telecom providers. This ensures optimized connectivity, reduced latency, and improved network resilience.",
+    image: "/support-img.png",
+  },
+  {
+    id: 4,
+    title: "Stable Power & Flood-Free Location",
+    desc: "Located in a stable power zone and flood-free area, KCloud ensures operational continuity. This strategic positioning minimizes infrastructure risk and enhances long-term reliability.",
     image: "/support-img.png",
   },
 ];

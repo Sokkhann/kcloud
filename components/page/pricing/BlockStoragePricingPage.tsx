@@ -83,6 +83,7 @@ export default function BlockStoragePricingPage({ packageCloudStack, packageProx
                 <DataTable
                   columns={blockStorageColumns("block-storage")}
                   data={packageProxmox}
+                  serviceName="/block-storage"
                 />
               </div>
             </section>
@@ -102,6 +103,7 @@ export default function BlockStoragePricingPage({ packageCloudStack, packageProx
                 <DataTable
                   columns={blockStorageColumns("block-storage")}
                   data={packageCloudStack}
+                  serviceName="block-storage"
                 />
               </div>
             </section>
