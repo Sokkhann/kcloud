@@ -2,10 +2,8 @@ import HeroComponent from "../HeroComponent";
 import GetStartedCard from "../card/GetStartedCard";
 import ScrollReveal from "../animations/ScrolReveal";
 import WhyGCXCloudSection from "../section/about-us/WhyGCXCloudSection";
-import CustomerListSection from "../section/overview-detail/CustomerListSection";
 import ProductListSection from "../section/overview-detail/ProductListSection";
 import ListingPackageSection from "../section/overview-detail/ListingPackageSection";
-import PartnerDisplaySection from "../section/overview-detail/PartnerDisplaySection";
 
 export default function OverviewPage() {
   return (
@@ -14,7 +12,7 @@ export default function OverviewPage() {
       <HeroComponent
         height="h-[600px]"
         image="/hero-bg.png"
-        title="The Region’s First Multi-Site Data Center with Sub-1ms Connectivity"
+        title="Cambodia’s First Multi-Site Tier 3 Data Center with Furious Connectivity"
         description="Engineered for speed and resilience, our multi-site data center provides under 1ms regional connectivity with strong physical infrastructure and diversified network pathways, ensuring secure and uninterrupted operations."
       />
 

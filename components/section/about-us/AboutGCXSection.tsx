@@ -1,6 +1,4 @@
-import ScrollReveal from '@/components/animations/ScrolReveal'
-import AboutUsCard from '@/components/card/AboutUsCard'
-import React from 'react'
+import Image from 'next/image';
 
 const team = [
     { name: 'Alex Rivera', role: 'CEO & Founder', image: '/api/placeholder/150/150' },
@@ -42,7 +40,7 @@ export default function AboutGCXSection() {
                         <div className="absolute -top-4 -left-4 w-full h-full border-2 border-gcxprimary/20 rounded-3xl" />
                         <div className="relative w-full aspect-video bg-gray-100 rounded-3xl overflow-hidden shadow-2xl border border-gray-200 flex items-center justify-center">
                             {/* Replace the span with your <img> tag when ready */}
-                            <span className="text-gray-400 font-mono italic">[ Network Map Image ]</span>
+                            <Image src="/about-us/about-us-bg.png" alt='about us' width={1200} height={800} />
                         </div>
                     </div>
                 </div>

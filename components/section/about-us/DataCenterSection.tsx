@@ -3,7 +3,7 @@ import ListDropDownCard from '@/components/card/ListDropDownCard';
 
 const cards = [
   {
-    image: "/data-center-img.jpg",
+    image: "/about-us/data-center.png",
     items: [
       { title: "Enterprise-Grade Infrastructure", content: "KCloud is powered by GCX, Cambodia’s first Carrier Neutral Tier 3 Data Center, certified under ANSI TIA-942-A standards. Built for high availability and redundancy, it ensures secure and reliable cloud operations for mission-critical workloads." },
       { title: "Built by Industry Experts", content: "Founded by experienced telecom and IT professionals, GCX understands the demands of modern enterprises. It delivers trusted data center services to local and international businesses, content providers, and telecom carriers." },
