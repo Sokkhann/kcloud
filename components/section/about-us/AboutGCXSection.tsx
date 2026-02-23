@@ -46,6 +46,5 @@ export default function AboutGCXSection() {
                 </div>
             </div>
         </section>
-
     )
 }
