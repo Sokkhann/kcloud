@@ -165,7 +165,7 @@ export default function MobileNavigation({ menu }: MobileNavigationProps) {
                     </div>
 
                     {/* contact us and about us */}
-                    <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
+                    {/* <div className="flex gap-2 flex-col pt-4 border-gray-200 items-center justify-center md:hidden">
                       <div className="flex flex-row items-center justify-center sm:justify-end space-x-6 text-gcxPrimary">
                         <Link
                           href="https://facebook.com/yourpage"
@@ -194,7 +194,7 @@ export default function MobileNavigation({ menu }: MobileNavigationProps) {
                           <Send size={20} strokeWidth={1.5} />
                         </Link>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               )}

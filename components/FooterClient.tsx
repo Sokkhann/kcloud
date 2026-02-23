@@ -176,17 +176,17 @@ export default function FooterClient() {
           {/* Logo */}
           <div className="flex items-center justify-center sm:justify-start gap-2">
             <Image
-              src="/gcx-logo.png"
+              src="/kcloud-gcx-logo.png"
               alt="GCX Cloud Services Logo"
-              width={40}
-              height={40}
+              width={120}
+              height={120}
               className="object-contain"
             />
           </div>
 
           {/* Copyright */}
           <p className="text-gray-500 text-xs sm:text-sm">
-            © 2025 GCX. All rights reserved.
+            © {new Date().getFullYear()} GCX. All rights reserved.
           </p>
         </div>
       </div>

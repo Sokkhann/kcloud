@@ -13,7 +13,7 @@ export default function TopNavBar() {
         </div>
 
         {/* Right side - Social Media Icons */}
-        <div className="lg:flex md:flex flex-row items-center justify-center sm:justify-end space-x-6 text-white hidden">
+        {/* <div className="lg:flex md:flex flex-row items-center justify-center sm:justify-end space-x-6 text-white hidden">
           <Link
             href="https://www.facebook.com/share/1ETdiaxvVv/"
             target="_blank"
@@ -40,7 +40,7 @@ export default function TopNavBar() {
           >
             <Send size={20} strokeWidth={1.5} />
           </Link>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

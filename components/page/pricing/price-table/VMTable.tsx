@@ -101,7 +101,7 @@ export function DataTable<TData, TValue>({
         <div className="border-t border-gray-200 p-3 bg-gray-50 text-right">
           <span className="flex gap-4 justify-end text-gray-700 hover:text-gcxPrimary">
             <Link href={`${baseUrl}/${serviceName}/create`} className="text-sm font-bold ">
-              See more data
+              Get Started
             </Link>
             <ArrowRightIcon className="mr-6" size={20}/>
           </span>
