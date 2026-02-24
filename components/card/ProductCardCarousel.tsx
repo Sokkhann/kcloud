@@ -57,11 +57,11 @@ export default function ProductCardCarousel() {
       description: "High-performance, scalable SSD storage for your high-demand applications."
     },
     {
-      name: "VM Snapshot",
+      name: "Virtual Machine Backup",
       category: "Storage",
-      path: "/products/vm-snapshot",
+      path: "/products/vm-backup",
       icon: "Timer",
-      description: "Quickly restore your virtual machine to a previous state with instant snapshots."
+      description: "Protect your virtual machines with automated backups and fast recovery to minimize downtime and data loss."
     },
   ];
 
