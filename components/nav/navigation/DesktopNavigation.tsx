@@ -18,7 +18,7 @@ interface DesktopNavigationProps {
 
 export default function DesktopNavigation({menu}: DesktopNavigationProps) {
   return (
-    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full ">
+    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full hidden lg:block">
       <div className="w-full">
         <TopNavBar />
       </div>
