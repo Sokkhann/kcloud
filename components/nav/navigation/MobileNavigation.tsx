@@ -32,9 +32,15 @@ export default function MobileNavigation({ menu }: MobileNavigationProps) {
 
       <nav className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
         {/* Logo */}
-        {/* <Link href="/">
-          <Image src="/KCloud.png" alt="gcx kcloud logo" width={120} height={120} priority/>
-        </Link> */}
+        <Link href="/">
+          <Image
+            src="/KCloud.png"
+            alt="gcx kcloud logo"
+            width={120}
+            height={120}
+            className="w-[120px] h-[60px] object-contain"
+          />
+        </Link>
 
         <div className="flex">
           {/* Buttons */}

@@ -16,7 +16,7 @@ interface DesktopNavigationProps {
   menu: GroupedMenu;
 }
 
-export default function DesktopNavigation({menu}: DesktopNavigationProps) {
+export default function DesktopNavigation({ menu }: DesktopNavigationProps) {
   return (
     <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full hidden lg:block">
       <div className="w-full">
@@ -28,15 +28,16 @@ export default function DesktopNavigation({menu}: DesktopNavigationProps) {
           <NavigationMenuList>
             {/* logo section */}
             <NavigationMenuItem className="">
-              {/* <Link href="/">
+              <Link href="/">
                 <Image
                   src="/KCloud.png"
                   alt="neo logo"
                   width={130}
                   height={130}
+                  className="w-[130px] h-[80px] object-contain"
                   priority
                 />
-              </Link> */}
+              </Link>
             </NavigationMenuItem>
 
             <section className="mx-4 flex">
