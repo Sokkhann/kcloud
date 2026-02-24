@@ -34,6 +34,7 @@ export default function DesktopNavigation({menu}: DesktopNavigationProps) {
                   alt="neo logo"
                   width={130}
                   height={130}
+                  priority
                 />
               </Link>
             </NavigationMenuItem>

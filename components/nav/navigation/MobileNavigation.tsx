@@ -27,13 +27,13 @@ export default function MobileNavigation({ menu }: MobileNavigationProps) {
   };
 
   return (
-    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full lg:hidden">
+    <div className="fixed top-0 z-50 bg-white shadow-lg border-gray-300 w-full">
       <TopNavBar />
 
       <nav className="flex items-center justify-between px-4 py-2 max-w-7xl mx-auto">
         {/* Logo */}
         <Link href="/">
-          <Image src="/KCloud.png" alt="gcx kcloud logo" width={120} height={120} />
+          <Image src="/KCloud.png" alt="gcx kcloud logo" width={120} height={120} priority/>
         </Link>
 
         <div className="flex">
